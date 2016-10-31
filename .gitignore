@@ -5,3 +5,6 @@ public
 .intermediate-representation/
 *.sublime-project
 *.sublime-workspace
+utils
+loaders
+wrappers
