@@ -1,0 +1,48 @@
+{
+  "name": "gatsby-starter-blog",
+  "description": "Starter Gatsby Blog",
+  "version": "1.0.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby-starter-blog/issues"
+  },
+  "dependencies": {
+    "gatsby": "^0.12.6",
+    "lodash": "^4.15.0",
+    "moment": "^2.14.1",
+    "react-helmet": "^3.1.0",
+    "react-responsive-grid": "^0.3.3",
+    "react-typography": "^0.14.0",
+    "safe-access": "^0.1.0",
+    "stacklogger": "^1.1.2",
+    "typography": "^0.14.0",
+    "typography-theme-wordpress-2016": "^0.14.0",
+    "underscore.string": "^3.2.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.0",
+    "gh-pages": "^0.11.0",
+    "standard": "^8.5.0"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+  },
+  "scripts": {
+    "dev": "gatsby develop",
+    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "deploy": "gatsby build --prefix-links && gh-pages -d public"
+  }
+}
