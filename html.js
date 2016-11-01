@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import { GoogleFont, TypographyStyle } from 'react-typography'
 import typography from './utils/typography'
 import { Body } from './src/components'
+import { hookConsoleLog } from 'stacklogger'
 
-module.exports = React.createClass({
-  displayName: 'HTML',
-  propTypes: {
+export default class HTML extends Component {
+  static propTypes = {
     body: React.PropTypes.string
-  },
+  }
+
+  constructor (props) {
+    super(props)
+    hookConsoleLog()
+  }
 
   render () {
     const { body } = this.props
@@ -38,4 +43,4 @@ module.exports = React.createClass({
       </html>
     )
   }
-})
+}
