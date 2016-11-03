@@ -13,9 +13,9 @@ export default class Body extends Component {
   render () {
     return (
       <body>
-        <div id='page' style={{maxWidth: rhythm(32)}}>
+        <div id='page'>
           <NavigationMenu />
-          <div id='react-mount' style={{marginLeft: rhythm(8), maxWidth: rhythm(24)}} dangerouslySetInnerHTML={{ __html: this.props.body }} />
+          <div id='react-mount' dangerouslySetInnerHTML={{ __html: this.props.body }} />
         </div>
         <script src={prefixLink(`/bundle.js?t=${BUILD_TIME}`)} />
       </body>

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { prefixLink } from 'gatsby-helpers'
-import { rhythm, pixelToRhythm } from '../utils/typography'
+import { rhythm } from '../utils/typography'
 import { Bio, SocialBar } from '../components'
 
 export default class NavigationMenu extends Component {
@@ -10,15 +10,8 @@ export default class NavigationMenu extends Component {
   render () {
     /* 17 pixels is size of scrollbar */
     return (
-      <nav id='nav' style={{
-        position: 'fixed',
-        top: rhythm(0.5),
-        float: 'left',
-        width: rhythm(8),
-        maxHeight: '100%',
-        padding: 0
-      }}>
-        <div className='scrollHide' style={{width: rhythm(8 + pixelToRhythm(17)), padding: `0 ${rhythm(0.25 + pixelToRhythm(17))} 0 ${rhythm(0.25)}`}}>
+      <nav id='nav'>
+        <div className='scrollHide' style={{}}>
           <Bio />
           <div className='horizontalContainer' style={{justifyContent: 'space-around', width: '100%'}}>
             <a href={prefixLink('/')}>Blog</a>·
