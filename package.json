@@ -13,10 +13,12 @@
     "react-dom": "^15.3.2",
     "react-helmet": "^3.1.0",
     "react-responsive-grid": "^0.3.3",
+    "react-social-icons": "git+https://github.com/MrToph/react-social-icons.git",
     "react-typography": "^0.14.0",
     "safe-access": "^0.1.0",
     "stacklogger": "^1.1.2",
     "typography": "^0.14.0",
+    "typography-theme-ocean-beach": "^0.15.0",
     "typography-theme-wordpress-2016": "^0.14.0",
     "underscore.string": "^3.2.3"
   },
