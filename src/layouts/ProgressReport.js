@@ -18,8 +18,7 @@ export default class Post extends Component {
   render () {
     const { route } = this.props
     const post = route.page.data
-
-    console.log(post.body)
+    // console.log(post.body)
     let body = post.body.replace(pattern, this.replacementBasedOnMatch)
     return (
       <div id='layout'>
