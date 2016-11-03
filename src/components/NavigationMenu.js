@@ -15,10 +15,10 @@ export default class NavigationMenu extends Component {
         top: rhythm(0.5),
         float: 'left',
         width: rhythm(8),
-        height: '100%',
+        maxHeight: '100%',
         padding: 0
       }}>
-        <div className='scrollHide' style={{width: rhythm(8 + pixelToRhythm(17)), padding: rhythm(0.25)}}>
+        <div className='scrollHide' style={{width: rhythm(8 + pixelToRhythm(17)), padding: `0 ${rhythm(0.25 + pixelToRhythm(17))} 0 ${rhythm(0.25)}`}}>
           <Bio />
           <div className='horizontalContainer' style={{justifyContent: 'space-around', width: '100%'}}>
             <a href={prefixLink('/')}>Blog</a>·
@@ -42,5 +42,10 @@ export default class NavigationMenu extends Component {
         </div>
       </nav>
     )
+  }
+
+
+  checkHeight() {
+    // possible resize depending on if the scroll-bar is shown or not
   }
 }
