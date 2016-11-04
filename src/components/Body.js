@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { prefixLink } from 'gatsby-helpers'
 import { NavigationMenu } from '../components'
-import { rhythm } from 'utils/typography'
 
 const BUILD_TIME = new Date().getTime()
 

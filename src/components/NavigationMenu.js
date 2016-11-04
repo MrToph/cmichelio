@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { prefixLink } from 'gatsby-helpers'
-import { rhythm } from '../utils/typography'
+import { rhythm } from 'utils/typography'
 import { Bio, SocialBar } from '../components'
 
 export default class NavigationMenu extends Component {

@@ -1,8 +1,5 @@
-# gatsby-starter-blog
-Gatsby starter for creating a blog
-
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-`gatsby new gatsby-blog https://github.com/gatsbyjs/gatsby-starter-blog`
+# cmichel.io
+Gatsby source files for the [cmichel.io](http://cmichel.io) webpage.
 
 ## Running in development
-`gatsby develop`
+Run `gatsby develop` and open `localhost:8000`

@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { prefixLink } from 'gatsby-helpers'
-import { rhythm } from '../utils/typography'
+import { rhythm } from 'utils/typography'
 import { SocialIcon } from 'react-social-icons'
 import { config } from 'config'
-import { linkColor } from '../utils/typography-theme'
+import { linkColor } from 'utils/typography-theme'
 
 export default class SocialBar extends Component {
   static propTypes = {

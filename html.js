@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import { GoogleFont, TypographyStyle } from 'react-typography'
-import typography from './utils/typography'
+import typography from 'utils/typography'
 import { Body } from './src/components'
 import { hookConsoleLog } from 'stacklogger'
 
