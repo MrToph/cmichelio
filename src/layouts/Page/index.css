@@ -1,0 +1,29 @@
+@import '../../media-queries.css';
+
+.page {
+  align-self: center;
+  max-width: 48rem;
+  position: relative;
+  margin: 0 auto;
+}
+
+.main {
+  max-width: 36rem;
+  margin-left: 12rem;
+}
+
+.heading {
+  color: #0e63e3;
+}
+
+@media (--mobile-screen) {
+ .main {
+    margin-left: 0;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .page {
+    max-width: 100%;
+  }
+}
