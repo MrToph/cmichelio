@@ -45,11 +45,23 @@ const Page = (
     { name: 'description', content: head.description }
   ]
 
+  let script = []
+  if (head.latex) {
+    script.push({"src": "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML", "type": "text/javascript", "async": undefined})
+    script.push({"type": "text/x-mathjax-config", "innerHTML": `MathJax.Hub.Config({
+      tex2jax: {inlineMath: [["$","$"],["\\\\(","\\\\)"]]},
+      "CHTML-preview": {
+        disabled: true
+      }
+    });`})
+  }
+  console.log('plugins', require("phenomic/lib/loader-preset-markdown").default) // eslint-disable-line
   return (
     <section className={styles.page}>
       <Helmet
         title={metaTitle}
         meta={meta}
+        script={script}
       />
       <NavigationMenu />
       <main className={styles.main}>

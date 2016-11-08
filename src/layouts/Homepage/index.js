@@ -4,7 +4,7 @@ import enhanceCollection from "phenomic/lib/enhance-collection"
 import Page from "../Page"
 import PagesList from "../../components/PagesList"
 
-const numberOfLatestPosts = 6
+const numberOfLatestPosts = 100
 
 const Homepage = (props, { collection }) => {
   const latestPosts = enhanceCollection(collection, {

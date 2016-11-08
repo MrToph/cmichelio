@@ -10,8 +10,7 @@
     "test": "npm run build"
   },
   "phenomic": {
-    "CNAME": false,
-    "verbose": true
+    "CNAME": false
   },
   "#babel": "webpack-(development|production) are useful for webpack 2, otherwise use development|production",
   "babel": {
@@ -136,6 +135,7 @@
   },
   "dependencies": {
     "axios": "^0.15.2",
+    "react-disqus-thread": "^0.4.0",
     "react-social-icons": "git+https://github.com/MrToph/react-social-icons.git"
   }
 }

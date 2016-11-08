@@ -7,6 +7,9 @@ import PhenomicLoaderFeedWebpackPlugin from "phenomic/lib/loader-feed-webpack-pl
 
 import pkg from "./package.json"
 
+// My plugins
+// import parseMath from './src/plugins/markdown-math'
+
 export default (config = {}) => {
   const postcssPlugins = () => [
     require("stylelint")(),
@@ -53,9 +56,8 @@ export default (config = {}) => {
           query: {
             context: path.join(__dirname, config.source),
             // plugins: [
-            //   ...require("phenomic/lib/loader-preset-markdown").default
-            // ]
-            // see https://phenomic.io/docs/usage/plugins/
+            //   5
+            // ],
           },
         },
 

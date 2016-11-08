@@ -1,11 +1,9 @@
-import React, { PropTypes } from "react"
-
-import Page from "../Page"
+import React, { PropTypes } from 'react'
+import ReactDisqusThread from 'react-disqus-thread'
+import Page from '../Page'
 
 const Post = (props) => {
-  // it's up to you to choose what to do with this layout ;)
   const pageDate = props.head.date ? new Date(props.head.date) : null
-
   return (
     <Page
       { ...props }
@@ -19,7 +17,13 @@ const Post = (props) => {
         }
         </header>
       }
-    />
+    >
+    <ReactDisqusThread
+      shortname='cmichel'
+      identifier={props.head.disqus_identifier}
+      title={props.head.title}
+      url={props.head.route} />
+    </Page>
   )
 }
 

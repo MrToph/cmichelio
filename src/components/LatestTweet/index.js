@@ -28,7 +28,6 @@ export default class LatestTweet extends Component {
   }
 
   render () {
-    // console.log('Rerendering')
     return (
         this.state.tweet ?
         <div className='latestTweet'>
@@ -46,7 +45,6 @@ export default class LatestTweet extends Component {
     let entities = [];
     ['hashtags', 'user_mentions', 'urls'].forEach(
       type => {
-        console.log(type)
         if(tweet.entities[type]) {
           tweet.entities[type].forEach(
             // screen_name defined for user mentions
@@ -58,7 +56,6 @@ export default class LatestTweet extends Component {
     )
     // sort entities according to their occurence in the String
     entities.sort((a,b) => a.indices[0] - b.indices[0])
-    console.log(entities)
     let addedChars = 0
     entities.forEach(
       obj => {
@@ -71,7 +68,7 @@ export default class LatestTweet extends Component {
         let newMiddle = ''
         switch(obj.type) {
           case 'user_mentions':{
-            newMiddle = `<a href="https://twitter.com/${obj.screen_name}" rel="nofollow noopener noreferrer">${middle}</a>`
+            newMiddle = `<a href="//twitter.com/${obj.screen_name}" rel="nofollow noopener noreferrer">${middle}</a>`
             break;
           }
           case 'urls': {
