@@ -3,6 +3,7 @@
   "name": "cmichelio",
   "homepage": "http://cmichel.io/gatsby-test",
   "twitter": "cmichelio",
+  "version": "1.0.0",
   "repository": "",
   "scripts": {
     "start": "phenomic start",
@@ -10,7 +11,8 @@
     "test": "npm run build"
   },
   "phenomic": {
-    "CNAME": false
+    "CNAME": false,
+    "verbose": true
   },
   "#babel": "webpack-(development|production) are useful for webpack 2, otherwise use development|production",
   "babel": {

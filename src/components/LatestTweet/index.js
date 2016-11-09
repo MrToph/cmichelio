@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { Component, PropTypes } from 'react'
 import { getLatestTweet } from '../../services/twitter'
+import { isClientSide } from '../../utils'
 import axios from 'axios'
 
 export default class LatestTweet extends Component {
@@ -9,9 +10,11 @@ export default class LatestTweet extends Component {
 
   constructor(props) {
       super(props)
+      this.state = {tweet: undefined}
   }
 
   componentWillMount() {
+    if(isClientSide()) {
       // console.log('Requesting twitter')
       this.setState({ tweet: undefined })
       var CancelToken = axios.CancelToken;
@@ -21,6 +24,7 @@ export default class LatestTweet extends Component {
         this.setState({tweet: res})
       })
       .catch(err => console.error(err))
+    }
   }
 
   componentWillUnmount() {

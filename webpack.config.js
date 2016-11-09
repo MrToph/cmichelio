@@ -8,7 +8,7 @@ import PhenomicLoaderFeedWebpackPlugin from "phenomic/lib/loader-feed-webpack-pl
 import pkg from "./package.json"
 
 // My plugins
-// import parseMath from './src/plugins/markdown-math'
+import parseMath from './src/plugins/markdown-math'
 
 export default (config = {}) => {
   const postcssPlugins = () => [
@@ -39,6 +39,12 @@ export default (config = {}) => {
     ...config.dev && {
       devtool: "#cheap-module-eval-source-map",
     },
+    phenomic: {
+      plugins: [
+        ...require("phenomic/lib/loader-preset-markdown").default,
+        parseMath
+      ]
+    },
     module: {
       noParse: /\.min\.js/,
       // webpack 1
@@ -55,9 +61,6 @@ export default (config = {}) => {
           loader: phenomicLoader,
           query: {
             context: path.join(__dirname, config.source),
-            // plugins: [
-            //   5
-            // ],
           },
         },
 

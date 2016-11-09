@@ -55,7 +55,6 @@ const Page = (
       }
     });`})
   }
-  console.log('plugins', require("phenomic/lib/loader-preset-markdown").default) // eslint-disable-line
   return (
     <section className={styles.page}>
       <Helmet

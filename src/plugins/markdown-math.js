@@ -1,5 +1,7 @@
 /* eslint-disable */
-export default function parseMath(body) {
-    console.log(body)
-    return body
+export default function parseMath({result}) {
+    return {
+        ...result,
+        body: result.body
+    }
 }
