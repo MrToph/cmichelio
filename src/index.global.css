@@ -116,6 +116,14 @@ img {
   max-width: 100%;
 }
 
+/* Fig captions for markdown parsed images */
+img + em {
+  display: block;
+  font-style: normal;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
 .horizontalContainer {
   display: flex;
   justify-content: center;

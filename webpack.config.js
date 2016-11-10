@@ -41,8 +41,10 @@ export default (config = {}) => {
     },
     phenomic: {
       plugins: [
-        ...require("phenomic/lib/loader-preset-markdown").default,
-        parseMath
+        ...require("phenomic/lib/loader-preset-default").default,
+        require("phenomic/lib/loader-plugin-markdown-init-head.description-property-from-content").default,
+        parseMath,
+        require("phenomic/lib/loader-plugin-markdown-transform-body-property-to-html").default,
       ]
     },
     module: {

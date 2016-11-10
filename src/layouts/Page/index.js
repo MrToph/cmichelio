@@ -7,6 +7,7 @@ import Loading from '../../components/Loading'
 import NavigationMenu from '../../components/NavigationMenu' // eslint-disable-line
 
 import styles from './index.css'
+// import '../../../node_modules/katex/dist/katex.min.global.css'
 
 const Page = (
   {
@@ -45,22 +46,18 @@ const Page = (
     { name: 'description', content: head.description }
   ]
 
-  let script = []
+  let link = []
   if (head.latex) {
-    script.push({"src": "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML", "type": "text/javascript", "async": undefined})
-    script.push({"type": "text/x-mathjax-config", "innerHTML": `MathJax.Hub.Config({
-      tex2jax: {inlineMath: [["$","$"],["\\\\(","\\\\)"]]},
-      "CHTML-preview": {
-        disabled: true
-      }
-    });`})
+    link = [
+      {"rel": "stylesheet", "href": "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css", "async": undefined},
+    ]
   }
   return (
     <section className={styles.page}>
       <Helmet
         title={metaTitle}
         meta={meta}
-        script={script}
+        link={link}
       />
       <NavigationMenu />
       <main className={styles.main}>
