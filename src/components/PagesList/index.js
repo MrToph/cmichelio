@@ -2,6 +2,9 @@ import React, { PropTypes } from "react"
 
 import PagePreview from "../PagePreview"
 
+const featuredImageLimit = 5
+const descriptionLimit = 5
+
 const PagesList = ({ pages }) => {
   return (
     <div>
@@ -10,9 +13,13 @@ const PagesList = ({ pages }) => {
       ? (
         <ul>
           {
-          pages.map((page) => (
-            <li key={ page.title }><PagePreview { ...page } /></li>
-          ))
+          pages.map((page, i) => {
+            let pageProps = {...page}
+            if(i >= featuredImageLimit) delete page.featured
+            if(i >= descriptionLimit) delete page.description
+            return (<li key={ page.title }><PagePreview { ...pageProps } /></li>)
+          }
+          )
         }
         </ul>
       )

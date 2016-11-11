@@ -8,16 +8,16 @@
 }
 
 .main {
-  width: 36rem;
   max-width: 36rem;
-  margin-left: 12rem;
+  /* nav-bar width + (var(--phenomic-HeadingAnchor-width) + var(--phenomic-HeadingAnchor-margin)) */
+  margin-left: calc(12rem + 1.8rem);
 }
 
 .heading {
   color: #0e63e3;
 }
 
-@media (--mobile-screen) {
+@media (--single-column) {
  .main {
     margin-left: 0;
     width: 100%;

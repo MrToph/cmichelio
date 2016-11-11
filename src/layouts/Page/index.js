@@ -4,10 +4,9 @@ import invariant from 'invariant'
 import { BodyContainer, joinUri } from 'phenomic'
 
 import Loading from '../../components/Loading'
-import NavigationMenu from '../../components/NavigationMenu' // eslint-disable-line
+import NavigationMenu from '../../components/NavigationMenu'
 
 import styles from './index.css'
-// import '../../../node_modules/katex/dist/katex.min.global.css'
 
 const Page = (
   {
@@ -65,6 +64,7 @@ const Page = (
           head.title &&
           <h1 className={styles.heading}>{ head.title }</h1>
         }
+        { header }
         {
           isLoading
           ? <Loading />

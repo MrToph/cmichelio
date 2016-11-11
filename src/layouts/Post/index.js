@@ -5,17 +5,18 @@ import Page from '../Page'
 import metadata from '../../metadata'
 import { isClientSide } from '../../utils'
 import { joinUri } from 'phenomic'
+import { CategoryBar } from '../../components'
 
 const Post = (props) => {
   const pageDate = props.head.date ? new Date(props.head.date) : null
   const url = props.head.route ? joinUri(metadata.pkg.homepage, props.head.route) : joinUri(metadata.pkg.homepage, props.__url)
-
   return (
     <Page
       { ...props }
       header={
         <header>
-          {
+        <CategoryBar categories={props.head.categories} />
+        {
           pageDate &&
           <time key={ pageDate.toISOString() }>
             { pageDate.toDateString() }

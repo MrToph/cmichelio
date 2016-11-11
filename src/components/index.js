@@ -1,4 +1,5 @@
 import Bio from './Bio'
+import CategoryBar from './CategoryBar'
 import Content from './Content'
 import Container from './Container'
 import DefaultHeadMeta from './DefaultHeadMeta'
@@ -12,5 +13,5 @@ import PagePreview from './PagePreview'
 import SocialBar from './SocialBar'
 
 export {
-  Container, Content, DefaultHeadMeta, Footer, Header, Loading, PagePreview, PagesList, Bio, NavigationMenu, SocialBar, LatestTweet
+  Container, Content, DefaultHeadMeta, Footer, Header, Loading, PagePreview, PagesList, Bio, NavigationMenu, SocialBar, LatestTweet, CategoryBar
 }

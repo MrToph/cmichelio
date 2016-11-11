@@ -4,4 +4,4 @@ export const DEFAULT_MEDIA_QUERY = '@media only screen and (max-width:980px)'
 export const TABLET_MEDIA_QUERY = '@media only screen and (max-width:768px)'
 export const MOBILE_MEDIA_QUERY = '@media only screen and (max-width:480px)' */
 
-@custom-media --mobile-screen only screen and (max-width: 480px);
+@custom-media --single-column only screen and (max-width: 768px);

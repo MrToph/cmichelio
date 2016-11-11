@@ -28,7 +28,7 @@ body {
  * page styles
  */
 html {
-  font-size: 19px;
+  font-size: 17px;
   min-height: 100%;
   background: color(#fff a(0.4));
 }
@@ -158,7 +158,7 @@ img + em {
 	transition-delay: none;
 }
 
-@media (--mobile-screen) {
+@media (--single-column) {
   html {
     font-size: 16px;
   }

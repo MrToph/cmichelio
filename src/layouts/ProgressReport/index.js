@@ -47,7 +47,6 @@ export default class ProgressReport extends Component {
 
   replacementBasedOnMatch (match, name, propsMatch, props) {
     props = propsMatch ? JSON.parse(props) : undefined
-    console.log(name, props)
     switch (name) {
       case 'visualization': {
         return ReactDOMServer.renderToStaticMarkup(<Bio {...props} />)

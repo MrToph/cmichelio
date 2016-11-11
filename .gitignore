@@ -6,5 +6,8 @@ node_modules
 dist
 
 # Custom
+*.zip
 todo.todo
+content/assets/*
 content/posts/*
+contenthttp://cmichel.io/assets/*
