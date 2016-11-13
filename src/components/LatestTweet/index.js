@@ -36,7 +36,9 @@ export default class LatestTweet extends Component {
         this.state.tweet ?
         <div className='latestTweet'>
         <h3 style={{textAlign: 'center'}}>Latest Tweet</h3>
-        <p dangerouslySetInnerHTML={{__html: this.parseTweet(this.state.tweet)}}>
+        <p>
+        <small dangerouslySetInnerHTML={{__html: this.parseTweet(this.state.tweet)}}>
+        </small>
         </p>
         </div>
         : <div className='latestTweet'></div>

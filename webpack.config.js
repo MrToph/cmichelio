@@ -10,6 +10,9 @@ import pkg from "./package.json"
 // My plugins
 import parseMath from './src/plugins/markdown-math'
 
+// config.source points to 'content' https://github.com/MoOx/phenomic/blob/d18307ed474038a82e13105078ed199fbf6b83a2/src/configurator/definitions.js
+// config.destination points to 'dist'
+
 export default (config = {}) => {
   const postcssPlugins = () => [
     require("stylelint")(),
@@ -218,17 +221,42 @@ export default (config = {}) => {
         //
         // LESS: npm install --save-dev less less-loader
         // https://github.com/webpack/less-loader
-
         // copy assets and return generated path in js
+        // with hash
         {
-          test: /\.(html|ico|jpe?g|png|gif|eot|otf|webp|ttf|woff|woff2)$/,
+          test: /(\/|\\).*\.(html|eot|otf|webp|ttf|woff|woff2)$/,
           loader: "file-loader",
           query: {
-            name: "[path][name].[hash].[ext]",
+            name: "[path][name][hash].[ext]",
             context: path.join(__dirname, config.source),
           },
         },
-
+        // copy images without hash
+        // images not in posts/ are treated as usual
+        {
+          test: /\.(ico|jpe?g|png|gif)$/,
+          loader: "file-loader",
+          exclude: [
+            path.resolve(__dirname, "content/posts"),
+          ],
+          query: {
+            name: "[path][name].[ext]",
+            context: path.join(__dirname, config.source),
+          },
+        },
+        // copy images from posts/ over by stripping post off. Also without hash
+        {
+          test: /\.(ico|jpe?g|png|gif)$/,
+          loader: "file-loader",
+          include: [
+            path.resolve(__dirname, "content/posts"),
+          ],
+          query: {
+            // [path] the path of the resource relative to the context query parameter or option.
+            name: "[path][name].[ext]",
+            context: path.join(__dirname, 'content/posts'), // 'strip' posts off it
+          },
+        },
         // svg as raw string to be inlined
         {
           test: /\.svg$/,

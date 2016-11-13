@@ -48,7 +48,7 @@ const Page = (
   let link = []
   if (head.latex) {
     link = [
-      {"rel": "stylesheet", "href": "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css", "async": undefined},
+      {'rel': 'stylesheet', 'href': 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css', 'async': undefined}
     ]
   }
   return (
@@ -62,7 +62,7 @@ const Page = (
       <main className={styles.main}>
         {
           head.title &&
-          <h1 className={styles.heading}>{ head.title }</h1>
+          <h2 className={styles.heading}>{ head.title }</h2>
         }
         { header }
         {

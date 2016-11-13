@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "cmichelio",
-  "homepage": "http://cmichel.io/gatsby-test",
+  "homepage": "http://cmichel.io",
   "twitter": "cmichelio",
   "version": "1.0.0",
   "repository": "",
@@ -12,7 +12,7 @@
   },
   "phenomic": {
     "CNAME": false,
-    "verbose": false
+    "verbose": true
   },
   "#babel": "webpack-(development|production) are useful for webpack 2, otherwise use development|production",
   "babel": {

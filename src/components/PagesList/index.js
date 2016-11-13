@@ -15,9 +15,9 @@ const PagesList = ({ pages }) => {
           {
           pages.map((page, i) => {
             let pageProps = {...page}
-            if(i >= featuredImageLimit) delete page.featured
-            if(i >= descriptionLimit) delete page.description
-            return (<li key={ page.title }><PagePreview { ...pageProps } /></li>)
+            if (i >= featuredImageLimit) delete pageProps.featured
+            if (i >= descriptionLimit) delete pageProps.description
+            return (<li key={ pageProps.title }><PagePreview { ...pageProps }/></li>)
           }
           )
         }

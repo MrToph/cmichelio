@@ -20,7 +20,7 @@ export default class CategoryBar extends Component {
                 </i>
                 <nav className={styles.nav}>
                 {
-                    categories.map(category => <Link className={styles.navItem} to={ `/#${category}` }>
+                    categories.map((category,i) => <Link key={i} className={styles.navItem} to={ `/#${category}` }>
                                                 { category }
                                             </Link>)
                 }

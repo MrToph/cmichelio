@@ -136,8 +136,12 @@ img + em {
   align-items: center;
 }
 
+.social-svg-mask {
+  fill: var(--linkColor) !important;
+}
+
 .social-svg:hover .social-svg-mask {
-  fill: #f00 !important;
+  fill: var(--linkColor) !important;
 }
 
 .social-icon:hover {
