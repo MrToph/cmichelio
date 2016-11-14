@@ -144,6 +144,7 @@
     "axios": "^0.15.2",
     "katex": "^0.6.0",
     "react-disqus-thread": "^0.4.0",
-    "react-social-icons": "git+https://github.com/MrToph/react-social-icons.git"
+    "react-social-icons": "git+https://github.com/MrToph/react-social-icons.git",
+    "stacklogger": "^1.1.2"
   }
 }

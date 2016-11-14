@@ -1,8 +1,7 @@
-/* eslint-disable */
 import React, { Component, PropTypes } from 'react'
-import Page from "../Page"
+import Page from '../Page'
 import ReactDOMServer from 'react-dom/server'
-import { Bio, NavigationMenu } from '../../components'
+import { Bio } from '../../components'
 
 // matches strings like
 // <div class='react-visualization' props='{"val":5}'></div>
@@ -19,21 +18,20 @@ export default class ProgressReport extends Component {
   //   this.setState({body: body})
   // }
 
-   render () {
-    const props = this.props
-    const frontMatter = props.head
-    const pageDate = props.head.date ? new Date(props.head.date) : null
-    let { body } = this.props
-    if (body) body = body.replace(pattern, this.replacementBasedOnMatch)
-    return (
+  render () {
+     const props = this.props
+     const pageDate = props.head.date ? new Date(props.head.date) : null
+     let { body } = this.props
+     if (body) body = body.replace(pattern, this.replacementBasedOnMatch)
+     return (
       <Page
-        { ...props}
+        {...props}
         body={body}
         header={
           <header>
             {
             pageDate &&
-            <time key={ pageDate.toISOString() }>
+            <time key={pageDate.toISOString()}>
               { pageDate.toDateString() }
             </time>
           }
@@ -43,7 +41,7 @@ export default class ProgressReport extends Component {
       <marquee>Progress Report</marquee>
       </Page>
     )
-  }
+   }
 
   replacementBasedOnMatch (match, name, propsMatch, props) {
     props = propsMatch ? JSON.parse(props) : undefined
@@ -60,12 +58,11 @@ export default class ProgressReport extends Component {
       }
     }
   }
-} 
+}
 
 ProgressReport.propTypes = {
   head: PropTypes.object.isRequired,
   body: PropTypes.string,
   type: PropTypes.string
 }
-
 

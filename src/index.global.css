@@ -56,6 +56,8 @@ body {
 :root {
   --phenomic-HeadingAnchor-width: 1.4rem;
   --phenomic-HeadingAnchor-margin: 0.4rem;
+  --phenomic-HeadingAnchor-small-width: 0.8rem;
+  --phenomic-HeadingAnchor-small-margin: 0.2rem;
 }
 
 .phenomic-HeadingAnchor {
@@ -111,6 +113,15 @@ a:focus {
     outline: none;
 }
 
+a.social-icon,
+a.social-icon:link,
+a.social-icon:visited {
+    position: static;
+    display: inline;
+    color: var(--linkColor);
+    text-decoration: none;
+}
+
 /* handy for content */
 img {
   max-width: 100%;
@@ -150,21 +161,27 @@ img + em {
 
 .clearUnderline a::before {
 	content: none !important;
-	background-color: none;
-    transform: none;
-    transition: none;
-    transition-delay: none;
+	background-color: transparent;
+  transform: none;
+  transition: none;
+  transition-delay: 0s;
 }
 
 .clearUnderline a:hover::before {
 	content: none;
 	transform: none;
-	transition-delay: none;
+	transition-delay: 0s;
 }
 
 @media (--single-column) {
-  html {
-    font-size: 16px;
-  }
+html {
+  font-size: 16px;
+}
+
+a.phenomic-HeadingAnchor {
+  margin-left: calc(-1 * (var(--phenomic-HeadingAnchor-small-width) + var(--phenomic-HeadingAnchor-small-margin)));
+  margin-right: var(--phenomic-HeadingAnchor-small-margin);
+  width: var(--phenomic-HeadingAnchor-small-width);
+}
 }
 

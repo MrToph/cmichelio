@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { PropTypes } from 'react'
 import ReactDisqusThread from 'react-disqus-thread'
 import Page from '../Page'
@@ -12,25 +11,25 @@ const Post = (props) => {
   const url = props.head.route ? joinUri(metadata.pkg.homepage, props.head.route) : joinUri(metadata.pkg.homepage, props.__url)
   return (
     <Page
-      { ...props }
+      {...props}
       header={
         <header>
         <CategoryBar categories={props.head.categories} />
         {
           pageDate &&
-          <time key={ pageDate.toISOString() }>
+          <time key={pageDate.toISOString()}>
             { pageDate.toDateString() }
           </time>
         }
         </header>
       }
     >
-    {isClientSide() ? 
+    {isClientSide() ?
       <ReactDisqusThread
-      shortname='cmichel'
-      identifier={props.head.disqus_identifier ? props.head.disqus_identifier : url}
-      title={props.head.title}
-      url={url} />
+        shortname='cmichel'
+        identifier={props.head.disqus_identifier ? props.head.disqus_identifier : url}
+        title={props.head.title}
+        url={url} />
       : undefined
     }
     </Page>
@@ -39,6 +38,7 @@ const Post = (props) => {
 
 Post.propTypes = {
   head: PropTypes.object.isRequired,
+  __url: PropTypes.string.isRequired
 }
 
 export default Post

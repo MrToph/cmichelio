@@ -1,10 +1,11 @@
 @import '../../media-queries.css';
 
 .page {
-  align-self: center;
   max-width: 48rem;
+  width: 48rem;
   position: relative;
-  margin: 0 auto;
+  /* To fix a jumpy NavigationMenu on page transition with/without scroll bars http://stackoverflow.com/questions/6357870/scrollbar-on-browser-and-div-margin-0-auto-jumping */
+  margin-left: calc(50vw - 24rem);
 }
 
 .main {
@@ -18,14 +19,16 @@
 }
 
 @media (--single-column) {
+  .page {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+  }
+
  .main {
     margin-left: 0;
     width: 100%;
     max-width: 100%;
-    padding: 0 1rem;
-  }
-
-  .page {
-    max-width: 100%;
+    padding: 0 1.5rem;
   }
 }

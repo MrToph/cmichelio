@@ -22,6 +22,7 @@
  .nav {
     position: relative;
     width: 100%;
+    height: inherit;
     margin: 0 auto;
     overflow: visible;
   }
