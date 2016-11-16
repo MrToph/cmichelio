@@ -1,10 +1,9 @@
 {
-  "private": true,
   "name": "cmichelio",
   "homepage": "http://cmichel.io",
   "twitter": "cmichelio",
   "version": "1.0.0",
-  "repository": "",
+  "repository": "https://github.com/MrToph/cmichelio",
   "scripts": {
     "start": "phenomic start",
     "build": "phenomic build",

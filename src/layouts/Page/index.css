@@ -9,13 +9,15 @@
 }
 
 .main {
-  max-width: 36rem;
-  /* nav-bar width + (var(--phenomic-HeadingAnchor-width) + var(--phenomic-HeadingAnchor-margin)) */
+  /* real margin-left of 1.8 rem = nav-bar width + (var(--phenomic-HeadingAnchor-width) + var(--phenomic-HeadingAnchor-margin)) */
+  /* width = page - nav-bar - margin-left */
+  max-width: calc(36rem - 1.8rem);
+  width: 100%;
   margin-left: calc(12rem + 1.8rem);
 }
 
 .heading {
-  color: #0e63e3;
+  color: var(--primaryColor);
 }
 
 @media (--single-column) {

@@ -11,7 +11,25 @@ import NavigationMenu from './NavigationMenu'
 import PagesList from './PagesList'
 import PagePreview from './PagePreview'
 import SocialBar from './SocialBar'
+import GitHubBtn from './GitHubBtn'
+import BuiltWith from './BuiltWith'
+import PortfolioItem from './PortfolioItem'
 
 export {
-  Container, Content, DefaultHeadMeta, Footer, Header, Loading, PagePreview, PagesList, Bio, NavigationMenu, SocialBar, LatestTweet, CategoryBar
+  Container,
+  Content,
+  DefaultHeadMeta,
+  Footer,
+  Header,
+  Loading,
+  PagePreview,
+  PagesList,
+  Bio,
+  NavigationMenu,
+  SocialBar,
+  LatestTweet,
+  CategoryBar,
+  GitHubBtn,
+  BuiltWith,
+  PortfolioItem
 }

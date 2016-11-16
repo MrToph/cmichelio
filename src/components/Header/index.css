@@ -3,8 +3,8 @@
 }
 
 .header {
-  color: var(--mainColorContrasted);
-  background: var(--mainColor);
+  color: var(--primaryColorContrasted);
+  background: var(--primaryColor);
 }
 
 .nav {

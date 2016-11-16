@@ -1,0 +1,25 @@
+.container {
+    width: 100%;
+    margin: 0 auto 50px;
+}
+
+.container > h2 {
+    margin: 2rem 0;
+}
+
+.horizontalContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.googlePlayBadge {
+    display: inline-block;
+}
+
+.googlePlayBadge > img {
+    display: inline-block;
+    height: calc(3rem + 14px);
+    vertical-align: middle;
+}
