@@ -5,7 +5,7 @@ import { Bio } from '../../components'
 
 // matches strings like
 // <div class='react-visualization' props='{"val":5}'></div>
-// <div      class="react-test"    >     </div>
+// <div      class='react-test'    >     </div>
 // Make sure to use SINGLE quotes for defining HTML attributes, as we need double quotes to parse the JSON props attribute
 const pattern = new RegExp(String.raw`<div\s*class='react-(\S*)'\s*(props='(.*)'\s*)?>\s*</div>`, 'ig') // eslint-disable-line
 

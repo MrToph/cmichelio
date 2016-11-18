@@ -13,6 +13,7 @@ export default class Portfolio extends Component {
     let props = this.props
     return (
             <Page {...props}>
+            <p>If you're interested in working with me, you can contact me on my <Link to='/about/'>About Page</Link>.</p>
             <div className={styles.container}>
                 <h2>Web development</h2>
                 <PortfolioItem
