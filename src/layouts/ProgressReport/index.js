@@ -38,7 +38,6 @@ export default class ProgressReport extends Component {
           </header>
         }
       >
-      <marquee>Progress Report</marquee>
       </Page>
     )
    }
@@ -48,9 +47,6 @@ export default class ProgressReport extends Component {
     switch (name) {
       case 'visualization': {
         return ReactDOMServer.renderToStaticMarkup(<Bio {...props} />)
-      }
-      case 'test': {
-        return '<strong>test</strong>'
       }
       default: {
         console.error(`replacementBasedOnMatch: Could not replace ${name} with a React component. ${match}`)

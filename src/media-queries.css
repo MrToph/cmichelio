@@ -4,4 +4,5 @@ export const DEFAULT_MEDIA_QUERY = '@media only screen and (max-width:980px)'
 export const TABLET_MEDIA_QUERY = '@media only screen and (max-width:768px)'
 export const MOBILE_MEDIA_QUERY = '@media only screen and (max-width:480px)' */
 
-@custom-media --single-column only screen and (max-width: 768px);
+/* rem media queries are based on browser's internal font-size which is 16px (unless changed in browser setting) */
+@custom-media --single-column only screen and (max-width: 850px);

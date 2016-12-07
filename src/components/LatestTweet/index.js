@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import { getLatestTweet } from '../../services/twitter'
 import { isClientSide } from '../../utils'
-import axios from 'axios'
+import styles from './index.css'
 
 export default class LatestTweet extends Component {
   constructor (props) {
@@ -30,13 +31,13 @@ export default class LatestTweet extends Component {
   render () {
     return (
         this.state.tweet
-        ? <div className='latestTweet'>
+        ? <div className={styles.latestTweet}>
           <h3 style={{textAlign: 'center'}}>Latest Tweet</h3>
           <p>
             <small dangerouslySetInnerHTML={{__html: this.parseTweet(this.state.tweet)}} />
           </p>
         </div>
-        : <div className='latestTweet' />
+        : null
     )
   }
 

@@ -290,16 +290,17 @@ export default (config = {}) => {
 
       new PhenomicLoaderFeedWebpackPlugin({
         // here you define generic metadata for your feed
-        feedsOptions: {
+        feedsOptions: { // as in npm.js rss package: https://www.npmjs.com/package/rss
           title: pkg.name,
           site_url: pkg.homepage,
+          image_url: `${pkg.homepage}/assets/favicon.png`
         },
         feeds: {
           // here we define one feed, but you can generate multiple, based
           // on different filters
           "feed.xml": {
             collectionOptions: {
-              filter: { layout: "Post" },
+              filter: ({ layout, categories }) => (layout === 'Post' || layout === 'ProgressReport'),
               sort: "date",
               reverse: true,
               limit: 20,

@@ -1,19 +1,21 @@
 @import '../../media-queries.css';
 
 .page {
-  max-width: 48rem;
-  width: 48rem;
+  max-width: var(--pageWidth);
+  width: 100%;
   position: relative;
   /* To fix a jumpy NavigationMenu on page transition with/without scroll bars http://stackoverflow.com/questions/6357870/scrollbar-on-browser-and-div-margin-0-auto-jumping */
-  margin-left: calc(50vw - 24rem);
+  /* we would need to use vw instead of %. calc(50vw - width/2 rem). Percentage = viewport width, (excluding scrollbar), but vw doesn't care about scrollbar */
+  margin: 0 auto;
+  padding-right: 1rem;
 }
 
 .main {
   /* real margin-left of 1.8 rem = nav-bar width + (var(--phenomic-HeadingAnchor-width) + var(--phenomic-HeadingAnchor-margin)) */
   /* width = page - nav-bar - margin-left */
-  max-width: calc(36rem - 1.8rem);
-  width: 100%;
-  margin-left: calc(12rem + 1.8rem);
+  /* max-width: calc(48rem - 1.8rem); */
+  width: calc(100% - var(--navBarWidth) - 1.8rem);
+  margin-left: calc(var(--navBarWidth) + 1.8rem);
 }
 
 .heading {
@@ -25,6 +27,7 @@
     max-width: 100%;
     width: 100%;
     margin: 0 auto;
+    padding: 0;
   }
 
  .main {
