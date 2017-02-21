@@ -1,3 +1,5 @@
+@import '../../media-queries.css';
+
 .latestTweet {
   display: inline-block;
   font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
@@ -9,12 +11,13 @@
   border-style: solid;
   border-width: 1px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-  margin: 10px 5px;
-  padding: 0 16px 16px;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
 }
 
-.latestTweet p {
-  font-size: 16px;
-  font-weight: normal;
-  line-height: 20px;
+@media (--single-column) {
+  .latestTweet {
+    width: auto;
+  }
 }

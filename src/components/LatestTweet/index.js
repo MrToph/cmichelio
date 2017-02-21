@@ -1,92 +1,24 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import { getLatestTweet } from '../../services/twitter'
+/* eslint-disable */
+/* global twttr */
+import React from 'react'
 import { isClientSide } from '../../utils'
 import styles from './index.css'
 
-export default class LatestTweet extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {tweet: undefined}
-  }
-
-  componentWillMount () {
-    if (isClientSide()) {
-      // console.log('Requesting twitter')
-      this.setState({ tweet: undefined })
-      var CancelToken = axios.CancelToken
-      this.source = CancelToken.source()
-      getLatestTweet(this.source)
-      .then(res => {
-        this.setState({tweet: res})
-      })
-      .catch(err => console.error(err))
+export default class LatestTweet extends React.Component {
+  componentDidMount() {
+    if(isClientSide() && typeof twttr !== 'undefined' && twttr.widgets) {
+      twttr.widgets.load(document.getElementById("LatestTweet"))
     }
   }
 
-  componentWillUnmount () {
-    this.source.cancel('LatestTweet unmounted and twitter request canceled')
-  }
-
-  render () {
+  render(){
     return (
-        this.state.tweet
-        ? <div className={styles.latestTweet}>
-          <h3 style={{textAlign: 'center'}}>Latest Tweet</h3>
-          <p>
-            <small dangerouslySetInnerHTML={{__html: this.parseTweet(this.state.tweet)}} />
-          </p>
+        <div id="LatestTweet" className={styles.latestTweet}>
+            <h3 style={{textAlign: 'center'}}>Latest Tweet</h3>
+            <a className="twitter-timeline" data-width="180" data-dnt="true" data-tweet-limit="1" data-chrome="nofooter noheader transparent" href="https://twitter.com/cmichelio"></a>
         </div>
-        : null
     )
   }
 
-  parseTweet (tweet) {
-    let text = tweet.full_text
-    if (!tweet.entities) return text
-    let entities = [];
-    ['hashtags', 'user_mentions', 'urls'].forEach(
-      type => {
-        if (tweet.entities[type]) {
-          tweet.entities[type].forEach(
-            // screen_name defined for user mentions
-            // expanded_url for urls
-            entity => entities.push({type, indices: entity.indices, screen_name: entity.screen_name, expanded_url: entity.expanded_url})
-          )
-        }
-      }
-    )
-    // sort entities according to their occurence in the String
-    entities.sort((a, b) => a.indices[0] - b.indices[0])
-    let addedChars = 0
-    entities.forEach(
-      obj => {
-        let before = text.slice(0, addedChars + obj.indices[0])
-        let middle = text.slice(addedChars + obj.indices[0], addedChars + obj.indices[1])
-        let after = text.slice(addedChars + obj.indices[1])
-        // console.log('Running test for: ', middle)
-        // console.log('Before:', before)
-        // console.log('After:', after)
-        let newMiddle = ''
-        switch (obj.type) {
-          case 'user_mentions': {
-            newMiddle = `<a href="//twitter.com/${obj.screen_name}" rel="nofollow noopener noreferrer">${middle}</a>`
-            break
-          }
-          case 'urls': {
-            newMiddle = `<a href="${obj.expanded_url}" rel="nofollow noopener noreferrer">${middle}</a>`
-            break
-          }
-          case 'hashtags': {
-            newMiddle = `<strong>${middle}</strong>`
-            break
-          }
-          default: throw Error('parseTweet Error')  // never happens
-        }
-        text = before + newMiddle + after
-        addedChars += newMiddle.length - middle.length
-      }
-    )
-    return text
-  }
+  shouldComponentUpdate() { return false }
 }

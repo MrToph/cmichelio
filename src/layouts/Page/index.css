@@ -6,7 +6,7 @@
   position: relative;
   /* To fix a jumpy NavigationMenu on page transition with/without scroll bars http://stackoverflow.com/questions/6357870/scrollbar-on-browser-and-div-margin-0-auto-jumping */
   /* we would need to use vw instead of %. calc(50vw - width/2 rem). Percentage = viewport width, (excluding scrollbar), but vw doesn't care about scrollbar */
-  margin: 0 auto;
+  margin: 0 auto 80px;
   padding-right: 1rem;
 }
 

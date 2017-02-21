@@ -17,8 +17,8 @@ const Homepage = (props, { collection }) => {
                                         (categories && categories.map(c => c.toLowerCase()).includes(category))),
     sort: "date",
     reverse: true,
-  })
-  .slice()
+  }).slice()
+
   return (
     <Page { ...props }>
       <h2>{ `Latest Posts${category ? ' for category: ' + category : ''}` }</h2>

@@ -244,9 +244,9 @@ export default (config = {}) => {
             context: path.join(__dirname, config.source),
           },
         },
-        // copy images from posts/ over by stripping post off. Also without hash
+        // copy images+svg from posts/ over by stripping post off. Also without hash
         {
-          test: /\.(ico|jpe?g|png|gif)$/,
+          test: /\.(ico|jpe?g|png|gif|svg)$/,
           loader: "file-loader",
           include: [
             path.resolve(__dirname, "content/posts"),
@@ -261,6 +261,9 @@ export default (config = {}) => {
         {
           test: /\.svg$/,
           loader: "raw-loader",
+          exclude: [
+            path.resolve(__dirname, "content/posts"),
+          ],
         },
       ],
     },

@@ -60,7 +60,8 @@ const AppContainer = (props) => (
       scripts={[
        // GOOGLE Analytics, part 2/2
        { async: true, src: 'https://www.google-analytics.com/analytics.js' },
-       { async: true, src: '//tag.getdrip.com/9150931.js' }
+       { async: true, src: '//tag.getdrip.com/9150931.js' },
+       { async: true, src: '//platform.twitter.com/widgets.js' }
       ]} />
     <Content>
       { props.children }

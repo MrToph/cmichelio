@@ -11,7 +11,7 @@ import store from "../src/store.js"
 phenomicClient({ metadata, routes, store })
 
 // Require images in each posts folder
-require.context("../content", true, /\.(html|ico|jpe?g|png|gif)$/)
+require.context("../content", true, /\.(html|ico|jpe?g|png|gif|svg)$/)
 
 // md files processed via phenomic-loader to JSON & generate collection
 let mdContext = require.context("../content", true, /\.(md|markdown)$/)
