@@ -1,0 +1,23 @@
+.clear {
+    clear: both;
+    margin-bottom: 1rem;
+}
+
+.small {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.featuredWrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    float: left;
+    width: 200px;
+    margin: 1rem 0.5rem;
+}
+
+.featured {
+    max-width: 200px;
+    max-height: 200px;
+}

@@ -1,0 +1,104 @@
+.portfolio h3 {
+	text-align: center;
+    color: var(--primaryColor);
+}
+
+.portfolio {
+    background: var(--primaryColorContrasted);
+	width: 100%;
+    padding: 0.75rem;
+    /* Collapsing margins */
+    /* display: inline-block; */
+}
+
+.img {
+    display: block;
+    width: 60%;
+}
+
+.horizontalContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.borderBoth {
+    /* background-image: radial-gradient(#ccc, #fff), radial-gradient(#ccc, #fff); */
+    /* Two backgrounds, position for each of these */
+    background-image: linear-gradient(to bottom, var(--primaryColorLight), var(--primaryColor), var(--primaryColorLight)), linear-gradient(to bottom, var(--primaryColorLight), var(--primaryColor), var(--primaryColorLight));
+    background-size: 2px 100%;
+    background-position: 0 0, 100% 0;
+    background-repeat: no-repeat;
+}
+
+.borderRight {
+    /* background-image: radial-gradient(#ccc, #fff), radial-gradient(#ccc, #fff); */
+    background-image: radial-gradient(var(--primaryColorLight), var(--primaryColorLight));
+    background-size: 2px 50px;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+}
+
+.borderLeft {
+    /* background-image: radial-gradient(#ccc, #fff), radial-gradient(#ccc, #fff); */
+    background-image: radial-gradient(var(--primaryColorLight), var(--primaryColorLight));
+    background-size: 2px 50px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+.borderLeft > svg {
+    margin-left: 1%;
+}
+
+.svg {
+    display: block; /* Svg is inline and has a vertical-align: baseline which makes it jump up a bit */
+}
+
+.svg path {
+	fill: var(--primaryColorContrasted);
+	stroke: var(--primaryColorContrasted);
+}
+
+.shadowHorizontal {
+  position: relative;
+}
+
+.shadowHorizontal::before,
+.shadowHorizontal::after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width: 300px;
+  background: #777;
+  box-shadow: 0 15px 10px #777;
+  transform: rotate(-3deg);
+}
+
+.shadowHorizontal::after {
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+
+.shadowTriangle {
+  position: relative;
+}
+
+.shadowTriangle::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  bottom: 40px;
+  top: 0;
+  left: 10px;
+  right: 10px;
+  background: #777;
+  box-shadow: 0 15px 10px #777;
+  transform: rotate(+4deg);
+}

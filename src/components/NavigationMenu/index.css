@@ -1,0 +1,36 @@
+@import '../../media-queries.css';
+
+.nav {
+    position: fixed;
+    overflow: hidden;
+    height: 100%;
+    top: 0.75rem;
+    width: var(--navBarWidth);
+    max-height: 100%;
+    padding: 0;
+}
+
+.scrollHide {
+    box-sizing: padding-box;
+    height: inherit;
+    text-align: center;
+    overflow-y: scroll; /* make the scroll bar always appear */
+    width: calc(var(--navBarWidth) + 17px); /* rhythm(8 + pixelToRhythm(17)); */
+    padding: 0 calc(0.375rem + 17px) 0 0.375rem;
+}
+
+@media (--single-column) {
+ .nav {
+    position: relative;
+    width: 100%;
+    height: inherit;
+    margin: 0 auto;
+    overflow: visible;
+  }
+
+  .scrollHide {
+    overflow-y: visible;
+    width: 100%;
+    padding: 0 1.5rem;
+  }
+}

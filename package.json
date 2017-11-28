@@ -1,0 +1,59 @@
+{
+  "name": "cmichelio",
+  "twitter": "cmichelio",
+  "description": "",
+  "version": "2.0.0",
+  "author": "Christoph Michel <mail@cmichel.io>",
+  "homepage": "http://cmichel.io",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrToph/cmichelio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MrToph/cmichelio/issues"
+  },
+  "dependencies": {
+    "gatsby": "^1.9.119",
+    "gatsby-link": "^1.6.28",
+    "gatsby-plugin-feed": "^1.3.13",
+    "gatsby-plugin-glamor": "^1.6.8",
+    "gatsby-plugin-google-analytics": "^1.0.12",
+    "gatsby-plugin-offline": "^1.0.10",
+    "gatsby-plugin-react-helmet": "^1.0.8",
+    "gatsby-plugin-sharp": "^1.6.21",
+    "gatsby-plugin-twitter": "^1.0.12",
+    "gatsby-plugin-typography": "^1.7.10",
+    "gatsby-remark-copy-linked-files": "^1.5.21",
+    "gatsby-remark-images": "^1.5.32",
+    "gatsby-remark-prismjs": "^1.2.9",
+    "gatsby-remark-responsive-iframe": "^1.4.14",
+    "gatsby-remark-smartypants": "^1.4.8",
+    "gatsby-source-filesystem": "^1.5.8",
+    "gatsby-transformer-remark": "^1.7.21",
+    "gatsby-transformer-sharp": "^1.6.14",
+    "lodash": "^4.17.4",
+    "react-responsive-grid": "^0.3.4",
+    "react-social-icons": "git+https://github.com/MrToph/react-social-icons.git"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-plugin-react": "^7.5.1",
+    "gh-pages": "^1.1.0",
+    "prettier": "^1.8.2"
+  },
+  "scripts": {
+    "dev": "gatsby develop",
+    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths",
+    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+  }
+}
