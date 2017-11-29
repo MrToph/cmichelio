@@ -1,9 +1,15 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import { css } from 'glamor'
+import { css, before, after } from 'glamor'
 import 'glamor/reset'
 import NavigationMenu from '../components/NavigationMenu'
-import { pageWidth, navBarWidth } from '../styling'
+import {
+  pageWidth,
+  navBarWidth,
+  primaryColor,
+  primaryColorLight,
+  primaryColorInverted,
+} from '../styling'
 
 const mainStyles = css({
   width: `calc(100% - ${navBarWidth} - 1.8rem)`,
@@ -15,19 +21,58 @@ const pageStyles = css({
   width: `100%`,
   margin: `0 auto`,
   padding: `0`,
-  '& *': {
-    boxSizing: `border-box`,
-  },
 })
 
-export default class Template extends React.Component {
+css.global('html, body', {
+  fontFamily: `"Helvetica Neue", Roboto, "Segoe UI", Calibri, sansserif`,
+  boxSizing: `border-box`,
+})
+css.global('body a:not(.no-style)', {
+  display: 'inline-block',
+  position: 'relative',
+  color: primaryColor,
+  outline: 'none',
+  textDecoration: 'none',
+  fontWeight: 500,
+  transition: 'color 0.2s',
+})
+css.global('body a:not(.no-style):hover, body a:not(.no-style):focus', {
+  color: primaryColorInverted,
+})
+css.global('body a:not(.no-style)::before', {
+  position: `absolute`,
+  top: `0px`,
+  left: `-5px`,
+  zIndex: `-1`,
+  boxSizing: `content-box`,
+  padding: `0 5px`,
+  width: `100%`,
+  height: `100%`,
+  background: primaryColor,
+  content: `''`,
+  opacity: `0`,
+  transition: `transform 0.2s, opacity 0.2s`,
+  transform: `skewY(-3deg) skewX(-11deg)`,
+})
+css.global('body a:not(.no-style):hover::before, body a:not(.no-style):focus::before', {
+  opacity: 1,
+  transform: `skewY(0) skewX(0)`,
+})
+
+export default class MainTemplate extends React.Component {
   render() {
     const { location, children } = this.props
     return (
       <section {...pageStyles}>
-        <NavigationMenu />
+        <NavigationMenu data={this.props.data} />
         <main {...mainStyles}>{children()}</main>
       </section>
     )
   }
 }
+
+export const query = graphql`
+  query MainTemplateQuery {
+    ...socialMedia
+  }
+`

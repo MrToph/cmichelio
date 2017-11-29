@@ -8,6 +8,7 @@ Install this starter (assuming Gatsby is installed) by running from your CLI:
 `gatsby develop`
 
 ## TODO:
+* Enable eslint-no-unused etc.
 * Write plugin that copies over un-digested markdown-images without modifying the markdown according to the post's *slug*! (Needed solely for cross posting)
 * Write plugin that reads markdown svgs and copies them over modifying the markdown. like `gatsby-remark-images`. Done by `copy` plugin.
 

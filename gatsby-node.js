@@ -55,7 +55,6 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
       // return only the first folder/file, from first slash to second slash (including)
       slug = /^\/[\s\S]*?\//.exec(slug)[0]
     }
-    console.log({ slug })
     createNodeField({
       node,
       name: `slug`,

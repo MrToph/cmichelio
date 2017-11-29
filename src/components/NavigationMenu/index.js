@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import { css } from 'glamor'
 import { Bio, SocialBar, LatestTweet } from '..'
@@ -23,28 +24,30 @@ const scrollHide = css({
   padding: `0 calc(0.375rem + 17px) 0 0.375rem`,
 })
 
-export default class NavigationMenu extends Component {
-  render() {
-    /* 17 pixels is size of scrollbar */
-    return (
-      <nav {...navStyles}>
-        <div {...scrollHide}>
-          <Bio />
-          <div
-            css={{
-              display: 'flex',
-              justifyContent: 'space-around',
-              width: '100%',
-            }}
-          >
-            <Link to={`/`}>Blog</Link>
-            <Link to={`/about`}>About</Link>
-            <Link to={`/portfolio`}>Portfolio</Link>
-          </div>
-          <SocialBar />
-          <LatestTweet />
+export default function NavigationMenu({ data }) {
+  /* 17 pixels is size of scrollbar */
+  return (
+    <nav {...navStyles}>
+      <div {...scrollHide}>
+        <Bio />
+        <div
+          css={{
+            display: 'flex',
+            justifyContent: 'space-around',
+            width: '100%',
+          }}
+        >
+          <Link to={`/`}>Blog</Link>
+          <Link to={`/about`}>About</Link>
+          <Link to={`/portfolio`}>Portfolio</Link>
         </div>
-      </nav>
-    )
-  }
+        <SocialBar data={data} />
+        <LatestTweet />
+      </div>
+    </nav>
+  )
+}
+
+NavigationMenu.propTypes = {
+  data: PropTypes.object,
 }

@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'glamor'
-import { SocialIcon } from 'react-social-icons'
-// import metadata from '../../metadata'
-import { primaryColor } from '../../styling'
 import TwitterIcon from './icons/twitter.svg'
 import GitHubIcon from './icons/github.svg'
 import MediumIcon from './icons/medium.svg'
@@ -26,8 +23,18 @@ const iconStyles = css({
   },
 })
 
+const listStyle = css({
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-around',
+  width: '100%',
+  padding: 0,
+  listStyleType: 'none',
+  margin: '1rem 0',
+})
+
 const Icon = ({ icon, url }) => (
-  <a rel="noopener noreferrer" target="__blank" href={url}>
+  <a className="no-style" rel="noopener noreferrer" target="__blank" href={url}>
     <img src={icon} {...iconStyles} />
   </a>
 )
@@ -38,41 +45,68 @@ Icon.propTypes = {
 }
 
 export default class SocialBar extends Component {
+  static propTypes = {
+    data: PropTypes.shape({
+      site: PropTypes.shape({
+        siteMetadata: PropTypes.shape({
+          twitter: PropTypes.string,
+          github: PropTypes.string,
+          medium: PropTypes.string,
+          steem: PropTypes.string,
+          linkedIn: PropTypes.string,
+        }),
+      }),
+    }).isRequired,
+  }
   render() {
-    console.log(TwitterIcon)
+    const { data } = this.props
     return (
-      <ul
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          width: '100%',
-          padding: `1rem`,
-          listStyleType: 'none',
-          margin: 0,
-        }}
-      >
-        {/* <li>
-          <a rel="noopener noreferrer" target="__blank" href="//yuppi.es/atom">
-            <Icon icon="rss" />
-          </a>
-        </li> */}
+      <ul {...listStyle}>
         <li>
-          <Icon url="//twitter.com/cmichelio" icon={TwitterIcon} />
+          <Icon
+            url={`//twitter.com/${data.site.siteMetadata.twitter}`}
+            icon={TwitterIcon}
+          />
         </li>
         <li>
-          <Icon url="//github.com/MrToph" icon={GitHubIcon} />
+          <Icon
+            url={`//github.com/${data.site.siteMetadata.github}`}
+            icon={GitHubIcon}
+          />
         </li>
         <li>
-          <Icon url="//twitter.com/cmichelio" icon={MediumIcon} />
+          <Icon
+            url={`//medium.com/@${data.site.siteMetadata.medium}`}
+            icon={MediumIcon}
+          />
         </li>
         <li>
-          <Icon url="//twitter.com/cmichelio" icon={SteemitIcon} />
+          <Icon
+            url={`//steemit.com/@${data.site.siteMetadata.steem}`}
+            icon={SteemitIcon}
+          />
         </li>
         <li>
-          <Icon url="//twitter.com/cmichelio" icon={LinkedInIcon} />
+          <Icon
+            url={`//linkedin.com/in/${data.site.siteMetadata.linkedIn}`}
+            icon={LinkedInIcon}
+          />
         </li>
       </ul>
     )
   }
 }
+
+export const SocialBarQuery = graphql`
+  fragment socialMedia on RootQueryType {
+    site {
+      siteMetadata {
+        twitter
+        github
+        medium
+        steem
+        linkedIn
+      }
+    }
+  }
+`

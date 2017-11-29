@@ -2,7 +2,7 @@ const config = {
   backgroundColor: '#fff',
   primaryColor: '#0645ad',
   primaryColorLight: '#90caf9',
-  primaryColorContrasted: '#fafafa',
+  primaryColorInverted: '#fafafa',
   secondaryColor: '#E91E63',
   secondaryColorLight: 'F48FB1',
   pageWidth: '60rem',

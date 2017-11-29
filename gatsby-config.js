@@ -4,6 +4,11 @@ module.exports = {
     author: 'Christoph Michel',
     description: 'A starter blog demonstrating what Gatsby can do.',
     siteUrl: 'https:/cmichel.io/',
+    twitter: 'cmichelio',
+    github: 'MrToph',
+    medium: 'cmichel',
+    steem: 'cmichel',
+    linkedIn: 'christoph-michel-dev'
   },
   pathPrefix: '/',
   plugins: [

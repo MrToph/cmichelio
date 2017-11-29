@@ -5,7 +5,8 @@ import get from 'lodash/get'
 import 'prismjs/themes/prism-twilight.css'
 import './prismjs-hightlight.css'
 
-class BlogPostTemplate extends React.Component {
+
+export default class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
@@ -33,8 +34,6 @@ class BlogPostTemplate extends React.Component {
     )
   }
 }
-
-export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
