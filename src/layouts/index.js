@@ -27,7 +27,9 @@ css.global('html, body', {
   fontFamily: `"Helvetica Neue", Roboto, "Segoe UI", Calibri, sansserif`,
   boxSizing: `border-box`,
 })
-css.global('body a:not(.no-style)', {
+
+const classesToIgnore = ['no-style', 'gatsby-resp-image-link'].map(className => `:not(.${className})`).join('')
+css.global(`body a${classesToIgnore}`, {
   display: 'inline-block',
   position: 'relative',
   color: primaryColor,
@@ -36,10 +38,15 @@ css.global('body a:not(.no-style)', {
   fontWeight: 500,
   transition: 'color 0.2s',
 })
-css.global('body a:not(.no-style):hover, body a:not(.no-style):focus', {
-  color: primaryColorInverted,
-})
-css.global('body a:not(.no-style)::before', {
+css.global(
+  `body a${classesToIgnore}:hover, body a${
+    classesToIgnore
+  }:focus`,
+  {
+    color: primaryColorInverted,
+  }
+)
+css.global(`body a${classesToIgnore}::before`, {
   position: `absolute`,
   top: `0px`,
   left: `-5px`,
@@ -54,10 +61,15 @@ css.global('body a:not(.no-style)::before', {
   transition: `transform 0.2s, opacity 0.2s`,
   transform: `skewY(-3deg) skewX(-11deg)`,
 })
-css.global('body a:not(.no-style):hover::before, body a:not(.no-style):focus::before', {
-  opacity: 1,
-  transform: `skewY(0) skewX(0)`,
-})
+css.global(
+  `body a${classesToIgnore}:hover::before, body a${
+    classesToIgnore
+  }:focus::before`,
+  {
+    opacity: 1,
+    transform: `skewY(0) skewX(0)`,
+  }
+)
 
 export default class MainTemplate extends React.Component {
   render() {
