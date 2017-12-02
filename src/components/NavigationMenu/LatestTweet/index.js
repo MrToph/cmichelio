@@ -1,7 +1,8 @@
 /* global twttr */
 import React from 'react'
+import PropTypes from 'prop-types'
 import { css } from 'glamor'
-import { isClientSide } from '../../utils'
+import { isClientSide } from '../../../utils'
 import styles from './index.css'
 
 const tweetCardStyles = css({
@@ -21,6 +22,16 @@ const tweetCardStyles = css({
 })
 
 export default class LatestTweet extends React.Component {
+  static propTypes = {
+    data: PropTypes.shape({
+      site: PropTypes.shape({
+        siteMetadata: PropTypes.shape({
+          twitter: PropTypes.string.isRequired,
+        }).isRequired,
+      }).isRequired,
+    }).isRequired,
+  }
+
   componentDidMount() {
     if (isClientSide() && typeof twttr !== 'undefined' && twttr.widgets) {
       twttr.widgets.load(document.getElementById('latestTweet'))
@@ -28,6 +39,7 @@ export default class LatestTweet extends React.Component {
   }
 
   render() {
+    const { twitter } = this.props.data.site.siteMetadata
     return (
       <div id="latestTweet" {...tweetCardStyles}>
         <h3 style={{ textAlign: 'center' }}>Latest Tweet</h3>
@@ -37,7 +49,7 @@ export default class LatestTweet extends React.Component {
           data-dnt="true"
           data-tweet-limit="1"
           data-chrome="nofooter noheader transparent"
-          href="https://twitter.com/cmichelio"
+          href={`https://twitter.com/${twitter}`}
         />
       </div>
     )

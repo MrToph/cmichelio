@@ -62,3 +62,16 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     })
   }
 }
+
+exports.onCreatePage = async ({ page, boundActionCreators }) => {
+  const { createPage } = boundActionCreators
+
+  // page.matchPath is a special key that's used for matching pages
+  // only on the client.
+  // we use it to make the categories page work
+  if (page.path === '/categories/') {
+    page.matchPath = '/categories/:category'
+
+    createPage(page)
+  }
+}

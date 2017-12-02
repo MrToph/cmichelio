@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
   plugins: ['react'],
   globals: {
     graphql: false,
@@ -15,4 +16,7 @@ module.exports = {
       jsx: true,
     },
   },
+  rules: {
+    semi: [2, 'never'],
+  }
 }

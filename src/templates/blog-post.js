@@ -5,7 +5,6 @@ import get from 'lodash/get'
 import 'prismjs/themes/prism-twilight.css'
 import './prismjs-hightlight.css'
 
-
 export default class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
@@ -46,9 +45,13 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
+      excerpt
       frontmatter {
+        date(formatString: "DD MMMM, YYYY")
         title
-        date(formatString: "MMMM DD, YYYY")
+        disqus_identifier
+        featured
+        categories
       }
     }
   }

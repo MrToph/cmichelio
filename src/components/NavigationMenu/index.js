@@ -2,7 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import { css } from 'glamor'
-import { Bio, SocialBar, LatestTweet } from '..'
+import Bio from './Bio'
+import LatestTweet from './LatestTweet'
+import SocialBar from './SocialBar'
 import { navBarWidth } from '../../styling'
 
 const navStyles = css({
@@ -42,12 +44,12 @@ export default function NavigationMenu({ data }) {
           <Link to={`/portfolio`}>Portfolio</Link>
         </div>
         <SocialBar data={data} />
-        <LatestTweet />
+        <LatestTweet data={data} />
       </div>
     </nav>
   )
 }
 
 NavigationMenu.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.object.isRequired,
 }

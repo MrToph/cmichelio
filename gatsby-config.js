@@ -61,5 +61,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-glamor`,
     `gatsby-plugin-twitter`,
+    `gatsby-plugin-react-next`,
   ],
 }

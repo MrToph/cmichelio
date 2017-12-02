@@ -1,13 +1,12 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import { css, before, after } from 'glamor'
+import PropTypes from 'prop-types'
+import { css } from 'glamor'
 import 'glamor/reset'
 import NavigationMenu from '../components/NavigationMenu'
 import {
   pageWidth,
   navBarWidth,
   primaryColor,
-  primaryColorLight,
   primaryColorInverted,
 } from '../styling'
 
@@ -23,7 +22,7 @@ const pageStyles = css({
   padding: `0`,
 })
 
-css.global('html, body', {
+css.global('html, body *', {
   fontFamily: `"Helvetica Neue", Roboto, "Segoe UI", Calibri, sansserif`,
   boxSizing: `border-box`,
 })
@@ -72,8 +71,12 @@ css.global(
 )
 
 export default class MainTemplate extends React.Component {
+  static propTypes = {
+    data: PropTypes.object.isRequired,
+    children: PropTypes.func.isRequired,
+  }
   render() {
-    const { location, children } = this.props
+    const { children } = this.props
     return (
       <section {...pageStyles}>
         <NavigationMenu data={this.props.data} />
