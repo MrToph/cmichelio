@@ -15,7 +15,7 @@ import parseMath from './src/plugins/markdown-math'
 
 export default (config = {}) => {
   const postcssPlugins = () => [
-    require("stylelint")(),
+    // require("stylelint")(),
     require('postcss-import')({
       addDependencyTo: webpack
       /* Is equivalent to
