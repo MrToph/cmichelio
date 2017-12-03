@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
+    title: `Christoph Michel's Blog`,
     author: 'Christoph Michel',
     description: 'A starter blog demonstrating what Gatsby can do.',
     siteUrl: 'https:/cmichel.io/',
@@ -8,7 +8,7 @@ module.exports = {
     github: 'MrToph',
     medium: 'cmichel',
     steem: 'cmichel',
-    linkedIn: 'christoph-michel-dev'
+    linkedIn: 'christoph-michel-dev',
   },
   pathPrefix: '/',
   plugins: [

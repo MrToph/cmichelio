@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import AboutContent from '../components/About'
+import PortfolioContent from '../components/Portfolio'
 
-export default class About extends React.Component {
+export default class Portfolio extends React.Component {
   static propTypes = {
     data: PropTypes.shape({
       site: PropTypes.shape({
@@ -14,16 +14,16 @@ export default class About extends React.Component {
     }).isRequired,
   }
   render() {
-    const siteTitle = `About - ${get(this, 'props.data.site.siteMetadata.title')}`
+    const siteTitle = `Portfolio - ${get(this, 'props.data.site.siteMetadata.title')}`
     return [
       <Helmet key="helmet" title={siteTitle} />,
-      <AboutContent key="about" />,
+      <PortfolioContent key="portfolio" />,
     ]
   }
 }
 
-export const AboutQuery = graphql`
-  query AboutQuery {
+export const PortfolioQuery = graphql`
+  query PortfolioQuery {
     site {
       siteMetadata {
         title
