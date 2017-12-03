@@ -12,6 +12,10 @@ https://toddmotto.com/typescript-setters-getter
 ## TODO:
 * Write plugin that copies over un-digested markdown-images without modifying the markdown according to the post's *slug*! (Needed solely for cross posting)
 * Write plugin that reads markdown svgs and copies them over modifying the markdown. like `gatsby-remark-images`. Done by `copy` plugin.
+* Install google-analytics plugin
+* Move static pages, like L-system to github, and adapt links in the markdown files
+* Check if feed is correct
+* Add drip widget?
 
 ## Cross post
 * Write command that publishes posts to medium + steemit

@@ -23,17 +23,17 @@ const titleStyles = css({
 })
 
 const featuredImageWrapperStyles = css({
-    display: `inline-flex`,
-    justifyContent: `center`,
-    alignItems: `flex-start`,
-    float: `left`,
-    width: `200px`,
-    margin: `1rem 0.5rem`,
+  display: `inline-flex`,
+  justifyContent: `center`,
+  alignItems: `flex-start`,
+  float: `left`,
+  width: `200px`,
+  margin: `1rem 0.5rem`,
 })
 
 const featuredImageStyles = css({
-    maxWidth: 200,
-    maxHeight: 200,
+  maxWidth: 200,
+  maxHeight: 200,
 })
 
 export default class PostOutline extends React.Component {
@@ -47,30 +47,40 @@ export default class PostOutline extends React.Component {
         categories: PropTypes.arrayOf(PropTypes.string),
       }).isRequired,
     }).isRequired,
+    short: PropTypes.bool,
+  }
+
+  static defaultProps = {
+    short: false,
+  }
+
+  renderExcerpt() {
+    if (this.props.short) return null
+    const { post } = this.props
+    const { frontmatter: { featured } } = post
+    return [
+      featured && (
+        <span key="featureImage" {...featuredImageWrapperStyles}>
+          <img src={featured} {...featuredImageStyles} />
+        </span>
+      ),
+      <p key="excerpt" dangerouslySetInnerHTML={{ __html: post.excerpt }} />,
+    ]
   }
 
   render() {
     const { post } = this.props
-    const { frontmatter: { featured } } = post
     const title = get(post, 'frontmatter.title') || post.fields.slug
     return (
       <li {...postContainerStyles}>
         <h3 {...titleStyles}>
-          <Link to={post.fields.slug}>
-            {title}
-          </Link>
+          <Link to={post.fields.slug}>{title}</Link>
         </h3>
         <CategoryBar
           date={post.frontmatter.date}
           categories={post.frontmatter.categories}
         />
-        {
-          featured &&
-          <span {...featuredImageWrapperStyles}>
-            <img src={featured} {...featuredImageStyles} />
-          </span>
-        }
-        <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+        {this.renderExcerpt()}
       </li>
     )
   }

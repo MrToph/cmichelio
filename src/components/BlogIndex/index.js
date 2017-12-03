@@ -34,8 +34,8 @@ export default class BlogIndexPosts extends React.Component {
       <section id="blogIndex">
         <IndexHeader key="indexHeader" selectedCategory={selectedCategory} />
         <ol id="postsList" key="postsList" {...postContainerStyles}>
-          {filteredPosts.map(({ node }) => (
-            <PostOutline post={node} key={node.fields.slug} />
+          {filteredPosts.map(({ node }, index) => (
+            <PostOutline post={node} key={node.fields.slug} short={index >= 5} />
           ))}
         </ol>
       </section>

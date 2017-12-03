@@ -44,9 +44,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   })
 }
 
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
+exports.onCreateNode = ({
+  node,
+  boundActionCreators,
+  getNode,
+}) => {
   const { createNodeField } = boundActionCreators
-
   if (node.internal.type === `MarkdownRemark`) {
     let slug = ''
     if (node.frontmatter && node.frontmatter.slug) slug = node.frontmatter.slug
@@ -63,7 +66,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   }
 }
 
-exports.onCreatePage = async ({ page, boundActionCreators }) => {
+exports.onCreatePage = ({ page, boundActionCreators }) => {
   const { createPage } = boundActionCreators
 
   // page.matchPath is a special key that's used for matching pages

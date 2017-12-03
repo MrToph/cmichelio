@@ -22,12 +22,32 @@ const pageStyles = css({
   padding: `0`,
 })
 
+/**
+ * Global Styles
+ */
+
+/**
+ * Font-Styles
+ */
+css.global('html', {
+  fontSize: 17,
+  minHeight: `100%`,
+})
+css.global('body', {
+  fontSize: `1rem`,
+  lineHeight: `1.58rem`,
+  fontFamily: `-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif`,
+})
 css.global('html, body *', {
-  fontFamily: `"Helvetica Neue", Roboto, "Segoe UI", Calibri, sansserif`,
   boxSizing: `border-box`,
 })
 
-const classesToIgnore = ['no-style', 'gatsby-resp-image-link'].map(className => `:not(.${className})`).join('')
+/**
+ * Anchor Styles
+ */
+const classesToIgnore = ['no-style', 'gatsby-resp-image-link']
+  .map(className => `:not(.${className})`)
+  .join('')
 css.global(`body a${classesToIgnore}`, {
   display: 'inline-block',
   position: 'relative',
@@ -37,14 +57,9 @@ css.global(`body a${classesToIgnore}`, {
   fontWeight: 500,
   transition: 'color 0.2s',
 })
-css.global(
-  `body a${classesToIgnore}:hover, body a${
-    classesToIgnore
-  }:focus`,
-  {
-    color: primaryColorInverted,
-  }
-)
+css.global(`body a${classesToIgnore}:hover, body a${classesToIgnore}:focus`, {
+  color: primaryColorInverted,
+})
 css.global(`body a${classesToIgnore}::before`, {
   position: `absolute`,
   top: `0px`,
