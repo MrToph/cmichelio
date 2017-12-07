@@ -96,7 +96,7 @@ export default class PortfolioContent extends React.Component {
               see them visualized.
             </p>
             <div {...horizontalContainerStyles}>
-              <IsomorphicButton url="/fractals-LSystem/">
+              <IsomorphicButton url="/projects/fractals-LSystem/">
                 Try it
               </IsomorphicButton>
               <IsomorphicButton

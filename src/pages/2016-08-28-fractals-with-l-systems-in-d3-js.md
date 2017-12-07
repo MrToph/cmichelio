@@ -12,7 +12,7 @@ categories:
 - Tech
 - Math
 ---
-This is the development post for my [L-System project](/fractals-LSystem), where I 'll show you how to draw all kinds of fractals in [D3.js](https://github.com/d3/d3). If you haven't seen it, be sure to check it out first, or at least let the following fractals we are going to build get you excited.
+This is the development post for my [L-System project](/projects/fractals-LSystem), where I 'll show you how to draw all kinds of fractals in [D3.js](https://github.com/d3/d3). If you haven't seen it, be sure to check it out first, or at least let the following fractals we are going to build get you excited.
 
 ![Dragon Curve Fractal Iterations](http://cmichel.io/assets/2016/08/dragonCurve-300.gif)![Koch Curve Fractal Iterations](http://cmichel.io/assets/2016/08/kochCurve300.gif)
 
@@ -60,6 +60,6 @@ We will interpret _F_ again as **draw a straight line of constant size forward**
 The implementation of the L-System parser and the Turtle Graphics is quite simple and only needs a few lines of code. For the UI and storing state of the application, I used [React](https://facebook.github.io/react/) and [Redux](http://redux.js.org/), while [D3.js](https://github.com/d3/d3) renders the fractals in a `svg`.
 The full source code is available on [GitHub](https://github.com/MrToph/L-System), the most interesting parts are probably the [L-System Parser](https://github.com/MrToph/L-System/blob/master/src/LSystem/index.js) and the [Turtle Drawing SVG System](https://github.com/MrToph/L-System/blob/master/src/LSystem/TurtleDrawingSubsystem.js)
 
-Play around with my implementation [here](/fractals-LSystem), change the productions to create some interesting fractals, and share them with me in the comments.
+Play around with my implementation [here](/projects/fractals-LSystem), change the productions to create some interesting fractals, and share them with me in the comments.
 
 ![Hilbert Curve Fractal Iterations](http://cmichel.io/assets/2016/08/hilbertCurve300.gif)![Pythagoras Tree Fractal Iterations](http://cmichel.io/assets/2016/08/pythagorasTree300.gif)

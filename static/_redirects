@@ -1,0 +1,4 @@
+# Netlify redirects https://www.netlify.com/docs/redirects/
+# Affiliate Links Start
+/redirects/rescuetime https://www.rescuetime.com/rp/cmichel 301
+# Affiliate Links End
