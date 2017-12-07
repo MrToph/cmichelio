@@ -16,6 +16,7 @@ https://toddmotto.com/typescript-setters-getter
 * Move static pages, like L-system to github, and adapt links in the markdown files
 * Check if feed is correct
 * Add drip widget?
+* Make mobile responsive
 
 ## Cross post
 * Write command that publishes posts to medium + steemit

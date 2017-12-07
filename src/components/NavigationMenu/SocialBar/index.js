@@ -6,6 +6,7 @@ import GitHubIcon from './icons/github.svg'
 import MediumIcon from './icons/medium.svg'
 import SteemitIcon from './icons/steemit.svg'
 import LinkedInIcon from './icons/linkedin.svg'
+import { singleColumnMediaQuery } from '../../../styling'
 
 const iconStyles = css({
   width: 20,
@@ -21,6 +22,9 @@ const iconStyles = css({
     cursor: 'pointer',
     transform: 'scale(1.1)',
   },
+  [singleColumnMediaQuery]: {
+    margin: `10px`
+  },
 })
 
 const listStyle = css({
@@ -31,6 +35,10 @@ const listStyle = css({
   padding: 0,
   listStyleType: 'none',
   margin: '1rem 0',
+  [singleColumnMediaQuery]: {
+    justifyContent: `center`,
+    width: `auto`,
+  },
 })
 
 const Icon = ({ icon, url }) => (

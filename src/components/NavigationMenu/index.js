@@ -5,7 +5,7 @@ import { css } from 'glamor'
 import Bio from './Bio'
 import LatestTweet from './LatestTweet'
 import SocialBar from './SocialBar'
-import { navBarWidth } from '../../styling'
+import { navBarWidth, singleColumnMediaQuery } from '../../styling'
 
 const navStyles = css({
   position: `fixed`,
@@ -15,6 +15,13 @@ const navStyles = css({
   width: `${navBarWidth}`,
   maxHeight: `100%`,
   padding: `0`,
+  [singleColumnMediaQuery]: {
+    position: 'relative',
+    width: '100%',
+    height: 'inherit',
+    margin: '0 auto',
+    overflow: 'visible',
+  },
 })
 
 const scrollHide = css({
@@ -24,6 +31,23 @@ const scrollHide = css({
   overflowY: `scroll` /* make the scroll bar always appear */,
   width: `calc(${navBarWidth} + 17px)` /* rhythm(8 + pixelToRhythm(17)), */,
   padding: `0 calc(0.375rem + 17px) 0 0.375rem`,
+  [singleColumnMediaQuery]: {
+    overflowY: 'visible',
+    width: '100%',
+    padding: '0 1.5rem',
+  },
+})
+
+const linkContainerStyles = css({
+  display: 'flex',
+  justifyContent: 'space-around',
+  width: '100%',
+  [singleColumnMediaQuery]: {
+    justifyContent: `center`,
+    '& > *': {
+      margin: `10px`,
+    },
+  },
 })
 
 export default function NavigationMenu({ data }) {
@@ -32,13 +56,7 @@ export default function NavigationMenu({ data }) {
     <nav {...navStyles}>
       <div {...scrollHide}>
         <Bio />
-        <div
-          css={{
-            display: 'flex',
-            justifyContent: 'space-around',
-            width: '100%',
-          }}
-        >
+        <div {...linkContainerStyles}>
           <Link to={`/`}>Blog</Link>
           <Link to={`/about`}>About</Link>
           <Link to={`/portfolio`}>Portfolio</Link>

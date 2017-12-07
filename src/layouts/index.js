@@ -8,11 +8,18 @@ import {
   navBarWidth,
   primaryColor,
   primaryColorInverted,
+  singleColumnMediaQuery,
 } from '../styling'
 
 const mainStyles = css({
   width: `calc(100% - ${navBarWidth} - 1.8rem)`,
   marginLeft: `calc(${navBarWidth} + 1.8rem)`,
+  [singleColumnMediaQuery]: {
+    marginLeft: '0',
+    width: '100%',
+    maxWidth: '100%',
+    padding: '0 1.5rem',
+  },
 })
 
 const pageStyles = css({
@@ -20,6 +27,12 @@ const pageStyles = css({
   width: `100%`,
   margin: `0 auto`,
   padding: `0`,
+  [singleColumnMediaQuery]: {
+    maxWidth: '100%',
+    width: '100%',
+    margin: '0 auto',
+    padding: '0',
+  },
 })
 
 /**
@@ -32,6 +45,9 @@ const pageStyles = css({
 css.global('html', {
   fontSize: 17,
   minHeight: `100%`,
+  [singleColumnMediaQuery]: {
+    fontSize: 16,
+  },
 })
 css.global('body', {
   fontSize: `1rem`,

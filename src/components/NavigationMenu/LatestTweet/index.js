@@ -3,7 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'glamor'
 import { isClientSide } from '../../../utils'
-import styles from './index.css'
+import { singleColumnMediaQuery } from '../../../styling'
 
 const tweetCardStyles = css({
   display: `inline-block`,
@@ -19,6 +19,9 @@ const tweetCardStyles = css({
   boxShadow: `0 1px 3px rgba(0, 0, 0, 0.15)`,
   padding: `0`,
   overflow: `hidden`,
+  [singleColumnMediaQuery]: {
+    width: `auto`,
+  },
 })
 
 export default class LatestTweet extends React.Component {
@@ -45,7 +48,7 @@ export default class LatestTweet extends React.Component {
         <h3 style={{ textAlign: 'center' }}>Latest Tweet</h3>
         <a
           className="twitter-timeline"
-          data-width="180"
+          data-width="100%"
           data-dnt="true"
           data-tweet-limit="1"
           data-chrome="nofooter noheader transparent"
