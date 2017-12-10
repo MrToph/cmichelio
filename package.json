@@ -4,7 +4,7 @@
   "description": "",
   "version": "2.0.0",
   "author": "Christoph Michel <mail@cmichel.io>",
-  "homepage": "http://cmichel.io",
+  "homepage": "https://cmichel.io",
   "keywords": [
     "gatsby"
   ],
@@ -46,7 +46,11 @@
     "eslint": "^4.11.0",
     "eslint-plugin-react": "^7.5.1",
     "gh-pages": "^1.1.0",
-    "prettier": "^1.8.2"
+    "js-yaml": "^3.10.0",
+    "prettier": "^1.8.2",
+    "remark-frontmatter": "^1.2.0",
+    "to-vfile": "^2.1.2",
+    "yargs": "^10.0.3"
   },
   "scripts": {
     "dev": "gatsby develop",
@@ -56,6 +60,7 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths",
-    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js",
+    "crosspost": "node scripts/publish/index.js"
   }
 }

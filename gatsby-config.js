@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Christoph Michel's Blog`,
+    title: `cmichel`,
     author: 'Christoph Michel',
-    description: 'A starter blog demonstrating what Gatsby can do.',
+    description: `Christoph Michel's Blog.`,
     siteUrl: 'https:/cmichel.io/',
     twitter: 'cmichelio',
     github: 'MrToph',

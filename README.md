@@ -11,13 +11,13 @@ https://toddmotto.com/typescript-setters-getter
 
 ## TODO:
 * [x] Install google-analytics plugin
-* [ ] Move static pages, like _L-system to github_, _rescuetime redirect_, and adapt links in the markdown files
+* [x] Move static pages, like _L-system to github_, _rescuetime redirect_, and adapt links in the markdown files
     * [x] redirects
     * [x] projects/d3-bubble-chart
     * [x] fractals-LSystem
 * [x] Check if feed is correct
-* [ ] Add drip widget?
 * [x] Make mobile responsive
+* [ ] Add drip widget?
 * [ ] Write plugin that reads markdown svgs and copies them over modifying the markdown. like `gatsby-remark-images`. Done by `copy` plugin.
 * [ ] Write plugin that copies over un-digested markdown-images without modifying the markdown according to the post's *slug*! (Needed solely for cross posting)
 
