@@ -1,6 +1,5 @@
 const url = require('url')
 const visit = require('unist-util-visit')
-const yaml = require('js-yaml')
 
 function urlIsRelative(url) {
   // catches http(s)://example.io but also //example.io
@@ -13,11 +12,27 @@ function joinUrls(siteUrl, slug, relativeUrl) {
   return url.resolve(siteUrlWithSlug, `${relativeUrl}`)
 }
 
+const markFactory = () => {
+  const removedNodes = []
+  const markForRemovalVisitor = node => {
+    removedNodes.push(node)
+  }
+  markForRemovalVisitor.nodes = removedNodes
+  return markForRemovalVisitor
+}
+
+const removeFactory = nodes => (node, index, parent) => {
+  if (parent && nodes.indexOf(node) !== -1) {
+    parent.children.splice(index, 1)
+    return index
+  }
+}
+
 function attacher(options) {
   const { siteUrl, slug } = options
   return transformer
 
-  function visitor(node) {
+  function replaceUrl(node) {
     if (!node.url || !urlIsRelative(node.url)) return
     const absoluteUrl = joinUrls(siteUrl, slug, node.url)
     console.log(`Rewriting link "${node.url}" to "${absoluteUrl}" ...`)
@@ -25,18 +40,14 @@ function attacher(options) {
   }
 
   function transformer(tree) {
-    let frontmatter
-    visit(tree, `yaml`, node => {
-      frontmatter = yaml.load(node.value)
-    })
-    if (!frontmatter) throw new Error('No frontmatter found in markdown-AST')
-    console.log(`Found frontmatter ...`)
+    const markNodeVisitor = markFactory()
+    visit(tree, 'yaml', markNodeVisitor)
+    visit(tree, removeFactory(markNodeVisitor.nodes))
+
     console.log(`Rewriting image links ...`)
-    visit(tree, 'image', visitor)
+    visit(tree, 'image', replaceUrl)
     console.log(`Rewriting anchor links ...`)
-    visit(tree, 'link', visitor)
-    // console.log('frontmatter', frontmatter)
-    // console.log(JSON.stringify(tree))
+    visit(tree, 'link', replaceUrl)
   }
 }
 
