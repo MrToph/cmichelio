@@ -1,6 +1,6 @@
-const argv = require('yargs').argv
 const helpers = require('../common')
 const remarkMedium = require('./remark-medium')
+const client = require('./client')
 
 const publishToMedium = async pathsToPosts => {
   for (let path of pathsToPosts) {
@@ -10,6 +10,14 @@ const publishToMedium = async pathsToPosts => {
         remarkMedium
       )
       // console.log(transformedPost)
+      const { frontmatter, postUrl } = transformedPost
+      console.log(
+        `Creating post "${frontmatter.title}" (${postUrl}) on medium ...`
+      )
+      const response = await client.createPost(transformedPost)
+      console.log(
+        `Published to medium: ${response.url}\n${JSON.stringify(response)}`
+      )
     } catch (ex) {
       console.log(ex)
     }

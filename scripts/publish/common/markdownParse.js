@@ -85,7 +85,14 @@ const transformPostFromPath = async (filePath, transformerPlugin) => {
         .process(vfile.readSync(filePath), function(err, result) {
           if (err) return reject(err)
           // console.log(String(result))
-          return resolve(String(result))
+          const returnValue = {
+            content: String(result),
+            frontmatter,
+            postUrl,
+            siteUrl,
+            slug,
+          }
+          return resolve(returnValue)
         })
     })
   } catch (ex) {
