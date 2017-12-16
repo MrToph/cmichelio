@@ -50,7 +50,6 @@ async function getFrontmatter(filePath) {
  *  Used to further customize the post
  */
 const transformPostFromPath = async (filePath, transformerPlugin) => {
-  console.log('transformPostFromPath')
   // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-remark/src/extend-node-type.js
 
   try {
@@ -82,34 +81,25 @@ const transformPostFromPath = async (filePath, transformerPlugin) => {
           frontmatter,
         })
         .use(stringify)
-        .process(vfile.readSync(filePath), function(err, result) {
+        .process(vfile.readSync(filePath), function(err, vfile) {
           if (err) return reject(err)
-          // console.log(String(result))
-          const returnValue = {
-            content: String(result),
-            frontmatter,
-            postUrl,
-            siteUrl,
-            slug,
-          }
+          const returnValue = Object.assign(
+            {
+              content: String(vfile),
+              frontmatter,
+              postUrl,
+              siteUrl,
+              slug,
+            },
+            // merge with custom data returned by transformerPlugin
+            vfile.data
+          )
           return resolve(returnValue)
         })
     })
   } catch (ex) {
     console.log(ex)
   }
-
-  // unified()
-  //   .use(parse)
-  //   .use(stringify)
-  // // .use(frontmatter, ['yaml', 'toml'])
-  // // .use(() => console.log)
-  // // .process(vfile.readSync(filePath), function(err, file) {
-  // //   console.log(String(file))
-  // // })
-
-  // const markdownAST = remark.parse(`---\ntitle: TITEL READ!\n---\n\n## Hello`)
-  // console.log(remark.stringify(markdownAST))
 }
 
 module.exports = {

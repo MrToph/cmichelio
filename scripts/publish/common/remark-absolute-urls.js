@@ -35,7 +35,7 @@ function attacher(options) {
   function replaceUrl(node) {
     if (!node.url || !urlIsRelative(node.url)) return
     const absoluteUrl = joinUrls(siteUrl, slug, node.url)
-    console.log(`Rewriting link "${node.url}" to "${absoluteUrl}" ...`)
+    console.log(`\tRewriting link "${node.url}" to "${absoluteUrl}" ...`)
     node.url = absoluteUrl
   }
 

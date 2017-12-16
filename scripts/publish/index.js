@@ -7,6 +7,7 @@
 
 const argv = require('yargs').argv
 const publishToMedium = require('./medium')
+const publishToSteem = require('./steem')
 const helpers = require('./common')
 
 const publishPosts = async () => {
@@ -45,11 +46,14 @@ const publishPosts = async () => {
     : []
   if (parameterlessOptions.length === 0) {
     // publish to all platforms
-    publishToMedium(pathsToPosts)
-    // publishToSteem(pathsToPosts)
+    await publishToMedium(pathsToPosts)
+    await publishToSteem(pathsToPosts)
   } else if (parameterlessOptions.some(option => option === 'medium')) {
-    publishToMedium(pathsToPosts)
+    await publishToMedium(pathsToPosts)
+  } else if (parameterlessOptions.some(option => option === 'steem')) {
+    await publishToSteem(pathsToPosts)
   }
+  process.exit()
 }
 
 publishPosts()

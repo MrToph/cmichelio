@@ -3,6 +3,7 @@ const remarkMedium = require('./remark-medium')
 const client = require('./client')
 
 const publishToMedium = async pathsToPosts => {
+  console.log(`=========== MEDIUM ===========`)
   for (let path of pathsToPosts) {
     try {
       const transformedPost = await helpers.transformPostFromPath(

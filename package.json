@@ -50,6 +50,7 @@
     "medium-sdk": "0.0.4",
     "prettier": "^1.8.2",
     "remark-frontmatter": "^1.2.0",
+    "steem": "^0.6.7",
     "to-vfile": "^2.1.2",
     "yargs": "^10.0.3"
   },

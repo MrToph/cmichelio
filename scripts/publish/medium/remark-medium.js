@@ -1,6 +1,3 @@
-const url = require('url')
-const visit = require('unist-util-visit')
-
 const createHorizontalRule = () => ({
   type: `thematicBreak`,
 })
