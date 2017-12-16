@@ -36,6 +36,14 @@ export default class LatestTweet extends React.Component {
   }
 
   componentDidMount() {
+    this.refreshTweet()
+  }
+
+  componentDidUpdate() {
+    this.refreshTweet()
+  }
+
+  refreshTweet() {
     if (isClientSide() && typeof twttr !== 'undefined' && twttr.widgets) {
       twttr.widgets.load(document.getElementById('latestTweet'))
     }
@@ -56,9 +64,5 @@ export default class LatestTweet extends React.Component {
         />
       </div>
     )
-  }
-
-  shouldComponentUpdate() {
-    return false
   }
 }
