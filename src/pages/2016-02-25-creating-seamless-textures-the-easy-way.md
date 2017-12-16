@@ -7,7 +7,7 @@ layout: Post
 route: /creating-seamless-textures-the-easy-way/
 slug: creating-seamless-textures-the-easy-way
 title: Creating seamless textures the easy way
-featured: //cmichel.io/assets/2016/02/seamless-texture-finished.jpg
+featured: /assets/2016/02/seamless-texture-finished.jpg
 categories:
 - Games
 ---

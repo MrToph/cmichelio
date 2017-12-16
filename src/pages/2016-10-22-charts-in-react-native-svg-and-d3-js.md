@@ -7,7 +7,7 @@ layout: Post
 route: /charts-in-react-native-svg-and-d3-js/
 slug: charts-in-react-native-svg-and-d3-js
 title: Charts in React Native with React-Native-SVG and D3.js
-featured: //cmichel.io/assets/2016/10/react-native-svg-line-chart.png
+featured: /assets/2016/10/react-native-svg-line-chart.png
 categories:
 - Tech
 - React Native

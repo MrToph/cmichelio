@@ -7,7 +7,7 @@ layout: Post
 route: /playing-around-with-relay-graphql/
 slug: playing-around-with-relay-graphql
 title: Playing around with Relay and GraphQL
-featured: //cmichel.io/playing-around-with-relay-graphql/deck-builder.png
+featured: /playing-around-with-relay-graphql/deck-builder.png
 categories:
 - Tech
 - GraphQL

@@ -7,7 +7,7 @@ layout: Post
 route: /how-to-use-d3js-in-react/
 slug: how-to-use-d3js-in-react
 title: How to use D3.js in React
-featured: //cmichel.io/how-to-use-d3js-in-react/bubblechart.gif
+featured: /how-to-use-d3js-in-react/bubblechart.gif
 categories:
 - Tech
 - D3

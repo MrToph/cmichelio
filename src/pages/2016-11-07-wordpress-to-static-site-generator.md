@@ -7,7 +7,7 @@ layout: Post
 route: /wordpress-to-static-site-generator/
 slug: wordpress-to-static-site-generator
 title: Moving from WordPress to a Static Site Generator
-featured: //cmichel.io/assets/2016/11/wordpress-in-2016.gif
+featured: /assets/2016/11/wordpress-in-2016.gif
 categories:
 - Tech
 - WordPress

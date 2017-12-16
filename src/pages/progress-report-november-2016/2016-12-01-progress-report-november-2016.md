@@ -6,7 +6,7 @@ route: /progress-report-november-2016/
 disqus_identifier: progress-report-november-2016
 slug: progress-report-november-2016
 title: Progress Report - November 2016
-featured: //cmichel.io/progress-report-november-2016/app-traffic-phul.png
+featured: /progress-report-november-2016/app-traffic-phul.png
 categories:
 - Progress Report
 ---

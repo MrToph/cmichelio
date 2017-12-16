@@ -7,7 +7,7 @@ layout: Post
 route: /javascript-void-keyword/
 slug: javascript-void-keyword
 title: JavaScript void Keyword
-featured: //cmichel.io/javascript-void-keyword/javascript-void-keyword.png
+featured: /javascript-void-keyword/javascript-void-keyword.png
 categories:
 - Tech
 ---

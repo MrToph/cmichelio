@@ -7,7 +7,7 @@ layout: Post
 route: /how-are-generators-transpiled-to-es5/
 slug: how-are-generators-transpiled-to-es5
 title: How are generators transpiled to ES5
-featured: //cmichel.io/how-are-generators-transpiled-to-es5/how-are-generators-transpiled.png
+featured: /how-are-generators-transpiled-to-es5/how-are-generators-transpiled.png
 categories:
 - Tech
 ---

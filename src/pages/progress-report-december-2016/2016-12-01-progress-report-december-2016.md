@@ -6,7 +6,7 @@ route: /progress-report-december-2016/
 disqus_identifier: progress-report-december-2016
 slug: progress-report-december-2016
 title: Progress Report - December 2016
-featured: //cmichel.io/progress-report-december-2016/app-traffic-phul.png
+featured: /progress-report-december-2016/app-traffic-phul.png
 categories:
 - Progress Report
 ---

@@ -7,7 +7,7 @@ layout: Post
 route: /understanding-front-faces-winding-order-and-normals/
 slug: understanding-front-faces-winding-order-and-normals
 title: Understanding front faces - winding order and normals
-featured: //cmichel.io/assets/2016/02/winding-order-triangle-unity.png
+featured: /assets/2016/02/winding-order-triangle-unity.png
 categories:
 - Games
 - Math

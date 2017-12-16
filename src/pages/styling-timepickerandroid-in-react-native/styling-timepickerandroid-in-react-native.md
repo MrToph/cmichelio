@@ -7,7 +7,7 @@ layout: Post
 route: /styling-timepickerandroid-in-react-native/
 slug: styling-timepickerandroid-in-react-native
 title: Styling TimePickerAndroid in React Native
-featured: //cmichel.io/styling-timepickerandroid-in-react-native/timepickerandroid-react-native-style.png
+featured: /styling-timepickerandroid-in-react-native/timepickerandroid-react-native-style.png
 categories:
 - Tech
 - React Native

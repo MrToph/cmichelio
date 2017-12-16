@@ -7,7 +7,7 @@ layout: Post
 route: /limitations-of-the-react-native-js-engine/
 slug: limitations-of-the-react-native-js-engine
 title: Limitations of the react-native JS engine
-featured: //cmichel.io/assets/2016/09/es6-proxies-react-native.png
+featured: /assets/2016/09/es6-proxies-react-native.png
 categories:
 - Tech
 - React Native

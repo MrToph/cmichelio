@@ -7,7 +7,7 @@ layout: Post
 route: /react-native-progress-circle/
 slug: react-native-progress-circle
 title: Lightweight Progress Circles in React Native
-featured: //cmichel.io/react-native-progress-circle/featured.png
+featured: /react-native-progress-circle/featured.png
 categories:
 - Tech
 - React Native

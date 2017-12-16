@@ -7,7 +7,7 @@ layout: Post
 route: /how-to-get-the-size-of-a-react-native-view-dynamically/
 slug: how-to-get-the-size-of-a-react-native-view-dynamically
 title: How to Get The Size of a React Native View Dynamically
-featured: //cmichel.io/assets/2016/10/react-native-view-size-dynamic.png
+featured: /assets/2016/10/react-native-view-size-dynamic.png
 categories:
 - Tech
 - React Native

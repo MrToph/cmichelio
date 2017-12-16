@@ -7,7 +7,7 @@ layout: Post
 route: /how-is-async-await-transpiled-to-es5/
 slug: how-is-async-await-transpiled-to-es5
 title: How is async/await transpiled to ES5
-featured: //cmichel.io/how-is-async-await-transpiled-to-es5/how-is-async-await-transpiled.png
+featured: /how-is-async-await-transpiled-to-es5/how-is-async-await-transpiled.png
 categories:
 - Tech
 ---

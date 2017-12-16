@@ -7,7 +7,7 @@ layout: Post
 route: /set-react-native-app-icon-when-minimized/
 slug: set-react-native-app-icon-when-minimized
 title: Set React Native App Icon When Minimized
-featured: //cmichel.io/assets/2016/10/react-native-app-icon-minimized.jpg
+featured: /assets/2016/10/react-native-app-icon-minimized.jpg
 categories:
 - Tech
 - React Native

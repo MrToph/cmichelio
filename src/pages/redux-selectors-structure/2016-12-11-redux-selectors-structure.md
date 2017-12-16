@@ -6,7 +6,7 @@ route: /redux-selectors-structure/
 disqus_identifier: redux-selectors-structure
 slug: redux-selectors-structure
 title: Structuring Redux Selectors
-featured: //cmichel.io/redux-selectors-structure/reduxFileStructure.svg
+featured: /redux-selectors-structure/reduxFileStructure.svg
 categories:
 - Redux
 ---

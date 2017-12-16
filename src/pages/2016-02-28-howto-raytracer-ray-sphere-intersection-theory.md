@@ -7,7 +7,7 @@ layout: Post
 route: /howto-raytracer-ray-sphere-intersection-theory/
 slug: howto-raytracer-ray-sphere-intersection-theory
 title: 'Howto Raytracer: Ray / Sphere Intersection Theory'
-featured: //cmichel.io/assets/2016/02/sphere.png
+featured: /assets/2016/02/sphere.png
 categories:
 - Games
 - Math

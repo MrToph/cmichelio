@@ -7,7 +7,7 @@ layout: Post
 route: /creating-google-adsense-reports-with-express/
 slug: creating-google-adsense-reports-with-express
 title: Creating Google AdSense Reports with Express
-featured: //cmichel.io/creating-google-adsense-reports-with-express/google-pushover-adsense-reports.png
+featured: /creating-google-adsense-reports-with-express/google-pushover-adsense-reports.png
 categories:
 - Tech
 - Express
