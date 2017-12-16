@@ -1,20 +1,17 @@
 ---
+author: Christoph Michel
 date: 2017-11-01
+layout: ProgressReport
+route: /progress-report-october-2017/
+disqus_identifier: progress-report-october-2017
 slug: progress-report-october-2017
-title: This is just a test post. Ignore it
-featured: http://cmichel.io/progress-report-october-2017/admob-income.png
+title: Progress Report - October 2017
+featured: //cmichel.io/progress-report-october-2017/admob-income.png
 categories:
 - Progress Report
-steem:
-- test
-- test2
-medium:
-- test
-- programming
-- javascript
 ---
 
-# This is just a test post. Ignore it
+# Progress Report - October 2017
 I post a progress report showing what I did and how my products performed each month.
 Last month's report can be seen [here](/progress-report-september-2017).  
 
@@ -26,6 +23,8 @@ I worked 40 _productive_ hours. (Tracked using [RescueTime](/redirects/rescuetim
 I watched [Mr. Robot Season 3](https://trakt.tv/shows/mr-robot/seasons/3), [Stranger Things Season 2](https://trakt.tv/shows/stranger-things/seasons/2), and [Curb your Enthusiasm Season 9](https://trakt.tv/shows/curb-your-enthusiasm/seasons/9).  
 I read [The Complete Software Developer's Career Guide](https://www.amazon.com/Complete-Software-Developers-Career-Guide-ebook/dp/B073X6GNJ1).  
 I reviewed some more chapters for a book on React Native that will soon be published.
+
+Workwise, I mostly produced content for my new quiz app.
 
 ## Apps
 ### Downloads
