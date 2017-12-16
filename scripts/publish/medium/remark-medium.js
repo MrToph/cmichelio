@@ -1,3 +1,5 @@
+const url = require('url')
+
 const createHorizontalRule = () => ({
   type: `thematicBreak`,
 })
@@ -22,6 +24,13 @@ const createReferenceToOriginalPost = postUrl => ({
   ],
 })
 
+const createMediumFooter = siteUrl => ({
+  type: `image`,
+  title: null,
+  alt: 'Medium Clap',
+  url: url.resolve(siteUrl, '/images/medium_clap.gif'),
+})
+
 function attacher(options) {
   const { siteUrl, slug, frontmatter, postUrl } = options
   return transformer
@@ -31,6 +40,7 @@ function attacher(options) {
       ...tree.children,
       createHorizontalRule(),
       createReferenceToOriginalPost(postUrl),
+      createMediumFooter(siteUrl),
     ]
   }
 }
