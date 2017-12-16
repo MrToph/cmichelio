@@ -7,7 +7,7 @@ layout: Post
 route: /modifying-a-leaf-of-the-redux-state-tree/
 slug: modifying-a-leaf-of-the-redux-state-tree
 title: Modifying a Leaf of the Redux State Tree
-featured: http://cmichel.io/assets/2016/10/stateTree.svg
+featured: //cmichel.io/assets/2016/10/stateTree.svg
 categories:
 - Tech
 - Redux

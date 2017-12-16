@@ -7,7 +7,7 @@ layout: Post
 route: /styling-datepickerandroid-in-react-native/
 slug: styling-datepickerandroid-in-react-native
 title: Styling DatePickerAndroid in React Native
-featured: http://cmichel.io/assets/2016/09/datepickerandroid-react-native-style-1.png
+featured: //cmichel.io/assets/2016/09/datepickerandroid-react-native-style-1.png
 categories:
 - Tech
 - React Native

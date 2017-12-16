@@ -7,7 +7,7 @@ layout: Post
 route: /lessons-from-building-first-react-native-app/
 slug: lessons-from-building-first-react-native-app
 title: What I learned from building my first React Native App
-featured: http://cmichel.io/assets/2016/10/featured.jpg
+featured: //cmichel.io/assets/2016/10/featured.jpg
 categories:
 - Tech
 - React Native

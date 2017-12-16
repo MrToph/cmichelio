@@ -22,8 +22,8 @@ https://toddmotto.com/typescript-setters-getter
 * [ ] Write plugin that copies over un-digested markdown-images without modifying the markdown according to the post's *slug*! (Needed solely for cross posting)
 
 ## Cross post
-* [ ] Write command that publishes posts to medium + steemit
-* [ ] Do custom markdown parse, set relative image + url paths to absolute ones
-* [ ] Add custom footer backlinking to homepage
-* [ ] Check if post is already published by checking url
+* [x] Write command that publishes posts to medium + steemit
+* [x] Do custom markdown parse, set relative image + url paths to absolute ones
+* [x] Add custom footer backlinking to homepage
+* [x] Check if post is already published by checking url
 * [ ] Trigger it by CI, make a `git diff` to grep *newly added* markdown files.

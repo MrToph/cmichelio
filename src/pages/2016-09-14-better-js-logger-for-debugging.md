@@ -7,7 +7,7 @@ layout: Post
 route: /better-js-logger-for-debugging/
 slug: better-js-logger-for-debugging
 title: Better JS Logger for Debugging
-featured: http://cmichel.io/assets/2016/09/stacklogger-console-chrome.png
+featured: //cmichel.io/assets/2016/09/stacklogger-console-chrome.png
 categories:
 - Tech
 ---

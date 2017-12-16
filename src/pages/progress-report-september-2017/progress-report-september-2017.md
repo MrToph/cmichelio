@@ -6,7 +6,7 @@ route: /progress-report-september-2017/
 disqus_identifier: progress-report-september-2017
 slug: progress-report-september-2017
 title: Progress Report - September 2017
-featured: http://cmichel.io/progress-report-september-2017/admob-income.png
+featured: //cmichel.io/progress-report-september-2017/admob-income.png
 categories:
 - Progress Report
 ---

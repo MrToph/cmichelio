@@ -7,7 +7,7 @@ layout: Post
 route: /why-you-should-not-use-mapstatetoprops-too-often/
 slug: why-you-should-not-use-mapstatetoprops-too-often
 title: Why you should not use mapStateToProps too often
-featured: http://cmichel.io/assets/2016/10/stateTree-1.svg
+featured: //cmichel.io/assets/2016/10/stateTree-1.svg
 categories:
 - Tech
 - Redux

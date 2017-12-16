@@ -7,7 +7,7 @@ layout: Post
 route: /dynamically-chaining-promises/
 slug: dynamically-chaining-promises
 title: Creating Dynamic Promise chains
-featured: http://cmichel.io/dynamically-chaining-promises/dynamic-promise-chain.svg
+featured: //cmichel.io/dynamically-chaining-promises/dynamic-promise-chain.svg
 categories:
 - Tech
 - redux

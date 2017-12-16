@@ -7,7 +7,7 @@ layout: Post
 route: /how-to-create-a-more-popup-menu-in-react-native/
 slug: how-to-create-a-more-popup-menu-in-react-native
 title: How to create a More-Popup Menu in React-Native
-featured: http://cmichel.io/assets/2016/09/react-native-more-popup.gif
+featured: //cmichel.io/assets/2016/09/react-native-more-popup.gif
 categories:
 - Tech
 - React Native

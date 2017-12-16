@@ -7,7 +7,7 @@ layout: Post
 route: /fractals-with-l-systems-in-d3-js/
 slug: fractals-with-l-systems-in-d3-js
 title: Drawing Fractals with L-Systems in D3.js
-featured: http://cmichel.io/assets/2016/08/sierpinskiTriangle.gif
+featured: //cmichel.io/assets/2016/08/sierpinskiTriangle.gif
 categories:
 - Tech
 - Math

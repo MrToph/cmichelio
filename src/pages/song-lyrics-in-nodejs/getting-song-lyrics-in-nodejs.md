@@ -7,7 +7,7 @@ layout: Post
 route: /song-lyrics-in-nodejs/
 slug: song-lyrics-in-nodejs
 title: Getting Song Lyrics in Node.js
-featured: http://cmichel.io/song-lyrics-in-nodejs/genius-api-client.png
+featured: //cmichel.io/song-lyrics-in-nodejs/genius-api-client.png
 categories:
 - Tech
 - Node

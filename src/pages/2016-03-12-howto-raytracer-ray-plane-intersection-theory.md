@@ -7,7 +7,7 @@ layout: Post
 route: /howto-raytracer-ray-plane-intersection-theory/
 slug: howto-raytracer-ray-plane-intersection-theory
 title: 'Howto Raytracer: Ray / Plane Intersection Theory'
-featured: http://cmichel.io/assets/2016/03/plane-1024x508.png
+featured: //cmichel.io/assets/2016/03/plane-1024x508.png
 categories:
 - Games
 - Math

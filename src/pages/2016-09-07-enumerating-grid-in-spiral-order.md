@@ -7,7 +7,7 @@ layout: Post
 route: /enumerating-grid-in-spiral-order/
 slug: enumerating-grid-in-spiral-order
 title: Enumerating a Grid in Spiral Order
-featured: http://cmichel.io/assets/2016/09/spiral-enumeration.png
+featured: //cmichel.io/assets/2016/09/spiral-enumeration.png
 categories:
 - Math
 ---

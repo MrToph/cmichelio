@@ -7,7 +7,7 @@ layout: Post
 route: /howto-raytracer-ray-triangle-intersection-theory/
 slug: howto-raytracer-ray-triangle-intersection-theory
 title: 'Howto Raytracer: Ray / Triangle Intersection Theory'
-featured: http://cmichel.io/assets/2016/03/triangle-intersection.png
+featured: //cmichel.io/assets/2016/03/triangle-intersection.png
 categories:
 - Games
 - Math

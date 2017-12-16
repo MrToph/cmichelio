@@ -7,7 +7,7 @@ layout: Post
 route: /how-to-create-a-pull-request-on-github/
 slug: how-to-create-a-pull-request-on-github
 title: How to create a Pull Request on GitHub
-featured: http://cmichel.io/assets/2016/10/pull-request-github-clone.gif
+featured: //cmichel.io/assets/2016/10/pull-request-github-clone.gif
 categories:
 - Tech
 ---

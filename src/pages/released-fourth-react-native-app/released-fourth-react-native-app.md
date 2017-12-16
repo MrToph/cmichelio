@@ -7,7 +7,7 @@ layout: Post
 route: /released-fourth-react-native-app/
 slug: released-fourth-react-native-app
 title: Released my fourth React Native app
-featured: http://cmichel.io/released-fourth-react-native-app/react-native-motivation-app-featured.jpg
+featured: //cmichel.io/released-fourth-react-native-app/react-native-motivation-app-featured.jpg
 categories:
 - Tech
 - React Native

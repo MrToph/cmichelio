@@ -6,7 +6,7 @@ route: /progress-report-march-2017/
 disqus_identifier: progress-report-march-2017
 slug: progress-report-march-2017
 title: Progress Report - March 2017
-featured: http://cmichel.io/progress-report-march-2017/app-income-admob.png
+featured: //cmichel.io/progress-report-march-2017/app-income-admob.png
 categories:
 - Progress Report
 ---
