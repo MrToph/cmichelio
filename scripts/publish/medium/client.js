@@ -9,7 +9,7 @@ const mediumClient = new medium.MediumClient({
 mediumClient.setAccessToken(process.env.MEDIUM_ACCESS_TOKEN)
 
 const client = {
-  createPost({ content, frontmatter, slug, postUrl }) {
+  createPost({ content, frontmatter, postUrl }) {
     return new Promise((resolve, reject) => {
       mediumClient.getUser(function(err, user) {
         mediumClient.createPost(

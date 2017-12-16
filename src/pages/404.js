@@ -1,5 +1,4 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
 import Link from 'gatsby-link'
 
 export default class Error404 extends React.Component {

@@ -6,7 +6,7 @@ const accountName = `cmichel`
 const slugTransform = s => trim(s, '/').toLowerCase()
 
 const client = {
-  async createPost({ content, frontmatter, slug, postUrl, images, links }) {
+  async createPost({ content, frontmatter, slug, images, links }) {
     const category =
       Array.isArray(frontmatter.steem) && frontmatter.steem.length > 0
         ? frontmatter.steem[0]

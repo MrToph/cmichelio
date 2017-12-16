@@ -6,6 +6,7 @@ const publishToMedium = async pathsToPosts => {
   console.log(`=========== MEDIUM ===========`)
   for (let path of pathsToPosts) {
     try {
+      console.log(`----------- ${path.split('/').pop()} -----------`)
       const transformedPost = await helpers.transformPostFromPath(
         path,
         remarkMedium

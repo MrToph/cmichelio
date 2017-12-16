@@ -47,7 +47,7 @@ export default class PortfolioContent extends React.Component {
       <section>
         <PageTitle>Portfolio</PageTitle>
         <p>
-          If you're interested in working with me, you can contact me on my{' '}
+          {`If you're interested in working with me, you can contact me on my `}
           <Link to="/about/">About Page</Link>.
         </p>
         <div {...containerStyles}>

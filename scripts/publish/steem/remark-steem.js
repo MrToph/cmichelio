@@ -34,7 +34,7 @@ const collectUrlsFactory = () => {
 }
 
 function attacher(options) {
-  const { siteUrl, slug, frontmatter, postUrl } = options
+  const { siteUrl, postUrl } = options
   return transformer
 
   function transformer(tree, vfile) {

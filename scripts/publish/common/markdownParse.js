@@ -1,4 +1,3 @@
-const path = require('path')
 const url = require('url')
 var vfile = require('to-vfile')
 const frontmatterPlugin = require('remark-frontmatter')

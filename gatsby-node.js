@@ -1,3 +1,4 @@
+/*eslint-env node */
 const _ = require('lodash')
 const Promise = require('bluebird')
 const path = require('path')
@@ -25,7 +26,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         `
       ).then(result => {
         if (result.errors) {
-          console.log(result.errors)
+          // console.log(result.errors)
           reject(result.errors)
         }
 
@@ -44,11 +45,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   })
 }
 
-exports.onCreateNode = ({
-  node,
-  boundActionCreators,
-  getNode,
-}) => {
+exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators
   if (node.internal.type === `MarkdownRemark`) {
     let slug = ''
