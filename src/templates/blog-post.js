@@ -7,8 +7,14 @@ import ReactDisqusComments from 'react-disqus-comments'
 import { primaryColor } from '../styling'
 import CategoryBar from '../components/BlogPost/CategoryBar'
 
-import 'prismjs/themes/prism-twilight.css'
+// import 'prismjs/themes/prism-twilight.css'
 import './prismjs-hightlight.css'
+
+const blogPostStyles = css({
+  '& img': {
+    maxWidth: `100%`,
+  },
+})
 
 const titleStyles = css({
   color: primaryColor,
@@ -56,7 +62,7 @@ export default class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     return (
-      <section>
+      <section {...blogPostStyles}>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
         <h1 {...titleStyles}>{post.frontmatter.title}</h1>
         <CategoryBar
