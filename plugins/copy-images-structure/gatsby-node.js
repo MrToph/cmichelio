@@ -10,7 +10,6 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
           !pluginOptions.ignoreFileExtensions.includes(node.extension)
       )
   }
-  console.log('HELLO 123 123 123 123 123 123 123 123 START')
   const { data } = await graphql(`
     {
       allFile(filter: { internal: { mediaType: { regex: "/image//" } } }) {
@@ -31,7 +30,6 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
   const nodes = filterNodes(data.allFile.edges)
   return Promise.all(
     Array.from(nodes, async ({ node }) => {
-      console.log(node)
       const pathInSrc = node.absolutePath
       const newFilePath = path.join('public', node.relativePath)
       // Don't copy anything if the file already exists at the location.

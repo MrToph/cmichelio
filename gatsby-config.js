@@ -32,9 +32,10 @@ module.exports = {
       options: {
         plugins: [
           {
+            // copies svg images, and all other _linked_ non-image files
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
-              // destinationDir: 'linked',
+              destinationDir: 'static',
               // ignoreFileExtensions: [],
             },
           },
