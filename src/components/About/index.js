@@ -11,7 +11,7 @@ export default class AboutContent extends React.Component {
         <p>
           I {`'`}m <strong>Christoph Michel</strong>. I hold a bachelor{`'`}s
           degree in both <em>Math</em> and <em>Computer Science</em> and
-          finished my master studies in <em>(Theoretical) Cryptography</em> this
+          finished my master studies in <em>(Theoretical) Cryptography</em> last
           year.
         </p>
         <p>
