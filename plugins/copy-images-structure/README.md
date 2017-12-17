@@ -11,6 +11,7 @@ Add to `gatsby-config.js`
     resolve: `copy-images-structure`,
     options: {
       ignoreFileExtensions: ['psd'],
+      verbose: true,
     },
 },
 ```

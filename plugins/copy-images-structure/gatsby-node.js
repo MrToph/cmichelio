@@ -39,7 +39,9 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
         try {
           await fsExtra.ensureDir(path.dirname(newFilePath))
           await fsExtra.copy(pathInSrc, newFilePath)
-          console.log(`copied "${pathInSrc}" to "${newFilePath}"`)
+          if (pluginOptions.verbose) {
+            console.log(`copied "${pathInSrc}" to "${newFilePath}"`)
+          }
         } catch (err) {
           console.error(
             `error copying file "${pathInSrc}" to "${newFilePath}":`,
