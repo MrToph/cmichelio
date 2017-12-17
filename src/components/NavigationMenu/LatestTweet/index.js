@@ -66,9 +66,6 @@ export default class LatestTweet extends React.Component {
           width: '100%',
         }
       )
-      console.log(document.getElementById('latestTweet'))
-    } else {
-      console.log(isClientSide(), typeof twttr !== 'undefined', twttr.widgets)
     }
   }
 
