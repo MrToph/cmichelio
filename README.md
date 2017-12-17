@@ -19,6 +19,8 @@ https://toddmotto.com/typescript-setters-getter
 * [x] Make mobile responsive
 * [ ] Add drip widget?
 * [ ] Write plugin that reads markdown svgs and copies them over modifying the markdown. like `gatsby-remark-images`. Done by `copy` plugin.
+* [ ] Twitter breaks with `widgets.js:formatted:2764 Uncaught (in promise) Error: sandbox not initialized
+    at e.addRootClass (widgets.js:formatted:2764)`
 * [ ] Document everything. That we have two crosspost scripts. They resolve relative urls to absolute ones, etc. That's why we need the custom plugin that copies over the stuff. 
 
 1. Solution

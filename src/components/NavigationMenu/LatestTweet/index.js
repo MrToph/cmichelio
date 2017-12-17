@@ -2,6 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'glamor'
+import { Helmet } from 'react-helmet'
 import { isClientSide } from '../../../utils'
 import { singleColumnMediaQuery } from '../../../styling'
 
@@ -24,6 +25,16 @@ const tweetCardStyles = css({
   },
 })
 
+/**
+ * We're using the Twitter Widget JS API to create the timeline
+ * instead of twttr.widgets.load
+ * and we use React-Helmet to inject the twitter widget script
+ * instead of the `gatsby-plugin-twitter`
+ * because it's more reliable this way
+ * Otherwise you sometimes get a twitter widget not initialized error
+ * Error: sandbox not initialized
+    at e.addRootClass
+ */
 export default class LatestTweet extends React.Component {
   static propTypes = {
     data: PropTypes.shape({
@@ -39,29 +50,43 @@ export default class LatestTweet extends React.Component {
     this.refreshTweet()
   }
 
-  componentDidUpdate() {
-    this.refreshTweet()
-  }
-
   refreshTweet() {
+    const { twitter } = this.props.data.site.siteMetadata
     if (isClientSide() && typeof twttr !== 'undefined' && twttr.widgets) {
-      twttr.widgets.load(document.getElementById('latestTweet'))
+      twttr.widgets.createTimeline(
+        {
+          sourceType: 'profile',
+          screenName: twitter,
+        },
+        document.getElementById('latestTweet'),
+        {
+          tweetLimit: 1,
+          chrome: 'nofooter, noheader, noscrollbar, transparent',
+          dnt: true,
+          width: '100%',
+        }
+      )
+      console.log(document.getElementById('latestTweet'))
+    } else {
+      console.log(isClientSide(), typeof twttr !== 'undefined', twttr.widgets)
     }
   }
 
+  shouldComponentUpdate() {
+    return false
+  }
+
   render() {
-    const { twitter } = this.props.data.site.siteMetadata
     return (
       <div id="latestTweet" {...tweetCardStyles}>
         <h3 style={{ textAlign: 'center' }}>Latest Tweet</h3>
-        <a
-          className="twitter-timeline"
-          data-width="100%"
-          data-dnt="true"
-          data-tweet-limit="1"
-          data-chrome="nofooter noheader transparent"
-          href={`https://twitter.com/${twitter}`}
-        />
+        <Helmet>
+          <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charSet="utf-8"
+          />
+        </Helmet>
       </div>
     )
   }
