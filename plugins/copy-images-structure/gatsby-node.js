@@ -27,8 +27,8 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
       }
     }
   `)
+
   const nodes = filterNodes(data.allFile.edges)
-  console.log(nodes)
   return Promise.all(
     Array.from(nodes, async ({ node }) => {
       console.log(node)
