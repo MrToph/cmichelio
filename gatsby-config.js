@@ -22,6 +22,12 @@ module.exports = {
       },
     },
     {
+      resolve: `copy-images-structure`,
+      options: {
+        ignoreFileExtensions: ['psd'],
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -92,7 +98,7 @@ module.exports = {
                 }
               }
             }
-          `,
+            `,
             output: '/feed.xml',
           },
         ],

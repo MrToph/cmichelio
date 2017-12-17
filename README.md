@@ -19,7 +19,7 @@ https://toddmotto.com/typescript-setters-getter
 * [x] Make mobile responsive
 * [ ] Add drip widget?
 * [ ] Write plugin that reads markdown svgs and copies them over modifying the markdown. like `gatsby-remark-images`. Done by `copy` plugin.
-* [ ] Twitter breaks with `widgets.js:formatted:2764 Uncaught (in promise) Error: sandbox not initialized
+* [x] Twitter breaks with `widgets.js:formatted:2764 Uncaught (in promise) Error: sandbox not initialized
     at e.addRootClass (widgets.js:formatted:2764)`
 * [ ] Document everything. That we have two crosspost scripts. They resolve relative urls to absolute ones, etc. That's why we need the custom plugin that copies over the stuff. 
 
@@ -27,7 +27,7 @@ https://toddmotto.com/typescript-setters-getter
 * [ ] Write plugin that copies over un-digested markdown-images without modifying the markdown according to the post's *slug*! Needed for cross-posting
 * [ ] Write plugin that copies the image mentioned in fronmatter
 2. Solution
-* [ ] Write plugin that copies over all image files in src/pages/**/* while keeping the folder structure of the *slug*! Just use new slug logic, don't care about slug in frontmatter. (Maybe just hook in `onCreateNode` and check for images from `gatsby-source-filesystem`? Or do custom plugin and query the images later?)
+* [x] Write plugin that copies over all image files in src/pages/**/* while keeping the folder structure of the *slug*! Just use new slug logic, don't care about slug in frontmatter. (Maybe just hook in `onCreateNode` and check for images from `gatsby-source-filesystem`? Or do custom plugin and query the images later?)
 
 ## Cross post
 * [x] Write command that publishes posts to medium + steemit
