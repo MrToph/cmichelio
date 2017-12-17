@@ -1,4 +1,4 @@
-/* global twttr */
+/* global window */
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'glamor'
@@ -50,10 +50,14 @@ export default class LatestTweet extends React.Component {
     this.refreshTweet()
   }
 
-  refreshTweet() {
+  refreshTweet = () => {
     const { twitter } = this.props.data.site.siteMetadata
-    if (isClientSide() && typeof twttr !== 'undefined' && twttr.widgets) {
-      twttr.widgets.createTimeline(
+    if (
+      isClientSide() &&
+      typeof window.twttr !== 'undefined' &&
+      window.twttr.widgets
+    ) {
+      window.twttr.widgets.createTimeline(
         {
           sourceType: 'profile',
           screenName: twitter,
@@ -66,6 +70,11 @@ export default class LatestTweet extends React.Component {
           width: '100%',
         }
       )
+    } else {
+      // twitter script not loaded yet, retry again
+      // only happens on local development with `gatsby develop`
+      // but not when built
+      setTimeout(this.refreshTweet, 100)
     }
   }
 
@@ -77,13 +86,7 @@ export default class LatestTweet extends React.Component {
     return (
       <div id="latestTweet" {...tweetCardStyles}>
         <h3 style={{ textAlign: 'center' }}>Latest Tweet</h3>
-        <Helmet>
-          <script
-            async
-            src="https://platform.twitter.com/widgets.js"
-            charSet="utf-8"
-          />
-        </Helmet>
+        <Helmet script={[{ src: `https://platform.twitter.com/widgets.js`, async: true }]} />
       </div>
     )
   }
