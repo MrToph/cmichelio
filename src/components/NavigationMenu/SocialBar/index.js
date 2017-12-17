@@ -3,29 +3,32 @@ import PropTypes from 'prop-types'
 import { css } from 'glamor'
 import TwitterIcon from './icons/twitter.svg'
 import GitHubIcon from './icons/github.svg'
+import RSSIcon from './icons/rss.svg'
 import MediumIcon from './icons/medium.svg'
 import SteemitIcon from './icons/steemit.svg'
 import LinkedInIcon from './icons/linkedin.svg'
 import { singleColumnMediaQuery } from '../../../styling'
 
-const iconStyles = css({
-  width: 20,
-  height: 20,
-  border: 'none',
-  outline: 'none',
-  transition: 'all 0.4s ease-in-out',
-  // make all icons black
-  filter: 'brightness(0%)',
-  ':hover': {
-    // opacity: 0.5,
-    filter: 'none',
-    cursor: 'pointer',
-    transform: 'scale(1.1)',
-  },
-  [singleColumnMediaQuery]: {
-    margin: `10px`
-  },
-})
+const iconStyles = scale =>
+  css({
+    width: 20,
+    height: 20,
+    border: 'none',
+    outline: 'none',
+    transition: 'all 0.4s ease-in-out',
+    transform: `scale(${scale})`,
+    // make all icons black
+    filter: 'brightness(0%)',
+    ':hover': {
+      // opacity: 0.5,
+      filter: 'none',
+      cursor: 'pointer',
+      transform: `scale(${1.1 * scale})`,
+    },
+    [singleColumnMediaQuery]: {
+      margin: `10px`,
+    },
+  })
 
 const listStyle = css({
   display: 'flex',
@@ -41,15 +44,16 @@ const listStyle = css({
   },
 })
 
-const Icon = ({ icon, url }) => (
+const Icon = ({ icon, url, scale=1.0 }) => (
   <a className="no-style" rel="noopener noreferrer" target="__blank" href={url}>
-    <img src={icon} {...iconStyles} />
+    <img src={icon} {...iconStyles(scale)} />
   </a>
 )
 
 Icon.propTypes = {
   icon: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
+  scale: PropTypes.number,
 }
 
 export default class SocialBar extends Component {
@@ -72,14 +76,9 @@ export default class SocialBar extends Component {
       <ul {...listStyle}>
         <li>
           <Icon
-            url={`//twitter.com/${data.site.siteMetadata.twitter}`}
-            icon={TwitterIcon}
-          />
-        </li>
-        <li>
-          <Icon
-            url={`//github.com/${data.site.siteMetadata.github}`}
-            icon={GitHubIcon}
+            url={`./feed.xml`}
+            icon={RSSIcon}
+            scale={0.9}
           />
         </li>
         <li>
@@ -92,6 +91,18 @@ export default class SocialBar extends Component {
           <Icon
             url={`//steemit.com/@${data.site.siteMetadata.steem}`}
             icon={SteemitIcon}
+          />
+        </li>
+        <li>
+          <Icon
+            url={`//github.com/${data.site.siteMetadata.github}`}
+            icon={GitHubIcon}
+          />
+        </li>
+        <li>
+          <Icon
+            url={`//twitter.com/${data.site.siteMetadata.twitter}`}
+            icon={TwitterIcon}
           />
         </li>
         <li>
