@@ -1,12 +1,7 @@
 ---
-author: Christoph Michel
 date: 2017-12-01
-layout: ProgressReport
-route: /progress-report-november-2017/
-disqus_identifier: progress-report-november-2017
-slug: progress-report-november-2017
 title: Progress Report - November 2017
-featured: http://cmichel.io/progress-report-november-2017/admob-income.png
+featured: /progress-report-november-2017/admob-income.png
 categories:
 - Progress Report
 ---
