@@ -5,36 +5,57 @@ These are the source-files for my blog, [cmichel.io](https://cmichel.io).
 1. Clone this repo
 1. `npm install`
 1. To run it in development mode, run `gatsby develop`
-1. To build the site (in production mode), run `gatsby build` (`gatsby deploy`)
+1. To build (deploy) the site, run `gatsby build` (`npm run deploy`)
 
 
 ### Additional Setup
-This script includes cross-posting scripts to 
-* After cloning this repo, you need to set up your `.env` file. An example is given in `.env.example`. This is only needed for the crosspost scripts to work
+This repo includes cross-posting scripts to publish the articles to [medium](https://medium.com) and the [steem blockchain](https://steemit.com).
+After cloning this repo, you need to set up your `.env` file. An example is given in `.env.example`.
 
-https://toddmotto.com/typescript-setters-getter
+I use [netlify](https://netlify.com) to auto-deploy this site on any changes in this repo. You might want to create an account and authorize `netlify`.
 
-## TODO:
-* [x] Install google-analytics plugin
-* [x] Move static pages, like _L-system to github_, _rescuetime redirect_, and adapt links in the markdown files
-    * [x] redirects
-    * [x] projects/d3-bubble-chart
-    * [x] fractals-LSystem
-* [x] Check if feed is correct
-* [x] Make mobile responsive
+
+## Publishing new posts
+To publish a new post, simply create a directory in `src/pages` and put a markdown file with the `.md` extension in it. The directory's name is used as the post's _slug_.
+Once done writing, you push the changes to `master`.
+This triggers a [netlify](https://netlify.com) `git hook` which builds and auto-deploys the new site. After some minutes the new post is live.
+
+Currently, you have to run the cross-posting scripts by hand.
+
+## Development Overview
+This is a standard [gatsbyjs](https://gatsbyjs.org) repo.
+
+### Gatsby
+It includes the posts written in Markdown (along with the images used in them) in their own directories in `src/pages`. This directory is used as the post's _slug_. (There are some legacy posts that do not follow this structure and have a `slug` field defined in the markdown frontmatter.)
+
+The following **gatsby-plugins** are used during the posts' creation process:
+1. Local non-vector images **linked to in the post** are post-processed by compressing and cropping them to a max size, and thumbnails of different sizes are created (`sharp` plugins, `gatsby-remark-images`).
+They are copied to `public/static` and the corresponding relative path **of the markdown image nodes** are rewritten to use these images instead.
+1. SVG images and other attachments (`pdf`s, etc.) **linked to in the post** are again copied to `public/static` and the relative paths are rewritten (`gatsby-remark-copy-linked-files`).
+1. Code snippets are displayed with `prismjs` (`gatsby-remark-prismjs`). The theme can be set in `src/templates/prismjs.css`
+
+> _Note:_ The linked images and files are only created when **building**. Therefore, you need to run `gatsby build` before you can see them in `develop` mode.
+
+Other plugins used in the build process:
+1. An RSS feed containing all posts is created at `public/feed.xml` (`gatsby-plugin-feed`)
+
+### Cross-post scripts
+This repo includes cross-posting scripts to publish the posts to [medium](https://medium.com) and the [steem blockchain](https://steemit.com).
+
+They are located in the `scripts/publish` directory. You need `node` v8+ to run them, because they make use of `async/await`.
+
+Cross-posting:
+* [ ] `npm run crosspost` publishes all new posts to all platforms. New posts are found by doing a `git diff` on `master` between `HEAD~1` and `HEAD` and checking for newly created `.md` files.
+* [x] `npm run crosspost -- --path "progress-report/progress-report.md"` to publish `src/pages/progress-report/progress-report.md` to all platforms.
+* [x] `npm run crosspost -- medium --path "progress-report/progress-report.md"` to publish `src/pages/progress-report/progress-report.md` to medium only. The same works using the `steem` command instead.
+
+> _Note:_ Cross-posting to steem contains a check if the post's slug already exists for your account to avoid accidentally double-posting the same post. Medium does **not** have this built-in check, due to restrictions of the Medium API.
+
+The following modifications are done when publishing a markdown post:
+1. All images specified in `src/pages/**/*` are **copied** to `public/**/*` keeping the same sub-directory structure. Done by the custom `copy-images-structure` plugin in `plugins`.
+1. The markdown file is parsed by `remark`, extracting the slug and frontmatter (containing the title and tags for cross-positing). The cross-posting script then resolves all relative `urls` in Markdown `link`/`image` nodes to **absolute urls**, prepending this site's domain and the post's slug.
+1. A footer is inserted, linking back to the original post on my blog.
+
+## ToDo:
 * [ ] Add drip widget?
-* [x] Write plugin that reads markdown svgs and copies them over modifying the markdown. like `gatsby-remark-images`. Done by `gatsby-remark-copy-linked-files` plugin.
-* [x] Twitter breaks with `widgets.js:formatted:2764 Uncaught (in promise) Error: sandbox not initialized
-    at e.addRootClass (widgets.js:formatted:2764)`
-* [ ] Document everything. That we have two crosspost scripts. They resolve relative urls to absolute ones, etc. That's why we need the custom plugin that copies over the stuff. Non-vector-image formats are handled and resized by `gatsby-remark-images`, svgs (and all other linked files) are copied over to `/static` by `gatsby-remark-copy-linked-files` on **build** only. Twitter widget workings
-
-2. Solution
-* [x] Write plugin that copies over all image files in `src/pages/**/*` while keeping the folder structure of the *slug*! Just use new slug logic, don't care about slug in frontmatter. (Maybe just hook in `onCreateNode` and check for images from `gatsby-source-filesystem`? Or do custom plugin and query the images later?)
-
-## Cross post
-* [x] Write command that publishes posts to medium + steemit
-* [x] Do custom markdown parse, set relative image + url paths to absolute ones
-* [x] Add custom footer backlinking to homepage
-* [x] Check if post is already published by checking url
-* [ ] Trigger it by CI, make a `git diff` to grep *newly added* markdown files.
-
+* [ ] Implement auto-detection of new posts, and add a `.circleci` git hook which then automatically cross-posts.
