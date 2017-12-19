@@ -1,11 +1,16 @@
-# gatsby-starter-blog
-Gatsby starter for creating a blog
+# cmichel.io
+These are the source-files for my blog, [cmichel.io](https://cmichel.io).
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-`gatsby new gatsby-blog https://github.com/gatsbyjs/gatsby-starter-blog`
+## Get started
+1. Clone this repo
+1. `npm install`
+1. To run it in development mode, run `gatsby develop`
+1. To build the site (in production mode), run `gatsby build` (`gatsby deploy`)
 
-## Running in development
-`gatsby develop`
+
+### Additional Setup
+This script includes cross-posting scripts to 
+* After cloning this repo, you need to set up your `.env` file. An example is given in `.env.example`. This is only needed for the crosspost scripts to work
 
 https://toddmotto.com/typescript-setters-getter
 
@@ -32,3 +37,4 @@ https://toddmotto.com/typescript-setters-getter
 * [x] Add custom footer backlinking to homepage
 * [x] Check if post is already published by checking url
 * [ ] Trigger it by CI, make a `git diff` to grep *newly added* markdown files.
+
