@@ -8,7 +8,7 @@ import { primaryColor } from '../styling'
 import CategoryBar from '../components/BlogPost/CategoryBar'
 
 // import 'prismjs/themes/prism-twilight.css'
-import './prismjs-hightlight.css'
+import './prismjs.css'
 
 const blogPostStyles = css({
   '& img': {
