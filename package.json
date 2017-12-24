@@ -5,7 +5,9 @@
   "version": "2.0.0",
   "author": "Christoph Michel <mail@cmichel.io>",
   "homepage": "https://cmichel.io",
-  "keywords": ["gatsby"],
+  "keywords": [
+    "gatsby"
+  ],
   "license": "CC-BY-NC-SA-4.0",
   "main": "n/a",
   "repository": {
@@ -37,8 +39,7 @@
     "gatsby-transformer-remark": "^1.7.21",
     "gatsby-transformer-sharp": "^1.6.14",
     "lodash": "^4.17.4",
-    "react-disqus-comments":
-      "git+https://github.com/theplatapi/react-disqus-thread.git"
+    "react-disqus-comments": "git+https://github.com/theplatapi/react-disqus-thread.git"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.2",
@@ -57,13 +58,11 @@
     "dev": "gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format":
-      "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "develop": "gatsby develop",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths",
-    "fix-semi":
-      "eslint --quiet --ignore-pattern node_modules --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js",
+    "fix-semi": "eslint --quiet --ignore-pattern node_modules --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js",
     "crosspost": "node scripts/publish/index.js"
   }
 }
