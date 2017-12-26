@@ -43,10 +43,10 @@ const pageStyles = css({
  * Font-Styles
  */
 css.global('html', {
-  fontSize: 17,
+  fontSize: 16,
   minHeight: `100%`,
   [singleColumnMediaQuery]: {
-    fontSize: 16,
+    fontSize: 15,
   },
 })
 css.global('body', {
