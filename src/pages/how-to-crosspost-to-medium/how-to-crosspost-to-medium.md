@@ -1,5 +1,5 @@
 ---
-date: 2017-12-20
+date: 2017-12-26
 title: How to cross-post to Medium
 featured: /how-to-crosspost-to-medium/medium.png
 categories:
