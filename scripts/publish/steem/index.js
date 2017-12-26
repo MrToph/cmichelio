@@ -22,9 +22,10 @@ const publishToSteem = async pathsToPosts => {
       }
       console.log(`Post does not yet exist. Publishing ...`)
       const response = await client.createPost(transformedPost)
-      console.log(
-        `Published to Steem: ${response.id}\n${JSON.stringify(response.operations.comment.permlink)}`
-      )
+      console.log(`Published to Steem: ${response.id}`)
+      if (response.operations.comment) {
+        console.log(JSON.stringify(response.operations.comment.permlink))
+      }
     } catch (ex) {
       console.log(ex)
     }
