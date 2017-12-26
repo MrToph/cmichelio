@@ -31,9 +31,9 @@ Using the cross-posting approach, we can **write Markdown in our familiar enviro
 1. Posting to Medium programmatically is **easier from a workflow perspective**.
 Previously, I tried Medium's _Import Story_ feature directly on the post on my site, which often broke the formatting when reading the HTML, or to import the Markdown through tools like [markdowntomedium](markdowntomedium.com), which work well, but they pollute your GitHub account with (private) gists and set an incorrect canonical URL to the GitHub gist.
 Now, with [gatsbyjs](gatsbyjs.org) or any other static site generator, my workflow looks like this:
-    1. Write post in Markdown
-    1. Push to GitHub => Netlify git-hook runs and deploys [my site](/)
-    1. I run my cross-post script: `npm run crosspost` which publishes the new post to Medium
+    * Write post in Markdown
+    * Push to GitHub => Netlify git-hook runs and deploys [my site](/)
+    * I run my cross-post script: `npm run crosspost` which publishes the new post to Medium
 
 If this convinced you, here's how to setup cross-posting to Medium.
 
