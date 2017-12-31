@@ -34,7 +34,7 @@ If this convinced you, here's how to setup cross-posting to Steem.
 
 ## Setup
 All you need is `nodejs` version 8 or higher, and a post written in Markdown. The Markdown post should have a **frontmatter** containing the **title**, **slug**, and **steem tags**.
-For instance, [this post looks like this](https://github.com/MrToph/cmichelio/blob/master/src/pages/how-to-crosspost-to-medium/how-to-crosspost-to-steem.md):
+For instance, [this post looks like this](https://github.com/MrToph/cmichelio/blob/master/src/pages/how-to-crosspost-to-steem/how-to-crosspost-to-steem.md):
 
 ```
 ---
