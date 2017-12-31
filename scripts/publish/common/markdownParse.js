@@ -41,8 +41,8 @@ async function getFrontmatter(filePath) {
 }
 
 /**
- * @function pathToNormalizedMarkdownAST
- * @description Reads the file's content and transforms it into a Markdown AST using remark.
+ * @function transformPostFromPath
+ * @description Reads the file's content and transforms it into a Markdown text using remark.
  *  Resolves relative image / anchor nodes to absolute site urls
  * @param {String} filePath The path to the markdown file relative to cwd
  * @param {Function} transformerPlugin A remark-plugin that will be invoked with the markdown AST and additional options

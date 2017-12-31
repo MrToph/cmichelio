@@ -59,3 +59,4 @@ The following modifications are done when publishing a markdown post:
 ## ToDo:
 * [ ] Add drip widget?
 * [ ] Implement auto-detection of new posts, and add a `.circleci` git hook which then automatically cross-posts.
+* [ ] Implement draft mode for posts, f.i., in front-matter, so unfinished posts are not shown.
