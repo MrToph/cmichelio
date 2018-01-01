@@ -6,14 +6,14 @@ categories:
 - Progress Report
 medium:
 - programming
-- javascript
-- steem
+- development
+- progress
 steem:
+- blog
 - steemdev
 - programming
 - javascript
 - technology
-- steem
 ---
 
 I post a progress report showing what I did and how my products performed each month.
