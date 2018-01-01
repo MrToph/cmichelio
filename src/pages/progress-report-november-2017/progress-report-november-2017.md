@@ -6,7 +6,6 @@ categories:
 - Progress Report
 ---
 
-# Progress Report - November 2017
 I post a progress report showing what I did and how my products performed each month.
 Last month's report can be seen [here](/progress-report-october-2017).  
 
