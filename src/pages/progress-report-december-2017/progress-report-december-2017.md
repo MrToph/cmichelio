@@ -52,7 +52,7 @@ In total, this month's app income was 57.84€ (-21.35€).
 
 IAPs | Ads | Total
 --- | --- | ---
-23.95€ | 55.24€ | 79.19€
+10.24€ | 47.76€ | 57.84€
 
 December was a really bad month revenue-wise. Let's see if it's just a seasonal trend and it goes back up in 2018 or if I have to be more concerned.
 
