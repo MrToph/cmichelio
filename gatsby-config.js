@@ -1,11 +1,12 @@
 /*eslint-env node */
+const url = require('url')
 
 module.exports = {
   siteMetadata: {
     title: `cmichel`,
     author: 'Christoph Michel',
     description: `Christoph Michel's Blog.`,
-    siteUrl: 'https:/cmichel.io/',
+    siteUrl: 'https://cmichel.io/',
     twitter: 'cmichelio',
     github: 'MrToph',
     medium: 'cmichel',
@@ -72,10 +73,14 @@ module.exports = {
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
+                const absoluteUrl = url.resolve(
+                  site.siteMetadata.siteUrl,
+                  edge.node.fields.slug
+                )
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  url: absoluteUrl,
+                  guid: absoluteUrl,
                   custom_elements: [{ 'content:encoded': edge.node.html }],
                 })
               })

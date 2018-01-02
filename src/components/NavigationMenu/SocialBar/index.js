@@ -76,7 +76,7 @@ export default class SocialBar extends Component {
       <ul {...listStyle}>
         <li>
           <Icon
-            url={`./feed.xml`}
+            url={`/feed.xml`}
             icon={RSSIcon}
             scale={0.9}
           />
