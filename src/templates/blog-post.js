@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
+import trim from 'lodash/trim'
 import { css } from 'glamor'
 import ReactDisqusComments from 'react-disqus-comments'
 import { primaryColor } from '../styling'
@@ -45,15 +46,17 @@ export default class BlogPostTemplate extends React.Component {
 
   renderDisqus() {
     const post = this.props.data.markdownRemark
+    const siteUrl = trim(get(this.props, 'data.site.siteMetadata.siteUrl'), '/')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const postTitle = `${post.frontmatter.title} | ${siteTitle}`
     let identifier = get(post, 'frontmatter.disqus_identifier')
-    if (!identifier) identifier = get(post, 'fields.slug')
+    if (!identifier) identifier = trim(get(post, 'fields.slug'), '/')
     return (
       <ReactDisqusComments
         shortname="cmichel"
         identifier={identifier}
         title={postTitle}
+        url={`${siteUrl}/${identifier}`}
       />
     )
   }
@@ -82,6 +85,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
