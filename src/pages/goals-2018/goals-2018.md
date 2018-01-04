@@ -25,7 +25,7 @@ It's the [**goals vs systems**](http://blog.dilbert.com/2013/11/18/goals-vs-syst
 > If you're a writer, your goal is to write a book. Your system is the writing schedule that you follow each week.  
 > If you're a runner, your goal is to run a marathon. Your system is your training schedule for the month.  
 > If you're an entrepreneur, your goal is to build a million dollar business. Your system is your sales and marketing process.  
-> _If you completely ignored your goals and focused only on your system, would you still get results?_  
+> **If you completely ignored your goals and focused only on your system, would you still get results?**  
 > -- [_James Clear_](https://jamesclear.com/goals-systems)
 
 The only drawback is that it's easy to slack off and not give it your all. You convince yourself that you're already doing as much as possible when in reality you're not. In contrast, when working towards a concrete goal, number, or deadline, _right in front of you_, you could probably work even more. So, **it's a matter of discipline and short-term goals.**
