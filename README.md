@@ -57,6 +57,5 @@ The following modifications are done when publishing a markdown post:
 1. A footer is inserted, linking back to the original post on my blog.
 
 ## ToDo:
-* [ ] Implement draft mode for posts, f.i., in front-matter, so unfinished posts are not shown.
 * [ ] Add drip widget?
 * [ ] Implement auto-detection of new posts, and add a `.circleci` git hook which then automatically cross-posts.
