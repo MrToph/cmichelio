@@ -1,5 +1,16 @@
 const url = require('url')
 
+const createTitle = title => ({
+  type: 'heading',
+  depth: 1,
+  children: [
+    {
+      type: `text`,
+      value: title,
+    },
+  ],
+})
+
 const createHorizontalRule = () => ({
   type: `thematicBreak`,
 })
@@ -32,11 +43,13 @@ const createMediumFooter = siteUrl => ({
 })
 
 function attacher(options) {
-  const { siteUrl, postUrl } = options
+  const { siteUrl, postUrl, frontmatter: { title } } = options
   return transformer
 
   function transformer(tree) {
+    console.log(JSON.stringify(tree, null, 2))
     tree.children = [
+      createTitle(title),
       ...tree.children,
       createHorizontalRule(),
       createReferenceToOriginalPost(postUrl),
