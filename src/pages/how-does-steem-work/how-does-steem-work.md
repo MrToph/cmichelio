@@ -1,7 +1,7 @@
 ---
 title: How does Steem work, anyway?
 date: 2018-01-14
-featured: /how-does-steem-work/steem-payouts.svg
+featured: /how-does-steem-work/steem-payouts.png
 categories:
 - Steem
 - Crypto
@@ -35,7 +35,7 @@ These STEEM tokens are then distributed to the community (content creators, witn
 Intuitively, the rewards pool consists of the money that gets distributed to the people either writing posts or curating content (finding quality posts).
 Whenever someone's post is upvoted he gets a small share from that reward pool.
 
-![Steem Payouts](./steem-payouts.svg)
+![Steem Payouts](./steem-payouts.png)
 
 So _how much is an upvote worth_? It's clear that it depends on the amount of STEEM tokens in the rewards pool, but it depends on a lot of other things.
 We first have to look at the different currencies of the Steem blockchain:
@@ -61,7 +61,7 @@ They are designed to be a stable currency that you can sell at any time. They're
 
 **Obtained through:** Rewarded by contributing to the platform. Internal market.
 
-![Steem Tokens](./steem-tokens.svg)
+![Steem Tokens](./steem-tokens.png)
 
 So with this info, we know that the **only token that influences the payouts** from the reward pool **is Steem Power**.
 
