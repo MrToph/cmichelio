@@ -9,10 +9,7 @@ export default class BlogIndex extends React.Component {
     const posts = get(this, 'props.data.allMarkdownRemark.edges')
     return [
       <Helmet key="helmet" title={siteTitle} />,
-      <BlogIndexPosts
-        key="blogIndexPosts"
-        posts={posts}
-      />,
+      <BlogIndexPosts key="blogIndexPosts" posts={posts} />,
     ]
   }
 }
@@ -24,7 +21,10 @@ export const IndexQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC },
+      filter: { frontmatter: { draft: { ne: true } } }
+    ) {
       edges {
         node {
           excerpt
