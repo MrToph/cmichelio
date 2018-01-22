@@ -52,3 +52,5 @@ Compare this to building the `.apk`, navigating to the Google Dev Console, prepa
 * I did quite some over-engineering, because I wanted to try out new stuff. For example, internationalization without having English speaking content, or, rewriting an already existing backend. It would probably have been better to finish this project and play with new toys in the next side project.
 * The serverless framework is really nice. No need to manage any servers. It doesn't even cost a thing for unsuccessful apps. 🤷‍
 * I have the opposite problem most people have: I need to learn when to quit side projects and not finish them. This app took me way too long to finish calculated against its potential.
+
+[![Netguru](https://cmichel.io/images/netguru.png)](https://www.netguru.co/services/nodejs)
