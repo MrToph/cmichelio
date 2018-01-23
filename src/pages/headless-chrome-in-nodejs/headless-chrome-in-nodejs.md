@@ -118,4 +118,8 @@ module.exports = async function scrapeAnalytics(browser) {
 
 When you run it with Node version 8, you'll get this screenshot as a result:
 
-[![Website Traffic](/progress-report-august-2017/website-traffic.png)](/progress-report-august-2017/website-traffic.png)
+[![Website Traffic](../progress-report-august-2017/website-traffic.png)](/progress-report-august-2017/website-traffic.png)
+
+---
+
+[Build your product in Node.js with Netguru](https://www.netguru.co/services/nodejs)
