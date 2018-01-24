@@ -18,6 +18,8 @@ steem:
 - books
 ---
 
+![Attack of the 50 Foot Blockchain](https://images-na.ssl-images-amazon.com/images/I/51aIGVbfJcL.jpg)
+
 [Attack of the 50 Foot Blockchain: Bitcoin, Blockchain, Ethereum & Smart Contracts ](https://www.amazon.com/Attack-50-Foot-Blockchain-Contracts-ebook/dp/B073CPP581) by [_David Gerard_](https://twitter.com/davidgerard) is a book that summarizes every important event around bitcoin, including the dozens of scams, hacked exchanges, and the false promises of blockchain technology. Everyone that is hyped about this technology should read this book to get his excitement levels back to normal.
 It's written really well and understandable while still being technically correct.
 It's unintentionally funny most of the time and explains things in a dry humor that I really enjoyed.
