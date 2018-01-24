@@ -1,5 +1,5 @@
 ---
-title: Book Summary - Attack of the 50 Foot Blockchain
+title: Book Review - Attack of the 50 Foot Blockchain
 featured: https://images-na.ssl-images-amazon.com/images/I/51aIGVbfJcL.jpg
 date: 2018-01-24
 categories:
