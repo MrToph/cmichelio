@@ -6,7 +6,7 @@ categories:
 - Tech
 - Node
 medium:
-- Node
+- Nodejs
 - Programming
 - Development
 steem:
