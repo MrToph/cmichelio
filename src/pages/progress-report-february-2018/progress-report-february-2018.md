@@ -18,7 +18,7 @@ draft: true
 ---
 
 I post a progress report showing what I did and how my products performed each month.
-Last month's report can be seen [here](/progress-report-december-2017).
+Last month's report can be seen [here](/progress-report-january-2018).
 
 ## What did I do
 
