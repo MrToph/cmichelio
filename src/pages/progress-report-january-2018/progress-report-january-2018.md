@@ -24,7 +24,7 @@ Last month's report can be seen [here](/progress-report-december-2017).
 ![Productive Hours in January](./rescueTime.png)
 
 I worked 49.5 _productive_ hours. (Tracked using [RescueTime](/redirects/rescuetime).)  
-I watched The End of The F***ing World](https://trakt.tv/shows/the-end-of-the-f-ing-world/seasons/1).  
+I watched [The End of The F***ing World](https://trakt.tv/shows/the-end-of-the-f-ing-world/seasons/1).  
 
 I read [Attack of the 50 Foot Blockchain](/book-review-attack-of-the-50-ft-blockchain).  
 

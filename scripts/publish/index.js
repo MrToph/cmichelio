@@ -15,7 +15,9 @@ const publishPosts = async () => {
   if (argv.path) {
     pathsToPosts.push(argv.path)
   } else {
-    pathsToPosts.push('TODO get from git')
+    // pathsToPosts.push('TODO get from git')
+    console.log(`No path specified.\nUsage: npm run crosspost -- --path="a/b.md"`)
+    return
   }
   pathsToPosts = pathsToPosts.map(helpers.prefixLocalRelativePaths)
 
