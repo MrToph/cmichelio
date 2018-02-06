@@ -1,6 +1,6 @@
 ---
 title: Creating a Remind-Me bot for Steem
-featured: /steem-remind.bot/info.png
+featured: /steem-remind-bot/info.png
 date: 2018-02-07
 categories:
 - Tech
