@@ -35,7 +35,7 @@ Think of @remind.bot as an improved and automatic bookmark that notifies you so 
 The idea stems from reddit's [RemindMe bot](https://www.reddit.com/r/RemindMeBot/comments/24duzp/remindmebot_info/).
 **Now it's also on the Steem platform**!
 
-## Use-cases
+## Use Cases
 [@remind.bot](https://steemit.com/@remind.bot) can help in the following scenarios:
 
 - You want to read / answer a post later and not forget about it.
