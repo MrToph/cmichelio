@@ -1,6 +1,6 @@
 ---
 title: Differences in Defining ES6 Class Methods
-featured: /es6-class-methods-difference/featured.png
+featured: /es6-class-methods-differences/featured.png
 date: 2018-02-11
 categories:
 - Tech
