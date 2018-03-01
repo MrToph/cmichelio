@@ -1,7 +1,7 @@
 ---
 title: Progress Report - February 2018
 featured: /progress-report-february-2018/admob-income.png
-date: 2018-02-01
+date: 2018-03-01
 categories:
 - Progress Report
 medium:
@@ -15,7 +15,6 @@ steem:
 - programming
 - javascript
 - technology
-draft: true
 ---
 
 I post a progress report showing what I did and how my products performed each month.
@@ -25,52 +24,48 @@ Last month's report can be seen [here](/progress-report-january-2018).
 
 ![Productive Hours in February](./rescueTime.png)
 
-I worked 49.5 _productive_ hours. (Tracked using [RescueTime](/redirects/rescuetime).)  
-I watched The End of The F***ing World](https://trakt.tv/shows/the-end-of-the-f-ing-world/seasons/1).  
+I worked 37 _productive_ hours. (Tracked using [RescueTime](/redirects/rescuetime).)  
+I _started_ watching several new TV shows like Kevin Probably Saves The World, Devilman Crybaby, Blood Drive, but I wasn't really hooked and I didn't continue watching.  
 
-I read [Attack of the 50 Foot Blockchain](/book-review-attack-of-the-50-ft-blockchain).  
+I didn't finish any new books.  
 
-I finally got to live-coding on Twitch. I still lack all of the equipment, but I'll get a microphone soon and then I try to have a regular schedule. Probably, sometime on Sunday afternoon like most live-coders. Topics will be my side-projects, mostly web dev, and blockchain.
+There was a lot going on and I couldn't focus as much on my side projects as I wanted to. Still, I was able to finish my [Steem Remind.Bot Project](/steem-remind-bot/). Go ahead and use it! March should be a more distraction-free month again.
 
 ## Apps
 ### Downloads
-Total downloads of all my apps increased drastically to **1079** (+353) this month. You can see that my apps are mostly fitness apps, and all the New Year's resolutions are reflected in my download numbers.
+Total downloads of all my apps increased drastically to **990** this month. Back down roughly 200 downloads again from the January record month.
 
 ### In-App Purchases
-In-app Purchases are still at an all-time low at 3 orders this month. (+0)
+In-app Purchases are currently at only 4 orders. (+1)
 
-I made an estimated **10.24€** (+0.00€) this way.
+I made an estimated **13.65€** (+3.41€) this way.
 
 ### Ad Revenue
-My ad revenue went up. I made **58.67€** (+10.91€) for 75,695 (!) Google AdMob banner impressions. That's 20,000 impressions more than normal, but my RPM went down.
+My ad revenue stayed at **56.65€** (-2.02€) for 76,246 (!) Google AdMob banner impressions.
 
 ![App Income AdMob](./admob-income.png)
 
 ### Total App Income
-In total, this month's app income was 68.91€ (+10.91€).
+In total, this month's app income was 70.30€ (+1.39€).
 
 IAPs | Ads | Total
 --- | --- | ---
-10.24€ | 58.67€ | 68.91€
-
-February was a good month, let's hope it continues this way.
+13.65€ | 56.65€ | 70.30€
 
 ## Platform Growth
 ### Website
-Sessions increased again.
+Sessions went back to normal again.
 ![Website Traffic](./website-traffic.png)
 
-I stuck to my bi-weekly post schedule, I was even able to post a bit more:
+I'm proud that I still stuck to my bi-weekly post schedule:
 
-1. [Goals for 2018](/goals-2018/)
-1. [How does Steem work, anyway?](/how-does-steem-work/)
-1. [Book Review - Attack of the 50 Foot Blockchain](/book-review-attack-of-the-50-ft-blockchain/)
-1. [Splitting your app into micro-processes](/splitting-app-into-micro-processes/)
+1. [How to access Google Spreadsheets with Node](/how-to-access-google-spreadsheet-with-node/)
+1. [Differences in Defining ES6 Class Methods](/es6-class-methods-differences/)
+1. [Creating a Remind-Me bot for Steem](/steem-remind-bot/)
 
 
 ### Subscribers
-My [twitter](https://twitter.com/cmichelio) followers increased by _3_ to 216.
+My [twitter](https://twitter.com/cmichelio) followers increased by _18_ to 234.
 
 ## What's next
-I only watched one new TV show this month. Time to catch up.
-Also, I should be able to finish a smaller side project in February. If you're curious follow me on social media.
+I 'll be developing and releasing my first DAPP for [EOS](https://eos.io). 👌 Stay tuned. I'll live-stream some parts again.
