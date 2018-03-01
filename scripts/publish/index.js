@@ -16,7 +16,9 @@ const publishPosts = async () => {
     pathsToPosts.push(argv.path)
   } else {
     // pathsToPosts.push('TODO get from git')
-    console.log(`No path specified.\nUsage: npm run crosspost -- --path="a/b.md"`)
+    console.log(
+      `No path specified.\nUsage: npm run crosspost -- (medium|steem) (dry) --path="a/b.md"`
+    )
     return
   }
   pathsToPosts = pathsToPosts.map(helpers.prefixLocalRelativePaths)
@@ -46,14 +48,16 @@ const publishPosts = async () => {
   const parameterlessOptions = Array.isArray(argv._)
     ? argv._.map(option => option.toLowerCase())
     : []
+
+  const dryRun = parameterlessOptions.some(option => option === 'dry')
   if (parameterlessOptions.length === 0) {
     // publish to all platforms
     await publishToMedium(pathsToPosts)
     await publishToSteem(pathsToPosts)
   } else if (parameterlessOptions.some(option => option === 'medium')) {
-    await publishToMedium(pathsToPosts)
+    await publishToMedium(pathsToPosts, dryRun)
   } else if (parameterlessOptions.some(option => option === 'steem')) {
-    await publishToSteem(pathsToPosts)
+    await publishToSteem(pathsToPosts, dryRun)
   }
   process.exit()
 }
