@@ -15,6 +15,7 @@ steem:
 - javascript
 - technology
 - blog
+draft: true
 ---
 
 I post a progress report showing what I did and how my products performed each month.
