@@ -1,6 +1,6 @@
 ---
-title: Progress Report - March 2018
-featured: /progress-report-march-2018/admob-income.png
+title: Progress Report - April 2018
+featured: /progress-report-april-2018/admob-income.png
 date: 2018-04-01
 categories:
 - Progress Report
@@ -18,18 +18,18 @@ steem:
 ---
 
 I post a progress report showing what I did and how my products performed each month.
-Last month's report can be seen [here](/progress-report-february-2018).
+Last month's report can be seen [here](/progress-report-march-2018).
 
 ## What did I do
 
-![Productive Hours in March](./rescueTime.png)
+![Productive Hours in April](./rescueTime.png)
 
 I worked 64 _productive_ hours. 💪 (Tracked using [RescueTime](/redirects/rescuetime).)  
 I 'm watching [Atlanta S2](https://trakt.tv/shows/atlanta/seasons/2), [Sneaky Pete S2](https://trakt.tv/shows/sneaky-pete/seasons/2), [Last Man On Earth S4](https://trakt.tv/shows/the-last-man-on-earth/seasons/4).
 
 I read [Skin In The Game by Nassim Taleb](https://www.amazon.com/Skin-Game-Hidden-Asymmetries-Daily/dp/0241300657).
 
-March was a good month, I was able to put in quite some productive hours. Still, I didn't finish my EOS app - it 's a lot more than I initially expected.
+April was a good month, I was able to put in quite some productive hours. Still, I didn't finish my EOS app - it 's a lot more than I initially expected.
 I'm currently working on the frontend, I hope it will be ready soon after the [DAWN 3.0](https://steemit.com/eos/@choibo21c/urgent-news-eos-dawn-3-0-complete-day-announced) public testnet release.
 
 But back to my Android apps that I haven't updated in years 😅

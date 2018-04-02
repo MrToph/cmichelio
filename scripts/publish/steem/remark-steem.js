@@ -1,4 +1,15 @@
+const url = require('url')
 const visit = require('unist-util-visit')
+
+const createFeatureImage = (siteUrl, featuredUrl) => {
+  if (!featuredUrl) return null
+  return {
+    type: `image`,
+    title: null,
+    alt: 'Featured Image',
+    url: url.resolve(siteUrl, featuredUrl),
+  }
+}
 
 const createHorizontalRule = () => ({
   type: `thematicBreak`,
@@ -34,7 +45,7 @@ const collectUrlsFactory = () => {
 }
 
 function attacher(options) {
-  const { siteUrl, postUrl } = options
+  const { siteUrl, postUrl, frontmatter: { featured } } = options
   return transformer
 
   function transformer(tree, vfile) {
@@ -43,6 +54,7 @@ function attacher(options) {
     const linkUrlsVisitor = collectUrlsFactory()
     visit(tree, 'link', linkUrlsVisitor)
     tree.children = [
+      createFeatureImage(siteUrl, featured),
       ...tree.children,
       createHorizontalRule(),
       createReferenceToOriginalPost({ postUrl, siteUrl }),

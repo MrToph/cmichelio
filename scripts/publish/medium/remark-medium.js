@@ -1,5 +1,15 @@
 const url = require('url')
 
+const createFeatureImage = (siteUrl, featuredUrl) => {
+  if (!featuredUrl) return null
+  return {
+    type: `image`,
+    title: null,
+    alt: 'Featured Image',
+    url: url.resolve(siteUrl, featuredUrl),
+  }
+}
+
 const createTitle = title => ({
   type: 'heading',
   depth: 1,
@@ -43,18 +53,19 @@ const createMediumFooter = siteUrl => ({
 })
 
 function attacher(options) {
-  const { siteUrl, postUrl, frontmatter: { title } } = options
+  const { siteUrl, postUrl, frontmatter: { title, featured } } = options
   return transformer
 
   function transformer(tree) {
     console.log(JSON.stringify(tree, null, 2))
     tree.children = [
+      createFeatureImage(siteUrl, featured),
       createTitle(title),
       ...tree.children,
       createHorizontalRule(),
       createReferenceToOriginalPost(postUrl),
       createMediumFooter(siteUrl),
-    ]
+    ].filter(node => !!node)
   }
 }
 
