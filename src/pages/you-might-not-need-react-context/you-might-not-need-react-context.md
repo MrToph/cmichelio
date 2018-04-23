@@ -1,6 +1,6 @@
 ---
 title: You might not need React Context
-featured: /you-might-not-need-react-context/featured.png
+featured: /you-might-not-need-react-context/react-context-vs-hoc.png
 date: 2018-04-21
 categories:
 - Tech
@@ -18,17 +18,16 @@ steem:
 - programming
 - dev
 - react
-draft: true
 ---
 
-React 16.3 finally made the [Context API](https://reactjs.org/docs/context.html) stable. Since then, many developers started using it to solve the "prop-drilling" problem, the issue where you need to access a `prop` in a component that lives deep down the component tree and you need to forward that `prop` through many levels and components that don't even make use of the prop.
-The official documentation states the intent of the Context API as follows:
+React 16.3 finally made the [Context API](https://reactjs.org/docs/context.html) stable. Since then, many developers started using it to solve the "prop-drilling" problem - the issue where you need to pass a `prop` down the component tree along components not making use of it in order to access that `prop` in a component being rendered _deep down_ the tree.
+The React documentation states the intent of the Context API as follows:
 
 > In a typical React application, data is passed top-down (parent to child) via props, but this can be cumbersome for certain types of props (e.g. locale preference, UI theme) that are required by many components within an application. Context provides a way to share values like this between components without having to explicitly pass a prop through every level of the tree.
 
-> Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language.
+> Context is designed to **share data that can be considered “global”** for a tree of React components, such as the current authenticated user, theme, or preferred language.
 
-Let's look at an example. We want to track the activity of the user. For that we want to call a certain `track` function every time the user clicks on an UI element.
+Let's look at the example of tracking the activity of the user. For that, we want to call a certain `track` function every time the user clicks on a UI element.
 
 ## Tracker in plain React
 ```jsx
@@ -57,10 +56,10 @@ function TrackedButton(props) {
 }
 ```
 
-We need the `track` function in many different components of the app, and in React without any advanced patterns, we need to pass `track` through the whole component tree, even though `App` and `Toolbar` make no use of it.
+We need the `track` function in many different components of the app, and using React without any advanced patterns we need to pass `track` through the whole component tree, even though `App` and `Toolbar` make no use of it.
 
 ## Tracker with Context
-We can use the new React Context API to inject the `track` function in the needed components:
+We can use the new React Context API to inject the `track` function into the needed components:
 
 ```jsx
 const track = event => console.log(`${event} occured`);
@@ -104,14 +103,16 @@ function TrackedButton(props) {
 
 We create a `TrackerContext`, wrap the root component with `Provider` which makes the `track` function _consumable_ as `value` in the `TrackedButton` component.
 
-However, this is nothing new and you could always do this with a HOC (Higher Order Component) in React. The code is even more readable with a HOC.
+However, this is not something we couldn't do prior to the `Context` API, you **could always do this with a HOC** (Higher Order Component) in React. The code is even more readable using a HOC.
 
 ## Tracker as a HOC
-We can create a HOC, a function taking a component and returning a new component rendering the original component with some enhancements. In our case we will just inject the `track` function as a `prop` in the inner component.
+We can create a HOC, a function taking a component and returning a new component rendering the original component with some enhancements. In our case, we will just inject the `track` function as a `prop` into the inner component.
 
 ```jsx
 const track = event => console.log(`${event} occured`);
-const withTracker = track => Component => (props) => <Component track={track} {...props}/>;
+const withTracker = track => Component => (props) => (
+  <Component track={track} {...props}/>
+);
 
 class App extends React.Component {
   render() {
@@ -144,13 +145,13 @@ const TrackedButtonWrapped = withTracker(track)(TrackedButton)
 ```
 
 The nice thing about this is that the code is a lot cleaner than with using `Context`:
-1. `App` needs no wrapper anymore.
-1. `TrackedButton` is exactly the same component as in the plain React solution. It's not its responsability anymore to retrieve the `track` function.
-This is because we shifted the `prop` retrieveal into the **`TrackedButtonWrapped` HOC** which we render in `Toolbar` instead.
+1. `App` needs no `ContextProvider` wrapper anymore.
+1. `TrackedButton` is exactly the same component as in the plain React solution. It's not its responsibility anymore to retrieve the `track` function.
+This is because we shifted the `prop` retrieval into the **`TrackedButtonWrapped` HOC** which we render in `Toolbar` instead.
 
 > So is React.createContext useless?
 
-Let's go back to the example given in the [React documentation](https://reactjs.org/docs/context.html). There we're using `Context` to theme the app.
+Let's go back to the example given in the [React documentation](https://reactjs.org/docs/context.html). There, `Context` is used to _theme_ an app.
 
 ## Theming with Context
 The code is similar to the _Tracking with Context_ example. `ThemeContext.Provider` provides the `theme` and a function to _toggle the theme_ which sets `state` in the root component. These variables are only consumed where needed - in the `ThemedButton` to style the button and toggle the theme on button click.
@@ -256,14 +257,14 @@ If we add another `ThemedButton`, you'll notice that it doesn't work here. Every
 <embed src="https://codesandbox.io/embed/r5o2zjop5m">
 
 **Why did it work in the tracking example?**
-In the tracking example the data (`track` function) is _static_ and never changed, so each Button instance using the same function is not a problem and the expected behavior here.
+In the tracking example the data (`track` function) is _static_ and never changed, so each Button instance using the same function is not a problem here.
 
 This is the big advantage of the `Context API` over the `HOC pattern` and why it is so powerful: **Using `Context` the data is _shared_ among all `Consumers`**.
 
 ![React Context vs HOCs](./react-context-vs-hoc.png)
 
 # Summary
-Here's what the React documentation says about the use-cases of `Context`:
+Here's again what the React documentation says about the use-cases of `Context`:
 > Context is designed to share data that can be considered “global” for a tree of React components
 
 I would go one step further and say that the `Context API` is for global **dynamic** data that is **used by multiple component instances**.
@@ -272,79 +273,3 @@ In the case of **static** data, you might not need `Context`. It can always be r
 Here's a general guideline how to decide whether to use React's `Context` API:
 
 ![React Context Flowchart](react-context-flow-chart.png)
-
-
-## Addendum: Recreating Context from a HOC
-```jsx
-const sharedState = {
-  theme: 'light',
-}
-const listeners = []
-const listen = (callback) => {
-  listeners.push(callback);
-  // return unsubscribe function
-  return () => listeners.filter(cb => cb !== callback)
-}
-const toggleTheme = () => {
-  sharedState.theme = sharedState.theme === "light" ? "dark" : "light"
-  // update all listeners
-  listeners.forEach(cb => cb());
-};
-const withTheme = InnerComponent =>
-  class extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = sharedState
-      // create a new function per _instance_
-      // important to make unsubscribing work
-      this.updateState = this.updateState.bind(this);
-      this.unsubscribe = listen(this.updateState);
-    }
-
-    componentWillUnmount() {
-      this.unsubscribe();
-    }
-
-    updateState() {
-      this.setState({
-        ...sharedState
-      })
-    }
-
-    render() {
-      return (
-        <InnerComponent
-          ref={this.ref}
-          theme={this.state.theme}
-          toggleTheme={toggleTheme}
-        />
-      );
-    }
-  };
-
-class App extends React.Component {
-  render() {
-    return (
-      // again no Provider needed
-      <Toolbar />
-    );
-  }
-}
-
-function Toolbar(props) {
-  return (
-    <div>
-      {/* use the HOC here */}
-      <ThemedButtonWrapped />
-      {/* let's add another Button here */}
-      <ThemedButtonWrapped />
-    </div>
-  );
-}
-
-function ThemedButton(props) {
-  return <Button onClick={props.toggleTheme} theme={props.theme} />;
-}
-// Need to create a higher-order component out of ThemedButton
-const ThemedButtonWrapped = withTheme(ThemedButton);
-```
