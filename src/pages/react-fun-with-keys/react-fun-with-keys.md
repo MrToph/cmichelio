@@ -98,7 +98,8 @@ render(<App />, document.getElementById("root"));
 ```
 
 Using `index` as a key the following happens:
-[![Edit 7ko97vnv80](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/7ko97vnv80)
+
+<iframe src="https://codesandbox.io/embed/7ko97vnv80" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
 ![React Keys Index](./react-keys-index.gif)
 
