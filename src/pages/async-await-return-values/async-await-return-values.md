@@ -87,7 +87,7 @@ test3().then(val => console.log("finished ", val));
 // finished 3 
 ```
 
-Without needing to understand [how exactly async / await is transpiled to ES5](https://cmichel.io/how-is-async-await-transpiled-to-es5), intuitively, the second example `test2`, returning a Promise instead of just the value, looks more like this after conversion:
+Without needing to understand [how exactly async / await is transpiled to ES5](/how-is-async-await-transpiled-to-es5), intuitively, the second example `test2`, returning a Promise instead of just the value, looks more like this after conversion:
 
 ```js
 function test2() {
