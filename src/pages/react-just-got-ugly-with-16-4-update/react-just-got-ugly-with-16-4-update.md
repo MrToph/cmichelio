@@ -24,11 +24,11 @@ The main difference is that it's now being called even on `state` changes instea
 
 If you don't know about `getDerivedStateFromProps`, it's a `static` lifecycle method introduced in React 16.3 to prepare for async rendering.
 
-In 16.3 it was proposed as an alternative for `componentWillReceiveProps`, which will be renamed to `UNSAFE_componentWillMount` in `React 17` because it might cause issues with async rendering.
+In 16.3 it was proposed as an alternative for `componentWillReceiveProps`, which will be renamed to `UNSAFE_componentWillReceiveProps` in `React 17` because it might cause issues with async rendering.
 
 > getDerivedStateFromProps is being added as a safer alternative to the legacy componentWillReceiveProps. - [React 16.3](https://reactjs.org/blog/2018/03/29/react-v-16-3.html)
 
-In my opinion, the removal of `componentWillReceiveProps` made it significantly more verbose to write components that have *both* local `state`, and also derive part of their state from `props`.
+In my opinion, discouraging the use of `componentWillReceiveProps` made it significantly more verbose to write components that have *both* local `state`, and also derive part of their state from `props`.
 
 A _fully_ controlled or fully _uncontrolled_ component won't have the problems that we'll see now. So you should stick to these whenever possible, but in contrast to popular belief, we're often faced with components that are neither _fully_ controlled nor uncontrolled.
 
@@ -201,4 +201,4 @@ There's clearly something wrong with React when this is the recommended way to h
 
 I sincerely hope that the React team's initiative to push **async rendering** doesn't further come at the cost of React's usability in everyday scenarios like the one above.
 React 16.4 feels like a step backward after so many great and useful features in React 16.3.
-With the removal of `componentWillReceiveProps` there is no **simple** way to just listen to `props` changes anymore or access previous `props`.
+Without using `componentWillReceiveProps` there is no **simple** way to just listen to `props` changes anymore or access previous `props`.
