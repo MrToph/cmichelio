@@ -24,7 +24,7 @@ The main difference is that it's now being called even on `state` changes instea
 
 If you don't know about `getDerivedStateFromProps`, it's a `static` lifecycle method introduced in React 16.3 to prepare for async rendering.
 
-In 16.3 it was proposed as an alternative for `componentWillReceiveProps`, which is deprecated and will be removed in `React 17`.
+In 16.3 it was proposed as an alternative for `componentWillReceiveProps`, which will be renamed to `UNSAFE_componentWillMount` in `React 17` because it might cause issues with async rendering.
 
 > getDerivedStateFromProps is being added as a safer alternative to the legacy componentWillReceiveProps. - [React 16.3](https://reactjs.org/blog/2018/03/29/react-v-16-3.html)
 
