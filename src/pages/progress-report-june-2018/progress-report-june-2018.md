@@ -9,6 +9,7 @@ medium:
 - development
 - progress
 - react native
+- blogging
 steem:
 - blog
 - steemdev
