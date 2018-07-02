@@ -28,10 +28,10 @@ Last month's report can be seen [here](/progress-report-april-2018).
 I worked 56 _productive_ hours. 💪 (Tracked using [RescueTime](/redirects/rescuetime).)  
 I 'm watching [Silicon Valley S5](https://trakt.tv/shows/silicon-valley/seasons/5), [My Hero Academia S3](https://trakt.tv/shows/my-hero-academia/seasons/3).
 
-I finished my first EOS dapp, I still had to do some significant changes. But it's ready for release today when the main net launches today.
+I finished my first EOS dapp, I still had to do some significant changes. But it's ready for release when the main net launches today.
 
 I decided on self-publishing an ebook about EOS smart contract development and started building the landing page.
-I wrote down an outline what I want to be in the book.
+I wrote down an outline of what I 'd like to cover in the book.
 
 ## Apps
 ### Downloads
