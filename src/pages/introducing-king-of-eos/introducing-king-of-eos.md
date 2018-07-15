@@ -1,6 +1,6 @@
 ---
 title: Introducing King of EOS 🥁
-featured: /introducing-king-of-eos/banner.png
+featured: /introducing-king-of-eos/featured.png
 date: 2018-07-14
 categories:
 - Tech
