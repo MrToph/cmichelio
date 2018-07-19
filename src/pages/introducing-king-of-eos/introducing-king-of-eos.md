@@ -26,10 +26,10 @@ steem:
 All EOS accounts can battle for the throne.
 
 As it has become the standard for cryptocurrencies, the [first game](https://kingoftheether.com) has to resemble characteristics of a pyramid scheme, and - quite bluntly - so does King of EOS. 🤴🏻
-You can dethrone the current king by paying more than him, and becoming king has several advantages:
+You can dethrone the current king by paying an increased throne price, and becoming king has several advantages:
 * You can **promote your project/block producer** as a king by adding a description and uploading a banner picture. This is the first thing people will see when visiting [kingofeos.com](https://kingofeos.com). Like a real king, you're the owner of a 3D castle and your banner image is used as the flag of the tower.
     ![King Of EOS](./castle.png)
-* **Earn EOS**: When a new person becomes king, the increased throne price he paid will go to **the previous king** making the previous king a **big profit (`30%`)**. So you don't actually have to be sad when someone else claims your throne, because **you are guaranteed a profit when that happens**!
+* **Earn EOS**: When a new person becomes king, the higher price he paid will go to **the previous king** making the previous king a **big profit (`30%`)**. So you don't actually have to be sad when someone else claims your throne, because **you are guaranteed a profit when that happens**!
 
 The game's rules are fully _controlled and enforced_ by its smart contract:
 
