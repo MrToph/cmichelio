@@ -25,7 +25,7 @@ steem:
 [King of EOS](https://kingofeos.com) is the first **decentralized game on the** newly launched **EOS blockchain**.
 All EOS accounts can battle for the throne.
 
-As it has become the standard for blockchains, the [first game](https://kingoftheether.com) has to resemble characteristics of a pyramid scheme, and - quite bluntly - so does King of EOS. 🤴🏻
+As it has become the standard for cryptocurrencies, the [first game](https://kingoftheether.com) has to resemble characteristics of a pyramid scheme, and - quite bluntly - so does King of EOS. 🤴🏻
 You can dethrone the current king by paying more than him, and becoming king has several advantages:
 * You can **promote your project/block producer** as a king by adding a description and uploading a banner picture. This is the first thing people will see when visiting [kingofeos.com](https://kingofeos.com). Like a real king, you're the owner of a 3D castle and your banner image is used as the flag of the tower.
     ![King Of EOS](./castle.png)
@@ -38,7 +38,7 @@ The game's rules are fully _controlled and enforced_ by its smart contract:
 1. If you are the king and someone else claims your throne, _you_ will get the price _he_ paid. Meaning you will **make a profit of** roughly **a third of what you paid** for the throne! (There's a small commission charge.) 
 1. If you stay king for **7 consecutive days**, the kingdom will be forever yours and a new kingdom (round) will start! You will be immortalized as the ruler of this kingdom on the EOS blockchain and in the **Hall of Fame**. 😎
 
-> This means as long as anyone claims your throne in 7 days you will earn 130% of your EOS back. The hard part is estimating human greed and knowing when to stop. 🤑
+> This means as long as anyone claims your throne within 7 days you will earn 130% of your EOS back. The hard part is estimating human greed and knowing when to stop. 🤑
 
 # How to play?
 First, you need an **EOS Account**. If you don't have one already, you can [buy one here](https://www.zeos.co/) without any fees - thanks to CryptoLions.
