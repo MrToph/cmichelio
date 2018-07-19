@@ -184,7 +184,7 @@ struct claim_record
 We can just sum up the bytes needed for each field: 
 
 ```
-64bit + 64bit + 64bit + 8bit*100 + 8bit*32 = 1248 bit = 156 byte
+8bytes + 8bytes + 8bytes + 100bytes + 32bytes (+114 bytes unknown overhead) = 270bytes
 ```
 
 Optimizing `struct`s is hard, but one thing I did was to encode both the current round of the game and the king index in the upper and lower bits of a single `uint64_t`.

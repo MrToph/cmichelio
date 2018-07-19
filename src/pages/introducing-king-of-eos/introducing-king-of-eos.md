@@ -17,7 +17,6 @@ steem:
 - cryptocurrency
 - altcoin
 - utopian-io
-draft: true
 ---
 
 ![King Of EOS](./featured.png)
