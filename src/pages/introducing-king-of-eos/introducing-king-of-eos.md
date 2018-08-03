@@ -1,7 +1,7 @@
 ---
 title: Introducing King of EOS 🥁
 featured: /introducing-king-of-eos/featured.png
-date: 2018-07-14
+date: 2018-07-19
 categories:
 - Tech
 - EOS

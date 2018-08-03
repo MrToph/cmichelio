@@ -71,6 +71,6 @@ My [twitter](https://twitter.com/cmichelio) followers increased by _10_ to 271.
 ## What's next
 Finish up what's left over from last month:
 
-* I still have my fix my EOS proof of concept app for version 1 and deploy it.
+* I still have to fix my EOS proof of concept app for version 1 and deploy it.
 * Write tutorials for free and link to my book. Collect email addresses. All while actually writing the book.
 * I should live-stream my coding more again.

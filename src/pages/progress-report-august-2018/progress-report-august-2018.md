@@ -1,7 +1,7 @@
 ---
 title: Progress Report - July 2018
 featured: /progress-report-july-2018/admob-income.png
-date: 2018-08-03
+date: 2018-09-01
 categories:
 - Progress Report
 medium:
@@ -16,7 +16,7 @@ steem:
 - javascript
 - technology
 - blog
-draft: false
+draft: true
 ---
 
 I post a progress report showing what I did and how my products performed each month.
