@@ -14,12 +14,12 @@ categories:
 ---
 **React-Native** has pretty much [all components you need](https://facebook.github.io/react-native/docs/), but the one that seems to be missing is a standard **More-Popup Menu** (also called **DropDown Menu**). I'm talking about the "three dots menu" you see in every application showing additional actions when you click on it:
 
-![react native more popup dropdown menu](http://cmichel.io/assets/2016/09/react-native-more-popup.gif)
+![react native more popup dropdown menu](/assets/2016/09/react-native-more-popup.gif)
 
 There are already several NPM packages that try to recreate it by using buttons toggling a modal which renders a custom view representing the menu, but they all come with some layout problems, mostly when the _More-Button_ is close to a border, it just overflows and looks hideous.
 If you look through the [React-Native components](https://facebook.github.io/react-native/docs/) or even search the doc for _"Popup"_/_"Dropdown"_ nothing shows up. But ...
 
-![react-native-has-a-popup-component](http://cmichel.io/assets/2016/09/react-native-has-a-popup-component.jpg)
+![react-native-has-a-popup-component](/assets/2016/09/react-native-has-a-popup-component.jpg)
 
 If you dig deep down the github rabbit hole as mentioned [here](https://github.com/facebook/react-native/issues/3004), you can find an undocumented [`UIManager.java class`](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/uimanager/UIManagerModule.java) that allows you to create Popups with its `showPopupMenu` method:
  

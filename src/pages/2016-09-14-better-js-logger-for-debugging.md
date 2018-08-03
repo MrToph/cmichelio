@@ -14,7 +14,7 @@ categories:
 As web developers we really like putting `console.log` all over the place when debugging our applications, although the Chrome dev tools come with an actual debugger that can be started by simply writing `debugger` in your code. This gets messy rather fast, especially if you simply log the objects without an accompanying message. What I like to do is prepend the message with the class and function name so I can easily filter the message I'm looking for.
 It turns out you can actually automate that when using Chrome or Firefox and use colors on top!
 
-![stacklogger console chrome](http://cmichel.io/assets/2016/09/stacklogger-console-chrome.png)
+![stacklogger console chrome](/assets/2016/09/stacklogger-console-chrome.png)
 
 # Stacklogger
 I created an [npm package called Stacklogger](https://www.npmjs.com/package/stacklogger) for everyone to use by running `npm install stacklogger --save`. You just import it, and call its own `log` function as you would with `console.log`. If you already have logging with `console.log` in place, just call its `hookConsoleLog` function and every `console.log` is redirected to _stacklogger_'s custom `log` function. Check the [npm readme](https://www.npmjs.com/package/stacklogger) if you want to use it, or see its source code on [GitHub](https://github.com/MrToph/stacklogger)
@@ -50,7 +50,7 @@ e2.hello()
 ## How does it work?
 ### Stack trace
 Remember how when you throw an `Error` in JS, it prints the whole stack trace? What we do in the `log` function is to simply create a new `Error` object. Unfortunately, the stacktrace is not a well structured object, but just a string. The concrete stack trace string is even different for each JS engine, so I created two regex(es?) to parse them in Chrome's V8 engine and in Firefox. If you use Firefox be aware that it uses the file name as its class name as that's the only available information there.
-![stacklogger console firefox](http://cmichel.io/assets/2016/09/stacklogger-console-firefox.png)
+![stacklogger console firefox](/assets/2016/09/stacklogger-console-firefox.png)
 
 ### Hooking console.log()
 Redirecting the calls from `console.log` to `log` is really easy in JS as it allows you to just overwrite every property of objects. First we save a reference to the original `console.log` and then redefine `console.log`:

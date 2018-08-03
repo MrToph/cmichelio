@@ -14,10 +14,10 @@ categories:
 ---
 In this tutorial I will derive how to calculate the intersection of a ray and a plane.
 
-As already stated in my [ray / sphere intersection howto](http://cmichel.io/howto-raytracer-ray-sphere-intersection-theory/), a ray $$r(t)$$ can be represented by a point on the ray $$e$$ and the ray's direction $$d$$: $$r(t)=e + t d$$. The set $$R$$ of all points on the ray is then given by: $$R = \{r(t) \mid t \in \mathbb{R}\}$$
+As already stated in my [ray / sphere intersection howto](/howto-raytracer-ray-sphere-intersection-theory/), a ray $$r(t)$$ can be represented by a point on the ray $$e$$ and the ray's direction $$d$$: $$r(t)=e + t d$$. The set $$R$$ of all points on the ray is then given by: $$R = \{r(t) \mid t \in \mathbb{R}\}$$
 
 Similarly, a plane $$P$$ can be represented by a point on the plane $$p$$ and by its [normal](https://en.wikipedia.org/wiki/Normal_(geometry)) $$n$$. So how do we characterize the points on a plane? The main insight is that given any two points $$a,b$$ on the plane, the vector from $$a$$ to $$b$$, i.e. $$b-a$$, lies itself inside the plane and is thus by definition of the plane's normal $$n$$ perpendicular to it. To check for perpendicularity, we check if the dot product $$(b-a)\cdot n$$ is $$0$$. The set of the plane's points $$x$$ is then given by $$P = \{(x-p) \cdot n = 0 \mid x \in \mathbb{R}^3\}$$
-![plane representation](http://cmichel.io/assets/2016/03/plane-1024x508.png)
+![plane representation](/assets/2016/03/plane-1024x508.png)
 
 To find the intersection of the ray and the plane now, we have to find the points that are in both sets. So we check if a point $$r(t)$$ on the ray also fullfills the plane equation:
 

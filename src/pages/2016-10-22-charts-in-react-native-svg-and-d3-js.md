@@ -62,13 +62,13 @@ This works fine for static images with a fixed width and height, but what if you
 
 This might work out in your case, however, I found this to be insufficient for my purpose as the **aspect ratio** of your **viewBox**, the ratio of the width to the height, will most likely **not match** the aspect ratio of the actual available space, because you simply don't know it. The result is your width and height will be scaled inpropotional, making the stretching look bad.
 
-![React Native Svg Chart wrong aspectRatio](http://cmichel.io/assets/2016/10/react-native-svg-chart-wrong-aspectRatio.png)![React Native Svg Line Chart](http://cmichel.io/assets/2016/10/react-native-svg-line-chart.png)
+![React Native Svg Chart wrong aspectRatio](/assets/2016/10/react-native-svg-chart-wrong-aspectRatio.png)![React Native Svg Line Chart](/assets/2016/10/react-native-svg-line-chart.png)
 _
 Left: Width and height scaling is not proportional.</br>
 Right: Width and height uses all available space.
 _
 
-You can try playing around with the [preserveAspectRatio](https://developer.mozilla.org/de/docs/Web/SVG/Attribute/preserveAspectRatio) property, but I found it easiest to use React Native View's `onLayout` to get the actual width and height of the available space, and simply pass this information to the `Svg` component. [In this post](http://cmichel.io/how-to-get-the-size-of-a-react-native-view-dynamically/), I described the approach using `onLayout` to dynamically get the size of a `View`.
+You can try playing around with the [preserveAspectRatio](https://developer.mozilla.org/de/docs/Web/SVG/Attribute/preserveAspectRatio) property, but I found it easiest to use React Native View's `onLayout` to get the actual width and height of the available space, and simply pass this information to the `Svg` component. [In this post](/how-to-get-the-size-of-a-react-native-view-dynamically/), I described the approach using `onLayout` to dynamically get the size of a `View`.
 
 ## Creating Charts in React Native
 
@@ -166,7 +166,7 @@ Now we use these scales to build the axes and the lines. The axis will be a simp
 
 The actual code also takes into account _vertical_ axes and computes the `tickPoints`. It's available [here](https://gist.github.com/MrToph/5ed5d9ba03a84eb98e46d707ffbb8783).
 
-![React Native Svg Axes](http://cmichel.io/assets/2016/10/react-native-svg-chart-axes.png)
+![React Native Svg Axes](/assets/2016/10/react-native-svg-chart-axes.png)
 
 ### Creating the Lines
 
@@ -206,4 +206,4 @@ render() {
 
 If you combine all these steps, you end up with reusable **Charts in React Native**, and in general you can build the same profound _D3.js_ visualizations with _react-native-svg_ that you can build in standard web development.
 
-![React Native Svg Line Chart](http://cmichel.io/assets/2016/10/react-native-svg-line-chart.png)
+![React Native Svg Line Chart](/assets/2016/10/react-native-svg-line-chart.png)

@@ -51,7 +51,7 @@ After two great months with over 100€, this month was a bad one again.
 
 ## Platform Growth
 ### Website
-Website traffic went slightly up. I released a new blog post explaining how I use [headless chrome in node.js](http://cmichel.io/headless-chrome-in-nodejs/) to automate these progress reports.
+Website traffic went slightly up. I released a new blog post explaining how I use [headless chrome in node.js](/headless-chrome-in-nodejs/) to automate these progress reports.
 
 [![Website Traffic](./website-traffic.png)](./website-traffic.png)
 

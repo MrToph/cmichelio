@@ -18,7 +18,7 @@ categories:
 **[Redux](https://github.com/reactjs/redux)** is a great framework to manage the whole application state in a web app. One of its design principles is that of **pure functions** and **never changing the state directly**. Instead, each time you want to modify your state tree, you create a **copy of the state** and do your modifications. You don't need to create a _deep copy_, i.e., cloning every single array/object in the state, it's enough to only clone the objects that you actually change. (It's even encouraged _not_ to create a deep copy, because this would trigger a re-render in **react-redux** for _all_ components, instead of only the components whose properties actually changed.)
 However, in big applications this often leads to a lot of **repetitive boiler plate code**. For example, consider this state tree for a fitness app:
 
-![Redux State Tree](http://cmichel.io/assets/2016/10/stateTree.svg)
+![Redux State Tree](/assets/2016/10/stateTree.svg)
 
 ## Copy objects along the path
 The state tree reaches quite some depth as it consists of an array of several workouts, and each workout has several exercises again. It's often the case in _Redux_ that you just want to change a **leaf node** in the _Redux state tree_, let's say the _name_ property of a particular exercise in a particular workout. Simply changing this leaf node, does not work in Redux, as the _root state_ object didn't change at all, resulting in your app not registering the update. What you have to do, is to create a **copy of all objects along the path** (marked in _red_) to this leaf node.
@@ -105,7 +105,7 @@ changeStateDeep = (state, val, ...keys) => {
 }
 ```
 
-Using this function, it's already a lot easier to change a single object located deep down the state tree, but I wonder if there is an even easier alternative. I might play around with wrapping the state tree in an [ES6 proxy](http://cmichel.io/using-actions-in-redux-the-correct-way/). This way you should be able to hide the above code in the Proxy's handler function and it's literally enough to write:
+Using this function, it's already a lot easier to change a single object located deep down the state tree, but I wonder if there is an even easier alternative. I might play around with wrapping the state tree in an [ES6 proxy](/using-actions-in-redux-the-correct-way/). This way you should be able to hide the above code in the Proxy's handler function and it's literally enough to write:
  
 ```javascript
 stateProxy.workouts[indexInWorkout].exercises[indexInExercises].name = newName

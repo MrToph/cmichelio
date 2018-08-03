@@ -17,7 +17,7 @@ categories:
 Since some months ago Chrome ships with a _headless_ option that allows you to script the browser behavior.
 It's basically like [phantomjs](http://phantomjs.org/) but using the Chrome engine.
 
-I wrote some scripts to automate taking screenshots and collecting the data for [my monthly progress reports](http://cmichel.io/progress-report-august-2017/).
+I wrote some scripts to automate taking screenshots and collecting the data for [my monthly progress reports](/progress-report-august-2017/).
 
 ### How it works
 You can use the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-captureScreenshot) to navigate to a page, inject javascript, or take screenshots.

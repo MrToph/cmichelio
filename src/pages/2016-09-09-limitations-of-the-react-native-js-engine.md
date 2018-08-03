@@ -12,11 +12,11 @@ categories:
 - Tech
 - React Native
 ---
-If you're already used to writing ES6 JavaScript, you might get a bad surprise at some point while programming for react-native. Say you want to use [ES6 Proxies to find errors more easily while developing](http://cmichel.io/using-actions-in-redux-the-correct-way/), and everything works fine until you disable the remote JS debugging, and you encounter this:
+If you're already used to writing ES6 JavaScript, you might get a bad surprise at some point while programming for react-native. Say you want to use [ES6 Proxies to find errors more easily while developing](/using-actions-in-redux-the-correct-way/), and everything works fine until you disable the remote JS debugging, and you encounter this:
 
 `Can't find variable: Proxy`
 
-![es6 proxies react native](http://cmichel.io/assets/2016/09/es6-proxies-react-native.png)
+![es6 proxies react native](/assets/2016/09/es6-proxies-react-native.png)
 
 What's going on here? While remote debugging, your react-native code runs in Chrome's V8 JS engine which supports ES6. In production however your code runs in [Safari's "JavaScriptCore" JS engine](https://facebook.github.io/react-native/docs/javascript-environment.html#javascript-runtime) which apparently doesn't understand ES6. Behind the hood, react-native already runs babel to transform the most used ES6 features to ES5, but not all of them.
 

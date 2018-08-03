@@ -13,7 +13,7 @@ categories:
 - React Native
 ---
 
-The standard style of the [**TimePickerAndroid** Component](https://facebook.github.io/react-native/docs/timepickerandroid.html) is a teal background which might not blend with the color scheme you're using in your React Native app. However, similar to [`DatePickerAndroid`](http://cmichel.io/styling-timepickerandroid-in-react-native/), I'll show you how to style it to match your theme.
+The standard style of the [**TimePickerAndroid** Component](https://facebook.github.io/react-native/docs/timepickerandroid.html) is a teal background which might not blend with the color scheme you're using in your React Native app. However, similar to [`DatePickerAndroid`](/styling-timepickerandroid-in-react-native/), I'll show you how to style it to match your theme.
 
 ![TimePickerAndroid React Native Style](./timepickerandroid-react-native-style.png)
 

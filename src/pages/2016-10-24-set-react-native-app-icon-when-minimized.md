@@ -15,7 +15,7 @@ categories:
 
 **React Native** uses your custom app icon `ic_launcher.png` specified in **"android/app/src/main/res/mipmap-*/ic_launcher.png"** as the launch icon. However, when you minimize your app, on some devices the default android logo is displayed instead of your custom app icon. It is supposed to use your launch icon unless specified otherwise, so this is most likely a bug in either Android, React Native, or the device I tested on.
 
-![React Native App Icon Minimized](http://cmichel.io/assets/2016/10/react-native-app-icon-minimized.jpg)
+![React Native App Icon Minimized](/assets/2016/10/react-native-app-icon-minimized.jpg)
 
 ## React Native Custom App Icon
 
@@ -35,4 +35,4 @@ We now need to tell Android to use the _ic_launcher.png_ inside the drawable fol
 
 After recompiling, your custom app icon will be used as both the launch icon and as the logo when minimized.
 
-![React Native App Icon Drawable](http://cmichel.io/assets/2016/10/react-native-app-icon-drawable.png)
+![React Native App Icon Drawable](/assets/2016/10/react-native-app-icon-drawable.png)

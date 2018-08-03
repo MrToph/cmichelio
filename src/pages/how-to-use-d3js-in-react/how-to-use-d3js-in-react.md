@@ -134,7 +134,7 @@ export class App extends React.Component {
 ## The Hybrid Approach
 What I like to do is to take a hybrid approach. I prefer the structure and readability that comes by using React components, but I also like using the transitions directly on the DOM elements. So what I do is I combine both approaches: **Let React render every (mostly) static component (Container, Title, Axis, Legend) and D3 everything that needs to be animated (Data Series).**
 For an example implementation of this you can check out my [Bubble Chart on GitHub](https://github.com/MrToph/react-d3-bubblechart).
-([Or play with it here.](http://cmichel.io/projects/react-d3-bubblechart/))
+([Or play with it here.](/projects/react-d3-bubblechart/))
 
 ![React D3 Hybrid Bubble Chart](./bubblechart.gif)
 

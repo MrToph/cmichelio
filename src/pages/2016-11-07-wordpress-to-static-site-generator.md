@@ -21,7 +21,7 @@ There are many static site generators, the ones I personally find the most inter
 * [Phenomic](https://phenomic.io/)
 * [Next.js](https://zeit.co/blog/next)
 
-![WordPress in 2016](http://cmichel.io/assets/2016/11/wordpress-in-2016.gif)
+![WordPress in 2016](/assets/2016/11/wordpress-in-2016.gif)
 
 ## Reasons to use a static site generator
 
@@ -31,7 +31,7 @@ Here are some of my reasons to use a static site generator in favor of WordPress
 
  	
 2. **Less clutter/Better SEO:** If you go the WordPress route, you end up using dozens of plugins, most of them coming with their own **CSS stylesheets** or **JS scripts** that need to be requested by the browser. This slows down your website which is bad for SEO, and if you look at the network requests tab, your website looks like a patchwork rug with CSS stylesheets and JavaScript scripts plastered all over it.  
-![WordPress JavaScript Requests](http://cmichel.io/assets/2016/11/wordpress-javascript-requests.png)
+![WordPress JavaScript Requests](/assets/2016/11/wordpress-javascript-requests.png)
 _Posts on my blog load 20 JS scripts._
 With a static site generator I should be able to **bundle** all the individual JS code into a single _bundle.js_, reducing this to one request. The same works for the `.css` part, or it could even be _inlined_ into the `head` when creating the static websites.
 
@@ -40,7 +40,7 @@ With a static site generator I should be able to **bundle** all the individual J
 ![Gatsby hot-reloading](http://zippy.gfycat.com/UltimateWeeklyBarebirdbat.gif)  
 The way I'm currently authoring in WordPress is that I type my posts into its editor and click on _Preview_, which opens a new tab, loads for some seconds and then shows the rendered website. This might not seem like much, but it gets annoying if you have to do it for every little change you do in your post.
 
-   I 'm also experimenting if I can use **custom React components in my posts** by importing them into my markdown write-up, which then evaluates the React component (calls its `render` function) and _hard-codes_ the result into the static page. This is useful if you build a [Visualization component](http://cmichel.io/charts-in-react-native-svg-and-d3-js/) in React and want to reuse it in many posts to visualize different data. I got some prototype of this working already, I'll post about it next.
+   I 'm also experimenting if I can use **custom React components in my posts** by importing them into my markdown write-up, which then evaluates the React component (calls its `render` function) and _hard-codes_ the result into the static page. This is useful if you build a [Visualization component](/charts-in-react-native-svg-and-d3-js/) in React and want to reuse it in many posts to visualize different data. I got some prototype of this working already, I'll post about it next.
 
 4. The sense of accomplishment you get when you build your site from scratch instead of using a WordPress theme with plugins. You'll also learn a lot doing it this way.
 

@@ -12,7 +12,7 @@ categories:
 - Phenomic
 ---
 
-I recently decided to [move my **WordPress Blog**](http://cmichel.io/wordpress-to-static-site-generator/) to a static site generator. You can read about the reasons [here]().
+I recently decided to [move my **WordPress Blog**](/wordpress-to-static-site-generator/) to a static site generator. You can read about the reasons [here]().
 I'm using [phenomic](https://phenomic.io) as my static site generator which takes _markdown posts_ and converts them to HTML and embeds them in a web page that is fully customizable with
 **React components**. However, my old posts in WordPress are still written in HTML and use WordPress Plugins, and I had to **migrate them from WordPress to phenomic**.
 Here's how I did it.

@@ -21,7 +21,7 @@ Last month's report can be seen [here](/progress-report-april-2017).
 
 I worked 36 _productive_ hours. (Tracked using [RescueTime](/redirects/rescuetime).)  
 
-I released two new open source [React Native components](http://cmichel.io/react-native-progress-circle/):
+I released two new open source [React Native components](/react-native-progress-circle/):
 1. [React Native Progress Circle](https://github.com/MrToph/react-native-progress-circle)
 2. [React Native Countdown Circle](https://github.com/MrToph/react-native-countdown-circle)
 

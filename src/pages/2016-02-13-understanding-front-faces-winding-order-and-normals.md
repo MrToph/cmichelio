@@ -21,7 +21,7 @@ Whether a side of a face is considered to be the front or the back, depends on t
 Consider you have a triangle (the same idea works for any polygon) and you start by picking any vertex (call this vertex 1). Then you can pick up the other vertices _from your point of view_ in either a clockwise or counter-clockwise order. The way you do this is called the winding order of the triangle.
 
 In the image below the order 1,3,2 would be a _clockwise_ (CW) winding order; 1,2,3 would be _counter-clockwise_ (CCW). If you change your point of view to look at the triangle from the other side, you would perceive the opposite winding order, 1,3,2 would be CCW, 1,2,3 CW.
-![Winding Order Triangle Unity](http://cmichel.io/assets/2016/02/winding-order-triangle-unity.png)
+![Winding Order Triangle Unity](/assets/2016/02/winding-order-triangle-unity.png)
 
 Now you define a face following a certain winding order - say CCW - to be the front face, the other side to be the back face. Which winding order corresponds to the front is completely arbitrary and depends on the game engine you use. However for some reason this fact is seldom documented and you have to find out yourself through testing.
 **Unity uses a _clockwise_ winding order for front faces.**

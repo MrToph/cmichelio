@@ -17,7 +17,7 @@ We will iterate the grid in a spiral manner that is used, inter alia, by [Cantor
 
 ## Spiral Enumeration
 The algorithm will enumerate the grid in the following order starting at the top left:
-![Spiral Enumeration](http://cmichel.io/assets/2016/09/spiral-enumeration.png)
+![Spiral Enumeration](/assets/2016/09/spiral-enumeration.png)
 
 
 ### The Algorithm
@@ -29,7 +29,7 @@ var index = Math.pow(Math.max(r, c), 2) + Math.max(r, c)
 
 ### Explanation
 The algorithm works layer by layer, where a layer is an L shaped piece that surrounds all the previous layers (which form a square). This sounds complicated, so let's look at a picture:
-![Spiral Enumeration Algorithm](http://cmichel.io/assets/2016/09/spiral-enumeration-algorithm.png)
+![Spiral Enumeration Algorithm](/assets/2016/09/spiral-enumeration-algorithm.png)
 
 The third layer (0-based) is the orange L-shaped piece. There are 4 layers in the picture: 0, 1-3, 4-8, 9-15. The element (r,c) is in the `Math.max(r,c)`-st layer. Thus, the first index of this layer will be the "area" of the red square consisting of all the previous layers `Math.max(r,c)^2`. 
 The enumeration _inside_ the layer is given by `r-c` which are the orange numbers next to elements in the layer (the numbers from -3 to 3). But we want the first index in the layer to start at 0 instead of -3, so we shift everything by `Math.max(r,c)`, the layer's width-1, represented in blue. The only thing left is to reverse the direction of odd layers, i.e., multiply `r-c` by `-1` when `Math.max(r,c) % 2 == 1`.

@@ -14,7 +14,7 @@ categories:
 ---
 The standard style of the **DatePickerAndroid** Component is a teal background which might not blend with the color scheme you're using in your React Native app. I'll show you how to style DatePickerAndroid to match your theme.
 
-![DatePickerAndroid React Native Style](http://cmichel.io/assets/2016/09/datepickerandroid-react-native-style-1.png)
+![DatePickerAndroid React Native Style](/assets/2016/09/datepickerandroid-react-native-style-1.png)
 
 [`DatePickerAndroid`](https://facebook.github.io/react-native/docs/datepickerandroid.html) is an API for the native DatePicker Android module and thus cannot be directly styled through JS props like real React Native components. However, you can style the native android modules by changing the **styles.xml** in your android folder. It is located at **"android/app/src/main/res/values/styles.xml"** relative to your react-native project. To get a red background for the DatePicker, you edit the contents of **styles.xml** as follows:
 

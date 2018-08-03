@@ -107,7 +107,7 @@ grunt.initConfig({
 The gruntfile.js file specifies which tasks grunt should automate, here the babel block defines that we want to take all files from _"src/js"_ that end with _".jsx"_ (written in ES6) and use babel to compile them to ES5 files into _"src/js-compiled"_ with the name extension _"-compiled.js"_. The source map is specified to still be able to debug these files in ES6.
 The next command that grunt automates is the "uglify" block which puts all these freshly compiled files from _"src/js-compiled"_ into just a single one named _"src/build/all.min.js"_.
 
-![Folder structure for sublime project with Babel and Grunt](http://cmichel.io/assets/2016/04/folder-structure-sublime-babel-grunt.png)
+![Folder structure for sublime project with Babel and Grunt](/assets/2016/04/folder-structure-sublime-babel-grunt.png)
 ### 7. Finished: The workflow
 You code ES6 javascript files in _"src/js"_ ending with _".jsx"_. Then you hit **CTRL + SHIFT + P** and run **"grunt" -> "default"** and it will do the automation defined above ending with a single ES5 file in _"src/build"_.
 

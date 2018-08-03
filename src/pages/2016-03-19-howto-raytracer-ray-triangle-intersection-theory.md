@@ -12,11 +12,11 @@ categories:
 - Games
 - Math
 ---
-Besides [sphere](http://cmichel.io/howto-raytracer-ray-sphere-intersection-theory/) and [plane](http://cmichel.io/howto-raytracer-ray-plane-intersection-theory/) intersections another important one is the ray / triangle intersection, because most 3D models consist of triangles or can be converted to such a representation. So let's learn how to do it to be able to model some complex models.
+Besides [sphere](/howto-raytracer-ray-sphere-intersection-theory/) and [plane](/howto-raytracer-ray-plane-intersection-theory/) intersections another important one is the ray / triangle intersection, because most 3D models consist of triangles or can be converted to such a representation. So let's learn how to do it to be able to model some complex models.
 
-A triangle $$T$$ can be represented by three points $$v0, v1, v2$$ that define a plane. So first, we check if the ray intersects this plane. I already did a tutorial on [ray / plane intersection](http://cmichel.io/howto-raytracer-ray-plane-intersection-theory/) so I won't cover it again. If there is such an intersection it means we just have to check if this hitpoint $$P$$ lies within the bounds of the triangle. For this we calculate a different representation of $$P$$ with respect to the triangle: As the point is on the plane, it can be written as $$P = v0 + su + tv$$ for some $$s,t$$ where $$u$$ and $$v$$ are the "edge vectors" incident to $$v0$$.
+A triangle $$T$$ can be represented by three points $$v0, v1, v2$$ that define a plane. So first, we check if the ray intersects this plane. I already did a tutorial on [ray / plane intersection](/howto-raytracer-ray-plane-intersection-theory/) so I won't cover it again. If there is such an intersection it means we just have to check if this hitpoint $$P$$ lies within the bounds of the triangle. For this we calculate a different representation of $$P$$ with respect to the triangle: As the point is on the plane, it can be written as $$P = v0 + su + tv$$ for some $$s,t$$ where $$u$$ and $$v$$ are the "edge vectors" incident to $$v0$$.
 
-![triangle representation](http://cmichel.io/assets/2016/03/triangle-intersection.png)
+![triangle representation](/assets/2016/03/triangle-intersection.png)
 
 Once we have found the values for $$s,t$$ the following has to be true for the point to be inside the triangle:
   1. $$0 \leq s,t \leq 1$$
@@ -152,4 +152,4 @@ public class RTTriangle : RTObject
 ```
 
 You can now import a 3D model consisting of triangles in .obj format, parse the triangles and do your ray test. This is what the result might look like, a lot better than just planes and spheres.
-![raytracer triangles 3d model](http://cmichel.io/assets/2016/03/raytracer-triangles-3d-model.png)
+![raytracer triangles 3d model](/assets/2016/03/raytracer-triangles-3d-model.png)

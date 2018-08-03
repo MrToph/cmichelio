@@ -25,7 +25,7 @@ The core concept of **Redux** is to have a single state tree for the whole appli
 
 Let's say you have a top-level component rendering child components, and both the top-level component and the child components are connected to the store via `mapStateToProps`. If a state change happens, there is no guarantee that the top-level component's `mapStateToProps` is executed first. Consider the fitness app example from [last post](): The state consists of a **Workout** having several **Exercises** as its children. 
 
-![Redux State Tree mapStateToProps](http://cmichel.io/assets/2016/10/stateTree-1.svg)
+![Redux State Tree mapStateToProps](/assets/2016/10/stateTree-1.svg)
 
 The _Workout_ has a corresponding top-level component that gets the exercises from the state (with `mapStateToProps`) and renders them in an _Exercise_ child component. The exercise **child component also gets its props from the state with `mapStateToProps`**, but to do that it needs to know which exercise it actually is. To avoid the identity-crisis, _Workout_ has to pass down some **key**, let's use the _name_ prop.
 

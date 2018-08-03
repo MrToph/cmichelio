@@ -23,12 +23,12 @@ Change to:
 
 ### 2. Import into your new site
 Login to your dashboard of your new site and go to "Tools -> Settings -> Import". There, you see several importer plugins, none of which are installed by default. We will use "WordPress", so click on "Install now", after that on "Activate". You can now "Run Importer", select your exported .xml file from step 1 and upload it. The posts will get transfered and will need a new author in your new domain, whom you can select here. Also, check "Download and import file attachments".
-![WordPress Import](http://cmichel.io/assets/2016/08/wordpress-import.png)
+![WordPress Import](/assets/2016/08/wordpress-import.png)
 
 ### 3. Fix your image sources
 If you did everything right, the previous import should have imported all images used in posts as "Media". However, if you actually look at a post, the images still point to "oldDomain.tld/image-path".
 To make them point to your new domain, we will use the plugin "MediaTools". Install and active the plugin and go to "Tools -> Media Tools", choose the "Import External Images" option pictured below.
-![WordPress MediaTools Import External Images](http://cmichel.io/assets/2016/08/wordpress-mediatools-import-images.png)
+![WordPress MediaTools Import External Images](/assets/2016/08/wordpress-mediatools-import-images.png)
 This will search your posts/pages for image links and replace them if it finds a matching image in your Media library.
 
 ### 4. Redirect your old domain to your new domain

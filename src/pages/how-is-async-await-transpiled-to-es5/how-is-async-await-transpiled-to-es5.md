@@ -17,7 +17,7 @@ The proposal and examples can be seen [here](https://tc39.github.io/ecmascript-a
 
 We will look at the implementation details of ES7's `async/await` to get a better understanding of it.
 You can use [`babel-preset-stage-3`](https://babeljs.io/docs/plugins/preset-stage-3/) with its [transform-async-generator-functions plugin](https://babeljs.io/docs/plugins/transform-async-generator-functions/) to transpile the `async/await` syntax ES6's `generator` functions.
-Then the `generators` are again transformed to ES5 functions with state, the process is described [in this blog post](http://cmichel.io/how-are-generators-transpiled-to-es5/).
+Then the `generators` are again transformed to ES5 functions with state, the process is described [in this blog post](/how-are-generators-transpiled-to-es5/).
 All there is left to understand is how to reduce `async` functions to `generators`.
 
 ## async/await to generators

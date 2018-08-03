@@ -15,7 +15,7 @@ categories:
 
 Sometimes you need to know the exact width or height of a `View` in **React Native** _dynamically at runtime_. For instance, if you want to draw a chart scaled to the full page, you need to know the width and the height of the available space.
 
-![React Native View Size Dynamic](http://cmichel.io/assets/2016/10/react-native-view-size-dynamic.png) The Chart needs to know its width and height
+![React Native View Size Dynamic](/assets/2016/10/react-native-view-size-dynamic.png) The Chart needs to know its width and height
 
 There are two ways in **React Native** to dynamically get the _size_ of a `View`.
 

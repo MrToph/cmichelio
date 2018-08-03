@@ -13,7 +13,7 @@ categories:
 - Redux
 ---
 
-I already talked about issues with Redux' `connect/mapStateToProps` in [my post last week](http://cmichel.io/why-you-should-not-use-mapstatetoprops-too-often/), let's address the performance issues in this post. In Redux, you connect a component to the store via `connect` by providing a `mapStateToProps` function. The problem is that this function gets called on _every_ state update, even if the connected component is currently invisible, or the part of the state tree that got updated has no relevance for this component.
+I already talked about issues with Redux' `connect/mapStateToProps` in [my post last week](/why-you-should-not-use-mapstatetoprops-too-often/), let's address the performance issues in this post. In Redux, you connect a component to the store via `connect` by providing a `mapStateToProps` function. The problem is that this function gets called on _every_ state update, even if the connected component is currently invisible, or the part of the state tree that got updated has no relevance for this component.
 For example, you're doing Navigation in **React Native** and [push routes onto a route stack](https://facebook.github.io/react-native/docs/navigator.html). You will end up with many _mounted_ components that are currently _not visible_, but their `mapStateToProps` will still get called every time the user triggers a state change. This is fine as long as your selectors in `mapStateToProps` only do easy computations on the state. If the result is however not easily derivable from the state, doing the computations all over again, every time, slows down your performance, and is simply just not necessary.
 
 ## Caching the result

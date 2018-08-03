@@ -18,7 +18,7 @@ A ray $$r(t)$$ can be represented by a point on the ray $$e$$ and the ray's dire
 
 A sphere $$S$$ can be represented by its center point $$c$$ and its radius $$r$$. The set of all points $$x$$ whose distance from the center $$c$$ of the sphere equals the radius $$r$$, is by definition the set of points on the sphere: $$S = \{ ||x - c|| = r \mid x \in \mathbb{R}^3\}$$. ($$||x||$$ denotes the [length of a vector.](https://en.wikipedia.org/wiki/Euclidean_distance))
 
-![sphere equation](http://cmichel.io/assets/2016/02/sphere.png)
+![sphere equation](/assets/2016/02/sphere.png)
 
 To find the intersection of the ray and the sphere now, we have to find the points that are in both sets. So we check if a point $$r(t)$$ on the ray also fullfills the distance equation of the sphere:
 
@@ -72,7 +72,7 @@ If and how many solutions exist depends on the [discriminant](https://en.wikiped
 
 To get the intersections you calculate the $$t$$ values and then evaluate the ray $$r(t)$$.
 
-![Left: No intersection Middle: One intersection Right: Two intersections](http://cmichel.io/assets/2016/02/discriminant-sphere-ray-intersection.png)
+![Left: No intersection Middle: One intersection Right: Two intersections](/assets/2016/02/discriminant-sphere-ray-intersection.png)
 _Left: No intersection  
 Middle: One intersection  
 Right: Two intersections_
