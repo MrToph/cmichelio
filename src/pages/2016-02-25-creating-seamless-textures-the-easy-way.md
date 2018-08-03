@@ -13,10 +13,10 @@ categories:
 ---
 When you design a terrain for a game, you don't just have a single texture that you apply to the whole terrain, as the texture's size would be way too huge. An approach that gives you more flexibility is to instead create small texture chunks that are repeated all over the map. Now it's important that the textures you use are seamless, i.e., there are no visual borders that would indicate the individual tiles. I'll show you how to create seamless textures.
 
-![Non-seamless Ice texture](http://cmichel.io/assets/2016/02/bad-ice-texture-1024x547.jpg)
+![Non-seamless Ice texture](/assets/2016/02/bad-ice-texture-1024x547.jpg)
 _Non-seamless texture: You can see the seams/borders of the texture as the shapes do not wrap around and the lighting level differs on opposite sides of the texture._
 
-![Seamless Ice texture](http://cmichel.io/assets/2016/02/seamless-ice-texture-1024x546.png)
+![Seamless Ice texture](/assets/2016/02/seamless-ice-texture-1024x546.png)
 _Seamless texture: There is no border around the individual tiles._
 
 
@@ -27,26 +27,26 @@ The hardest part is the border, so the first step will be to create a border tha
 
 #### Creating the border
   1. Draw your border as a cross in the center of the texture.
-  ![seamless texture border as a cross](http://cmichel.io/assets/2016/02/seamless-texture-cross.jpg)
+  ![seamless texture border as a cross](/assets/2016/02/seamless-texture-cross.jpg)
   _Draw your border as a cross in the center of the texture_
 
   2. Cut the texture vertically at the center. Swap the left and right parts.
-  ![seamless texture cut vertically](http://cmichel.io/assets/2016/02/seamless-texture-cut-vertically.jpg)
+  ![seamless texture cut vertically](/assets/2016/02/seamless-texture-cut-vertically.jpg)
   _Cut the texture vertically at the center. Swap the left and right parts._
 
   3. Cut the texture from step 2) horizontally at the center. Swap the top and bottom parts.
-  ![seamless texture cut horizontally](http://cmichel.io/assets/2016/02/seamless-texture-cut-horizontally.jpg)
+  ![seamless texture cut horizontally](/assets/2016/02/seamless-texture-cut-horizontally.jpg)
   _Cut the texture horizontally at the center. Swap the top and bottom parts._
 
 
 You have now created a seamless texture. This is how it looks in a game right now:
-![texture seamless no center](http://cmichel.io/assets/2016/02/texture-seamless-no-center-1024x545.jpg)
+![texture seamless no center](/assets/2016/02/texture-seamless-no-center-1024x545.jpg)
 
 
 #### Fill in the center of the texture
 
 Now fill in the center of the image however you like:
-![seamless texture finished](http://cmichel.io/assets/2016/02/seamless-texture-finished.jpg)
+![seamless texture finished](/assets/2016/02/seamless-texture-finished.jpg)
 
 Again the finished result:
-![Seamless Ice texture](http://cmichel.io/assets/2016/02/seamless-ice-texture-1024x546.png)
+![Seamless Ice texture](/assets/2016/02/seamless-ice-texture-1024x546.png)

@@ -68,7 +68,7 @@ The difference is you can now look it up at a central location in ActionNames.js
 In the reducer, if you check for `ACTIONS.badKey`, it evaluates to undefined and your corresponding switch case will just silently fail when the action.type string gets compared with undefined.
 
 ### ES6 Proxies to the rescue
-![Behind 7 ES6 Proxies](http://i0.kym-cdn.com/entries/icons/original/000/001/461/Good_Luck_I_m_Behind_7_Proxies.jpg)
+![Behind 7 ES6 Proxies](https://i0.kym-cdn.com/entries/icons/original/000/001/461/Good_Luck_I_m_Behind_7_Proxies.jpg)
 
 The ES6 standard introduced [Proxies](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy), which act kind of like the Proxies you know from the internet. Previously, JS had no way to apply some logic when accessing an object's properties. With ES6 Proxies, you have a standard JS object (called target) and can create a Proxy out of it. You specify a handler function that gets called everytime proxy.someProperty gets called.
 

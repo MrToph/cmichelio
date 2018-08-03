@@ -37,7 +37,7 @@ With a static site generator I should be able to **bundle** all the individual J
 
  	
 3. **Better developer/author experience:** The static site generators I mentioned allow you to write your posts in **Markdown** which are then compiled to standard `HTML` tags during the build phase. Furthermore, you can make use of Webpack's **hot reloading** feature to immediately see your results rendered when writing markup posts (or developing the website in general). See the example from **Gatsby** here:  
-![Gatsby hot-reloading](http://zippy.gfycat.com/UltimateWeeklyBarebirdbat.gif)  
+![Gatsby hot-reloading](https://zippy.gfycat.com/UltimateWeeklyBarebirdbat.gif)  
 The way I'm currently authoring in WordPress is that I type my posts into its editor and click on _Preview_, which opens a new tab, loads for some seconds and then shows the rendered website. This might not seem like much, but it gets annoying if you have to do it for every little change you do in your post.
 
    I 'm also experimenting if I can use **custom React components in my posts** by importing them into my markdown write-up, which then evaluates the React component (calls its `render` function) and _hard-codes_ the result into the static page. This is useful if you build a [Visualization component](/charts-in-react-native-svg-and-d3-js/) in React and want to reuse it in many posts to visualize different data. I got some prototype of this working already, I'll post about it next.

@@ -31,7 +31,7 @@ Still there are things I would do different in designing my app now:
 At first, I had a state tree that contained **deeply nested objects**, but it was annoying to change the state tree, because you cannot simply mutate the state. Instead you have to [copy all the objects along the path](/modifying-a-leaf-of-the-redux-state-tree/) to your deeply stored object. Then, I refactored it and am now using a state that is **broad** instead of deep and complies to [**the ideas of normalizr**](https://github.com/paularmstrong/normalizr).
 I'm a fan of doing most things without additional libraries when learning the principles of a new technology for the first time to really understand what's going on, so I ended up writing my own [implementation to mutate the state](/modifying-a-leaf-of-the-redux-state-tree/) safely. Next time, I will just use an **immutability library** like [seamless-immutable](https://github.com/rtfeldman/seamless-immutable).
 
-<img src="http://cmichel.io/assets/2016/10/stateTree.svg" alt="Redux State Tree" width="331" height="451" />
+<img src="/assets/2016/10/stateTree.svg" alt="Redux State Tree" width="331" height="451" />
 _Working with a deeply-nested state tree in reducers can get annoying._
 
 ### Put _everything_ into the state

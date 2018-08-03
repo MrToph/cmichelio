@@ -39,7 +39,7 @@ Let's say we want the normal to face in the front direction, whatever that means
 Then the cross product of u and v yields the normal according to the [Right-Hand-Rule](http://mathworld.wolfram.com/Right-HandRule.html).
 If you look up Unity's documentation for [Vector3.Cross](http://docs.unity3d.com/ScriptReference/Vector3.Cross.html), you see **Unity uses a left-hand-coordinate system**, so the direction will be according to the Left-Hand-Rule.
 
-![Left Hand Rule Unity](http://docs.unity3d.com/StaticFiles/ScriptRefImages/LeftHandRuleDiagram.png)
+![Left Hand Rule Unity](https://docs.unity3d.com/StaticFiles/ScriptRefImages/LeftHandRuleDiagram.png)
 _Left Hand rule for determining the direction of Unity's Vector3.Cross(a,b). Index finger points in the direction of a, middle finger points towards v, the resulting vector a x b has the direction of your thumb._
 
 Here is some code you can use in Unity that will yield a front-facing normal, depending on the winding order of the mesh you provide.
