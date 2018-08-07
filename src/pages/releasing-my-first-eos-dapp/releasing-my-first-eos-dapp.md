@@ -1,7 +1,7 @@
 ---
-title: What I learned from building my first dapp on EOS blockchain 👷
+title: Learnings from building my first dapp on EOS blockchain
 featured: /releasing-my-first-eos-dapp.md/featured.png
-date: 2018-07-18
+date: 2018-08-07
 categories:
 - Tech
 - EOS
@@ -17,14 +17,13 @@ steem:
 - steemdev
 - programming
 - cryptocurrency
-draft: true
 ---
 
 Recently I released [my first decentralized app](./introducing-king-of-eos) on the EOS blockchain, [King of EOS](https://kingofeos.com).
 
 It's a game where players fight for the throne by paying more money than the previous contender and earn EOS this way. 👑
 
-This post will talk about the development side of things, go [here for more information about the game](./introducing-king-of-eos).
+This post will talk about the development side of things, go [here](./introducing-king-of-eos) for more information about the game.
 
 It consists of a simple smart contract with about 200 lines of code and a frontend written in React (with next).
 
@@ -47,13 +46,13 @@ const chainId = process.env.EOS_NETWORK_CHAINID
 
 const network = {
     blockchain: `eos`,
-    protocol: `http`,
+    protocol: `https`,
     host,
     port,
     chainId,
 }
 
-const eos = Eos({ httpEndpoint: `${network.protocol || `http`}://${network.host}:${network.port}` })
+const eos = Eos({ httpEndpoint: `${network.protocol}://${network.host}:${network.port}` })
 
 const ROWS_LIMIT = 99999
 
@@ -95,7 +94,7 @@ export const scatterClaim = ({
 }) => (dispatch, getState) => {
     const { scatter, network, scateos } = getState().scatter
     let accountName
-    const memo = `${displayName};${imageId}`
+    const memo = `${displayName};${imageId};`
 
     // if there is no identity but forgetIdentity is called
     // scatter will throw "There is no identity with an account set on your Scatter instance."
@@ -109,10 +108,11 @@ export const scatterClaim = ({
                 throw new Error(`No identity`)
             accountName = identity.accounts[0].name
         })
+        // get the eosio.token contract and call its `transfer` action
         .then(() => scateos.contract(`eosio.token`))
         .then(contract =>
             contract.transfer(
-                accountName, `kingofeos`, `${claimPrice} SYS`, memo,
+                accountName, `eoskingofeos`, `${claimPrice} EOS`, memo,
             )
         )
         .then(resolve => {
@@ -137,7 +137,7 @@ export const scatterClaim = ({
 ## The Backend
 ### Workflow
 The backend is a smart contract written in `C++` compiled to WebAssembly and then deployed to the EOS blockchain.
-The usual way to interact with any EOS code is to run your own local **node** that produces the blocks containing the blockchain transactions and run all commands against your node with the `cleos` CLI. This includes creating accounts on the blockchain, unlocking your wallet, compiling the contracts, deploying the contracts, calling actions on the deployed contract, etc.
+The usual way to interact with any EOS code is to run your own local **node with nodeos** that produces the blocks containing the blockchain transactions and run all commands against your node with the `cleos` CLI. This includes creating accounts on the blockchain, unlocking your wallet, compiling the contracts, deploying the contracts, calling actions on the deployed contract, etc.
 
 I'm running the node (`nodeos`) on Windows through the Linux subsystem for Windows when developing and sometimes it becomes unresponsive, I have to kill it and do the whole process again.
 
@@ -145,7 +145,7 @@ Therefore I built a lot of tooling for my workflow.
 I set up an NPM project and use Node with [eosjs](https://github.com/EOSIO/eosjs) instead of the `cleos` CLI for everything. In the end, I'm just running NPM scripts again, which I and most web developers find really convenient.
 
 I can just run `npm run deploy` to deploy my smart contract to my local node, and then `npm run @transfer` to run the transfer action on my deployed smart contract.
-If there's interest, I can create a scaffolding tool `create-eos-app` that already sets up an EOS project like this, similar to `create-react-app`.
+If there's interest, I could create a scaffolding tool `create-eos-app` that already sets up an EOS project like this, similar to `create-react-app`.
 
 ### The Smart Contract
 The smart contract is only about 200 lines of C++ code.
@@ -158,12 +158,12 @@ The smart contract's code [is available on GitHub](https://github.com/MrToph/Kin
 Each smart contract is tied to a corresponding EOS account that the smart contract is deployed to. This EOS account needs a specific amount of RAM to hold the smart contract's (webassembly) code and to store the database entries.
 There's only a limited amount of RAM available (64GB) and it's a free market. Meaning, the price is driven by supply and demand and has lately become interesting for speculators that drove the price up a lot.
 
-As of writing, buying 1 KB of RAM costs 0.32 EOS (7$). The latest price can be [checked on eos.feexplorer.io](https://eos.feexplorer.io/).
+Back then, buying 1 KB of RAM costs 0.32 EOS. The latest price can be [checked on eos.feexplorer.io](https://eos.feexplorer.io/).
 This means **the size of the contract and its database** will directly determine how much developers need to pay for smart contracts.
 
 **How much RAM does an EOS smart contract need?**
 
-Estimating the amount of **RAM needed for the database** is pretty straightforward. It's exactly the amount of bytes all serialized data entries need which can be easily computed.
+Estimating the amount of **RAM needed for the database** is pretty straightforward. It's proportional to the amount of bytes of your serialized data entries which can be easily computed.
 In my cases, this is the C++ struct I store for each new throne claim:
 
 ```cpp
@@ -189,25 +189,28 @@ We can just sum up the bytes needed for each field:
 
 Optimizing `struct`s is hard, but one thing I did was to encode both the current round of the game and the king index in the upper and lower bits of a single `uint64_t`.
 
-Estimating the amount of **RAM an EOS smart contract needs** is a lot harder and I could only ever check it after I deployed it to the blockchain.
+Estimating the amount of **RAM an EOS smart contract requires** is a lot harder and I could only ever check it after I deployed it to the blockchain.
 
 Here are some things I noticed and that will help you reduce the number of RAM your EOS contract needs:
 * The web assembly compiler is smart enough to exclude header files and function definitions that you do not use in your contract. So it comes with [Dead Code Elimination](https://en.wikipedia.org/wiki/Dead_code_elimination). There's no need to comment out unused header files.
-* **Not using `std::to_string` saves you 188.3 KiB** (71 EOS / 500 $). Initially, I used it to print a number in an `assert` message. Removing it saved me a lot of RAM.
+* **Not using `std::to_string` saves you 188.3 KiB** (back then 71 EOS / 500 $). Initially, I used it to print a number in an `assert` message. Removing it saved me a lot of RAM.
 * Marking functions as `inline` will usually also shave off some of your contract's size.
-* I looked for some more third-party functions that I could optimize and ended up replacing `boost::split`'s string splitting function with my own implementation. It reduced the RAM requirements by another 20 KiB.
+* I checked som other third-party functions that I could optimize and ended up replacing `boost::split`'s string splitting function with my own implementation. It reduced the RAM requirements by another 20 KiB.
 
 Resulting in a **smart contract that needs 200 KiB** to be deployed (excluding the dynamic amount of RAM required for storing the entries).
 Using the [EOS resource planner](https://www.eosrp.io/#calc) I calculated I need to pay 70 EOS for 220 KiB of RAM.
-This is about 500$ for a _really simple, optimized_ smart contract. If I didn't do the optimizations I would have paid double that.
-Comparing this to Ethereum, it's a lot what developers have to pay and this might significantly hold new developers back from developing on EOS.
-For indie developers making small fun projects, it's just too much.
+This was about 500$ for a _really simple, optimized_ smart contract. If I didn't do the optimizations I would have paid double that.
+
+> Update: The RAM price halfed in the last month. So it would be around 250$ now - but the high volatility of RAM price makes it hard to plan.
+
+Comparing this to Ethereum, it's a lot what developers have to pay and this might hold new developers back from developing on EOS.
+For indie developers making small fun projects to get started, it's just too much.
 
 
 ## Conclusion
 I hope this post gave you some insight in how I developed my first EOS dapp and some easy tricks to reduce the amount of RAM your EOS smart contract needs.
 
-EOS is only one month old and has its problems, but so did any other blockchain project. Still, the amount of negativity EOS receivers is reaching ridiculous levels.
-It blows my mind how people can become so emotionally invested into certain blockchain projects they invested money in as if it was a football club, and then bash every other project.
+From a developer point of view, it's nice to see that RAM has gone down to 0.17 EOS / KB even though it's still too much for non-profit projects.
+Some more tooling is definitely needed, running `cleos` gets annoying. But EOS is only 2 months old, so I expect a lot still to come.
 
-From a developer point of view, I'd like to see lower RAM prices and some more tooling for development.
+[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://eepurl.com/dyJXNr)
