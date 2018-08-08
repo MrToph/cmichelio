@@ -1,7 +1,6 @@
 ---
 title: Learnings from building my first dapp on EOS blockchain
-featured: /releasing-my-first-eos-dapp.md/featured.png
-date: 2018-08-07
+date: 2018-08-08
 categories:
 - Tech
 - EOS
