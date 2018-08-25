@@ -33,11 +33,17 @@ module.exports = class extends Generator {
   writing() {
     const { postType, slug, title } = this.answers
     const hyphenedSlug = kebabCase(slug)
+    this.slug = hyphenedSlug
     const date = format(Date.now(), `YYYY-MM-DD`)
     this.fs.copyTpl(
       this.templatePath(`${postType}/**`),
       this.destinationPath(`src/pages/${hyphenedSlug}`),
       { title, date, slug: hyphenedSlug }
     )
+  }
+
+  end() {
+    // open file in VSCode
+    this.spawnCommand(`code`, [`src/pages/${this.slug}/index.md`])
   }
 }
