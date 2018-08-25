@@ -33,6 +33,10 @@ export default class BlogPostTemplate extends React.Component {
       markdownRemark: PropTypes.shape({
         id: PropTypes.string,
         html: PropTypes.string.isRequired,
+        excerpt: PropTypes.string.isRequired,
+        fields: PropTypes.shape({
+          slug: PropTypes.string.isRequired,
+        }),
         frontmatter: PropTypes.shape({
           date: PropTypes.string.isRequired,
           title: PropTypes.string.isRequired,
@@ -44,13 +48,52 @@ export default class BlogPostTemplate extends React.Component {
     }).isRequired,
   }
 
+  renderHeader() {
+    const post = this.props.data.markdownRemark
+    const { title, featured, categories } = post.frontmatter
+
+    const siteUrl = trim(get(this.props, `data.site.siteMetadata.siteUrl`), `/`)
+    const postUrl = `${siteUrl}/${trim(post.fields.slug, `/`)}`
+    const siteTitle = get(this.props, `data.site.siteMetadata.title`)
+    const postTitle = `${title} | ${siteTitle}`
+    const keywords = (categories || []).join(` `)
+    const description = post.excerpt
+
+    return (
+      <Helmet title={`${post.frontmatter.title} | ${siteTitle}`}>
+        {featured ? (
+          <meta name="image" content={`${siteUrl}${featured}`} />
+        ) : null}
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+        {featured ? (
+          <meta property={`og:image`} content={`${siteUrl}${featured}`} />
+        ) : null}
+        <meta property={`og:type`} content={`article`} />
+        <meta poperty={`og:title`} content={postTitle} />
+        <meta property={`og:description`} content={description} />
+        <meta property={`og:url`} content={postUrl} />
+        <meta property={`og:site_name`} content={postTitle} />
+        <meta
+          property="twitter:card"
+          content={featured ? `summary_large_image` : `summary`}
+        />
+        <meta property={`twitter:title`} content={postTitle} />
+        <meta property={`twitter:description`} content={description} />
+        {featured ? (
+          <meta property={`twitter:image`} content={`${siteUrl}${featured}`} />
+        ) : null}
+      </Helmet>
+    )
+  }
+
   renderDisqus() {
     const post = this.props.data.markdownRemark
-    const siteUrl = trim(get(this.props, 'data.site.siteMetadata.siteUrl'), '/')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    const siteUrl = trim(get(this.props, `data.site.siteMetadata.siteUrl`), `/`)
+    const siteTitle = get(this.props, `data.site.siteMetadata.title`)
     const postTitle = `${post.frontmatter.title} | ${siteTitle}`
-    let identifier = get(post, 'frontmatter.disqus_identifier')
-    if (!identifier) identifier = trim(get(post, 'fields.slug'), '/')
+    let identifier = get(post, `frontmatter.disqus_identifier`)
+    if (!identifier) identifier = trim(get(post, `fields.slug`), `/`)
     return (
       <ReactDisqusComments
         shortname="cmichel"
@@ -63,10 +106,9 @@ export default class BlogPostTemplate extends React.Component {
 
   render() {
     const post = this.props.data.markdownRemark
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     return (
       <section {...blogPostStyles}>
-        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+        {this.renderHeader()}
         <h1 {...titleStyles}>{post.frontmatter.title}</h1>
         <CategoryBar
           categories={post.frontmatter.categories}
@@ -90,6 +132,7 @@ export const pageQuery = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      excerpt
       fields {
         slug
       }
