@@ -48,6 +48,7 @@ function attacher(options) {
     visit(tree, 'image', replaceUrl)
     console.log(`Rewriting anchor links ...`)
     visit(tree, 'link', replaceUrl)
+    console.log(`Done`)
   }
 }
 

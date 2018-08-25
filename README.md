@@ -16,7 +16,7 @@ I use [netlify](https://netlify.com) to auto-deploy this site on any changes in 
 
 
 ## Publishing new posts
-To publish a new post, simply create a directory in `src/pages` and put a markdown file with the `.md` extension in it. The directory's name is used as the post's _slug_.
+To publish a new post, simply run `npm run create`. This will create a template post in `src/pages/<slug>`.
 Once done writing, you push the changes to `master`.
 This triggers a [netlify](https://netlify.com) `git hook` which builds and auto-deploys the new site. After some minutes the new post is live.
 

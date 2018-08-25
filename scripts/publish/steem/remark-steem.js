@@ -2,7 +2,7 @@ const url = require('url')
 const visit = require('unist-util-visit')
 
 const createFeatureImage = (siteUrl, featuredUrl) => {
-  if (!featuredUrl) return null
+  if (!featuredUrl) return undefined
   return {
     type: `image`,
     title: null,
@@ -58,7 +58,7 @@ function attacher(options) {
       ...tree.children,
       createHorizontalRule(),
       createReferenceToOriginalPost({ postUrl, siteUrl }),
-    ]
+    ].filter(Boolean)
     // additional data will be passed to the publish method along with
     // stringified markdown
     vfile.data.images = imageUrlsVisitor.urls

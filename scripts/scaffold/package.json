@@ -1,0 +1,24 @@
+{
+  "name": "generator-cmichelio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "files": [
+    "generators"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create": "yo ./generators/post/index.js"
+  },
+  "preferGlobal": true,
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^1.29.0",
+    "lodash.kebabcase": "^4.1.1",
+    "yeoman-generator": "^3.1.1",
+    "yo": "^2.0.5"
+  },
+  "keywords": [
+    "yeoman-generator"
+  ]
+}

@@ -56,13 +56,11 @@
   },
   "scripts": {
     "dev": "gatsby develop",
-    "lint": "./node_modules/.bin/eslint --ext .js,.jsx .",
+    "lint": "eslint --ext .js,.jsx .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
-    "develop": "gatsby develop",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths",
-    "fix-semi": "eslint --quiet --ignore-pattern node_modules --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js",
-    "crosspost": "node scripts/publish/index.js"
+    "crosspost": "node scripts/publish/index.js",
+    "create": "npm run create --prefix scripts/scaffold"
   }
 }
