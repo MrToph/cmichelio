@@ -54,6 +54,7 @@ export default class BlogPostTemplate extends React.Component {
 
     const siteUrl = trim(get(this.props, `data.site.siteMetadata.siteUrl`), `/`)
     const postUrl = `${siteUrl}/${trim(post.fields.slug, `/`)}`
+    const socialImage = `${siteUrl}/${trim(featured, `/`) || `images/logo.png`}`
     const siteTitle = get(this.props, `data.site.siteMetadata.title`)
     const postTitle = `${title} | ${siteTitle}`
     const keywords = (categories || []).join(` `)
@@ -61,14 +62,10 @@ export default class BlogPostTemplate extends React.Component {
 
     return (
       <Helmet title={`${post.frontmatter.title} | ${siteTitle}`}>
-        {featured ? (
-          <meta name="image" content={`${siteUrl}${featured}`} />
-        ) : null}
+        <meta name="image" content={socialImage} />
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
-        {featured ? (
-          <meta property={`og:image`} content={`${siteUrl}${featured}`} />
-        ) : null}
+        <meta property={`og:image`} content={socialImage} />
         <meta property={`og:type`} content={`article`} />
         <meta poperty={`og:title`} content={postTitle} />
         <meta property={`og:description`} content={description} />
@@ -80,9 +77,7 @@ export default class BlogPostTemplate extends React.Component {
         />
         <meta property={`twitter:title`} content={postTitle} />
         <meta property={`twitter:description`} content={description} />
-        {featured ? (
-          <meta property={`twitter:image`} content={`${siteUrl}${featured}`} />
-        ) : null}
+        <meta property={`twitter:image`} content={socialImage} />
       </Helmet>
     )
   }
