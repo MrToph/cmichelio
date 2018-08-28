@@ -18,6 +18,7 @@ steem:
 - steemdev
 - programming
 - cryptocurrency
+draft: true
 ---
 
 > This post is part of my [C++ Guide for EOS developers](/categories/learneos)
