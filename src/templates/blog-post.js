@@ -71,10 +71,7 @@ export default class BlogPostTemplate extends React.Component {
         <meta property={`og:description`} content={description} />
         <meta property={`og:url`} content={postUrl} />
         <meta property={`og:site_name`} content={postTitle} />
-        <meta
-          property="twitter:card"
-          content={featured ? `summary_large_image` : `summary`}
-        />
+        <meta property="twitter:card" content="summary" />
         <meta property={`twitter:title`} content={postTitle} />
         <meta property={`twitter:description`} content={description} />
         <meta property={`twitter:image`} content={socialImage} />

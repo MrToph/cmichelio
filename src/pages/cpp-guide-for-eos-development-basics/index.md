@@ -21,8 +21,9 @@ steem:
 ---
 
 > This post is part of my [C++ Guide for EOS developers](/categories/learneos)
+
 1. [Basics](/cpp-guide-for-eos-development-basics/)
-1. Call by value / reference & Pointers
+1. [Call by value / reference & Pointers](/cpp-guide-for-eos-development-call-by-value-reference/)
 1. Classes and Structs
 1. Templates
 1. Iterators
