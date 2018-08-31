@@ -18,11 +18,11 @@ steem:
 - cryptocurrency
 ---
 
-Recently I released [my first decentralized app](./introducing-king-of-eos) on the EOS blockchain, [King of EOS](https://kingofeos.com).
+Recently I released [my first decentralized app](/introducing-king-of-eos) on the EOS blockchain, [King of EOS](https://kingofeos.com).
 
 It's a game where players fight for the throne by paying more money than the previous contender and earn EOS this way. 👑
 
-This post will talk about the development side of things, go [here](./introducing-king-of-eos) for more information about the game.
+This post will talk about the development side of things, go [here](/introducing-king-of-eos) for more information about the game.
 
 It consists of a simple smart contract with about 200 lines of code and a frontend written in React (with next).
 
