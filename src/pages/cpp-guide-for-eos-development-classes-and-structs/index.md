@@ -1,7 +1,7 @@
 ---
-title: C++ Guide for EOS Development - Call by value / reference
-date: 2018-08-28
-featured: /cpp-guide-for-eos-development-call-by-value-reference/featured.png
+title: C++ Guide for EOS Development - Classes and Structs
+date: 2018-09-04
+featured: /cpp-guide-for-eos-development-classes-and-structs/featured.png
 categories:
 - Tech
 - EOS
@@ -18,14 +18,13 @@ steem:
 - steemdev
 - programming
 - cryptocurrency
-draft: true
 ---
 
 > This post is part of my [C++ Guide for EOS developers](/categories/learneos)
 
 1. [Basics](/cpp-guide-for-eos-development-basics/)
 1. [Call by value / reference & Pointers](/cpp-guide-for-eos-development-call-by-value-reference/)
-1. Classes and Structs
+1. [Classes and Structs](/cpp-guide-for-eos-development-classes-and-structs/)
 1. Templates
 1. Iterators
 1. Lambda Expressions
@@ -33,6 +32,7 @@ draft: true
 1. Header files
 
 ## Classes and Structs
+
 C++ is an object-oriented programming language.
 It has a powerful inheritance system, private and public member variables and a nice way to initialize them in constructors through _member initializer lists_.
 Destructors are the pendant to constructors and allow you to run code when an object is destroyed or falls out of scope.

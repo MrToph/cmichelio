@@ -24,7 +24,7 @@ steem:
 
 1. [Basics](/cpp-guide-for-eos-development-basics/)
 1. [Call by value / reference & Pointers](/cpp-guide-for-eos-development-call-by-value-reference/)
-1. Classes and Structs
+1. [Classes and Structs](/cpp-guide-for-eos-development-classes-and-structs/)
 1. Templates
 1. Iterators
 1. Lambda Expressions

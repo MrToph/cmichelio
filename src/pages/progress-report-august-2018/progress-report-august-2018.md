@@ -1,7 +1,7 @@
 ---
-title: Progress Report - July 2018
-featured: /progress-report-july-2018/admob-income.png
-date: 2018-09-01
+title: Progress Report - August 2018
+featured: /progress-report-august-2018/rescueTime.png
+date: 2018-09-03
 categories:
 - Progress Report
 medium:
@@ -16,75 +16,83 @@ steem:
 - javascript
 - technology
 - blog
-draft: true
 ---
 
 I post a progress report showing what I did and how my products performed each month.
-Last month's report can be seen [here](/progress-report-june-2018).
+Last month's report can be seen [here](/progress-report-july-2018).
 
 ## What did I do
 
-![Productive Hours in July](./rescueTime.png)
+![Productive Hours in August](./rescueTime.png)
 
-I worked 46 _productive_ hours last month although I was on vacation the last week(s) as you can see. 💪 (Tracked using [RescueTime](/redirects/rescuetime).)  
-I watched [Barry - S1](https://trakt.tv/shows/barry/seasons/1), [The 7 Deadly Sins - S2](https://trakt.tv/shows/the-seven-deadly-sins/seasons/2).
+I worked **80** _productive_ hours last month. I think this is a new record for this year. 💪 (Tracked using [RescueTime](/redirects/rescuetime).)  
+I finished [Preacher - S3](https://trakt.tv/shows/preacher/seasons/3), started [Better Call Saul - S4](https://trakt.tv/shows/better-call-saul/seasons/4).
 
-I launched King of EOS, my first blockchain EOS app! More on that later.
+I finished the first chapter of my book [Learn EOS Development](https://learneos.one), created a nice PDF preview out of it, automatically sent it out on new signups, and split it up into smaller tutorials that I'll release here on my blog.
+I also added open graph meta tags to all blog posts.
+
+Some nice words I received last month:
+
+> Hi Christoph, I just implemented your "How to access Google Spreadsheets with Node".  I'm a hobbyist programmer.  Cleanest way to do it by far, and I was looking everywhere!
+
+> The world is waiting for this book man, I assure you!
+
+A Chinese company wants the exclusive rights for my book and translate it into Chinese.
+
+I was called a [React Native expert](https://ideamotive.co/blog/best-react-native-experts-blogs/), right next to Dan Abramov.
 
 ## Mobile Apps
+
 ### Downloads
-Total downloads of all my apps went down to **666** 😈 this month. Slightly down again.
+
+Total downloads of all my apps went up to **821** this month. An increase in every app. Is it finally summer time again and people are downloading more fitness apps?
 
 ### In-App Purchases
-In-app Purchases **went down to a single (!) order**. (-4)
 
-I made an estimated **3.41€** (-13.65€) this way.
+In-app Purchases went back up to 5 thanks to PPL workout. (+4)
+
+I made an estimated **18.96€** (+15.55€) this way.
 
 ### Ad Revenue
-My ad revenue went up to **56.65€** (+6.58€) for 52,700 AdMob banner impressions.
+
+My ad revenue went down to **50.39€** (-6.26€) for 52,700 AdMob banner impressions.
 
 ![App Income AdMob](./admob-income.png)
 
 ### Total App Income
-In total, this month's app income was 60.06€ (-7.07€).
+
+In total, this month's app income was **69.35€** (+9.29€).
 
 IAPs | Ads | Total
 --- | --- | ---
-3.41€ | 56.65€ | 60.06€
-
-## Blockchain Dapps
-### King of EOS
-
-I [launched King of EOS](/introducing-king-of-eos/) as my first blockchain dapp at the end of July and overall it was a big success.
-I shared it on some platforms (reddit, telegram, eos project directories, etc.) and itself was shared again by the people using it.
-
-The _king_ of the first ever kingdom _"Kingdom of the un-named"_ on the EOS blockchain is **saidno2banks**.
-He's now in the [Hall of Fame](https://kingofeos.com/) as the first eternal ruler by bidding the final price of 4460 EOS.
-Congrats. ✨
-Overall there were 28 bids on the throne, quickly goading each other at the beginning.
-
-If we look at the traffic, we see it's also a nice way to promote your projects receiving 650 views per day on average:
-
-![Kingofeos traffic](./kingofeos-traffic.png)
+18.96€ | 50.39€ | 69.35€
 
 ## Platform Growth
+
 ### Website
-Sessions went up to 9310 on my website.
+
+Sessions went up to **10,891** on my website.
 
 ![Website Traffic](./website-traffic.png)
 
-Due to being on vacation, I did again **not** stick to my bi-weekly post schedule.
-I only wrote one article about King of EOS but will release another one about its development in the next days.
+I sticked to my bi-weekly schedule of releasing a blog post. It's easy when you have written a whole book chapter. I already have other posts in the pipeline.
 
-1. [Introducing King of EOS 🥁](/introducing-king-of-eos/)
+1. [Learnings from building my first dapp on EOS blockchain](/releasing-my-first-eos-dapp/)
+1. [C++ Guide for EOS Development - Basics](/cpp-guide-for-eos-development-basics/)
+1. [C++ Guide for EOS Development - Call by value / reference](/cpp-guide-for-eos-development-call-by-value-reference/)
 
 ### Subscribers
-My [twitter](https://twitter.com/cmichelio) followers increased by _21_ to 292.
+
+My [twitter](https://twitter.com/cmichelio) followers increased by _26_ to **318**. People like the EOS content.
+
+### Learn EOS Development Subscribers
+
+I currently have **109** email subscribers for [my book](https://learneos.one).
+I would have never expected such a big amount through organic growth.
 
 ## What's next
-Full focus on the book and a potential new blockchain project.
 
-I should also track the signups for [Learn EOS](https://learneos.one) in these monthly reports.
-I need to automate all of this, it's becoming too much to do manually 😬 
+Full focus on the next chapters of the book.
 
 * Write tutorials for free and link to my book. Collect email addresses. All while actually writing the book.
+* Add a way to automate these progress reports? I played around with `yeoman` generators last months, a really nice way to scaffold projects / blog posts.
