@@ -1,7 +1,7 @@
 ---
-title: C++ Guide for EOS Development - Call by value / reference
-date: 2018-08-28
-featured: /cpp-guide-for-eos-development-call-by-value-reference/featured.png
+title: C++ Guide for EOS Development - Templates
+date: 2018-09-11
+featured: /cpp-guide-for-eos-development-templates/featured.png
 categories:
 - Tech
 - EOS
@@ -18,15 +18,14 @@ steem:
 - steemdev
 - programming
 - cryptocurrency
-draft: true
 ---
 
 > This post is part of my [C++ Guide for EOS developers](/categories/learneos)
 
 1. [Basics](/cpp-guide-for-eos-development-basics/)
 1. [Call by value / reference & Pointers](/cpp-guide-for-eos-development-call-by-value-reference/)
-1. Classes and Structs
-1. Templates
+1. [Classes and Structs](/cpp-guide-for-eos-development-classes-and-structs/)
+1. [Templates](/cpp-guide-for-eos-development-templates)
 1. Iterators
 1. Lambda Expressions
 1. Multi-index
@@ -34,7 +33,10 @@ draft: true
 
 ## Templates
 
-A language having static types comes with a lot of benefits because errors can be caught at compile time by type-checking. However, it also introduces overhead when writing functions or classes, as they need to be written for a certain type. What if you're writing a library and don't exactly know how your library is going to be used? If you'd like to support more types, you have to repeat yourself and overload the function.
+A language having static types comes with a lot of benefits because errors can be caught at compile time by type-checking.
+However, it also introduces overhead when writing functions or classes, as they need to be written for a certain type.
+What if you're writing a library and don't exactly know how your library is going to be used?
+If you'd like to support more types, you have to repeat yourself and overload the function.
 
 ```cpp
 int max(int a, int b) {
@@ -54,7 +56,8 @@ double max(double a, double b) {
 
 As you can see the function _body_ is exactly the same in both cases. All that matters is that the type implements the comparison operator `>`.
 
-For these use-cases, C++ provides type `template`s, generic types that you can use instead of specific ones. This allows you to create functions or classes whose functionality can be adapted to more than one type or class without repeating the entire code for each type.
+For these use-cases, C++ provides type `template`s, generic types that you can use instead of specific ones.
+This allows you to create functions or classes whose functionality can be adapted to more than one type or class without repeating the entire code for each type.
 
 ```cpp
 // @url: https://repl.it/@MrToph/CPPBasics-Templates
