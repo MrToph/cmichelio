@@ -26,8 +26,7 @@ steem:
 1. [Call by value / reference & Pointers](/cpp-guide-for-eos-development-call-by-value-reference/)
 1. [Classes and Structs](/cpp-guide-for-eos-development-classes-and-structs/)
 1. [Templates](/cpp-guide-for-eos-development-templates)
-1. Iterators
-1. Lambda Expressions
+1. [Iterators & Lambda Expressions](/cpp-guide-for-eos-development-iterators-lambda-expressions)
 1. Multi-index
 1. Header files
 

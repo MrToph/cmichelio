@@ -1,7 +1,7 @@
 ---
-title: C++ Guide for EOS Development - Call by value / reference
-date: 2018-08-28
-featured: /cpp-guide-for-eos-development-call-by-value-reference/featured.png
+title: C++ Guide for EOS Development - Iterators & Lambda Expressions
+date: 2018-09-25
+featured: /cpp-guide-for-eos-development-iterators-lambda-expressions/featured.png
 categories:
 - Tech
 - EOS
@@ -18,24 +18,22 @@ steem:
 - steemdev
 - programming
 - cryptocurrency
-draft: true
 ---
 
 > This post is part of my [C++ Guide for EOS developers](/categories/learneos)
 
 1. [Basics](/cpp-guide-for-eos-development-basics/)
 1. [Call by value / reference & Pointers](/cpp-guide-for-eos-development-call-by-value-reference/)
-1. Classes and Structs
-1. Templates
-1. Iterators
-1. Lambda Expressions
+1. [Classes and Structs](/cpp-guide-for-eos-development-classes-and-structs/)
+1. [Templates](/cpp-guide-for-eos-development-templates)
+1. [Iterators & Lambda Expressions](/cpp-guide-for-eos-development-iterators-lambda-expressions)
 1. Multi-index
 1. Header files
 
 ## Iterators
 
 Let's talk about iterators, a really useful tool which is heavily used throughout the EOS code base.
-If you're coming from a JavaScript background, you are already familiar with iterators like they are used in `for of` loops.
+If you're coming from a JavaScript background, you might be already familiar with iterators like they are used in `for of` loops.
 The key concept of iterators is to provide a nicer way to iterate through a collection of items.
 The added bonus is that you can implement the _iterator interface_ for any custom classes, making iterators a generic way to traverse data.
 
@@ -77,7 +75,8 @@ int main()
   int thirdElement = *(v.begin() + 2);
   cout << "Third: " << thirdElement << "\n";
   // end is the iterator that points to the "past-the-end" element
-  // The past-the-end element is the theoretical element that would follow the last element in the vector. It does not point to any element, and thus shall not be dereferenced.
+  // The past-the-end element is the theoretical element that would follow the last element in the vector.
+  // It does not point to any element, and thus shall not be dereferenced.
   int lastElement = *(v.end() - 1);
   cout << "Last: " << lastElement << "\n";
 
@@ -88,7 +87,8 @@ int main()
 
 ```
 
-In modern C++, iterators are the preferred way to iterate over collections of elements (`vector`s, `list`s, `map`s). We've also seen the `auto` keyword saving you from typing out wordy types, but may lead to less expressive code.
+In modern C++, iterators are the preferred way to iterate over collections of elements (`vector`s, `list`s, `map`s).
+In additon, the `auto` keyword saves you from typing out wordy types, but may lead to less expressive code.
 
 ## Lambda Expressions
 
@@ -188,10 +188,10 @@ For example, `[=, &foo]` will create copies for all variables except `foo` which
 
 It helps to understand what happens behind the scenes when using lambdas:
 
-> It turns out that the way lambdas are implemented is by creating a small class; this class overloads the operator(), so that it acts just like a function. A lambda function is an instance of this class; when the class is constructed, any variables in the surrounding environment are passed into the constructor of the lambda function class and saved as member variables. This is, in fact, quite a bit like the idea of a functor that is already possible. The benefit of C++11 is that doing this becomes almost trivially easy--so you can use it all the time, rather than only in very rare circumstances where writing a whole new class makes sense. @cpplambdas
+> It turns out that the way lambdas are implemented is by creating a small class; this class overloads the operator(), so that it acts just like a function. A lambda function is an instance of this class; when the class is constructed, any variables in the surrounding environment are passed into the constructor of the lambda function class and saved as member variables. This is, in fact, quite a bit like the idea of a functor that is already possible. The benefit of C++11 is that doing this becomes almost trivially easy--so you can use it all the time, rather than only in very rare circumstances where writing a whole new class makes sense. [CProgramming Lambda Functions](https://www.cprogramming.com/c++11/c++11-lambda-closures.html)
 
 Lambda functions are heavily used in EOS smart contracts as they provide a really convenient way to modify data in a short amount of code.
 There are more functions in the standard library that work in a similar way to what we have already seen with `sort, transform, remove_if` and `find_if`.
-They are all exported through the `<algorithm>` header. @cppalgorithm
+They are all exported through the `<algorithm>` header.
 
 [![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.one#modal)
