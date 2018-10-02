@@ -35,6 +35,7 @@ But it was totally worth it.
 The hackathon was the best I've ever been to, from the location (Science Museum), the EOS community, the free food, to the expensive swag (patagonia jacket + backpack).
 While we didn't end up in the top 10, it was a lot of fun coming up with the project, coding it, and pitching it to the judges with the team in 24 hours.
 
+![EOS Hackathon London](./eos-hackathon.jpg)
 
 ## Mobile Apps
 
