@@ -1,7 +1,7 @@
 ---
 title: C++ Guide for EOS Development - Call by value / reference
-date: 2018-08-28
-featured: /cpp-guide-for-eos-development-call-by-value-reference/featured.png
+date: 2018-10-02
+featured: /cpp-guide-for-eos-development-multi-index/featured.png
 categories:
 - Tech
 - EOS
@@ -18,7 +18,6 @@ steem:
 - steemdev
 - programming
 - cryptocurrency
-draft: true
 ---
 
 > This post is part of my [C++ Guide for EOS developers](/categories/learneos)
@@ -28,14 +27,14 @@ draft: true
 1. [Classes and Structs](/cpp-guide-for-eos-development-classes-and-structs/)
 1. [Templates](/cpp-guide-for-eos-development-templates)
 1. [Iterators & Lambda Expressions](/cpp-guide-for-eos-development-iterators-lambda-expressions)
-1. Multi-index
+1. [Multi-index](/cpp-guide-for-eos-development-multi-index)
 1. Header files
 
 ## Multi-index
 
 The last important topic we will cover is *multi-indexes*.
 The standard library comes with many _containers_ like `vector`s (dynamic array), `list`s (doubly-linked list), `set`s or `map`s.
-While all serve the same purpose of storing and accessing elements, each of them achieves this differently leading to different _runtimes_ of fundamental operations - a `set`, for instance, maintains its elements in a sorted way, whereas a `list` does not give you random access in constant time but allows you to insert elements at any place in constant time without reallocating.
+While all serve the same purpose of storing and accessing elements, each of them achieves this differently leading to different _runtimes_ of fundamental operations - a `set`, for instance, maintains its elements in a sorted way, whereas a `list` does not yield random access but allows you to insert elements at any place in constant time without reallocating.
 They all provide a _single_ specific way to access your elements, but sometimes we want to have multiple interfaces to the same data.
 
 Let's look at a `CryptoCurrency` class:
@@ -86,7 +85,7 @@ However, there's an easier approach: What we need is a way to define _multiple i
 This is exactly the concept of `multi_index_container`s from the _boost_ library.
 
 > The Boost library is an external library which is highly-used in practice because it solves a wide range of common tasks not in the C++ standard library, comes with nice documentation and tutorials, and is open-source and peer-reviewed. (You can also use it when writing your smart contracts!)  
-    "The obvious solution for most programmers is to use a library that provides an elegant and efficient platform independent to needed services. Examples are BOOST..." — Bjarne Stroustrup @stroustrup2003abstraction
+    "The obvious solution for most programmers is to use a library that provides an elegant and efficient platform independent to needed services. Examples are BOOST..." — Bjarne Stroustrup
 
 Let's take a look how to make our class work with `multi_index_container`s:
 
@@ -175,7 +174,7 @@ If you need access to a specific position like with a `std::vector`, there's a `
 We will revisit `multi_index_container`s when we store and retrieve data tables in the EOS blockchain through our smart contract.
 As you can imagine, having multiple interfaces to sort and search for elements in your database tables is really useful.
 
-If you want to learn more about them, boost.org has an exhaustive tutorial on it. @boostMultiIndexTutorial
+If you want to learn more about them, boost.org has an [exhaustive tutorial](https://www.boost.org/doc/libs/1_41_0/libs/multi_index/doc/tutorial/index.html) on it.
 
 
 [![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.one#modal)
