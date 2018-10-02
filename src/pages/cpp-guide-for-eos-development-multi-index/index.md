@@ -1,5 +1,5 @@
 ---
-title: C++ Guide for EOS Development - Call by value / reference
+title: C++ Guide for EOS Development - Multi-Index Container
 date: 2018-10-02
 featured: /cpp-guide-for-eos-development-multi-index/featured.png
 categories:
