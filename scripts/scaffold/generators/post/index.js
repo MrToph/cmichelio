@@ -2,6 +2,7 @@ const path = require(`path`)
 const Generator = require(`yeoman-generator`)
 const kebabCase = require(`lodash.kebabcase`)
 const format = require(`date-fns/format`)
+var subMonths = require('date-fns/sub_months')
 
 module.exports = class extends Generator {
   initializing() {
@@ -15,30 +16,75 @@ module.exports = class extends Generator {
         type: `list`,
         name: `postType`,
         message: `Type of post`,
-        choices: [`standard`, `eos`],
+        choices: [`standard`, `eos`, `progress-report`],
       },
       {
         type: `input`,
         name: `slug`,
         message: `Slug`,
+        when: function(response) {
+          return response.postType !== `progress-report`
+        },
       },
       {
         type: `input`,
         name: `title`,
         message: `Title`,
+        when: function(response) {
+          return response.postType !== `progress-report`
+        },
       },
     ])
   }
 
-  writing() {
-    const { postType, slug, title } = this.answers
+  createEosPost() {
+    const { slug, title } = this.answers
     const hyphenedSlug = kebabCase(slug)
-    this.slug = hyphenedSlug
     const date = format(Date.now(), `YYYY-MM-DD`)
+    return { title, date, slug: hyphenedSlug }
+  }
+
+  createProgressReport() {
+    const createSlugFromDate = (date) => `progress-report-${format(date, `MMMM-YYYY`).toLowerCase()}`
+
+    const today = Date.now()
+    const date = format(today, `YYYY-MM-DD`)
+    // we create a report for _last_ month
+    const reportDate = subMonths(today, 1)
+
+    const currentMonth = format(reportDate, `MMMM`)
+    const previousReportSlug = createSlugFromDate(subMonths(reportDate, 1))
+    const slug = createSlugFromDate(reportDate)
+    const title = `Progress Report - ${format(reportDate, `MMMM YYYY`)}`
+
+    return { title, date, slug, previousReportSlug, currentMonth }
+  }
+
+  writing() {
+    const { postType } = this.answers
+
+    let templateVariables
+    switch (postType) {
+      case `eos`: {
+        templateVariables = this.createEosPost()
+        break
+      }
+      case `progress-report`: {
+        templateVariables = this.createProgressReport()
+        break
+      }
+      default: {
+        templateVariables = this.answers
+        break
+      }
+    }
+
+    this.slug = templateVariables.slug
+    console.log(JSON.stringify(templateVariables, null, 4))
     this.fs.copyTpl(
       this.templatePath(`${postType}/**`),
-      this.destinationPath(`src/pages/${hyphenedSlug}`),
-      { title, date, slug: hyphenedSlug }
+      this.destinationPath(`src/pages/${this.slug}`),
+      templateVariables
     )
   }
 
