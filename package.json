@@ -40,7 +40,8 @@
     "prismjs": "^1.15.0",
     "react": "^16.5.2",
     "react-disqus-comments": "git+https://github.com/theplatapi/react-disqus-thread.git",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-helmet": "^5.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.2",
