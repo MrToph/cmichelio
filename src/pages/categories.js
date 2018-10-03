@@ -3,25 +3,28 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { Route } from 'react-router-dom'
 import BlogIndexPosts from '../components/BlogIndex'
+import Layout from '../components/layout'
 
 export default class BlogIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allMarkdownRemark.edges')
+    const siteTitle = get(this, `props.data.site.siteMetadata.title`)
+    const posts = get(this, `props.data.allMarkdownRemark.edges`)
     return (
-      <Route
-        key="/categories"
-        exact
-        path="/categories/:tag"
-        render={props => [
-          <Helmet key="helmet" title={siteTitle} />,
-          <BlogIndexPosts
-            key="blogIndexPosts"
-            posts={posts}
-            selectedCategory={props.match.params.tag}
-          />,
-        ]}
-      />
+      <Layout>
+        <Route
+          key="/categories"
+          exact
+          path="/categories/:tag"
+          render={props => [
+            <Helmet key="helmet" title={siteTitle} />,
+            <BlogIndexPosts
+              key="blogIndexPosts"
+              posts={posts}
+              selectedCategory={props.match.params.tag}
+            />,
+          ]}
+        />
+      </Layout>
     )
   }
 }

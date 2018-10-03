@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import AboutContent from '../components/About'
+import Layout from '../components/layout'
 
 export default class About extends React.Component {
   static propTypes = {
@@ -14,11 +15,11 @@ export default class About extends React.Component {
     }).isRequired,
   }
   render() {
-    const siteTitle = `About - ${get(this, 'props.data.site.siteMetadata.title')}`
-    return [
+    const siteTitle = `About - ${get(this, `props.data.site.siteMetadata.title`)}`
+    return <Layout>
       <Helmet key="helmet" title={siteTitle} />,
       <AboutContent key="about" />,
-    ]
+    </Layout>
   }
 }
 

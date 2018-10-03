@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import PortfolioContent from '../components/Portfolio'
+import Layout from '../components/layout'
 
 export default class Portfolio extends React.Component {
   static propTypes = {
@@ -14,11 +15,11 @@ export default class Portfolio extends React.Component {
     }).isRequired,
   }
   render() {
-    const siteTitle = `Portfolio - ${get(this, 'props.data.site.siteMetadata.title')}`
-    return [
+    const siteTitle = `Portfolio - ${get(this, `props.data.site.siteMetadata.title`)}`
+    return <Layout>
       <Helmet key="helmet" title={siteTitle} />,
       <PortfolioContent key="portfolio" />,
-    ]
+    </Layout>
   }
 }
 
