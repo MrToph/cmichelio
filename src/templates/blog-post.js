@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { graphql } from "gatsby"
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import trim from 'lodash/trim'
