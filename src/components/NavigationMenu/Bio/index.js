@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from 'glamor'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 // import profilePic from './me_mug.jpg'
 import profilePic from './me.png'
 // import profilePic from './me_cut.png'
