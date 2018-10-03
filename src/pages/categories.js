@@ -1,7 +1,7 @@
 import React from 'react'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import { Route } from 'react-router-dom'
+import { Router } from "@reach/router"
 import BlogIndexPosts from '../components/BlogIndex'
 import Layout from '../components/layout'
 
@@ -11,19 +11,16 @@ export default class BlogIndex extends React.Component {
     const posts = get(this, `props.data.allMarkdownRemark.edges`)
     return (
       <Layout>
-        <Route
+        <Router
           key="/categories"
-          exact
           path="/categories/:tag"
-          render={props => [
-            <Helmet key="helmet" title={siteTitle} />,
+        >
+        <Helmet key="helmet" title={siteTitle} />,
             <BlogIndexPosts
               key="blogIndexPosts"
               posts={posts}
-              selectedCategory={props.match.params.tag}
-            />,
-          ]}
-        />
+            />
+        </Router>
       </Layout>
     )
   }
