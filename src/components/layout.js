@@ -102,6 +102,7 @@ css.global(
   }
 )
 
+// socialMedia fragment is defined in NavigationMenu
 export const query = graphql`
   query MainTemplateQuery {
     ...socialMedia
