@@ -4,14 +4,14 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { Router } from "@reach/router"
 import BlogIndexPosts from '../components/BlogIndex'
-import Layout from '../components/layout'
+
 
 export default class BlogIndex extends React.Component {
   render() {
     const siteTitle = get(this, `props.data.site.siteMetadata.title`)
     const posts = get(this, `props.data.allMarkdownRemark.edges`)
     return (
-      <Layout>
+      <React.Fragment>
         <Helmet key="helmet" title={siteTitle} />
         <Router>
         <BlogIndexPosts
@@ -20,7 +20,7 @@ export default class BlogIndex extends React.Component {
           posts={posts}
         />
         </Router>
-      </Layout>
+      </React.Fragment>
     )
   }
 }
