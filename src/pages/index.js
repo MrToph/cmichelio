@@ -10,8 +10,8 @@ export default class BlogIndex extends React.Component {
     const siteTitle = get(this, `props.data.site.siteMetadata.title`)
     const posts = get(this, `props.data.allMarkdownRemark.edges`)
     return <Layout>
-      <Helmet key="helmet" title={siteTitle} />,
-      <BlogIndexPosts key="blogIndexPosts" posts={posts} />,
+      <Helmet title={siteTitle} />
+      <BlogIndexPosts posts={posts} />
     </Layout>
   }
 }

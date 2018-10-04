@@ -18,8 +18,8 @@ export default class About extends React.Component {
   render() {
     const siteTitle = `About - ${get(this, `props.data.site.siteMetadata.title`)}`
     return <Layout>
-      <Helmet key="helmet" title={siteTitle} />,
-      <AboutContent key="about" />,
+      <Helmet key="helmet" title={siteTitle} />
+      <AboutContent key="about" />
     </Layout>
   }
 }

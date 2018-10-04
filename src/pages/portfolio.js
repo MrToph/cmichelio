@@ -18,8 +18,8 @@ export default class Portfolio extends React.Component {
   render() {
     const siteTitle = `Portfolio - ${get(this, `props.data.site.siteMetadata.title`)}`
     return <Layout>
-      <Helmet key="helmet" title={siteTitle} />,
-      <PortfolioContent key="portfolio" />,
+      <Helmet key="helmet" title={siteTitle} />
+      <PortfolioContent key="portfolio" />
     </Layout>
   }
 }

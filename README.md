@@ -57,5 +57,7 @@ The following modifications are done when publishing a markdown post:
 1. A footer is inserted, linking back to the original post on my blog.
 
 ## ToDo:
-* [ ] Add drip widget?
+* [ ] Add drip widget / newsletter subscription?
 * [ ] Implement auto-detection of new posts, and add a `.circleci` git hook which then automatically cross-posts.
+* [ ] Does feed.xml work?
+* [ ] Fix categories

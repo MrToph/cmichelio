@@ -8,6 +8,7 @@ import { css } from 'glamor'
 import ReactDisqusComments from 'react-disqus-comments'
 import { primaryColor } from '../styling'
 import CategoryBar from '../components/BlogPost/CategoryBar'
+import Layout from '../components/layout'
 
 // import 'prismjs/themes/prism-twilight.css'
 import './prismjs.css'
@@ -100,16 +101,18 @@ export default class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     return (
-      <section {...blogPostStyles}>
-        {this.renderHeader()}
-        <h1 {...titleStyles}>{post.frontmatter.title}</h1>
-        <CategoryBar
-          categories={post.frontmatter.categories}
-          date={post.frontmatter.date}
-        />
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        {this.renderDisqus()}
-      </section>
+      <Layout>
+        <section {...blogPostStyles}>
+          {this.renderHeader()}
+          <h1 {...titleStyles}>{post.frontmatter.title}</h1>
+          <CategoryBar
+            categories={post.frontmatter.categories}
+            date={post.frontmatter.date}
+          />
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          {this.renderDisqus()}
+        </section>
+      </Layout>
     )
   }
 }

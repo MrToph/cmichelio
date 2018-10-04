@@ -111,7 +111,7 @@ export const query = graphql`
 
 export default class MainTemplate extends React.Component {
   static propTypes = {
-    children: PropTypes.func.isRequired,
+    children: PropTypes.node.isRequired,
   }
   render() {
     const { children } = this.props
