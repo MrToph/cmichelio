@@ -1,31 +1,31 @@
-/*eslint-env node */
-const url = require('url')
+/* eslint-env node */
+const url = require(`url`)
 
 module.exports = {
   siteMetadata: {
     title: `cmichel`,
-    author: 'Christoph Michel',
+    author: `Christoph Michel`,
     description: `Christoph Michel's Blog.`,
-    siteUrl: 'https://cmichel.io/',
-    twitter: 'cmichelio',
-    github: 'MrToph',
-    medium: 'cmichel',
-    steem: 'cmichel',
-    linkedIn: 'christoph-michel-dev',
+    siteUrl: `https://cmichel.io/`,
+    twitter: `cmichelio`,
+    github: `MrToph`,
+    medium: `cmichel`,
+    steem: `cmichel`,
+    linkedIn: `christoph-michel-dev`,
   },
-  pathPrefix: '/',
+  pathPrefix: `/`,
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
-        name: 'pages',
+        name: `pages`,
       },
     },
     {
       resolve: `copy-images-structure`,
       options: {
-        ignoreFileExtensions: ['psd'],
+        ignoreFileExtensions: [`psd`],
       },
     },
     {
@@ -36,7 +36,7 @@ module.exports = {
             // copies svg images, and all other _linked_ non-image files
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
-              destinationDir: 'static',
+              destinationDir: `static`,
               // ignoreFileExtensions: [],
             },
           },
@@ -53,8 +53,8 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-smartypants',
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-smartypants`,
         ],
       },
     },
@@ -88,7 +88,7 @@ module.exports = {
             query: `
             {
               allMarkdownRemark(
-                limit: 1000,
+                limit: 20,
                 sort: { order: DESC, fields: [frontmatter___date] },
               ) {
                 edges {
@@ -105,7 +105,7 @@ module.exports = {
               }
             }
             `,
-            output: '/feed.xml',
+            output: `/feed.xml`,
           },
         ],
       },
@@ -113,7 +113,11 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-glamor`,
-    // `gatsby-plugin-twitter`,
-    `gatsby-plugin-react-next`,
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/layout.js`),
+      },
+    },
   ],
 }

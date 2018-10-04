@@ -1,16 +1,18 @@
 import React from 'react'
+import { graphql } from "gatsby"
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import BlogIndexPosts from '../components/BlogIndex'
 
+
 export default class BlogIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allMarkdownRemark.edges')
-    return [
-      <Helmet key="helmet" title={siteTitle} />,
-      <BlogIndexPosts key="blogIndexPosts" posts={posts} />,
-    ]
+    const siteTitle = get(this, `props.data.site.siteMetadata.title`)
+    const posts = get(this, `props.data.allMarkdownRemark.edges`)
+    return <React.Fragment>
+      <Helmet key="helmet" title={siteTitle} />
+      <BlogIndexPosts key="blogIndexPosts" posts={posts} />
+    </React.Fragment>
   }
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { graphql } from "gatsby"
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import trim from 'lodash/trim'
@@ -7,6 +8,7 @@ import { css } from 'glamor'
 import ReactDisqusComments from 'react-disqus-comments'
 import { primaryColor } from '../styling'
 import CategoryBar from '../components/BlogPost/CategoryBar'
+
 
 // import 'prismjs/themes/prism-twilight.css'
 import './prismjs.css'
@@ -99,16 +101,18 @@ export default class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     return (
-      <section {...blogPostStyles}>
-        {this.renderHeader()}
-        <h1 {...titleStyles}>{post.frontmatter.title}</h1>
-        <CategoryBar
-          categories={post.frontmatter.categories}
-          date={post.frontmatter.date}
-        />
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        {this.renderDisqus()}
-      </section>
+      <React.Fragment>
+        <section {...blogPostStyles}>
+          {this.renderHeader()}
+          <h1 {...titleStyles}>{post.frontmatter.title}</h1>
+          <CategoryBar
+            categories={post.frontmatter.categories}
+            date={post.frontmatter.date}
+          />
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          {this.renderDisqus()}
+        </section>
+      </React.Fragment>
     )
   }
 }

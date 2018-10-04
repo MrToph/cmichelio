@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { graphql } from "gatsby"
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import AboutContent from '../components/About'
+
 
 export default class About extends React.Component {
   static propTypes = {
@@ -14,11 +16,11 @@ export default class About extends React.Component {
     }).isRequired,
   }
   render() {
-    const siteTitle = `About - ${get(this, 'props.data.site.siteMetadata.title')}`
-    return [
-      <Helmet key="helmet" title={siteTitle} />,
-      <AboutContent key="about" />,
-    ]
+    const siteTitle = `About - ${get(this, `props.data.site.siteMetadata.title`)}`
+    return <React.Fragment>
+      <Helmet key="helmet" title={siteTitle} />
+      <AboutContent key="about" />
+    </React.Fragment>
   }
 }
 

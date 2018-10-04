@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'glamor'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 
 const dateStyles = css({
   margin: `0 0 0 20px`,

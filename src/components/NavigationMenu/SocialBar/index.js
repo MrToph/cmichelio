@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { graphql } from "gatsby"
 import { css } from 'glamor'
 import TwitterIcon from './icons/twitter.svg'
 import GitHubIcon from './icons/github.svg'
@@ -117,7 +118,7 @@ export default class SocialBar extends Component {
 }
 
 export const SocialBarQuery = graphql`
-  fragment socialMedia on RootQueryType {
+  fragment SocialMediaFragment on Query {
     site {
       siteMetadata {
         twitter

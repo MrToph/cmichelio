@@ -20,19 +20,19 @@ export default class BlogIndexPosts extends React.Component {
         node: PropTypes.object.isRequired,
       }).isRequired
     ).isRequired,
-    selectedCategory: PropTypes.string,
+    tag: PropTypes.string,
   }
 
   static defaultProps = {
-    selectedCategory: '',
+    tag: ``,
   }
 
   render() {
-    const { posts, selectedCategory } = this.props
-    const filteredPosts = filterPosts(posts, selectedCategory)
+    const { posts, tag } = this.props
+    const filteredPosts = filterPosts(posts, tag)
     return (
       <section id="blogIndex">
-        <IndexHeader key="indexHeader" selectedCategory={selectedCategory} />
+        <IndexHeader key="indexHeader" selectedCategory={tag} />
         <ol id="postsList" key="postsList" {...postContainerStyles}>
           {filteredPosts.map(({ node }, index) => (
             <PostOutline post={node} key={node.fields.slug} short={index >= 5} />

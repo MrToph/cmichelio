@@ -1,14 +1,14 @@
 /*eslint-env node */
-const _ = require('lodash')
-const Promise = require('bluebird')
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
+const _ = require(`lodash`)
+const Promise = require(`bluebird`)
+const path = require(`path`)
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/blog-post.js')
+    const blogPost = path.resolve(`./src/templates/blog-post.js`)
     resolve(
       graphql(
         `
@@ -48,10 +48,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   })
 }
 
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
-  const { createNodeField } = boundActionCreators
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
-    let slug = ''
+    let slug = ``
     if (node.frontmatter && node.frontmatter.slug) slug = node.frontmatter.slug
     else {
       slug = createFilePath({ node, getNode })
@@ -66,14 +66,14 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   }
 }
 
-exports.onCreatePage = ({ page, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage } = actions
 
   // page.matchPath is a special key that's used for matching pages
   // only on the client.
   // we use it to make the categories page work
-  if (page.path === '/categories/') {
-    page.matchPath = '/categories/:category'
+  if (page.path.match(/^\/categories/)) {
+    page.matchPath = `/categories/*`
 
     createPage(page)
   }

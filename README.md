@@ -1,7 +1,9 @@
 # cmichel.io
+
 These are the source-files for my blog, [cmichel.io](https://cmichel.io).
 
 ## Get started
+
 1. Clone this repo
 1. `npm install`
 1. To run it in development mode, run `gatsby develop`
@@ -9,6 +11,7 @@ These are the source-files for my blog, [cmichel.io](https://cmichel.io).
 
 
 ### Additional Setup
+
 This repo includes cross-posting scripts to publish the articles to [medium](https://medium.com) and the [steem blockchain](https://steemit.com).
 After cloning this repo, you need to set up your `.env` file. An example is given in `.env.example`.
 
@@ -16,6 +19,7 @@ I use [netlify](https://netlify.com) to auto-deploy this site on any changes in 
 
 
 ## Publishing new posts
+
 To publish a new post, simply run `npm run create`. This will create a template post in `src/pages/<slug>`.
 Once done writing, you push the changes to `master`.
 This triggers a [netlify](https://netlify.com) `git hook` which builds and auto-deploys the new site. After some minutes the new post is live.
@@ -23,9 +27,11 @@ This triggers a [netlify](https://netlify.com) `git hook` which builds and auto-
 Currently, you have to run the cross-posting scripts by hand.
 
 ## Development Overview
+
 This is a standard [gatsbyjs](https://gatsbyjs.org) repo.
 
 ### Gatsby
+
 It includes the posts written in Markdown (along with the images used in them) in their own directories in `src/pages`. This directory is used as the post's _slug_. (There are some legacy posts that do not follow this structure and have a `slug` field defined in the markdown frontmatter.)
 
 The following **gatsby-plugins** are used during the posts' creation process:
@@ -36,10 +42,11 @@ They are copied to `public/static` and the corresponding relative path **of the 
 
 > _Note:_ The linked images and files are only created when **building**. Therefore, you need to run `gatsby build` before you can see them in `develop` mode.
 
-Other plugins used in the build process:
+Other plugins used in the **build** process:
 1. An RSS feed containing all posts is created at `public/feed.xml` (`gatsby-plugin-feed`)
 
 ### Cross-post scripts
+
 This repo includes cross-posting scripts to publish the posts to [medium](https://medium.com) and the [steem blockchain](https://steemit.com).
 
 They are located in the `scripts/publish` directory. You need `node` v8+ to run them, because they make use of `async/await`.
@@ -57,5 +64,6 @@ The following modifications are done when publishing a markdown post:
 1. A footer is inserted, linking back to the original post on my blog.
 
 ## ToDo:
-* [ ] Add drip widget?
+
+* [ ] Add drip widget / newsletter subscription?
 * [ ] Implement auto-detection of new posts, and add a `.circleci` git hook which then automatically cross-posts.

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { StaticQuery, graphql } from "gatsby"
 import { css } from 'glamor'
 import 'glamor/reset'
 import NavigationMenu from '../components/NavigationMenu'
@@ -15,10 +16,10 @@ const mainStyles = css({
   width: `calc(100% - ${navBarWidth} - 1.8rem)`,
   marginLeft: `calc(${navBarWidth} + 1.8rem)`,
   [singleColumnMediaQuery]: {
-    marginLeft: '0',
-    width: '100%',
-    maxWidth: '100%',
-    padding: '0 1.5rem',
+    marginLeft: `0`,
+    width: `100%`,
+    maxWidth: `100%`,
+    padding: `0 1.5rem`,
   },
 })
 
@@ -28,10 +29,10 @@ const pageStyles = css({
   margin: `0 auto`,
   padding: `0`,
   [singleColumnMediaQuery]: {
-    maxWidth: '100%',
-    width: '100%',
-    margin: '0 auto',
-    padding: '0',
+    maxWidth: `100%`,
+    width: `100%`,
+    margin: `0 auto`,
+    padding: `0`,
   },
 })
 
@@ -42,36 +43,36 @@ const pageStyles = css({
 /**
  * Font-Styles
  */
-css.global('html', {
+css.global(`html`, {
   fontSize: 16,
   minHeight: `100%`,
   [singleColumnMediaQuery]: {
     fontSize: 15,
   },
 })
-css.global('body', {
+css.global(`body`, {
   fontSize: `1rem`,
   lineHeight: `1.58rem`,
   fontFamily: `-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif`,
 })
-css.global('html, body *', {
+css.global(`html, body *`, {
   boxSizing: `border-box`,
 })
 
 /**
  * Anchor Styles
  */
-const classesToIgnore = ['no-style', 'gatsby-resp-image-link']
+const classesToIgnore = [`no-style`, `gatsby-resp-image-link`]
   .map(className => `:not(.${className})`)
-  .join('')
+  .join(``)
 css.global(`body a${classesToIgnore}`, {
-  display: 'inline-block',
-  position: 'relative',
+  display: `inline-block`,
+  position: `relative`,
   color: primaryColor,
-  outline: 'none',
-  textDecoration: 'none',
+  outline: `none`,
+  textDecoration: `none`,
   fontWeight: 500,
-  transition: 'color 0.2s',
+  transition: `color 0.2s`,
 })
 css.global(`body a${classesToIgnore}:hover, body a${classesToIgnore}:focus`, {
   color: primaryColorInverted,
@@ -103,22 +104,26 @@ css.global(
 
 export default class MainTemplate extends React.Component {
   static propTypes = {
-    data: PropTypes.object.isRequired,
-    children: PropTypes.func.isRequired,
+    children: PropTypes.node.isRequired,
   }
+
+  renderTheContent = data => (
+    <section {...pageStyles}>
+      <NavigationMenu data={data} />
+      <main {...mainStyles}>{this.props.children}</main>
+    </section>
+  )
+
   render() {
-    const { children } = this.props
     return (
-      <section {...pageStyles}>
-        <NavigationMenu data={this.props.data} />
-        <main {...mainStyles}>{children()}</main>
-      </section>
+      // SocialMediaFragment fragment is defined in NavigationMenu/SocialBar
+      <StaticQuery query={graphql`
+      query MainTemplateQuery {
+        ...SocialMediaFragment
+      }
+    `}
+        render={this.renderTheContent}
+      />
     )
   }
 }
-
-export const query = graphql`
-  query MainTemplateQuery {
-    ...socialMedia
-  }
-`
