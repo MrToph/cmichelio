@@ -106,8 +106,15 @@ export default class MainTemplate extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
   }
+
+  renderTheContent = data => (
+    <section {...pageStyles}>
+      <NavigationMenu data={data} />
+      <main {...mainStyles}>{this.props.children}</main>
+    </section>
+  )
+
   render() {
-    const { children } = this.props
     return (
       // SocialMediaFragment fragment is defined in NavigationMenu/SocialBar
       <StaticQuery query={graphql`
@@ -115,12 +122,7 @@ export default class MainTemplate extends React.Component {
         ...SocialMediaFragment
       }
     `}
-        render={data => (
-          <section {...pageStyles}>
-            <NavigationMenu data={data} />
-            <main {...mainStyles}>{children}</main>
-          </section>
-        )}
+        render={this.renderTheContent}
       />
     )
   }

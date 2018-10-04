@@ -12,9 +12,10 @@ export default class BlogIndex extends React.Component {
     const posts = get(this, `props.data.allMarkdownRemark.edges`)
     return (
       <Layout>
-        <Helmet title={siteTitle} />
+        <Helmet key="helmet" title={siteTitle} />
         <Router>
         <BlogIndexPosts
+          key="blogIndexPosts" 
           path="/categories/:tag"
           posts={posts}
         />
