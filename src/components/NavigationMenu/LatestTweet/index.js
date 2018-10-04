@@ -21,7 +21,7 @@ const tweetCardStyles = css({
   padding: `0`,
   overflow: `hidden`,
   [singleColumnMediaQuery]: {
-    width: `auto`,
+    display: `none`,
   },
 })
 
