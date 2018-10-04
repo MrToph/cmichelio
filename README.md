@@ -67,4 +67,3 @@ The following modifications are done when publishing a markdown post:
 
 * [ ] Add drip widget / newsletter subscription?
 * [ ] Implement auto-detection of new posts, and add a `.circleci` git hook which then automatically cross-posts.
-* [ ] Does feed.xml work?
