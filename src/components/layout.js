@@ -102,13 +102,6 @@ css.global(
   }
 )
 
-// socialMedia fragment is defined in NavigationMenu
-export const query = graphql`
-  query MainTemplateQuery {
-    ...socialMedia
-  }
-`
-
 export default class MainTemplate extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
@@ -116,7 +109,12 @@ export default class MainTemplate extends React.Component {
   render() {
     const { children } = this.props
     return (
-      <StaticQuery query={query}
+      // SocialMediaFragment fragment is defined in NavigationMenu/SocialBar
+      <StaticQuery query={graphql`
+      query MainTemplateQuery {
+        ...SocialMediaFragment
+      }
+    `}
         render={data => (
           <section {...pageStyles}>
             <NavigationMenu data={data} />

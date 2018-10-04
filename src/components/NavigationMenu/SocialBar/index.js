@@ -118,7 +118,7 @@ export default class SocialBar extends Component {
 }
 
 export const SocialBarQuery = graphql`
-  fragment socialMedia on Query {
+  fragment SocialMediaFragment on Query {
     site {
       siteMetadata {
         twitter

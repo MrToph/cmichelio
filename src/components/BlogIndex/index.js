@@ -29,7 +29,6 @@ export default class BlogIndexPosts extends React.Component {
 
   render() {
     const { posts, tag } = this.props
-    console.log(`BlogIndex/index.js tag (previously selectedCategory)`, this.props)
     const filteredPosts = filterPosts(posts, tag)
     return (
       <section id="blogIndex">
