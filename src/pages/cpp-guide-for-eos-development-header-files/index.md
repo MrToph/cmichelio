@@ -1,7 +1,7 @@
 ---
 title: C++ Guide for EOS Development - Call by value / reference
-date: 2018-08-28
-featured: /cpp-guide-for-eos-development-call-by-value-reference/featured.png
+date: 2018-10-20
+featured: /cpp-guide-for-eos-development-header-files/featured.png
 categories:
 - Tech
 - EOS
@@ -18,7 +18,6 @@ steem:
 - steemdev
 - programming
 - cryptocurrency
-draft: true
 ---
 
 > This post is part of my [C++ Guide for EOS developers](/categories/learneos)
@@ -29,7 +28,7 @@ draft: true
 1. [Templates](/cpp-guide-for-eos-development-templates)
 1. [Iterators & Lambda Expressions](/cpp-guide-for-eos-development-iterators-lambda-expressions)
 1. [Multi-index](/cpp-guide-for-eos-development-multi-index)
-1. Header files
+1. [Header files](/cpp-guide-for-eos-development-header-files)
 
 ## Header files
 

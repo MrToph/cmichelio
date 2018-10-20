@@ -28,7 +28,7 @@ steem:
 1. [Templates](/cpp-guide-for-eos-development-templates)
 1. [Iterators & Lambda Expressions](/cpp-guide-for-eos-development-iterators-lambda-expressions)
 1. [Multi-index](/cpp-guide-for-eos-development-multi-index)
-1. Header files
+1. [Header files](/cpp-guide-for-eos-development-header-files)
 
 ## Templates
 
