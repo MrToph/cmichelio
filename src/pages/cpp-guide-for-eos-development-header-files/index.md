@@ -1,5 +1,5 @@
 ---
-title: C++ Guide for EOS Development - Call by value / reference
+title: C++ Guide for EOS Development - Header files
 date: 2018-10-20
 featured: /cpp-guide-for-eos-development-header-files/featured.png
 categories:
