@@ -75,7 +75,7 @@ Sessions went up to **10,891** on my website.
 
 ![Website Traffic](./website-traffic.png)
 
-I sticked to my bi-weekly schedule of releasing a blog post. It's easy when you have written a whole book chapter. I already have other posts in the pipeline.
+I stuck to my bi-weekly schedule of releasing a blog post. It's easy when you have written a whole book chapter. I already have other posts in the pipeline.
 
 1. [Learnings from building my first dapp on EOS blockchain](/releasing-my-first-eos-dapp/)
 1. [C++ Guide for EOS Development - Basics](/cpp-guide-for-eos-development-basics/)
