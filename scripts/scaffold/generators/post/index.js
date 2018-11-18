@@ -20,24 +20,29 @@ module.exports = class extends Generator {
       },
       {
         type: `input`,
-        name: `slug`,
-        message: `Slug`,
-        when: function(response) {
-          return response.postType !== `progress-report`
-        },
-      },
-      {
-        type: `input`,
         name: `title`,
         message: `Title`,
         when: function(response) {
           return response.postType !== `progress-report`
         },
       },
+      {
+        type: `input`,
+        name: `slug`,
+        message: `Slug`,
+        when: function(response) {
+          return response.postType !== `progress-report`
+        },
+      },
     ])
+    this.answers.slug = this.answers.slug || kebabCase(this.answers.title)
   }
 
   createEosPost() {
+    return this.createStandardPost()
+  }
+
+  createStandardPost() {
     const { slug, title } = this.answers
     const hyphenedSlug = kebabCase(slug)
     const date = format(Date.now(), `YYYY-MM-DD`)
@@ -74,7 +79,7 @@ module.exports = class extends Generator {
         break
       }
       default: {
-        templateVariables = this.answers
+        templateVariables = this.createStandardPost()
         break
       }
     }
