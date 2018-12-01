@@ -1,5 +1,5 @@
 ---
-title: setcode and setabi with EOS.js
+title: Deploying EOS contracts using EOS.js
 date: 2018-11-18
 featured: /setcode-and-setabi-with-eos-js/featured.png
 categories:

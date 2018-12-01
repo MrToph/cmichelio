@@ -1,7 +1,7 @@
 ---
 title: <%= title %>
 date: <%= date %>
-featured: /<%= slug %>/rescueTime.png
+featured: /<%= slug %>/rescue-time.png
 categories:
 - Progress Report
 medium:
@@ -24,7 +24,7 @@ Last month's report can be seen [here](/<%= previousReportSlug %>).
 
 ## What did I do
 
-![Productive Hours in <%= currentMonth %>](./rescueTime.png)
+![Productive Hours in <%= currentMonth %>](./rescue-time.png)
 
 I worked **80** _productive_ hours last month. I think this is a new record for this year. 💪
 I finished [Preacher - S3](https://trakt.tv/shows/preacher/seasons/3), started [Better Call Saul - S4](https://trakt.tv/shows/better-call-saul/seasons/4).
@@ -41,32 +41,6 @@ Some nice words I received last month:
 A Chinese company wants the exclusive rights for my book and translate it into Chinese.
 
 I was called a [React Native expert](https://ideamotive.co/blog/best-react-native-experts-blogs/), right next to Dan Abramov.
-
-## Mobile Apps
-
-### Downloads
-
-Total downloads of all my apps went up to **?** this month. An increase in every app. Is it finally summer time again and people are downloading more fitness apps?
-
-### In-App Purchases
-
-In-app Purchases went back up to 5 thanks to PPL workout. (+4)
-
-I made an estimated **?€** (+?€) this way.
-
-### Ad Revenue
-
-My ad revenue went down to **?€** (-?€) for 52,700 AdMob banner impressions.
-
-![App Income AdMob](./admob-income.png)
-
-### Total App Income
-
-In total, this month's app income was **?€** (+?€).
-
-IAPs | Ads | Total
---- | --- | ---
-?€ | ?€ | ?€
 
 ## Platform Growth
 
