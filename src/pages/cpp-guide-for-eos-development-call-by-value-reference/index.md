@@ -113,7 +113,7 @@ test_by_ref(number);
 void test_by_pointer(int* px) {
     // remember the value of px is the address of x
     // to get the actual value of x we need to dereference the pointer by using `*` 
-  *x = 2;
+  *px = 2;
 }
 
 // pointers are defined by <type>*
