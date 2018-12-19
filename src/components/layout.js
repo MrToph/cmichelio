@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql } from 'gatsby'
 import { css } from 'glamor'
 import 'glamor/reset'
 import NavigationMenu from '../components/NavigationMenu'
@@ -102,6 +102,16 @@ css.global(
   }
 )
 
+/**
+ * blockquote styles
+ */
+css.global(`blockquote`, {
+  fontStyle: `italic`,
+  borderLeft: `4px solid ${primaryColor}`,
+  marginLeft: 0,
+  paddingLeft: `1rem`,
+})
+
 export default class MainTemplate extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
@@ -117,11 +127,12 @@ export default class MainTemplate extends React.Component {
   render() {
     return (
       // SocialMediaFragment fragment is defined in NavigationMenu/SocialBar
-      <StaticQuery query={graphql`
-      query MainTemplateQuery {
-        ...SocialMediaFragment
-      }
-    `}
+      <StaticQuery
+        query={graphql`
+          query MainTemplateQuery {
+            ...SocialMediaFragment
+          }
+        `}
         render={this.renderTheContent}
       />
     )
