@@ -44,15 +44,13 @@ pre[class*="language-"] {
 	border-radius: 0.3em;
 }
 
-:not(pre) > code[class*="language-"],
 pre[class*="language-"] {
 	background: #1d1f21;
 }
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-	padding: .1em;
-	border-radius: .3em;
+	color: #f92672;
 }
 
 .token.comment,
