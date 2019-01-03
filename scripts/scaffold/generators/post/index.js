@@ -2,7 +2,7 @@ const path = require(`path`)
 const Generator = require(`yeoman-generator`)
 const kebabCase = require(`lodash.kebabcase`)
 const format = require(`date-fns/format`)
-var subMonths = require('date-fns/sub_months')
+const subMonths = require(`date-fns/sub_months`)
 
 module.exports = class extends Generator {
   initializing() {
@@ -54,8 +54,13 @@ module.exports = class extends Generator {
 
     const today = Date.now()
     const date = format(today, `YYYY-MM-DD`)
-    // we create a report for _last_ month
-    const reportDate = subMonths(today, 1)
+
+    const dayOfMonth = parseInt(format(today, `DD`), 10)
+    let reportDate = today
+    if(dayOfMonth < 5) {
+      // we create a report for _last_ month
+      reportDate = subMonths(today, 1)
+    }
 
     const currentMonth = format(reportDate, `MMMM`)
     const previousReportSlug = createSlugFromDate(subMonths(reportDate, 1))
