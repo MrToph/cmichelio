@@ -1,6 +1,7 @@
 ---
 title: Goals for 2019
 date: 2019-01-04
+featured: /goals-2019/featured.jpg
 categories:
 - Business
 medium:
@@ -28,37 +29,38 @@ So here are **last year's goals** for 2018:
     > 🙂 I'm still working on this. I'm writing a book about [EOS Development](https://learneos.one). I started in July 2018 and hope I can finish it _soon™_.
 * Read a book each month
     > 👎 I did so in the beginning but stopped after a while.
-        It just wasn't important to me anymore.
-        I know it's an unpopular opinion, but reading books is overvalued.
-        Especially if you read similar books before or even just short articles on the topic, you get to the point of diminishing returns.
-        It's just not worth spending all the time reading the book anymore, just for some little nugget of insight that you weren't aware of before.
-        Many books just keep rehashing their central idea over hundreds of pages.
-        I 'd rather read fiction books now or if I want to be productive, spend my time on actually productive things.
+    It just wasn't important to me anymore.
+    I know it's an unpopular opinion, but reading books is overvalued.
+    Especially if you read similar books before or even just short articles on the topic, you get to the point of diminishing returns.
+    It's just not worth spending all the time reading the book anymore, just for some little nugget of insight that you weren't aware of before.
+    Many books just keep rehashing their central idea over hundreds of pages.
+    I 'd rather read fiction books now or if I want to be productive, spend my time on actually productive things.
+
 * Write a smart contract (d)app that earns money on some blockchain
     > 👍 I did so with King of EOS.
 * Code a side project in a functional programming language.
     I always liked functional programming in university and it's been a while since I used one.
     Maybe ReasonML & React for frontend? Elixir for backend? Haskell for smart contracts (Cardano)?
     > 👎 I did not do this. There were things to learn that I actually used in my day-to-day life, so I learned these instead.
-        This goal is a bit stupid in hindsight.
-        I should not just learn a new technology just for the sake of it.
-        Or at least not make it a goal.
+    This goal is a bit stupid in hindsight.
+    I should not just learn a new technology just for the sake of it.
+    Or at least not make it a goal.
 * Learn a new framework doing a side project. Probably Apollo & GraphQL? Vue.js?
     > 👍 I did. I learned Vue.js and some GraphQL.
-        I'm learning Apollo now because I actually use it.
-        I also really used Vue.js in building the [Learn EOS](https://learneos.one) landing page and on some other projects.
-        (I still prefer React, especially with the hooks now.)
+    I'm learning Apollo now because I actually use it.
+    I also really used Vue.js in building the [Learn EOS](https://learneos.one) landing page and on some other projects.
+    (I still prefer React, especially with the hooks now.)
 * Finally start live-coding on twitch. Been procrastinating on this for too long
     > 👎 I did it like four times. I just ~never had the time~ had more important things to do.
-        Live-streaming really slows me down and I'm not used to talking while coding.
-        (I also didn't have an audience to talk to and ended up talking to myself. 😅)
+    Live-streaming really slows me down and I'm not used to talking while coding.
+    (I also didn't have an audience to talk to and ended up talking to myself. 😅)
 * Less sports. I'm going to the gym 4x a week now, but my priorities changed and I want to go down to 3 times or do a shorter routine
     > 👍 I went to the gym only 3 times a week, and since a couple of months, I'm doing shorter ~45-60 minutes freeletics workouts 3.5x per week.
 * Write blog posts more often. Bi-weekly schedule?
     > 👍 I mostly stuck to my bi-weekly schedule. I wrote 30 blog posts last year (excluding the progress reports).
 * Earn 1000 EUR / month by end of the year through my side-projects.
     > 👎 This was the biggest fail. I did not launch any side-project that still earns me money.
-        The monthly recurring-revenue even went down to 0 as Google removed my React Native Android apps.
+    The monthly recurring-revenue even went down to 0 as Google removed my React Native Android apps.
 
 Looking at the results, it was only an OK year for my side-projects with the biggest non-achieved goal being the non-existent MRR.
 The book just consumed the second half of the year and there was no time to launch anything else.
