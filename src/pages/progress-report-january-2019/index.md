@@ -1,7 +1,7 @@
 ---
-title: <%= title %>
-date: <%= date %>
-featured: /<%= slug %>/toggl.png
+title: Progress Report - January 2019
+date: 2019-02-02
+featured: /progress-report-january-2019/toggl.png
 categories:
 - Progress Report
 medium:
@@ -20,11 +20,11 @@ steem:
 
 
 I post a progress report showing what I did and how my products performed each month.
-Last month's report can be seen [here](/<%= previousReportSlug %>).
+Last month's report can be seen [here](/progress-report-december-2018).
 
 ## What did I do
 
-![Productive Hours in <%= currentMonth %>](./rescue-time.png)
+![Productive Hours in January](./toggl.png)
 
 I worked **55** _productive_ hours last month. Pretty good start into the year.
 I watched [Titans](https://trakt.tv/shows/titans-2018).
@@ -75,3 +75,4 @@ It's relatively cheap (3.5% fees + 0.30$) if you buy their plan for 10$ a month.
 Especially as they handle EU VAT on their part and I don't have to get involved at all in this complete mess of paying taxes for each individual country in the EU.
 The only down-side is that they don't accept crypto payments.
 If anyone knows a merchant that handles EU VAT and also accepts crypto payments, please let me know.
+
