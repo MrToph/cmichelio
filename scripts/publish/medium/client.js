@@ -1,5 +1,5 @@
-require('dotenv').config()
-const medium = require('medium-sdk')
+require(`dotenv`).config()
+const medium = require(`medium-sdk`)
 
 const mediumClient = new medium.MediumClient({
   clientId: process.env.MEDIUM_CLIENT_ID,
@@ -12,6 +12,10 @@ const client = {
   createPost({ content, frontmatter, postUrl }) {
     return new Promise((resolve, reject) => {
       mediumClient.getUser(function(err, user) {
+        if (err) {
+          console.error(err)
+          return
+        }
         mediumClient.createPost(
           {
             userId: user.id,
