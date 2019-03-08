@@ -111,4 +111,4 @@ extern "C" void apply(uint64_t receiver, uint64_t code, uint64_t action)
 I created a `yeoman generator` [generator-eos](https://github.com/MrToph/generator-eos) that scaffolds new EOS smart contract projects and works with the latest version of EOS Contract Developer Toolkit.
 It runs using Node.js and includes some helpful NPM scripts like automatically creating actions to run based on your contract's ABI.
 
-[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.one#modal)
+[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.dev#modal)

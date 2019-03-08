@@ -29,7 +29,7 @@ Last month's report can be seen [here](/progress-report-september-2018).
 I worked **78** _productive_ hours last month. After my day job I usually work for another hour and of course full-time on the weekends which makes approximately 20h / week. 💪
 I watched [Maniac - S1](https://trakt.tv/shows/maniac-2018) and [Norsemen - S2](https://trakt.tv/shows/norsemen/seasons/2).
 
-I 'm really close to finishing the big "Smart Contract Development" chapter of my [Learn EOS Development](https://learneos.one) book.
+I 'm really close to finishing the big "Smart Contract Development" chapter of my [Learn EOS Development](https://learneos.dev) book.
 I updated a lot of EOS libraries and code to the latest versions.
 
 ## Mobile Apps
@@ -76,7 +76,7 @@ My [twitter](https://twitter.com/cmichelio) followers increased by _32_ to **350
 
 ### Learn EOS Development Subscribers
 
-I currently have **192** email subscribers for [my book](https://learneos.one). (+48 in a month)  
+I currently have **192** email subscribers for [my book](https://learneos.dev). (+48 in a month)  
 I need to send newsletters more often.
 
 ## What's next

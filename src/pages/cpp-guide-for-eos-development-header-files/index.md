@@ -100,4 +100,4 @@ The bigger your project becomes, the better it is to structure your code like th
 For the beginning, a single header and a single source file (or even a single source file with both declarations and definitions) is enough.
 
 
-[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.one#modal)
+[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.dev#modal)

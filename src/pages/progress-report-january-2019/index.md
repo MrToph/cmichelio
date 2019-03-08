@@ -29,7 +29,7 @@ Last month's report can be seen [here](/progress-report-december-2018).
 I worked **55** _productive_ hours last month. Pretty good start into the year.
 I watched [Titans](https://trakt.tv/shows/titans-2018).
 
-I 'm still on the last chapter of [Learn EOS Development](https://learneos.one), which I will finally finish in February.
+I 'm still on the last chapter of [Learn EOS Development](https://learneos.dev), which I will finally finish in February.
 Then the editing and reviewing process begins.
 Actually, the reviewing process already began.
 I send out some drafts to technical reviewers.
@@ -62,7 +62,7 @@ I should focus on growing the book email subscribers because I'm getting close t
 
 ### Learn EOS Development Subscribers
 
-I currently have **277** email subscribers for [my book](https://learneos.one). (+24 in last 30 days)
+I currently have **277** email subscribers for [my book](https://learneos.dev). (+24 in last 30 days)
 That's pretty nice, I should be able to get 300 subscribers next month and then hopefully launch in March.
 
 ## What's next

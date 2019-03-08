@@ -37,7 +37,7 @@ I discovered [MusicForProgramming.net](http://musicforprogramming.net) and I can
 I even think it helps me focus.
 Usually, I don't listen to music while coding or sometimes listened to low-fi hip hop, but there I still found _some_ songs to be too distracting.
 
-Business-wise I finished both the smart contract and the frontend integration of my battleship-style decentralized game for my [Learn EOS Development book](https://learneos.one).
+Business-wise I finished both the smart contract and the frontend integration of my battleship-style decentralized game for my [Learn EOS Development book](https://learneos.dev).
 The book will go into detail about building EOS dapps by using this game as an example.
 I wrote a couple of sub-chapters for the smart contract chapter for the game.
 I severely underestimated how much is still left to write and how long it takes even if you have the code already. 😞
@@ -69,7 +69,7 @@ This number is extremely low, I wonder why. 🤔
 
 ### Learn EOS Development Subscribers
 
-I currently have **253** email subscribers for [my book](https://learneos.one). (+29 in a month)
+I currently have **253** email subscribers for [my book](https://learneos.dev). (+29 in a month)
 I just sent out a new email newsletter with short updates on EOS + the book.
 The book is still going well.
 I need to finally release it, hopefully in the next month.

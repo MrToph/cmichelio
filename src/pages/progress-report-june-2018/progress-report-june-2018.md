@@ -29,7 +29,7 @@ Last month's report can be seen [here](/progress-report-may-2018).
 I worked 48 _productive_ hours. 💪 (Tracked using [RescueTime](/redirects/rescuetime).)  
 I didn't watch anything new in June.
 
-As you can see from the number's I didn't do much. At least, I finished the [landing page](https://learneos.one) for my new book about EOS smart contract development.
+As you can see from the number's I didn't do much. At least, I finished the [landing page](https://learneos.dev) for my new book about EOS smart contract development.
 Now I'm ready to start producing the first content 😍
 
 ## Apps

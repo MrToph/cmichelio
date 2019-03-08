@@ -84,7 +84,7 @@ My [twitter](https://twitter.com/cmichelio) followers increased by _21_ to 292.
 ## What's next
 Full focus on the book and a potential new blockchain project.
 
-I should also track the signups for [Learn EOS](https://learneos.one) in these monthly reports.
+I should also track the signups for [Learn EOS](https://learneos.dev) in these monthly reports.
 I need to automate all of this, it's becoming too much to do manually 😬 
 
 * Write tutorials for free and link to my book. Collect email addresses. All while actually writing the book.

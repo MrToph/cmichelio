@@ -114,4 +114,4 @@ What happens behind the scenes is the same thing we did before by hand.
 Being statically-typed, the code is analyzed and the types to any _call_ to the template function can be resolved.
 The compiler then instantiates a function for each specific type used.
 
-[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.one#modal)
+[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.dev#modal)

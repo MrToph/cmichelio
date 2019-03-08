@@ -29,7 +29,7 @@ Last month's report can be seen [here](/progress-report-october-2018).
 I worked **47** _productive_ hours last month.
 I watched [Ozark](https://trakt.tv/shows/ozark), didn't really like it.
 
-I finished the “Smart Contract Development” chapter of my [Learn EOS Development](https://learneos.one) book, and am creating the example app now.
+I finished the “Smart Contract Development” chapter of my [Learn EOS Development](https://learneos.dev) book, and am creating the example app now.
 It is a battleship style decentralized game, of which I finished the [smart contract](https://github.com/MrToph/cryptoship-contract).
 
 My progress can now be tracked in real time on [Makerlog](https://getmakerlog.com/@cmichel).
@@ -55,7 +55,7 @@ My [twitter](https://twitter.com/cmichelio) followers increased by _34_ to **352
 
 ### Learn EOS Development
 
-I currently have **224** email subscribers for [my book](https://learneos.one). (+32 in a month)
+I currently have **224** email subscribers for [my book](https://learneos.dev). (+32 in a month)
 I just sent out a new email newsletter with short updates on EOS + the book.
 
 ## What's next

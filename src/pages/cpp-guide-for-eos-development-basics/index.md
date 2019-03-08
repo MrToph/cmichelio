@@ -217,4 +217,4 @@ int main()
 Let's leave it at this for now.
 In the next tutorial we will talk about different types to pass parameters to functions.
 
-[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.one#modal)
+[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.dev#modal)

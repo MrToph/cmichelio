@@ -26,7 +26,7 @@ Now is finally the time to do it, see what I achieved and reflect upon my old go
 So here are **last year's goals** for 2018:
 
 * Write a book / interactive course / video course, and sell it
-    > 🙂 I'm still working on this. I'm writing a book about [EOS Development](https://learneos.one). I started in July 2018 and hope I can finish it _soon™_.
+    > 🙂 I'm still working on this. I'm writing a book about [EOS Development](https://learneos.dev). I started in July 2018 and hope I can finish it _soon™_.
 * Read a book each month
     > 👎 I did so in the beginning but stopped after a while.
     It just wasn't important to me anymore.
@@ -48,7 +48,7 @@ So here are **last year's goals** for 2018:
 * Learn a new framework doing a side project. Probably Apollo & GraphQL? Vue.js?
     > 👍 I did. I learned Vue.js and some GraphQL.
     I'm learning Apollo now because I actually use it.
-    I also really used Vue.js in building the [Learn EOS](https://learneos.one) landing page and on some other projects.
+    I also really used Vue.js in building the [Learn EOS](https://learneos.dev) landing page and on some other projects.
     (I still prefer React, especially with the hooks now.)
 * Finally start live-coding on twitch. Been procrastinating on this for too long
     > 👎 I did it like four times. I just ~never had the time~ had more important things to do.

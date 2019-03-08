@@ -24,7 +24,7 @@ And, as you know, every ebook or video course needs a nice landing page.
 This gave me the opportunity to play with some new technologies that I always wanted to try. 😄
 
 Instead of using my bread and butter UI library, React, I used [Vue.js](https://vuejs.org/) and [BulmaCSS](https://bulma.io/) for styling the landing page.
-The result can be seen on [learneos](https://learneos.one).
+The result can be seen on [learneos](https://learneos.dev).
 
 ![Learn EOS](./learneos.png)
 
@@ -123,4 +123,4 @@ You just have to specify the build command and the output directory, which is `g
 ## Summary
 Using Vue.js with `nuxt` is great to build a static landing page. I had no prior experience with Vue and I could pick it up relatively fast. I love single-file components. 😍
 I didn't use any Vue component library, HTML with Bulma's CSS and a couple custom components was enough.
-Here's the [resulting landing page](https://learneos.one). If you want to learn about blockchain development and smart contracts, feel free to sign up.
+Here's the [resulting landing page](https://learneos.dev). If you want to learn about blockchain development and smart contracts, feel free to sign up.

@@ -28,7 +28,7 @@ Last month's report can be seen [here](/progress-report-july-2018).
 I worked **80** _productive_ hours last month. I think this is a new record for this year. 💪 (Tracked using [RescueTime](/redirects/rescuetime).)  
 I finished [Preacher - S3](https://trakt.tv/shows/preacher/seasons/3), started [Better Call Saul - S4](https://trakt.tv/shows/better-call-saul/seasons/4).
 
-I finished the first chapter of my book [Learn EOS Development](https://learneos.one), created a nice PDF preview out of it, automatically sent it out on new signups, and split it up into smaller tutorials that I'll release here on my blog.
+I finished the first chapter of my book [Learn EOS Development](https://learneos.dev), created a nice PDF preview out of it, automatically sent it out on new signups, and split it up into smaller tutorials that I'll release here on my blog.
 I also added open graph meta tags to all blog posts.
 
 Some nice words I received last month:
@@ -87,7 +87,7 @@ My [twitter](https://twitter.com/cmichelio) followers increased by _26_ to **318
 
 ### Learn EOS Development Subscribers
 
-I currently have **109** email subscribers for [my book](https://learneos.one).
+I currently have **109** email subscribers for [my book](https://learneos.dev).
 I would have never expected such a big amount through organic growth.
 
 ## What's next

@@ -196,4 +196,4 @@ That's generally the biggest learning experience for developers new to C++, so d
 At some point you'll see the common, repeating patterns.
 
 
-[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.one#modal)
+[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.dev#modal)

@@ -186,4 +186,4 @@ This `onerror` action is only called if the transaction was executed in the firs
 
 If you'd like to know more about the EOS' communication model, [this article](https://developers.eos.io/eosio-cpp/docs/communication-model) is helpful.
 
-[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.one#modal)
+[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.dev#modal)

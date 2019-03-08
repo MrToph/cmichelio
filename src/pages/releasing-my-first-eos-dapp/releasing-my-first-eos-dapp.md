@@ -149,7 +149,7 @@ If there's interest, I could create a scaffolding tool `create-eos-app` that alr
 ### The Smart Contract
 The smart contract is only about 200 lines of C++ code.
 There are not many tutorials on EOS development, but once you figure out how it works and read the code of other contracts, it's pretty easy to write.
-I'm writing [a book on EOS full stack development](https://learneos.one) to make it easier for people to get started.
+I'm writing [a book on EOS full stack development](https://learneos.dev) to make it easier for people to get started.
 
 The smart contract's code [is available on GitHub](https://github.com/MrToph/KingOfEos/blob/master/contract/contract/KingOfEOS.cpp) if you want to have a look.
 

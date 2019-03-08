@@ -194,4 +194,4 @@ Lambda functions are heavily used in EOS smart contracts as they provide a reall
 There are more functions in the standard library that work in a similar way to what we have already seen with `sort, transform, remove_if` and `find_if`.
 They are all exported through the `<algorithm>` header.
 
-[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.one#modal)
+[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.dev#modal)

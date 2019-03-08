@@ -29,7 +29,7 @@ Last month's report can be seen [here](/progress-report-august-2018).
 I worked **59** _productive_ hours last month.
 I watched [Money Heist](https://trakt.tv/shows/money-heist) and [Attack on Titan Season 3](https://trakt.tv/shows/attack-on-titan/seasons/3).
 
-I finished the second and started with the third chapter of my book [Learn EOS Development](https://learneos.one).
+I finished the second and started with the third chapter of my book [Learn EOS Development](https://learneos.dev).
 I didn't write as much as I would have liked as I was at the EOS Hackathon in London.
 But it was totally worth it.
 The hackathon was the best I've ever been to, from the location (Science Museum), the EOS community, the free food, to the expensive swag (patagonia jacket + backpack).
@@ -83,7 +83,7 @@ My [twitter](https://twitter.com/cmichelio) followers increased by _10_ to **328
 
 ### Learn EOS Development Subscribers
 
-I currently have **144** email subscribers for [my book](https://learneos.one).
+I currently have **144** email subscribers for [my book](https://learneos.dev).
 That's +36 in a month.
 I'm curious what my conversion rate will be.
 

@@ -177,4 +177,4 @@ As you can imagine, having multiple interfaces to sort and search for elements i
 If you want to learn more about them, boost.org has an [exhaustive tutorial](https://www.boost.org/doc/libs/1_41_0/libs/multi_index/doc/tutorial/index.html) on it.
 
 
-[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.one#modal)
+[![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.dev#modal)
