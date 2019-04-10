@@ -104,9 +104,8 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-glamor`,
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-layout`,
       options: {
