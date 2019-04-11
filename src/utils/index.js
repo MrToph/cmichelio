@@ -1,6 +1,6 @@
 export const isClientSide = () =>
-  !!(
-    typeof window !== 'undefined' &&
+  Boolean(
+    typeof window !== `undefined` &&
     window.document &&
     window.document.createElement
   )

@@ -1,0 +1,77 @@
+html, body * {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    
+    font-size: 16px;
+    @screen sm {
+        font-size: 15px;
+    }
+}
+
+body {
+    font-size: 1rem;
+    line-height: 1.58rem;
+    background-color: config('colors.grey-darkest');
+    color: config('colors.grey');
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+}
+
+a:not(.gatsby-resp-image-link) {
+  background:
+      linear-gradient(
+        to bottom, config('colors.green') 0%,
+        config('colors.green') 100%
+      );
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 4px 2px;
+  color: inherit;
+  text-decoration: none;
+  transition: background-size .2s;
+  
+  &:hover {
+    background-size: 4px 50px;
+    &, & * {
+      color: config('colors.white') !important;
+    }
+  }
+}
+
+
+blockquote {
+    @apply my-4 mx-0 pl-4;
+    border-left: 4px solid config('colors.red');
+}
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+pre, code {
+  @apply text-sm;
+}
+
+p {
+  @apply my-3;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply text-green;
+}
+
+h1 {
+  @apply my-6;
+}
+h2 {
+  @apply my-4;
+}
+h3 {
+  @apply my-3;
+}
+h4, h5, h6 {
+  @apply my-2;
+}

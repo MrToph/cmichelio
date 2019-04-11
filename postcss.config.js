@@ -15,16 +15,16 @@ module.exports = {
   plugins: [
     tailwindcss(`./tailwind.js`),
     precss(),
-    purgecss({
-      content: [`./src/**/*.js`],
-      css: [`./src/**/*.css`],
-      whitelistPatterns: [/^cols-\d$/],
-      extractors: [
-        {
-          extractor: TailwindExtractor,
-          extensions: [`html`, `js`, `jsx`],
-        },
-      ],
-    }),
+    // purgecss({
+    //   content: [`./src/**/*.js`],
+    //   css: [`./src/**/*.css`],
+    //   whitelistPatterns: [/^cols-\d$/],
+    //   extractors: [
+    //     {
+    //       extractor: TailwindExtractor,
+    //       extensions: [`html`, `js`, `jsx`],
+    //     },
+    //   ],
+    // }),
   ],
 }

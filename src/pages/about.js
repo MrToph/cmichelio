@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from "gatsby"
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import AboutContent from '../components/About'
+// import AboutContent from '../components/About'
 
 
 export default class About extends React.Component {
@@ -19,7 +19,7 @@ export default class About extends React.Component {
     const siteTitle = `About - ${get(this, `props.data.site.siteMetadata.title`)}`
     return <React.Fragment>
       <Helmet key="helmet" title={siteTitle} />
-      <AboutContent key="about" />
+      {/* <AboutContent key="about" /> */}
     </React.Fragment>
   }
 }

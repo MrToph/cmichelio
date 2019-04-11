@@ -1,10 +1,9 @@
 import React from 'react'
-import { graphql } from "gatsby"
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import { Router } from "@reach/router"
-import BlogIndexPosts from '../components/BlogIndex'
-
+import { Router } from '@reach/router'
+// import BlogIndexPosts from '../components/BlogIndex'
 
 export default class BlogIndex extends React.Component {
   render() {
@@ -14,11 +13,11 @@ export default class BlogIndex extends React.Component {
       <React.Fragment>
         <Helmet key="helmet" title={siteTitle} />
         <Router>
-        <BlogIndexPosts
-          key="blogIndexPosts" 
-          path="/categories/:tag"
-          posts={posts}
-        />
+          {/* <BlogIndexPosts
+            key="blogIndexPosts"
+            path="/categories/:tag"
+            posts={posts}
+          /> */}
         </Router>
       </React.Fragment>
     )

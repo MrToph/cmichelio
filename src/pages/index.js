@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import BlogIndexPosts from '../components/BlogIndex'
+// import BlogIndexPosts from '../components/BlogIndex'
 
 export default class BlogIndex extends React.Component {
   render() {
@@ -10,11 +10,8 @@ export default class BlogIndex extends React.Component {
     const posts = get(this, `props.data.allMarkdownRemark.edges`)
     return (
       <React.Fragment>
-        <Helmet key="helmet" title={siteTitle}>
-          <meta name="copyright" content="Christoph Michel" />
-          <meta name="author" content="Christoph Michel" />
-        </Helmet>
-        <BlogIndexPosts key="blogIndexPosts" posts={posts} />
+        <Helmet key="helmet" title={siteTitle} />
+        {/* <BlogIndexPosts key="blogIndexPosts" posts={posts} /> */}
       </React.Fragment>
     )
   }

@@ -1,27 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from "gatsby"
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import trim from 'lodash/trim'
-import { css } from 'glamor'
 import ReactDisqusComments from 'react-disqus-comments'
-import { primaryColor } from '../styling'
-import CategoryBar from '../components/BlogPost/CategoryBar'
+import CategoryBar from '../../components/BlogPost/CategoryBar'
 
 
 // import 'prismjs/themes/prism-twilight.css'
 import './prismjs.css'
 
-const blogPostStyles = css({
-  '& img': {
-    maxWidth: `100%`,
-  },
-})
-
-const titleStyles = css({
-  color: primaryColor,
-})
+// const blogPostStyles = css({
+//   '& img': {
+//     maxWidth: `100%`,
+//   },
+// })
 
 export default class BlogPostTemplate extends React.Component {
   static propTypes = {
@@ -88,6 +82,7 @@ export default class BlogPostTemplate extends React.Component {
     const postTitle = `${post.frontmatter.title} | ${siteTitle}`
     let identifier = get(post, `frontmatter.disqus_identifier`)
     if (!identifier) identifier = trim(get(post, `fields.slug`), `/`)
+
     return (
       <ReactDisqusComments
         shortname="cmichel"
@@ -102,9 +97,9 @@ export default class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     return (
       <React.Fragment>
-        <section {...blogPostStyles}>
+        <section>
           {this.renderHeader()}
-          <h1 {...titleStyles}>{post.frontmatter.title}</h1>
+          <h1>{post.frontmatter.title}</h1>
           <CategoryBar
             categories={post.frontmatter.categories}
             date={post.frontmatter.date}
