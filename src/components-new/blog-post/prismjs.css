@@ -19,9 +19,9 @@
    background: none;
    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
    text-align: left;
-   white-space: pre;
+   white-space: pre-wrap;
    word-spacing: normal;
-   word-break: normal;
+   word-break: break-word;
    word-wrap: normal;
    line-height: 1.5;
    -moz-tab-size: 4;
@@ -67,8 +67,8 @@
  :not(pre) > code[class*="language-"] {
    padding: .1em;
    border-radius: .3em;
-   white-space: normal;
-   color: #e56674;
+   white-space: pre-wrap;
+   color: config('colors.red');
  }
  
  .token.comment,
@@ -102,7 +102,7 @@
  .token.attr-value,
  .token.builtin,
  .token.inserted {
-   color: #70F49C;
+   color: config('colors.green');
  }
  
  .token.operator,

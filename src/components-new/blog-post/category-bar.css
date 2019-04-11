@@ -1,0 +1,16 @@
+.category-bar {
+    @apply flex mb-6;
+
+    .link {
+        @apply text-red font-medium mr-3;
+        background: none;
+        text-decoration: none;
+        transition: none;
+        
+        &:hover {
+            &, & * {
+                @apply text-white font-medium;
+            }
+        }
+    }
+}
