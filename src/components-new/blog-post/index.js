@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import trim from 'lodash/trim'
 import ReactDisqusComments from 'react-disqus-comments'
-import CategoryBar from './category-bar'
+import CategoryBar from '../category-bar'
 import './blog-post.css'
 import './prismjs.css'
 

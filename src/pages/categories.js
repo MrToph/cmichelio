@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { Router } from '@reach/router'
-// import BlogIndexPosts from '../components/BlogIndex'
+import BlogIndexPosts from '../components-new/blog-index'
 
 export default class BlogIndex extends React.Component {
   render() {
@@ -13,11 +13,11 @@ export default class BlogIndex extends React.Component {
       <React.Fragment>
         <Helmet key="helmet" title={siteTitle} />
         <Router>
-          {/* <BlogIndexPosts
+          <BlogIndexPosts
             key="blogIndexPosts"
             path="/categories/:tag"
             posts={posts}
-          /> */}
+          />
         </Router>
       </React.Fragment>
     )
@@ -38,7 +38,7 @@ export const CategoryQuery = graphql`
     ) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 280)
           fields {
             slug
           }
@@ -47,6 +47,13 @@ export const CategoryQuery = graphql`
             featured
             categories
             title
+            image {
+              childImageSharp {
+                fixed(width: 300) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
         }
       }
