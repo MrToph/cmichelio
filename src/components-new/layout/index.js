@@ -26,6 +26,7 @@ export default class MainTemplate extends React.Component {
           speed={5.0}
           color={config.colors[`black`]}
           backgroundColor="#00000000"
+          interactive="window"
           className="metaballs"
           style={{
             position: `fixed`,
