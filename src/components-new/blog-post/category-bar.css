@@ -1,7 +1,7 @@
 .category-bar {
     @apply flex mb-6;
 
-    .link {
+    & &__link {
         @apply text-red font-medium mr-3;
         background: none;
         text-decoration: none;

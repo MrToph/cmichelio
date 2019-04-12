@@ -33,12 +33,12 @@ a:not(.gatsby-resp-image-link) {
     background-size: 4px 2px;
   color: inherit;
   text-decoration: none;
-  transition: background-size 0.2s;
+  transition: all 0.2s;
   
   &:hover {
-    background-size: 4px 50px;
     &, & * {
-      @apply text-red font-medium;
+      @apply text-white;
+      background: none;
     }
   }
 }
@@ -67,10 +67,6 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   @apply text-red;
-}
-
-h2, h3, h4, h5, h6 {
-  @apply -ml-5;
 }
 
 h1 {

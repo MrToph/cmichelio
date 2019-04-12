@@ -1,0 +1,35 @@
+.postOutline {
+    @apply relative mt-1 py-4 overflow-hidden;
+    flex: 0 0 100%;
+
+    &:nth-child(1n) {
+        box-shadow: 0 2px 2px -2px config('colors.red');
+    }
+
+    &:hover, &:hover * {
+        background: config('colors.black');
+        @apply text-white;
+    }
+
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .featuredImageWrapper {
+        @apply inline-flex justify-center items-start float-left my-4 mx-2;
+        width: 200px;
+
+        .featuredImage {
+            max-width: 200px;
+            max-height: 200px;
+        }
+    }
+
+    & &__link {
+        display: block;
+        background: none;
+        transition: none;
+    }
+}

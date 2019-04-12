@@ -6,16 +6,8 @@ import get from 'lodash/get'
 import trim from 'lodash/trim'
 import ReactDisqusComments from 'react-disqus-comments'
 import CategoryBar from './category-bar'
-
-
-// import 'prismjs/themes/prism-twilight.css'
+import './blog-post.css'
 import './prismjs.css'
-
-// const blogPostStyles = css({
-//   '& img': {
-//     maxWidth: `100%`,
-//   },
-// })
 
 export default class BlogPostTemplate extends React.Component {
   static propTypes = {
@@ -44,7 +36,7 @@ export default class BlogPostTemplate extends React.Component {
     }).isRequired,
   }
 
-  renderHeader() {
+  renderMeta() {
     const post = this.props.data.markdownRemark
     const { title, featured, categories } = post.frontmatter
 
@@ -96,18 +88,16 @@ export default class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     return (
-      <React.Fragment>
-        <section>
-          {this.renderHeader()}
-          <h1>{post.frontmatter.title}</h1>
-          <CategoryBar
-            categories={post.frontmatter.categories}
-            date={post.frontmatter.date}
-          />
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
-          {this.renderDisqus()}
-        </section>
-      </React.Fragment>
+      <section className="blogPost">
+        {this.renderMeta()}
+        <h1>{post.frontmatter.title}</h1>
+        <CategoryBar
+          categories={post.frontmatter.categories}
+          date={post.frontmatter.date}
+        />
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        {this.renderDisqus()}
+      </section>
     )
   }
 }

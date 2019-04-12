@@ -22,7 +22,7 @@ export default class CategoryBarPost extends React.Component {
             <Link
               key={category}
               to={`/categories/${category}`}
-              className="link"
+              className="category-bar__link"
             >
               <small className="text-sm">{category}</small>
             </Link>

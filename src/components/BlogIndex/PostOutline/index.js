@@ -57,7 +57,9 @@ export default class PostOutline extends React.Component {
   renderExcerpt() {
     if (this.props.short) return null
     const { post } = this.props
-    const { frontmatter: { featured } } = post
+    const {
+      frontmatter: { featured },
+    } = post
     return [
       featured && (
         <span key="featureImage" {...featuredImageWrapperStyles}>
@@ -70,7 +72,7 @@ export default class PostOutline extends React.Component {
 
   render() {
     const { post } = this.props
-    const title = get(post, 'frontmatter.title') || post.fields.slug
+    const title = get(post, `frontmatter.title`) || post.fields.slug
     return (
       <li {...postContainerStyles}>
         <h3 {...titleStyles}>
