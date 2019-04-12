@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import get from 'lodash/get'
+import FeaturedImage from './featured-image'
 import './post-outline.css'
 
 const CategoryBar = props => {
@@ -65,17 +66,10 @@ export default class PostOutline extends React.Component {
   renderExcerpt() {
     if (this.props.short) return null
     const { post } = this.props
-    const {
-      frontmatter: { featured },
-    } = post
 
     return (
       <React.Fragment>
-        {featured && (
-          <span className="featuredImageWrapper">
-            <img src={featured} className="featuredImage" />
-          </span>
-        )}
+        <FeaturedImage frontmatter={post.frontmatter} />
         <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
       </React.Fragment>
     )
@@ -89,12 +83,12 @@ export default class PostOutline extends React.Component {
       <li className="postOutline">
         <Link to={post.fields.slug} className="postOutline__link">
           <h3 className="mb-4">{title}</h3>
-          <CategoryBar
-            date={post.frontmatter.date}
-            categories={post.frontmatter.categories}
-          />
           {this.renderExcerpt()}
         </Link>
+        <CategoryBar
+          date={post.frontmatter.date}
+          categories={post.frontmatter.categories}
+        />
       </li>
     )
   }

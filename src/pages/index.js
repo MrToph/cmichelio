@@ -30,7 +30,7 @@ export const IndexQuery = graphql`
     ) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 280)
           fields {
             slug
           }
@@ -39,6 +39,13 @@ export const IndexQuery = graphql`
             featured
             categories
             title
+            image {
+              childImageSharp {
+                fixed(width: 300) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
         }
       }

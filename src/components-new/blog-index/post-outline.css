@@ -1,29 +1,32 @@
 .postOutline {
-    @apply relative mt-1 py-4 overflow-hidden;
+    @apply relative mt-1 py-4 px-2 overflow-hidden;
     flex: 0 0 100%;
 
     &:nth-child(1n) {
         box-shadow: 0 2px 2px -2px config('colors.red');
     }
 
-    &:hover, &:hover * {
+    &:hover, &:hover &__link{
         background: config('colors.black');
         @apply text-white;
     }
 
-    &::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
     .featuredImageWrapper {
-        @apply inline-flex justify-center items-start float-left my-4 mx-2;
+        @apply inline-flex justify-center items-start float-left mb-4 ml-2 mr-6;
         width: 200px;
 
         .featuredImage {
             max-width: 200px;
             max-height: 200px;
+        }
+
+        @screen md {
+            width: 300px;
+
+            .featuredImage {
+                max-width: 300px;
+                max-height: 300px;
+            }
         }
     }
 
@@ -31,5 +34,11 @@
         display: block;
         background: none;
         transition: none;
+
+        &::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
     }
 }

@@ -1,7 +1,7 @@
 ---
 title: How to create beautiful epub programming ebooks
 date: 2019-03-10
-featured: /how-to-create-beautiful-epub-programming-ebooks/epub-html.png
+image: ./epub-html.png
 categories:
   - Tech
   - learneos
