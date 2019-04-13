@@ -14,6 +14,6 @@ export default class BlogIndexHeader extends React.Component {
       text = `Latest Posts for category: ${selectedCategory}`
     }
 
-    return <h1 className="text-red">{text}</h1>
+    return <h1 className="text-grey">{text}</h1>
   }
 }

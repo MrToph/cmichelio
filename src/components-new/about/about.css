@@ -1,0 +1,7 @@
+.about {
+    background-color: transparent;
+    &__logo {
+        @apply block mx-auto w-full mb-24;
+        max-width: 600px;
+    }
+}

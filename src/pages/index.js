@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import BlogIndexPosts from '../components-new/blog-index'
+import About from '../components-new/about'
 
 export default class BlogIndex extends React.Component {
   render() {
@@ -11,6 +12,7 @@ export default class BlogIndex extends React.Component {
     return (
       <React.Fragment>
         <Helmet key="helmet" title={siteTitle} />
+        <About />
         <BlogIndexPosts key="blogIndexPosts" posts={posts} />
       </React.Fragment>
     )
