@@ -6,7 +6,7 @@ import MoreInfoSections from './more-info-sections'
 import './about.css'
 import { useSections } from './utils'
 
-export default function About(props) {
+export default function About() {
   const [sections, showSection] = useSections([`stalkMe`])
 
   return (

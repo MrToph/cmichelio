@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import AuthorSection from './sections/author'
+import HireMeSection from './sections/hire-me'
 import './more-info-button.css'
 
 function getSectionHeader({ section }) {
@@ -51,6 +52,7 @@ function getSectionContent({ section }) {
               PostgreSQL
             </li>
             <li>EOS, IPFS</li>
+            <li>Smart Contract Security Audits</li>
           </ul>
           <p>
             Check out my <a href="TODO">GitHub</a> to stay up-to-date on what I
@@ -99,19 +101,7 @@ function getSectionContent({ section }) {
         </p>
       )
     case `hireMe`:
-      return (
-        <ul>
-          <li>Say Experience. Mostly in JavaScript and blockchain.</li>
-          <li>Tech Stack</li>
-          Having said that, I learn extremely fast and I'm confident I can pick
-          up and be productive with any technology within a couple of days.
-          <li>What others say about me</li>
-          <li>Link to interview on dfuse</li>
-          <li>What team I like to work in?</li>
-          <li>Contact</li>
-          <li>LinkedIn</li>
-        </ul>
-      )
+      return <HireMeSection />
     case `stalkMe`:
       return (
         <ul>

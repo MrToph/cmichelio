@@ -15,11 +15,11 @@ export default class PostOutline extends React.Component {
   render() {
     const { selectedCategory } = this.props
     if (!selectedCategory) {
-      return <h1 {...pageTitleStyles}>Latest Posts</h1>
+      return <h1 {...pageTitleStyles}>Latest Articles</h1>
     }
 
     return (
-      <h1 {...pageTitleStyles}>{`Latest Posts for category: ${
+      <h1 {...pageTitleStyles}>{`Latest Articles for category: ${
         selectedCategory
       }`}</h1>
     )

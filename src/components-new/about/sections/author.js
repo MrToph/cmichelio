@@ -2,18 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import get from 'lodash/get'
-
-const formatDate = date => {
-  const s = date.toDateString().split(` `)
-  s.shift()
-  return s.join(` `)
-}
-
-const calculatePostsPerWeek = (numPosts, fromDate) => {
-  const weeksPassed =
-    (Date.now() - fromDate.getTime()) / (1000 * 60 * 60 * 24 * 7)
-  return (numPosts / weeksPassed).toFixed(2)
-}
+import { calculatePostsPerWeek, formatDate } from '../utils'
 
 function AboutSection(props) {
   const totalPosts = get(props, `totalMarkdownRemark.totalCount`)

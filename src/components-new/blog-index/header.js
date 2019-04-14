@@ -9,9 +9,9 @@ export default class BlogIndexHeader extends React.Component {
   render() {
     const { selectedCategory } = this.props
 
-    let text = `Latest Posts`
+    let text = `Latest Articles`
     if (selectedCategory) {
-      text = `Latest Posts for category: ${selectedCategory}`
+      text = `Latest Articles for category: ${selectedCategory}`
     }
 
     return <h1 className="text-grey">{text}</h1>
