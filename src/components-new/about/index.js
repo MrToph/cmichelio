@@ -43,7 +43,7 @@ export default function About(props) {
         </MoreInfoButton>
       </p>
       <p>
-        I enjoy being more efficient ⏱️ and therefore track many aspects of my
+        I strive for efficiency ⏱️ and therefore track many aspects of my
         life.{` `}
         <MoreInfoButton onClick={showSection(`stalkMe`)}>
           stalk me 🧟‍♂️

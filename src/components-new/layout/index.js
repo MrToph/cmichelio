@@ -44,11 +44,11 @@ export default class MainTemplate extends React.Component {
 
   render() {
     return (
-      // SocialMediaFragment fragment is defined in NavigationMenu/SocialBar
       <StaticQuery
         query={graphql`
           query MainTemplateQuery {
             ...SocialMediaFragment
+            ...PostStatisticFragment
           }
         `}
         render={this.renderTheContent}
