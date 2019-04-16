@@ -31,7 +31,7 @@ export default function About() {
       <p>
         I mostly do{` `}
         <MoreInfoButton onClick={showSection(`openSource`)}>
-          open-source work 👾 ⚙️ 🔧
+          open-source work 👾
         </MoreInfoButton>
         {` `}
         and help small to mid-sized teams from all over the world 🌎 on both

@@ -27,15 +27,15 @@ body {
 }
 
 a:not(.gatsby-resp-image-link) {
-  background:
+  /* background:
       linear-gradient(
         to bottom, config('colors.green') 0%,
         config('colors.green') 100%
       );
     background-position: 0 100%;
     background-repeat: repeat-x;
-    background-size: 4px 2px;
-  color: inherit;
+    background-size: 4px 2px; */
+  color: config('colors.green');
   text-decoration: none;
   transition: all 0.2s;
   

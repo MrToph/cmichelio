@@ -14,7 +14,7 @@ export function SectionHeader({ section }) {
     case `author`:
       return `✍️ Author`
     case `openSource`:
-      return `👾⚙️🔧 Open-source Work`
+      return `👾️ Open-source Work`
     case `hireMe`:
       return `🦸‍♂️ Hire Me`
     case `stalkMe`:
