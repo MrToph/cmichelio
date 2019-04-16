@@ -1,11 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import EmailReveal from '../email-reveal'
-import { StaticQuery, graphql } from 'gatsby'
-import get from 'lodash/get'
-import { calculatePostsPerWeek, formatDate } from '../utils'
 
-export default function HireMeSection() {
+export default function HireMeSection({ siteMetadata }) {
   return (
     <React.Fragment>
       <p>
@@ -95,23 +92,51 @@ export default function HireMeSection() {
           {` `}
           for outstanding academical graduate studies.
           <blockquote>
-            Christoph Michel: "Maliciously Secure Controlled Functional Encryption" (Prof. Dr. Dominique Schröder)
+            Christoph Michel: "Maliciously Secure Controlled Functional
+            Encryption" (Prof. Dr. Dominique Schröder)
           </blockquote>
         </li>
         <li>
-          CV available on <a href="TODO">LinkedIn</a>.
+          CV available on{` `}
+          <a
+            href={`//linkedin.com/in/${siteMetadata.linkedIn}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+          .
         </li>
       </ul>
       <p>
         For further references and past work samples please get in touch, or
-        have a look at some of my open-source code on <a href="TODO">GitHub</a>.
+        have a look at some of my open-source code on{` `}
+        <a
+          href={`//github.com/${siteMetadata.github}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+        .
       </p>
       <h3>Contact</h3>
       <p>
         I'm looking forward to your detailed proposals to discuss a joint
         collaboration on projects.
+        <br />
         <EmailReveal />
       </p>
     </React.Fragment>
   )
+}
+
+HireMeSection.propTypes = {
+  siteMetadata: PropTypes.shape({
+    twitter: PropTypes.string.isRequired,
+    steem: PropTypes.string.isRequired,
+    medium: PropTypes.string.isRequired,
+    github: PropTypes.string.isRequired,
+    linkedIn: PropTypes.string.isRequired,
+  }).isRequired,
 }

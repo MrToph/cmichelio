@@ -6,7 +6,6 @@ export default function FeaturedImage({ frontmatter = {} }) {
   const { featured, image } = frontmatter
 
   if (image && image.childImageSharp && image.childImageSharp.fixed) {
-    console.log({ featured, image })
     return (
       <span className="featuredImageWrapper">
         <Image fixed={image.childImageSharp.fixed} alt="Jellyfish" />
@@ -27,7 +26,7 @@ export default function FeaturedImage({ frontmatter = {} }) {
 }
 
 FeaturedImage.propTypes = {
-  frontMatter: PropTypes.shape({
+  frontmatter: PropTypes.shape({
     featured: PropTypes.string,
     image: PropTypes.object,
   }),

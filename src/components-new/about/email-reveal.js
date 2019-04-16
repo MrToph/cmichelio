@@ -7,7 +7,7 @@ export default function EmailReveal() {
   let decoded = decodeMail(`L@HMaBLHBIDMHN`)
 
   return (
-    <div>
+    <React.Fragment>
       {`E-Mail: `}
       {reveal ? (
         <a href={`mailto:${decoded}`}>{`${decoded}`}</a>
@@ -15,6 +15,6 @@ export default function EmailReveal() {
         <a onClick={() => setReveal(true)}>Click to reveal</a>
       )}
       <noscript>Please enable Javascript to see the email address.</noscript>
-    </div>
+    </React.Fragment>
   )
 }

@@ -117,16 +117,16 @@ export default class SocialBar extends Component {
   }
 }
 
-export const SocialBarQuery = graphql`
-  fragment SocialMediaFragment on Query {
-    site {
-      siteMetadata {
-        twitter
-        github
-        medium
-        steem
-        linkedIn
-      }
-    }
-  }
-`
+// export const SocialBarQuery = graphql`
+//   fragment SocialMediaFragment on Query {
+//     site {
+//       siteMetadata {
+//         twitter
+//         github
+//         medium
+//         steem
+//         linkedIn
+//       }
+//     }
+//   }
+// `

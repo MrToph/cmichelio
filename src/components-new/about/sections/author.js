@@ -11,6 +11,8 @@ function AboutSection(props) {
   )
   const postsPerWeek = calculatePostsPerWeek(totalPosts, oldestPostDate)
 
+  const { siteMetadata } = props
+
   return (
     <ul>
       <li>
@@ -39,15 +41,27 @@ function AboutSection(props) {
       </li>
       <li>
         My writings can also be found on{` `}
-        <a href="TODO" target="_blank" rel="noopener noreferrer">
+        <a
+          href={`//medium.com/@${siteMetadata.medium}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Medium
         </a>
         {` `},{` `}
-        <a href="TODO" target="_blank" rel="noopener noreferrer">
+        <a
+          href={`//steemit.com/@${siteMetadata.steem}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Steem
         </a>
         , or{` `}
-        <a href="TODO" target="_blank" rel="noopener noreferrer">
+        <a
+          href={`//twitter.com/${siteMetadata.twitter}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Twitter
         </a>
         .
@@ -57,25 +71,30 @@ function AboutSection(props) {
 }
 
 AboutSection.propTypes = {
-  data: PropTypes.shape({
-    totalMarkdownRemark: PropTypes.shape({
-      totalCount: PropTypes.number.isRequired,
-    }).isRequired,
-    oldestMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            frontmatter: PropTypes.shape({
-              data: PropTypes.string,
-            }),
+  totalMarkdownRemark: PropTypes.shape({
+    totalCount: PropTypes.number.isRequired,
+  }).isRequired,
+  oldestMarkdownRemark: PropTypes.shape({
+    edges: PropTypes.arrayOf(
+      PropTypes.shape({
+        node: PropTypes.shape({
+          frontmatter: PropTypes.shape({
+            data: PropTypes.string,
           }),
-        })
-      ).isRequired,
-    }).isRequired,
+        }),
+      })
+    ).isRequired,
+  }).isRequired,
+  siteMetadata: PropTypes.shape({
+    twitter: PropTypes.string.isRequired,
+    steem: PropTypes.string.isRequired,
+    medium: PropTypes.string.isRequired,
+    github: PropTypes.string.isRequired,
+    linkedIn: PropTypes.string.isRequired,
   }).isRequired,
 }
 
-export default function AboutSectionContainer() {
+export default function AboutSectionContainer(props) {
   return (
     <StaticQuery
       query={graphql`
@@ -83,7 +102,7 @@ export default function AboutSectionContainer() {
           ...PostStatisticFragment
         }
       `}
-      render={AboutSection}
+      render={data => <AboutSection {...props} {...data} />}
     />
   )
 }
