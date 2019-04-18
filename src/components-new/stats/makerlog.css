@@ -3,4 +3,17 @@
         @apply flex items-center;
         background-color: #00000055;
     }
+
+    & &__list {
+        @apply list-reset overflow-y-auto;
+        max-height: 10rem;
+    }
+
+    & &__item {
+        @apply flex px-6 py-2;
+        background-color: config('colors.red')16;
+        &:nth-child(2n+1) {
+            background-color: config('colors.green')16;
+        }
+    }
 }

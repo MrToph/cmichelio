@@ -6,22 +6,31 @@ import './makerlog.css'
 import { useApi } from '../../utils'
 import { fetchMakerlog } from '../../api'
 
-function Makerlog(props) {
-  const { file } = props.data
-  const { loading, error, data } = useApi(fetchMakerlog)
+function MakerlogInner(props) {
+  const { loading, data, image } = props
 
-  if (loading) return <p>Loading ...</p>
+  const renderListContent = () => {
+    if (loading) return <li className="makerlog__item justify-center">Loading ...</li>
 
-  if (error) {
+    if (Array.isArray(data.makerlog)) {
+      return data.makerlog.map((task, index) => (
+        <li className="makerlog__item" key={index}>
+          <span>✅</span>
+          <span className="flex-1 ml-2">{task.description}</span>
+          <time>{`${task.date} ago`}</time>
+        </li>
+      ))
+    }
+
     return null
   }
-  console.log(data)
+
   return (
     <div className="makerlog">
       <div className="makerlog__header">
         <Image
           className="rounded-full ml-4"
-          fixed={file.childImageSharp.fixed}
+          fixed={image.file.childImageSharp.fixed}
           alt="me"
         />
         <h3 className="ml-4 flex-1">Makerlog - Done this week</h3>
@@ -34,34 +43,23 @@ function Makerlog(props) {
           Follow 🏃‍♂️
         </a>
       </div>
-      <ol>
-        {data.makerlog.map((task, index) => (
-          <li key={index}>
-            {task.description}
-            {task.date}
-          </li>
-        ))}
-      </ol>
-      <iframe
-        title="Makerlog Embed"
-        height="200"
-        style={{ width: `100%` }}
-        scrolling="no"
-        frameBorder="0"
-        allowTransparency="true"
-        src="https://api.getmakerlog.com/users/756/embed"
-      />
+      <ol className="makerlog__list scrollbar">{renderListContent()}</ol>
     </div>
   )
 }
 
-Makerlog.propTypes = {
-  data: PropTypes.shape({
+MakerlogInner.propTypes = {
+  image: PropTypes.shape({
     file: PropTypes.object.isRequired,
   }).isRequired,
+  data: PropTypes.shape({
+    makerlog: PropTypes.array.isRequired,
+  }),
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string,
 }
 
-export default function MakerlogContainer(props) {
+export function Makerlog(props) {
   return (
     <StaticQuery
       query={graphql`
@@ -75,7 +73,12 @@ export default function MakerlogContainer(props) {
           }
         }
       `}
-      render={data => <Makerlog {...props} data={data} />}
+      render={data => <MakerlogInner {...props} image={data} />}
     />
   )
+}
+
+export default function MakerlogContainer() {
+  const makerlogResult = useApi(fetchMakerlog)
+  return <Makerlog {...makerlogResult} />
 }
