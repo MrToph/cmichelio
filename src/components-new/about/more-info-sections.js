@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { SectionHeader, SectionContentContainer } from './sections'
-import './more-info-button.css'
 
 function MoreInfoSection(props) {
   const { section } = props

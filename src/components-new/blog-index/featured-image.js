@@ -8,7 +8,7 @@ export default function FeaturedImage({ frontmatter = {} }) {
   if (image && image.childImageSharp && image.childImageSharp.fixed) {
     return (
       <span className="featuredImageWrapper">
-        <Image fixed={image.childImageSharp.fixed} alt="Jellyfish" />
+        <Image fixed={image.childImageSharp.fixed} alt="featured image" />
       </span>
     )
   }

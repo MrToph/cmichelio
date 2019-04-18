@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import AuthorSection from './author'
 import HireMeSection from './hire-me'
-import { Link } from 'gatsby'
+import StalkMeSection from './stalk-me'
+import IndieMakerSection from './indie-maker'
 
 export function SectionHeader({ section }) {
   switch (section) {
@@ -75,41 +76,7 @@ function SectionContent(props) {
       )
     case `indieMaker`:
       return (
-        <React.Fragment>
-          <p>
-            I build products that are useful to myself, or with the intention of
-            making a profit. (Usually both.)
-          </p>
-          <p>
-            You can read my blog, my{` `}
-            <Link to="/categories/Progress%20Report">
-              monthly progress-reports
-            </Link>
-            {` `}
-            or check out my{` `}
-            <a
-              href={`//github.com/${siteMetadata.github}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-            {` `}
-            to stay up-to-date on what I'm currently working on. Here's a live
-            {` `}
-            <span className="font-bold">MakerLog</span> on last week's
-            accomplishments:
-          </p>
-          <iframe
-            title="Makerlog Embed"
-            height="200"
-            style={{ width: `100%` }}
-            scrolling="no"
-            frameBorder="0"
-            allowTransparency="true"
-            src="https://api.getmakerlog.com/users/756/embed"
-          />
-        </React.Fragment>
+       <IndieMakerSection siteMetadata={siteMetadata} />
       )
     case `author`:
       return <AuthorSection siteMetadata={siteMetadata} />
@@ -131,14 +98,7 @@ function SectionContent(props) {
       return <HireMeSection siteMetadata={siteMetadata} />
     case `stalkMe`:
       return (
-        <ul>
-          <li>Spotify</li>
-          <li>Get Maker Log</li>
-          <li>GitHub contribution graph?</li>
-          <li>toggl?</li>
-          <li>Latest Twitter Post</li>
-          <li>Link to all social media? SOcialBar from old cmichel.io</li>
-        </ul>
+        <StalkMeSection siteMetadata={siteMetadata} />
       )
   }
 }

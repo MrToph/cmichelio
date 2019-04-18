@@ -1,0 +1,6 @@
+.makerlog{
+    & &__header {
+        @apply flex items-center;
+        background-color: #00000055;
+    }
+}
