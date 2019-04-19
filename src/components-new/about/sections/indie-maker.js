@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import Makerlog from '../../stats/makerlog';
+import Makerlog from '../../stats/makerlog'
 
 export default function IndieMakerSection({ siteMetadata }) {
   return (
@@ -34,12 +34,11 @@ export default function IndieMakerSection({ siteMetadata }) {
 }
 
 IndieMakerSection.propTypes = {
-    siteMetadata: PropTypes.shape({
-      twitter: PropTypes.string.isRequired,
-      steem: PropTypes.string.isRequired,
-      medium: PropTypes.string.isRequired,
-      github: PropTypes.string.isRequired,
-      linkedIn: PropTypes.string.isRequired,
-    }).isRequired,
-  }
-  
+  siteMetadata: PropTypes.shape({
+    twitter: PropTypes.string.isRequired,
+    steem: PropTypes.string.isRequired,
+    medium: PropTypes.string.isRequired,
+    github: PropTypes.string.isRequired,
+    linkedIn: PropTypes.string.isRequired,
+  }).isRequired,
+}

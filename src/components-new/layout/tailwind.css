@@ -62,6 +62,7 @@
   */
  
   .scrollbar {
+    @apply overflow-y-auto;
     /* For firefox: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scrollbars */
     scrollbar-color: config('colors.green') config('colors.grey-darkest');
     scrollbar-width: thin;

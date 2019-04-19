@@ -1,17 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
+import { Makerlog } from '../../stats/makerlog'
+import { Lastfm } from '../../stats/lastfm'
+import { fetchStats } from '../../../api'
+import { useApi } from '../../../utils'
 
-export default function StalkMeSection({ siteMetadata }) {
+function StalkMeSection({ siteMetadata, data, error, loading }) {
   return (
     <React.Fragment>
-      <ul>
-          <li>Spotify</li>
-          <li>Get Maker Log</li>
-          <li>GitHub contribution graph?</li>
-          <li>toggl?</li>
-          <li>Latest Twitter Post</li>
-          <li>Link to all social media? SOcialBar from old cmichel.io</li>
-        </ul>
+      <Makerlog
+        data={{ makerlog: data && data.makerlog }}
+        loading={loading}
+        error={error}
+      />
+      <Lastfm
+        data={{ lastfm: data && data.lastfm }}
+        loading={loading}
+        error={error}
+      />
     </React.Fragment>
   )
 }
@@ -24,4 +31,15 @@ StalkMeSection.propTypes = {
     github: PropTypes.string.isRequired,
     linkedIn: PropTypes.string.isRequired,
   }).isRequired,
+  data: PropTypes.shape({
+    makerlog: PropTypes.array.isRequired,
+  }),
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string,
+}
+
+export default function StalkMeSectionContainer(props) {
+  const statsResult = useApi(fetchStats)
+
+  return <StalkMeSection {...statsResult} {...props} />
 }

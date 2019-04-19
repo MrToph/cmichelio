@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
-import './makerlog.css'
+import './index.css'
 import { useApi } from '../../utils'
 import { fetchMakerlog } from '../../api'
 
@@ -53,7 +53,7 @@ MakerlogInner.propTypes = {
     file: PropTypes.object.isRequired,
   }).isRequired,
   data: PropTypes.shape({
-    makerlog: PropTypes.array.isRequired,
+    makerlog: PropTypes.array,
   }),
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string,
@@ -80,5 +80,6 @@ export function Makerlog(props) {
 
 export default function MakerlogContainer() {
   const makerlogResult = useApi(fetchMakerlog)
+
   return <Makerlog {...makerlogResult} />
 }

@@ -51,6 +51,7 @@
     "@fullhuman/postcss-purgecss": "^1.1.0",
     "babel-eslint": "^8.0.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "dotenv-webpack": "^1.7.0",
     "eslint": "^4.11.0",
     "eslint-plugin-react": "^7.5.1",
     "http-proxy-middleware": "^0.19.1",
@@ -71,7 +72,7 @@
     "deploy": "gatsby build --prefix-paths",
     "crosspost": "node scripts/publish/index.js",
     "create": "npm run create --prefix scripts/scaffold",
-    "lambda:serve": "netlify-lambda serve lambda/src",
-    "lambda:build": "netlify-lambda build lambda/src"
+    "lambda:serve": "netlify-lambda serve lambda/src --config ./lambda/webpack.functions.js",
+    "lambda:build": "netlify-lambda build lambda/src --config ./lambda/webpack.functions.js"
   }
 }
