@@ -2,6 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './index.css'
 
+const getSongUrl = song =>
+  `https://www.youtube.com/results?search_query=${encodeURIComponent(
+    `${song.artist} - ${song.name}`
+  )}`
+
 export function Lastfm(props) {
   const { loading, data } = props
 
@@ -14,8 +19,15 @@ export function Lastfm(props) {
         <li className="lastfm__item" key={index}>
           {song.image ? (
             <img className="w-8 h-8" src={song.image} alt={song.name} />
-          ) : <div className="w-8 h-8" /> }
-          <span className="flex-1 ml-3">{`${song.artist} - ${song.name}`}</span>
+          ) : (
+            <div className="w-8 h-8" />
+          )}
+          <a
+            href={getSongUrl(song)}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            className="flex-1 ml-3 text-grey"
+          >{`${song.artist} - ${song.name}`}</a>
           {song.playing ? <time>now</time> : <time>{`${song.date} ago`}</time>}
         </li>
       ))
