@@ -1,4 +1,4 @@
-.makerlog, .lastfm {
+.makerlog, .lastfm, .timelog {
     & &__header {
         @apply flex items-center;
         background-color: #00000055;
@@ -11,9 +11,15 @@
 
     & &__item {
         @apply flex items-center px-6 py-2;
-        background-color: config('colors.red')16;
+        background-color: config('colors.green')16;
         &:nth-child(2n+1) {
-            background-color: config('colors.green')16;
+            background-color: config('colors.red')16;
         }
+    }
+}
+.timelog {
+    & &__content {
+        @apply flex justify-center pt-4;
+        background-color: config('colors.red')16;
     }
 }

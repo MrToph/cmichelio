@@ -7,7 +7,7 @@ function MoreInfoSection(props) {
 
   return (
     <section id={section}>
-      <h2 className="text-green">
+      <h2 className="text-green mt-6">
         <SectionHeader {...props} />
       </h2>
       <SectionContentContainer {...props} />

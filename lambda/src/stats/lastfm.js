@@ -28,17 +28,17 @@ const transformResult = result => {
 }
 
 export default async function getMakerlog() {
-  url.searchParams.append(`method`, `user.getrecenttracks`)
-  url.searchParams.append(`user`, USER)
-  url.searchParams.append(`api_key`, API_KEY)
-  url.searchParams.append(`limit`, `2`)
-  url.searchParams.append(`format`, `json`)
+  url.searchParams.set(`method`, `user.getrecenttracks`)
+  url.searchParams.set(`user`, USER)
+  url.searchParams.set(`api_key`, API_KEY)
+  url.searchParams.set(`limit`, `2`)
+  url.searchParams.set(`format`, `json`)
 
   const response = await fetch(url.href, {
     headers: { Accept: `application/json` },
   })
   if (!response.ok) {
-    throw new Error(response.statusText)
+    throw new Error(`getLastfm ${response.statusText}`)
   }
   return transformResult(await response.json())
 }

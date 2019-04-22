@@ -12,10 +12,10 @@ export function Lastfm(props) {
     if (Array.isArray(data.lastfm)) {
       return data.lastfm.map((song, index) => (
         <li className="lastfm__item" key={index}>
-          <img className="w-8 h-8" src={song.image} alt={song.name} />
-          <span className="flex-1 ml-2">{`${song.artist} - ${song.name} (${
-            song.album
-          })`}</span>
+          {song.image ? (
+            <img className="w-8 h-8" src={song.image} alt={song.name} />
+          ) : <div className="w-8 h-8" /> }
+          <span className="flex-1 ml-3">{`${song.artist} - ${song.name}`}</span>
           {song.playing ? <time>now</time> : <time>{`${song.date} ago`}</time>}
         </li>
       ))
@@ -27,6 +27,7 @@ export function Lastfm(props) {
   return (
     <div className="lastfm">
       <div className="lastfm__header">
+        <div className="w-8 ml-6 text-xl">🎧</div>
         <h3 className="ml-4 flex-1">Listening to</h3>
       </div>
       <ol className="lastfm__list">{renderListContent()}</ol>

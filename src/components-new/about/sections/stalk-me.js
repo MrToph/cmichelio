@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
 import { Makerlog } from '../../stats/makerlog'
 import { Lastfm } from '../../stats/lastfm'
+import { Timelog } from '../../stats/timelog'
 import { fetchStats } from '../../../api'
 import { useApi } from '../../../utils'
 
@@ -11,6 +11,11 @@ function StalkMeSection({ siteMetadata, data, error, loading }) {
     <React.Fragment>
       <Makerlog
         data={{ makerlog: data && data.makerlog }}
+        loading={loading}
+        error={error}
+      />
+      <Timelog
+        data={{ timelog: data && data.timelog }}
         loading={loading}
         error={error}
       />
@@ -32,7 +37,9 @@ StalkMeSection.propTypes = {
     linkedIn: PropTypes.string.isRequired,
   }).isRequired,
   data: PropTypes.shape({
-    makerlog: PropTypes.array.isRequired,
+    makerlog: PropTypes.array,
+    lastfm: PropTypes.array,
+    timelog: PropTypes.array,
   }),
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string,

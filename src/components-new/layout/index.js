@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import Metaballs from 'react-metaballs-js'
-import config from '../../../tailwind'
+import tailwind from '../../../tailwind'
 
 export default class MainTemplate extends React.Component {
   static propTypes = {
@@ -24,7 +24,7 @@ export default class MainTemplate extends React.Component {
           minRadius={13}
           maxRadius={21}
           speed={5.0}
-          color={config.colors[`black`]}
+          color={tailwind.colors[`black`]}
           backgroundColor="#00000000"
           interactive="window"
           className="metaballs"

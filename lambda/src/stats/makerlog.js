@@ -16,16 +16,15 @@ const transformResult = result => {
 }
 
 export default async function getMakerlog() {
-  url.searchParams.append(`user`, USER_ID)
-
   const startDate = subDays(new Date(), `7`)
-  url.searchParams.append(`start_date`, format(startDate, `yyyy-MM-dd`))
+  url.searchParams.set(`user`, USER_ID)
+  url.searchParams.set(`start_date`, format(startDate, `yyyy-MM-dd`))
 
   const response = await fetch(url.href, {
     headers: { Accept: `application/json` },
   })
   if (!response.ok) {
-    throw new Error(response.statusText)
+    throw new Error(`getMakerlog ${response.statusText}`)
   }
   return transformResult(await response.json())
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Logo from './logo'
+import Me from './me'
 import MoreInfoButton from './more-info-button'
 import MoreInfoSections from './more-info-sections'
 import './about.css'
@@ -12,6 +13,7 @@ export default function About() {
   return (
     <React.Fragment>
       <Logo />
+      <Me />
       <h1 className="text-grey">{`Hi, I'm Christoph Michel 👋`}</h1>
       <p>
         I{`'`}m a{` `}
