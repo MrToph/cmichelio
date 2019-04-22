@@ -17,6 +17,7 @@
         }
     }
 }
+
 .timelog {
     & &__content {
         @apply flex justify-center pt-4;

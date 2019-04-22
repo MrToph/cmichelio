@@ -90,7 +90,7 @@ export default class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     return (
-      <section className="blogPost">
+      <section id="blogPost">
         {this.renderMeta()}
         <SocialBar />
         <h1>{post.frontmatter.title}</h1>
@@ -98,7 +98,7 @@ export default class BlogPostTemplate extends React.Component {
           categories={post.frontmatter.categories}
           date={post.frontmatter.date}
         />
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div className="blogPost__content" dangerouslySetInnerHTML={{ __html: post.html }} />
         {this.renderDisqus()}
         <div className="mt-32 md:mt-24 mb-16">
           <About />
