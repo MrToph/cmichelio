@@ -8,6 +8,7 @@ if (!API_KEY) throw new Error(`No last.fm API key provided`)
 // https://www.last.fm/api/show/user.getRecentTracks
 const MAKERLOG_BASE_URL = `http://ws.audioscrobbler.com`
 const USER = `cmichelio`
+const LIMIT = `3`
 const url = new URL(`/2.0/`, MAKERLOG_BASE_URL)
 
 const transformResult = result => {
@@ -24,14 +25,14 @@ const transformResult = result => {
         now
       ),
     }
-  })
+  }).slice(0, LIMIT) // LIMIT in last.fm api tells how many _finished_ songs to show, but get one more when currently playing a song
 }
 
-export default async function getMakerlog() {
+export default async function getLastfm() {
   url.searchParams.set(`method`, `user.getrecenttracks`)
   url.searchParams.set(`user`, USER)
   url.searchParams.set(`api_key`, API_KEY)
-  url.searchParams.set(`limit`, `2`)
+  url.searchParams.set(`limit`, LIMIT)
   url.searchParams.set(`format`, `json`)
 
   const response = await fetch(url.href, {
