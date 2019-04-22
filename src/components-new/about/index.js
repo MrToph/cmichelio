@@ -13,8 +13,10 @@ export default function About() {
   return (
     <React.Fragment>
       <Logo />
-      <Me />
-      <h1 className="text-grey">{`Hi, I'm Christoph Michel 👋`}</h1>
+      <div>
+        <h1 className="inline-block whitespace-no-wrap text-grey">{`Hi, I'm Christoph Michel 👋`}</h1>
+        <Me />
+      </div>
       <p>
         I{`'`}m a{` `}
         <MoreInfoButton onClick={showSection(`developer`)}>
@@ -45,8 +47,8 @@ export default function About() {
         </MoreInfoButton>
       </p>
       <p>
-        I strive for efficiency ⏱️ and therefore track many aspects of my
-        life.{` `}
+        I strive for efficiency ⏱️ and therefore track many aspects of my life.
+        {` `}
         <MoreInfoButton onClick={showSection(`stalkMe`)}>
           stalk me 🧟‍♂️
         </MoreInfoButton>

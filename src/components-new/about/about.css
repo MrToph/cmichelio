@@ -1,7 +1,14 @@
 .about {
     background-color: transparent;
     &__logo {
-        @apply block mx-auto w-full mb-24;
+        @apply block mx-auto w-full;
+        margin-bottom: 8rem;  /* mb-64 */
         max-width: 400px;
+    }
+
+    @screen md {
+        &__logo {
+            @apply mb-24;
+        }
     }
 }
