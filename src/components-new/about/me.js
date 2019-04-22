@@ -10,7 +10,7 @@ function Me(props) {
   return (
     <div className="me">
       <Image
-        className="me__inner"
+        className="rounded-full me__inner"
         fixed={image.file.childImageSharp.fixed}
         alt="me"
         objectFit="contain"
@@ -30,7 +30,7 @@ export default function MeContainer(props) {
     <StaticQuery
       query={graphql`
         query MeQuery {
-          file(absolutePath: { regex: "/src/assets/images/me_emboss/" }) {
+          file(absolutePath: { regex: "/src/assets/images/me_sun/" }) {
             childImageSharp {
               fixed(height: 175) {
                 ...GatsbyImageSharpFixed

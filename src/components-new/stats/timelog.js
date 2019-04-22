@@ -33,10 +33,10 @@ export function Timelog(props) {
     if (Array.isArray(data.timelog)) {
       return (
         <div className="timelog__content">
-          <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={250}>
             <LineChart
               width={600}
-              height={300}
+              height={250}
               data={dataToChart(data.timelog)}
               margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
             >

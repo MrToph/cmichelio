@@ -8,7 +8,7 @@ import './about.css'
 import { useSections } from './utils'
 
 export default function About() {
-  const [sections, showSection] = useSections([`stalkMe`])
+  const [sections, showSection] = useSections([])
 
   return (
     <React.Fragment>
