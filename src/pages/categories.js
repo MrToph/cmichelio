@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { Router } from '@reach/router'
+import About from '../components-new/about'
 import BlogIndexPosts from '../components-new/blog-index'
 
 export default class BlogIndex extends React.Component {
@@ -11,10 +12,10 @@ export default class BlogIndex extends React.Component {
     const posts = get(this, `props.data.allMarkdownRemark.edges`)
     return (
       <React.Fragment>
-        <Helmet key="helmet" title={siteTitle} />
+        <Helmet title={siteTitle} />
+        <About />
         <Router>
           <BlogIndexPosts
-            key="blogIndexPosts"
             path="/categories/:tag"
             posts={posts}
           />

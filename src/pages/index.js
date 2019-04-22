@@ -11,9 +11,9 @@ export default class BlogIndex extends React.Component {
     const posts = get(this, `props.data.allMarkdownRemark.edges`)
     return (
       <React.Fragment>
-        <Helmet key="helmet" title={siteTitle} />
+        <Helmet title={siteTitle} />
         <About />
-        <BlogIndexPosts key="blogIndexPosts" posts={posts} />
+        <BlogIndexPosts posts={posts} />
       </React.Fragment>
     )
   }

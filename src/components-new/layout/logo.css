@@ -1,0 +1,9 @@
+.logo {
+    @apply block mx-auto w-full bg-transparent;
+    margin-bottom: 8rem;  /* mb-64 */
+    max-width: 400px;
+
+    @screen md {
+        @apply mb-24;
+    }
+}

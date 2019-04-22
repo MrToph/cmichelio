@@ -1,10 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Logo from './logo'
-import Me from './me'
+import MeImage from './me'
 import MoreInfoButton from './more-info-button'
 import MoreInfoSections from './more-info-sections'
-import './about.css'
+import SocialBar from '../social-bar'
 import { useSections } from './utils'
 
 export default function About() {
@@ -12,10 +10,9 @@ export default function About() {
 
   return (
     <React.Fragment>
-      <Logo />
       <div>
         <h1 className="inline-block whitespace-no-wrap text-grey">{`Hi, I'm Christoph Michel 👋`}</h1>
-        <Me />
+        <MeImage />
       </div>
       <p>
         I{`'`}m a{` `}
@@ -53,6 +50,7 @@ export default function About() {
           stalk me 🧟‍♂️
         </MoreInfoButton>
       </p>
+      <SocialBar />
       <MoreInfoSections sections={sections} />
     </React.Fragment>
   )

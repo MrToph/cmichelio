@@ -13,7 +13,6 @@ $imageHeight: 175px;
         top: calc(-#{$imageMarginSm} - #{$headerMargin} - #{$headerLineHeight} - #{$imageHeightSm});
         height: $imageHeightSm !important;
         transform: translateX(-50%);
-        z-index: -1;
         
         & img {
             object-fit: contain !important;

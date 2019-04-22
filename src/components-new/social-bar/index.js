@@ -1,37 +1,18 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from "gatsby"
+import { StaticQuery, graphql } from 'gatsby'
 import TwitterIcon from './icons/twitter.svg'
 import GitHubIcon from './icons/github.svg'
 import RSSIcon from './icons/rss.svg'
 import MediumIcon from './icons/medium.svg'
 import SteemitIcon from './icons/steemit.svg'
 import LinkedInIcon from './icons/linkedin.svg'
+import './social-bar.css'
 
-const iconStyles = scale =>
-  css({
-    width: 20,
-    height: 20,
-    border: 'none',
-    outline: 'none',
-    transition: 'all 0.4s ease-in-out',
-    transform: `scale(${scale})`,
-    // make all icons black
-    filter: 'brightness(0%)',
-    ':hover': {
-      // opacity: 0.5,
-      filter: 'none',
-      cursor: 'pointer',
-      transform: `scale(${1.1 * scale})`,
-    },
-    [singleColumnMediaQuery]: {
-      margin: `10px`,
-    },
-  })
 
-const Icon = ({ icon, url, scale=1.0 }) => (
-  <a className="no-style" rel="noopener noreferrer" target="__blank" href={url}>
-    <img src={icon} {...iconStyles(scale)} />
+const Icon = ({ icon, url }) => (
+  <a className="social-bar__link mr-6" rel="noopener noreferrer" target="__blank" href={url}>
+    <img src={icon} className="social-bar__icon" />
   </a>
 )
 
@@ -41,7 +22,7 @@ Icon.propTypes = {
   scale: PropTypes.number,
 }
 
-export default class SocialBar extends Component {
+class SocialBar extends Component {
   static propTypes = {
     data: PropTypes.shape({
       site: PropTypes.shape({
@@ -55,16 +36,13 @@ export default class SocialBar extends Component {
       }),
     }).isRequired,
   }
+
   render() {
     const { data } = this.props
     return (
-      <ul className="flex list-reset">
+      <ul className="flex flex-row justify-start w-full p-0 list-reset my-4 mx-0">
         <li>
-          <Icon
-            url={`/feed.xml`}
-            icon={RSSIcon}
-            scale={0.9}
-          />
+          <Icon url={`/feed.xml`} icon={RSSIcon} />
         </li>
         <li>
           <Icon
@@ -99,4 +77,17 @@ export default class SocialBar extends Component {
       </ul>
     )
   }
+}
+
+export default function SocialBarContainer(props) {
+  return (
+    <StaticQuery
+      query={graphql`
+        query SocialBarQuery {
+          ...SocialMediaFragment
+        }
+      `}
+      render={data => <SocialBar {...props} data={data} />}
+    />
+  )
 }

@@ -1,7 +1,7 @@
 ---
 title: <%= title %>
 date: <%= date %>
-featured: /<%= slug %>/toggl.png
+image: ./clockify.png
 categories:
 - Progress Report
 medium:

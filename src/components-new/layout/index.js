@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import Metaballs from 'react-metaballs-js'
+import Logo from './logo'
 import tailwind from '../../../tailwind'
 
 export default class MainTemplate extends React.Component {
@@ -18,6 +19,7 @@ export default class MainTemplate extends React.Component {
         <meta name="copyright" content="Christoph Michel" />
         <meta name="author" content="Christoph Michel" />
       </Helmet>
+      <Logo />
       <section>
         <Metaballs
           numMetaballs={20}
@@ -34,7 +36,7 @@ export default class MainTemplate extends React.Component {
             left: 0,
             width: `100%`,
             height: `100%`,
-            zIndex: -1,
+            zIndex: -9999,
           }}
         />
         <main>{this.props.children}</main>
@@ -48,7 +50,6 @@ export default class MainTemplate extends React.Component {
         query={graphql`
           query MainTemplateQuery {
             ...SocialMediaFragment
-            ...PostStatisticFragment
           }
         `}
         render={this.renderTheContent}

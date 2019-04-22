@@ -5,7 +5,9 @@ import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import trim from 'lodash/trim'
 import ReactDisqusComments from 'react-disqus-comments'
+import About from '../about'
 import CategoryBar from '../category-bar'
+import SocialBar from '../../components-new/social-bar'
 import './blog-post.css'
 import './prismjs.css'
 
@@ -90,6 +92,7 @@ export default class BlogPostTemplate extends React.Component {
     return (
       <section className="blogPost">
         {this.renderMeta()}
+        <SocialBar />
         <h1>{post.frontmatter.title}</h1>
         <CategoryBar
           categories={post.frontmatter.categories}
@@ -97,6 +100,9 @@ export default class BlogPostTemplate extends React.Component {
         />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         {this.renderDisqus()}
+        <div className="mt-32 md:mt-24 mb-16">
+          <About />
+        </div>
       </section>
     )
   }

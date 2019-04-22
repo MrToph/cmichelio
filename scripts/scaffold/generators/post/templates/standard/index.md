@@ -1,7 +1,7 @@
 ---
 title: <%= title %>
 date: <%= date %>
-featured: /<%= slug %>/featured.png
+image: ./featured.png
 categories:
 - Tech
 - EOS

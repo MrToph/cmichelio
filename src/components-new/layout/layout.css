@@ -19,8 +19,7 @@ body {
     line-height: 1.58rem;
     color: config('colors.grey');
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
-    /* background-color: config('colors.grey-darkest'); */
-    /* background-image: linear-gradient(45deg, config('colors.grey-darkest') 0%, config('colors.grey-darker') 100%) !important; */
+    background-color: config('colors.grey-darkest');
     background-image: linear-gradient(90deg, config('colors.grey-darker') 0%, config('colors.grey-darkest') 50%, config('colors.grey-darker') 100%);
     background-size: 100% 100%;
     background-repeat: no-repeat;
