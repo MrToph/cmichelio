@@ -27,9 +27,6 @@ export default function MainTemplate(props) {
     }
   `)
 
-  console.log(siteMetadata)
-
-
   return (
     <React.Fragment>
       <Helmet defaultTitle={siteMetadata.title}>
