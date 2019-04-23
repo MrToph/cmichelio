@@ -15,7 +15,9 @@ export default class MainTemplate extends React.Component {
 
   renderTheContent = data => (
     <React.Fragment>
-      <Helmet>
+      <Helmet htmlAttributes={[{ lang: `en` }]}>
+        <meta name="description" content="Christoph Michel's blog about software engineering and business." />
+        <meta name="keywords" content="software tech programming business" />
         <meta name="copyright" content="Christoph Michel" />
         <meta name="author" content="Christoph Michel" />
       </Helmet>

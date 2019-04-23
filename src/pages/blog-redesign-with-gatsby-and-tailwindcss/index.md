@@ -67,5 +67,8 @@ _New dark mode with red & green colors_
 
 ## Performance
 
+![Performance of old website](./performance_old.png)
+_Performance of old website_
+
 - show web.dev
 - show JS + css size
