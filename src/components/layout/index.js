@@ -1,25 +1,54 @@
-import './tailwind.css'
-import './layout.css'
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
 import Metaballs from 'react-metaballs-js'
 import Logo from './logo'
 import tailwind from '../../../tailwind'
+import './tailwind.css'
+import './layout.css'
 
-export default class MainTemplate extends React.Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-  }
+export default function MainTemplate(props) {
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(graphql`
+    query MainTemplateQuery {
+      ...SocialMediaFragment
+      site {
+        siteMetadata {
+          title
+          author
+          description
+          siteUrl
+          keywords
+          socialImage
+        }
+      }
+    }
+  `)
 
-  renderTheContent = data => (
+  console.log(siteMetadata)
+
+
+  return (
     <React.Fragment>
-      <Helmet htmlAttributes={[{ lang: `en` }]}>
-        <meta name="description" content="Christoph Michel's blog about software engineering and business." />
-        <meta name="keywords" content="software tech programming business" />
-        <meta name="copyright" content="Christoph Michel" />
-        <meta name="author" content="Christoph Michel" />
+      <Helmet defaultTitle={siteMetadata.title}>
+        <html lang="en" />
+        <link rel="canonical" href={siteMetadata.siteUrl} />
+        <meta name="description" content={siteMetadata.description} />
+        <meta name="keywords" content={siteMetadata.keywords} />
+        <meta name="copyright" content={siteMetadata.author} />
+        <meta name="author" content={siteMetadata.author} />
+        <meta property={`og:image`} content={siteMetadata.socialImage} />
+        <meta poperty={`og:title`} content={siteMetadata.title} />
+        <meta property={`og:description`} content={siteMetadata.description} />
+        <meta property={`og:url`} content={siteMetadata.siteUrl} />
+        <meta property={`og:site_name`} content={siteMetadata.title} />
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:creator" content={siteMetadata.twitter} />
+        <meta property={`twitter:title`} content={siteMetadata.title} />
+        <meta property={`twitter:description`} content={siteMetadata.description} />
+        <meta property={`twitter:image`} content={siteMetadata.socialImage} />
       </Helmet>
       <Logo />
       <section>
@@ -41,21 +70,12 @@ export default class MainTemplate extends React.Component {
             zIndex: -9999,
           }}
         />
-        <main>{this.props.children}</main>
+        <main>{props.children}</main>
       </section>
     </React.Fragment>
   )
+}
 
-  render() {
-    return (
-      <StaticQuery
-        query={graphql`
-          query MainTemplateQuery {
-            ...SocialMediaFragment
-          }
-        `}
-        render={this.renderTheContent}
-      />
-    )
-  }
+MainTemplate.propTypes = {
+  children: PropTypes.node.isRequired,
 }

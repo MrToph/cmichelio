@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import trim from 'lodash/trim'
 import ReactDisqusComments from 'react-disqus-comments'
 import About from '../about'
 import CategoryBar from '../category-bar'
-import SocialBar from '../../components/social-bar'
+import SocialBar from '../social-bar'
 import './blog-post.css'
 import './prismjs.css'
 
@@ -40,22 +40,26 @@ export default class BlogPostTemplate extends React.Component {
 
   renderMeta() {
     const post = this.props.data.markdownRemark
-    const { title, featured, categories } = post.frontmatter
+    const { title, image, featured, categories } = post.frontmatter
 
     const siteUrl = trim(get(this.props, `data.site.siteMetadata.siteUrl`), `/`)
     const postUrl = `${siteUrl}/${trim(post.fields.slug, `/`)}`
-    const socialImage = `${siteUrl}/${trim(featured, `/`) || `images/logo.png`}`
+    let socialImage = image
+      ? image.childImageSharp.fixed.src
+      : featured
+    socialImage = socialImage && `${siteUrl}/${trim(socialImage, `/`)}`
     const siteTitle = get(this.props, `data.site.siteMetadata.title`)
     const postTitle = `${title} | ${siteTitle}`
     const keywords = (categories || []).join(` `)
     const description = post.excerpt
-
+  
     return (
-      <Helmet title={`${post.frontmatter.title} | ${siteTitle}`}>
-        <meta name="image" content={socialImage} />
+      <Helmet>
+        <title>{`${post.frontmatter.title} | ${siteTitle}`}</title>
+        {socialImage ? <meta name="image" content={socialImage} /> : null}
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
-        <meta property={`og:image`} content={socialImage} />
+        {socialImage ? <meta property={`og:image`} content={socialImage} /> : null}
         <meta property={`og:type`} content={`article`} />
         <meta poperty={`og:title`} content={postTitle} />
         <meta property={`og:description`} content={description} />
@@ -64,7 +68,7 @@ export default class BlogPostTemplate extends React.Component {
         <meta property="twitter:card" content="summary" />
         <meta property={`twitter:title`} content={postTitle} />
         <meta property={`twitter:description`} content={description} />
-        <meta property={`twitter:image`} content={socialImage} />
+        {socialImage ? <meta property={`twitter:image`} content={socialImage} /> : null}
       </Helmet>
     )
   }
@@ -98,7 +102,10 @@ export default class BlogPostTemplate extends React.Component {
           categories={post.frontmatter.categories}
           date={post.frontmatter.date}
         />
-        <div className="blogPost__content" dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div
+          className="blogPost__content"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
         {this.renderDisqus()}
         <div className="mt-32 md:mt-24 mb-16">
           <About />
@@ -128,6 +135,13 @@ export const pageQuery = graphql`
         title
         disqus_identifier
         featured
+        image {
+          childImageSharp {
+            fixed(width: 300) {
+              src
+            }
+          }
+        }
         categories
       }
     }

@@ -67,8 +67,18 @@ _New dark mode with red & green colors_
 
 ## Performance
 
+Running a pingdom.tools web performance test on the old and new websites yields these results:
+
 ![Performance of old website](./performance_old.png)
 _Performance of old website_
+
+![Performance of new website](./performance_new.png)
+_Performance of new website_
+
+The new website is drastically smaller (from 2MB down to 450KB).
+This is mostly due to converting the featured images to thumbnails instead of showing the full-sized ones.
+The number of request roundtrips are also reduced.
+I'm shipping 245KB of JavaScript (vs 161KB) and 70KB
 
 - show web.dev
 - show JS + css size

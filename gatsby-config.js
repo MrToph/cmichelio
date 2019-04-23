@@ -6,7 +6,9 @@ module.exports = {
   siteMetadata: {
     title: `cmichel`,
     author: `Christoph Michel`,
-    description: `Christoph Michel's Blog.`,
+    description: `Christoph Michel's blog about software engineering and business.`,
+    keywords: `software tech programming business`,
+    socialImage: `https://cmichel.io/images/logo.png`,
     siteUrl: `https://cmichel.io/`,
     twitter: `cmichelio`,
     github: `MrToph`,
