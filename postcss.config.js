@@ -19,7 +19,7 @@ module.exports = {
       content: [
         `./src/**/*.js`,
         `./src/components/blog-post/prismjs.css`,
-        `./src/components/layout/layout.css`,
+        `./src/components/layout/layout.css`, // for html, body, all gatsby/markdown-only things etc.
       ],
       css: [`./src/**/*.css`],
       whitelistPatterns: [/^cols-\d$/],
