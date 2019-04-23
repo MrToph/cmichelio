@@ -75,10 +75,13 @@ _Performance of old website_
 ![Performance of new website](./performance_new.png)
 _Performance of new website_
 
-The new website is drastically smaller (from 2MB down to 450KB).
-This is mostly due to converting the featured images to thumbnails instead of showing the full-sized ones.
-The number of request roundtrips are also reduced.
-I'm shipping 245KB of JavaScript (vs 161KB) and 70KB
+The new website is drastically smaller (from 2MB down to 366KB).
+This is mostly due to converting the featured images to thumbnails (and webp) instead of showing the full-sized ones.
+The amount of request roundtrips is also reduced.
+I'm shipping 245KB of JavaScript (vs 161KB) and only **26KB** of HTML + inlined CSS (vs 21.6KB + 12.5KB).
+Using Tailwind as a CSS framework with purgecss I ended up with 11KB of CSS which is even less than my previous solution with no CSS framework and glamor.
 
-- show web.dev
-- show JS + css size
+All in all, I'm really happy with its performance & SEO, the design, and the development & authoring experience.
+This should keep from doing another redesign 💅 for at least another year before I get bored again. 😅
+
+If you'd like to see how a specific feature works in more detail, my [blog is open-source](https://github.com/MrToph/cmichelio).
