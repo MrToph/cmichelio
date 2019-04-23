@@ -60,6 +60,7 @@ _New dark mode with red & green colors_
 * There's a funny `Stalk Me` section showing **real-time stats** about me, like what music I'm listening to, what and how many hours I worked on in the past week.
     The way it works is by deploying my blog to Netlify and making use of _Netlify functions_, essentially AWS Lambda functions.
     Upon hitting my Netlify _stats_ function API endpoint, it hits several other API endpoints to collect and return the data (Last.fm scrobbling Spotify, Clockify, and Makerlog).
+    And it's all free for my usage tier!
     ![Stalk Me Section](./stalk_me.png)
     _Stalk Me section providing real-time stats_
 

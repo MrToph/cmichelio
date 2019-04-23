@@ -1,8 +1,7 @@
 import fetch from 'node-fetch'
-import get from 'lodash/get'
+import { URL } from 'url'
 import {
   format,
-  formatDistance,
   subDays,
   differenceInSeconds,
   differenceInDays,
@@ -67,7 +66,10 @@ const transformResult = result => {
 }
 
 export default async function getTimelog() {
-  const startDate = format(startOfDay(subDays(new Date(), `7`)), `yyyy-MM-dd'T'HH:mm:ssZ`)
+  const startDate = format(
+    startOfDay(subDays(new Date(), `7`)),
+    `yyyy-MM-dd'T'HH:mm:ssZ`
+  )
   url.searchParams.set(`start`, startDate)
   url.searchParams.set(`page-size`, 500)
 
