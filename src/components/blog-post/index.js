@@ -7,7 +7,7 @@ import trim from 'lodash/trim'
 import ReactDisqusComments from 'react-disqus-comments'
 import About from '../about'
 import CategoryBar from '../category-bar'
-import SocialBar from '../../components-new/social-bar'
+import SocialBar from '../../components/social-bar'
 import './blog-post.css'
 import './prismjs.css'
 

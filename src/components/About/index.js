@@ -1,43 +1,59 @@
 import React from 'react'
-import ContactForm from './ContactForm'
-import PageTitle from '../PageTitle'
+import MeImage from './me'
+import MoreInfoButton from './more-info-button'
+import MoreInfoSections from './more-info-sections'
+import SocialBar from '../social-bar'
+import { useSections } from './utils'
 
-export default class AboutContent extends React.Component {
-  render() {
-    return (
-      <section>
-        <PageTitle>About</PageTitle>
-        <h2>Welcome to cmichel.io</h2>
-        <p>
-          I {`'`}m <strong>Christoph Michel</strong>. I hold bachelor{`'`}s
-          degree and master's degrees in both <em>Math</em> and <em>Computer Science</em> with a focus on <em>(Theoretical) Cryptography</em>.
-        </p>
-        <p>
-          I have a broad interest in many things, and am always curious. Right
-          now, I{`'`}m working as a full stack software engineer in the{' '}
-          <em>JavaScript / Node.js</em> eco-system. I dedicate most of my free
-          time to the <em>gym</em>, <em>eating</em> a lot, <em>open-source</em>,{' '}
-          <em>teaching</em>, and innovative <em>blockchain</em> projects.
-        </p>
-        <h3>What other people say about me</h3>
-        <ul>
-          <li>
-            Mark Erikson, maintainer of Redux, in his <a href="https://www.reddit.com/r/reactjs/comments/5t8loz/what_are_your_top_reactreact_native_blogs_that/" rel="nofollow">high quality blogs</a> reddit post:
-            <blockquote>Christoph Michel has written a number of good articles about React, React Native, and Redux</blockquote>
-          </li>
-          <li>
-            Considered one of the <a href="https://ideamotive.co/blog/best-react-native-experts-blogs/" rel="nofollow">17 React Native experts and Blogs To follow in 2018</a>.
-            <blockquote>Christoph has written a number of good articles about React, React Native, and Redux. Although he doesn’t exclusively write about mobile app development, his blog is still worth visiting.</blockquote>
-          </li>
-          <li>
-            Receiver of <a href="https://www.fdsi.org/index.php?id=7">2016's "Günter Hotz medal"</a> for outstanding academical graduate studies.
-          </li>
-        </ul>
-        <ContactForm />
-      </section>
-    )
-  }
+export default function About() {
+  const [sections, showSection] = useSections([])
+
+  return (
+    <React.Fragment>
+      <div>
+        <h1 className="inline-block whitespace-no-wrap text-grey">{`Hi, I'm Christoph Michel 👋`}</h1>
+        <MeImage />
+      </div>
+      <p>
+        I{`'`}m a{` `}
+        <MoreInfoButton onClick={showSection(`developer`)}>
+          developer 👨‍💻
+        </MoreInfoButton>
+        ,{` `}
+        <MoreInfoButton onClick={showSection(`indieMaker`)}>
+          indie maker 👷
+        </MoreInfoButton>
+        , and{` `}
+        <MoreInfoButton onClick={showSection(`author`)}>
+          author ✍️
+        </MoreInfoButton>
+        .
+      </p>
+      <p>
+        I mostly do{` `}
+        <MoreInfoButton onClick={showSection(`openSource`)}>
+          open-source work 👾
+        </MoreInfoButton>
+        {` `}
+        and help small to mid-sized teams from all over the world 🌎 on both
+        {` `}
+        <strong className="font-bold">short and long-term projects</strong> on
+        an independent contractor basis.{` `}
+        <MoreInfoButton onClick={showSection(`hireMe`)}>
+          hire me 🦸‍♂️
+        </MoreInfoButton>
+      </p>
+      <p>
+        I strive for efficiency ⏱️ and therefore track many aspects of my life.
+        {` `}
+        <MoreInfoButton onClick={showSection(`stalkMe`)}>
+          stalk me 🧟‍♂️
+        </MoreInfoButton>
+      </p>
+      <SocialBar />
+      <MoreInfoSections sections={sections} />
+    </React.Fragment>
+  )
 }
 
-// * https://www.reddit.com/r/reactjs/comments/5t8loz/what_are_your_top_reactreact_native_blogs_that/
-// * Expert React Native
+About.propTypes = {}

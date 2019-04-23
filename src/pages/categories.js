@@ -3,8 +3,8 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { Router } from '@reach/router'
-import About from '../components-new/about'
-import BlogIndexPosts from '../components-new/blog-index'
+import About from '../components/about'
+import BlogIndexPosts from '../components/blog-index'
 
 export default class BlogIndex extends React.Component {
   render() {

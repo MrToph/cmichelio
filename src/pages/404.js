@@ -9,11 +9,7 @@ export default class Error404 extends React.Component {
         <p>
           The page you were trying to visit does not exist. If you feel like
           this page should exist, please contact me. You can find my contact
-          details in the <Link to="/about">About page</Link>.
-        </p>
-        <p>
-          Otherwise you can take a look at my{` `}
-          <Link to="/">latest blog posts</Link>.
+          details <Link to="/">here</Link>.
         </p>
       </React.Fragment>
     )
