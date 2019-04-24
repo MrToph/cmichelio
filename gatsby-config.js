@@ -1,11 +1,14 @@
 /* eslint-env node */
 const url = require(`url`)
+const proxy = require(`http-proxy-middleware`)
 
 module.exports = {
   siteMetadata: {
     title: `cmichel`,
     author: `Christoph Michel`,
-    description: `Christoph Michel's Blog.`,
+    description: `Christoph Michel's blog about software engineering and business.`,
+    keywords: `software tech programming business`,
+    socialImage: `https://cmichel.io/images/logo.png`,
     siteUrl: `https://cmichel.io/`,
     twitter: `cmichelio`,
     github: `MrToph`,
@@ -14,12 +17,32 @@ module.exports = {
     linkedIn: `christoph-michel-dev`,
   },
   pathPrefix: `/`,
+  // for avoiding CORS while developing Netlify Functions locally
+  // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
+  developMiddleware: app => {
+    app.use(
+      `/.netlify/functions/`,
+      proxy({
+        target: `http://localhost:9000`,
+        pathRewrite: {
+          '/.netlify/functions/': ``,
+        },
+      })
+    )
+  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
         name: `pages`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/assets`,
+        name: `images`,
       },
     },
     {
@@ -104,13 +127,12 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-glamor`,
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: require.resolve(`./src/components/layout.js`),
+        component: require.resolve(`./src/components/layout/index.js`),
       },
     },
   ],

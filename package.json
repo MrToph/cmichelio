@@ -3,7 +3,7 @@
   "twitter": "cmichelio",
   "description": "",
   "version": "2.0.0",
-  "author": "Christoph Michel <mail@cmichel.io>",
+  "author": "Christoph Michel",
   "homepage": "https://cmichel.io",
   "keywords": [
     "gatsby"
@@ -18,15 +18,16 @@
     "url": "https://github.com/MrToph/cmichelio/issues"
   },
   "dependencies": {
+    "date-fns": "^2.0.0-alpha.27",
     "dotenv": "^4.0.0",
     "gatsby": "^2.0.18",
+    "gatsby-image": "^2.0.38",
     "gatsby-link": "^2.0.4",
     "gatsby-plugin-feed": "^2.0.6",
-    "gatsby-plugin-glamor": "^2.0.5",
     "gatsby-plugin-google-analytics": "^2.0.6",
     "gatsby-plugin-layout": "^1.0.3",
-    "gatsby-plugin-offline": "^2.0.5",
-    "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-plugin-postcss": "^2.0.7",
+    "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-sharp": "^2.0.6",
     "gatsby-remark-copy-linked-files": "^2.0.5",
     "gatsby-remark-images": "^2.0.3",
@@ -35,22 +36,29 @@
     "gatsby-source-filesystem": "^2.0.1",
     "gatsby-transformer-remark": "^2.1.6",
     "gatsby-transformer-sharp": "^2.1.3",
-    "glamor": "^2.20.40",
     "lodash": "^4.17.4",
+    "netlify-lambda": "^1.4.5",
     "prismjs": "^1.15.0",
-    "react": "^16.5.2",
+    "react": "^16.8.6",
     "react-disqus-comments": "git+https://github.com/theplatapi/react-disqus-thread.git",
-    "react-dom": "^16.5.2",
-    "react-helmet": "^5.2.0",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^6.0.0-beta",
+    "react-metaballs-js": "^2.0.0",
+    "recharts": "^1.5.0",
+    "tailwindcss": "^0.7.4",
     "yo": "^2.0.5"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^1.1.0",
     "babel-eslint": "^8.0.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "dotenv-webpack": "^1.7.0",
     "eslint": "^4.11.0",
     "eslint-plugin-react": "^7.5.1",
+    "http-proxy-middleware": "^0.19.1",
     "js-yaml": "^3.10.0",
     "medium-sdk": "0.0.4",
+    "precss": "^4.0.0",
     "prettier": "^1.8.2",
     "remark-frontmatter": "^1.2.0",
     "steem": "^0.6.7",
@@ -64,6 +72,8 @@
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths",
     "crosspost": "node scripts/publish/index.js",
-    "create": "npm run create --prefix scripts/scaffold"
+    "create": "npm run create --prefix scripts/scaffold",
+    "lambda:serve": "netlify-lambda serve lambda/src --config ./lambda/webpack.functions.js",
+    "lambda:build": "netlify-lambda build lambda/src --config ./lambda/webpack.functions.js"
   }
 }

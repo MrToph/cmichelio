@@ -1,8 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
-import BlogIndexPosts from '../components/BlogIndex'
+import { Helmet } from 'react-helmet'
+import BlogIndexPosts from '../components/blog-index'
+import About from '../components/about'
 
 export default class BlogIndex extends React.Component {
   render() {
@@ -10,11 +11,11 @@ export default class BlogIndex extends React.Component {
     const posts = get(this, `props.data.allMarkdownRemark.edges`)
     return (
       <React.Fragment>
-        <Helmet key="helmet" title={siteTitle}>
-          <meta name="copyright" content="Christoph Michel" />
-          <meta name="author" content="Christoph Michel" />
+        <Helmet>
+          <title>{siteTitle}</title>
         </Helmet>
-        <BlogIndexPosts key="blogIndexPosts" posts={posts} />
+        <About />
+        <BlogIndexPosts posts={posts} />
       </React.Fragment>
     )
   }
@@ -33,7 +34,7 @@ export const IndexQuery = graphql`
     ) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 280)
           fields {
             slug
           }
@@ -42,6 +43,13 @@ export const IndexQuery = graphql`
             featured
             categories
             title
+            image {
+              childImageSharp {
+                fixed(width: 300) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
         }
       }

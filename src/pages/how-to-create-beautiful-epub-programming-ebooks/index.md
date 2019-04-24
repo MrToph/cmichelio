@@ -1,20 +1,20 @@
 ---
 title: How to create beautiful epub programming ebooks
 date: 2019-03-10
-featured: /how-to-create-beautiful-epub-programming-ebooks/epub-html.png
+image: ./epub-html.png
 categories:
-- Tech
-- learneos
+  - Tech
+  - learneos
 medium:
-- Programming
-- blockchain
-- cryptocurrency
-- javascript
+  - Programming
+  - blockchain
+  - cryptocurrency
+  - javascript
 steem:
-- utopian-io
-- steemdev
-- programming
-- cryptocurrency
+  - utopian-io
+  - steemdev
+  - programming
+  - cryptocurrency
 ---
 
 I'm currently writing a [technical ebook](https://learneos.dev) containing lots
@@ -49,8 +49,8 @@ pandoc src/input1.md src/input2.md --standalone --toc -o out/book.epub --css=tem
 ```
 
 The most interesting parameter is the `--css=templates/epub.css` parameter. EPUB
-is basically an (X)HTML format and includes standard HTML tags like `div,
-blockquote, pre, code`. Therefore, they can be styled using CSS by embedding a
+is basically an (X)HTML format and includes standard HTML tags like `div, blockquote, pre, code`.
+Therefore, they can be styled using CSS by embedding a
 CSS file in the epub output.
 
 ![EPUB HTML Structure](./epub-html.png)
@@ -506,7 +506,7 @@ Calibre comes with the
 [ebook-convert commandline tool](https://manual.calibre-ebook.com/generated/en/cli-index.html)
 which we can use to automate this process:
 
-```js
+```bash
 /Applications/calibre.app/Contents/console.app/Contents/MacOS/ebook-convert out/book.html out/book.epub --extra-css templates/epub.css --cover assets/book-cover.png
 ```
 

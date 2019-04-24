@@ -1,0 +1,7 @@
+[Settings]
+[build]
+  publish = "public/"
+
+  command = "gatsby build"
+
+  functions = "lambda/dist"

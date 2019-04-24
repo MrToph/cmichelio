@@ -1,7 +1,7 @@
 ---
 title: How to write pandoc plugins in Nodejs
 date: 2019-01-12
-featured: /how-to-write-pandoc-plugins-in-nodejs/featured.png
+image: ./featured.png
 categories:
 - Tech
 medium:

@@ -1,0 +1,33 @@
+$headerMargin: 24px;
+$headerLineHeight: 25px;
+$imageMarginSm: 1rem;
+$imageHeightSm: 125px;
+$imageHeight: 175px;
+
+.me {
+    
+    @apply relative;
+    & &__inner {
+        position: absolute !important;
+        left: 50%;
+        top: calc(-#{$imageMarginSm} - #{$headerMargin} - #{$headerLineHeight} - #{$imageHeightSm});
+        height: $imageHeightSm !important;
+        transform: translateX(-50%);
+        
+        & img {
+            object-fit: contain !important;
+        }
+    }
+
+    @screen md {
+        @apply inline-block;
+        & &__inner {
+            left: 3rem;
+            bottom: -4rem;
+            top: initial;
+            right: initial;
+            height: $imageHeight !important;
+            transform: initial;
+        }
+    }
+}

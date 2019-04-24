@@ -1,0 +1,11 @@
+.blogPost {
+    &__content {
+        img {
+            max-width: 100%;
+        }
+    
+        h2, h3, h4, h5, h6 {
+            @apply -ml-5;
+        }
+    }
+}

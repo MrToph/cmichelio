@@ -1,7 +1,7 @@
 ---
 title: Progress Report - February 2019
 date: 2019-03-02
-featured: /progress-report-february-2019/toggl.png
+image: ./toggl.png
 categories:
 - Progress Report
 medium:
