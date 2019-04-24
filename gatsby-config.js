@@ -135,5 +135,6 @@ module.exports = {
         component: require.resolve(`./src/components/layout/index.js`),
       },
     },
+    `gatsby-plugin-remove-serviceworker`
   ],
 }
