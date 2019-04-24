@@ -12,7 +12,7 @@ import './social-bar.css'
 
 const Icon = ({ icon, url }) => (
   <a className="social-bar__link mr-6" rel="noopener noreferrer" target="__blank" href={url}>
-    <img src={icon} className="social-bar__icon" />
+    <img src={icon} className="social-bar__icon" alt={url} />
   </a>
 )
 
