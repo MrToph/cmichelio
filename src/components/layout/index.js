@@ -49,7 +49,7 @@ export default function MainTemplate(props) {
       </Helmet>
       <Logo />
       <section>
-        <Metaballs
+        {/* <Metaballs
           numMetaballs={20}
           minRadius={13}
           maxRadius={21}
@@ -66,7 +66,7 @@ export default function MainTemplate(props) {
             height: `100%`,
             zIndex: -9999,
           }}
-        />
+        /> */}
         <main>{props.children}</main>
       </section>
     </React.Fragment>

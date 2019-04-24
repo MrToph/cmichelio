@@ -22,9 +22,9 @@ This blog exists for over 3 years now and I felt it was time to do another redes
 Since its inception the blog went through four redesigns already:
 
 * February 2016: Started the blog on WordPress.
-* 07 November, 2016: [Moving from Wordpress to phenomic, a static page generator](/wordpress-to-static-site-generator). I redesigned the blog here to the minimalist white / blue design which I've been using until today.
-* 28 November, 2017: Port from phenomic to [GatsbyJS v1](https://www.gatsbyjs.org/), a better static site generator. I'm not sure why I made the move to the new technology. Probably because `gatsby` came out as the clear and more future-proof winner.
-* 08 October, 2018: Update to `gatsby v2`: Just a technical update, no desgin or functionality changes.
+* 07 November 2016: [Moving from Wordpress to phenomic, a static page generator](/wordpress-to-static-site-generator). I redesigned the blog here to the minimalist white / blue design which I've been using until today.
+* 28 November 2017: Port from phenomic to [GatsbyJS v1](https://www.gatsbyjs.org/), a better static site generator. I'm not sure why I made the move to the new technology. Probably because `gatsby` came out as the clear and more future-proof winner.
+* 08 October 2018: Update to `gatsby v2`: Just a technical update, no design or functionality changes.
 * Today: Still running the same technology (minor changes), but a major design change as I got bored with the old one.
 
 ![Old white & blue design](./blog_old.png)
@@ -40,7 +40,7 @@ _New dark mode with red & green colors_
     Users can click on the green buttons for further information on a specific topic about me, which then makes the specific section visible.
     I prefer this approach as it doesn't immediately overload the user with too much text and information about me, while still allowing the user to pick topics they are interested in.
 * Created an interesting [Metaballs effect](https://en.wikipedia.org/wiki/Metaballs) as the background using my [metaballs-js package](https://www.npmjs.com/package/metaballs-js) I wrote in WebGL.
-    Initially the metaballs where in an lowly saturated red but it was too distracting, so I just made everything black and the actual metaballs barely visible.
+    Initially, the metaballs were in a lowly saturated red but it was too distracting, so I just made everything black and the actual metaballs barely visible.
     It also has a nice mouse-over effect where one metaball keeps following the cursor.
 
 ## Technical updates
