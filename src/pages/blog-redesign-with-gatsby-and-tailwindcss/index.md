@@ -85,3 +85,10 @@ All in all, I'm really happy with its performance & SEO, the design, and the dev
 This should keep from doing another redesign 💅 for at least another year before I get bored again. 😅
 
 If you'd like to see how a specific feature works in more detail, my [blog is open-source](https://github.com/MrToph/cmichelio).
+
+**Update**
+
+Using WebGL seems to lead to an extremely bad Google Pagespeed Insights Score because they seem to think a site is "ready" only [when the CPU is idle](https://developers.google.com/web/tools/lighthouse/audits/first-cpu-idle) ...
+Their new [web.dev](https://web.dev) tool still can't even handle WebGL and just crashes with a backend error on websites using WebGL. 🤷‍♂️
+If I remove the metaballs WebGL my score goes from 39 to 100. 🤣
+I'll refuse to bow to these shitty arbitrary metrics and observe if there are any actual performance problems on mobile devices.

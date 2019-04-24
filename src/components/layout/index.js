@@ -50,7 +50,7 @@ export default function MainTemplate(props) {
       <Logo />
       <section>
         <Metaballs
-          numMetaballs={10}
+          numMetaballs={0}
           minRadius={13}
           maxRadius={27}
           speed={5.0}
