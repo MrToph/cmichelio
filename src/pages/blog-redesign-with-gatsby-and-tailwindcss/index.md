@@ -89,6 +89,6 @@ If you'd like to see how a specific feature works in more detail, my [blog is op
 **Update**
 
 Using WebGL seems to lead to an extremely bad Google Pagespeed Insights Score because they seem to think a site is "ready" only [when the CPU is idle](https://developers.google.com/web/tools/lighthouse/audits/first-cpu-idle) ...
-Their new [web.dev](https://web.dev) tool still can't even handle WebGL and just crashes with a backend error on websites using WebGL. 🤷‍♂️
-If I remove the metaballs WebGL my score goes from 39 to 100. 🤣
+Their new [web.dev](https://web.dev) tool still can't even handle WebGL and just crashes with `Error: Backend Error` on websites using WebGL. 🤷‍♂️
+If I remove the metaballs WebGL package my score goes from 39 to 100. 🤣
 I'll refuse to bow to these shitty arbitrary metrics and observe if there are any actual performance problems on mobile devices.
