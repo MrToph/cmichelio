@@ -32,7 +32,7 @@ const groupByRelativeDate = timeEntries => {
     const startDate = new Date(t.timeInterval.start)
     const difference = differenceInDays(now, startDate)
     const index = days.length - 1 - difference
-    days[index].push(t)
+    if (Array.isArray(days[index])) days[index].push(t)
   })
 
   return days
@@ -67,7 +67,7 @@ const transformResult = result => {
 
 export default async function getTimelog() {
   const startDate = format(
-    startOfDay(subDays(new Date(), `7`)),
+    startOfDay(subDays(new Date(), `6`)),
     `yyyy-MM-dd'T'HH:mm:ssZ`
   )
   url.searchParams.set(`start`, startDate)
