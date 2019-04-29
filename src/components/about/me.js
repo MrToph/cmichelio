@@ -30,7 +30,7 @@ export default function MeContainer(props) {
     <StaticQuery
       query={graphql`
         query MeQuery {
-          file(absolutePath: { regex: "/src/assets/images/me_sun/" }) {
+          file(absolutePath: { regex: "/src/assets/images/me_vector/" }) {
             childImageSharp {
               fixed(height: 175) {
                 ...GatsbyImageSharpFixed
