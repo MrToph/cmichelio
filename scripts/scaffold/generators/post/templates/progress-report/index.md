@@ -24,17 +24,20 @@ Last month's report can be seen [here](/<%= previousReportSlug %>).
 
 ## What did I do
 
-![Productive Hours in <%= currentMonth %>](./rescue-time.png)
+![Productive Hours in <%= currentMonth %>](./clockify.png)
+_Hours worked on **side-projects** in <%= currentMonth %>_
 
-I worked **55** _productive_ hours last month. Pretty good start into the year.
-I watched [Titans](https://trakt.tv/shows/titans-2018).
+I worked **68** _productive_ hours last month. I really made use of those weekends. 💪
 
-I 'm still on the last chapter of [Learn EOS Development](https://learneos.one), which I will finally finish in February.
-Then the editing and reviewing process begins.
-Actually, the reviewing process already began.
-I send out some drafts to technical reviewers.
-Even Block One, the company behind EOS, reached out to me and offered me their help with reviewing. 
-Really nice move. 👌
+To make these progress reports a bit more interesting, from now on I'll post my favourite song, TV show, and article I read last month.
+
+* **Article of the Month**: [Schelling fences on slippery slopes](https://www.lesswrong.com/posts/Kbm6QnJv9dgWsPHQP/schelling-fences-on-slippery-slopes)
+* **Song of the Month**: [Dennis da Menace & Brous One - Gourmet](https://open.spotify.com/track/5hBCrlxAhj6LVKDR2PGZcs?si=G8GZ2v9xSRmTc9goIDfrXw)
+    <iframe src="https://open.spotify.com/embed/track/5hBCrlxAhj6LVKDR2PGZcs" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+* **TV series of the Month**: [The Order](https://trakt.tv/shows/the-order-2019)
+
+### What was worked on
 
 ## Platform Growth
 
