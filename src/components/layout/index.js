@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
-import Metaballs from 'react-metaballs-js'
+// import Metaballs from 'react-metaballs-js'
 import Logo from './logo'
 import tailwind from '../../../tailwind'
 import './tailwind.css'
@@ -49,7 +49,7 @@ export default function MainTemplate(props) {
       </Helmet>
       <Logo />
       <section>
-        <Metaballs
+        {/* <Metaballs
           numMetaballs={10}
           minRadius={13}
           maxRadius={27}
@@ -66,7 +66,7 @@ export default function MainTemplate(props) {
             height: `100%`,
             zIndex: -9999,
           }}
-        />
+        /> */}
         <main>{props.children}</main>
       </section>
     </React.Fragment>
