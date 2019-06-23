@@ -153,6 +153,6 @@ check((eosio::time_point_sec)(current_time_point() + minutes(1)) >= lastGame,
 
 Using the `microseconds` class and its helpers allow one to avoid any kind of constants like `const auto SECONDS_PER_DAY = 60*60*24`, making the code easier to reason about.
 
-If you want to learn more about EOS smart contract programming techniques, check out the [Learn EOS Development book](https://learneos.dev)
+If you want to learn more about EOS smart contract programming techniques, check out the [Learn EOS Development book](https://learneos.dev).
 
 [![Learn EOS Development Signup](https://cmichel.io/images/learneos_subscribe.png)](https://learneos.dev#modal)
