@@ -61,7 +61,7 @@ My [twitter](https://twitter.com/cmichelio) followers increased by _26_ to **457
 
 ### Learn EOS Development Subscribers
 
-I currently have **412** email subscribers for [my book](https://learneos.one). (+68 😱 in last 30 days)
+I currently have **412** email subscribers for [my book](https://learneos.dev). (+68 😱 in last 30 days)
 I received tons of subscribers and book sales at the beginning of April, but I can already see that it slowed down drastically towards the end of the month.
 Let's see how the book sales develop.
 Maybe I need to do another marketing push.
