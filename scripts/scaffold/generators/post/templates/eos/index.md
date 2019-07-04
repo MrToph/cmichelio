@@ -15,9 +15,9 @@ medium:
 steem:
 - eos
 - utopian-io
+- tutorials
 - steemdev
 - programming
-- cryptocurrency
 ---
 
 
