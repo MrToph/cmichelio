@@ -192,9 +192,10 @@ function getTableBoundsForName(name, asLittleEndianHex = true) {
 
   const lowerBound = bytesToHex(nameValue.toBytesLE());
   const upperBound = bytesToHex(nameValueP1.toBytesLE());
+
   return {
-    lower_bound: lowerBound as string,
-    upper_bound: upperBound as string,
+    lower_bound: lowerBound,
+    upper_bound: upperBound,
   };
 }
 ```
