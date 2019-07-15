@@ -65,7 +65,7 @@ I should focus on growing the book email subscribers because I'm getting close t
 
 ### Learn EOS Development Subscribers
 
-I currently have **277** email subscribers for [my book](https://learneos.one). (+24 in last 30 days)
+I currently have **277** email subscribers for [my book](https://learneos.dev). (+24 in last 30 days)
 That's pretty nice, I should be able to get 300 subscribers next month and then hopefully launch in March.
 
 ## What's next
