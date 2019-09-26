@@ -1,5 +1,5 @@
 ---
-title: What really happened with the EOSPlay hack
+title: What really happened during the EOSPlay hack
 date: 2019-09-26
 image: ./featured.jpg
 categories:
