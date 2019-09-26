@@ -1,0 +1,451 @@
+
+# NOTES
+
+https://cryptoslate.com/eosio-exploit-attacker-30000-eos-freeze/
+https://eosplay.com/dice
+
+Attacker `mumachayinmm` played EOSPlay's DICE `eosplaybrand`: https://bloks.io/transaction/5be0f1fda45026311fb1fe18dbde9fff3d83a21bbab926d4fed54dd41d3306a9?tab=traces
+Also https://bethash.io/? `eoshashdices`?
+Also attacked Lucky Slot Machine (https://dappspinach.io/dapp/pc/dist/#/main/playgame) betting 5 EOS on apple with his other accounts https://bloks.io/account/mumachayinm2
+Funds in https://bloks.io/account/gotoworkhome
+
+Smart contract really interesting: https://bloks.io/account/mumachayinmm?loadContract=true&tab=ABI&table=configs&account=mumachayinmm&scope=mumachayinmm&limit=100
+
+Dfuse playground: https://mainnet.eos.dfuse.io/playground/
+
+```graphql
+ searchTransactionsForward(
+    query:"receiver:eosio.token account:mumachayinmm action:transfer",
+    lowBlockNum:0,
+    limit:20,
+  )
+```
+
+## EOS DICE
+
+> How is the outcome produced?
+> Unlike other dice games, EOS Dice does not generate the numbers internally, by allowing players to bet on the last 2 digits of the 10th Block ID after the bet is confirmed, players can be assured that the results are always fair.
+> For example, if your bet of 5 EOS has its transaction recorded in block 19125344, then the outcome will be retrieved from the 10th block ID after this (19125344 + 10) = 19125354. For the purposes of this game, block 19125344 is considered the betting block, whereas block 19125354 is considered the outcome block.
+> When the last two digits are not numbers, we will find the nearest digits in turn. The ID of the EOS block is a 32-byte number, which is randomly generated according to a series of complicated encryption algorithms. The usual display mode is hexadecimal, and our lottery number is using such a truly random number. The result is used as the outcome number.
+
+### Blockheader
+
+https://eosio.stackexchange.com/questions/1951/what-is-block-id-from-cleos-get-info
+
+https://github.com/EOSIO/eos/blob/45adb5e4cc6d550619fd27216b7c17f27c335272/libraries/chain/block_header.cpp#L22-L29
+https://github.com/EOSIO/eos/blob/eb88d033c0abbc481b8a481485ef4218cdaa033a/libraries/chain/include/eosio/chain/block_header.hpp#L24
+does not include signatures
+everything from `struct block_header` is signed: https://bloks.io/block/79205974
+
+> Seems easy except for `action_mroot`
+> The action_mroot creates a mroot over all dispatched actions that were evaluated while applying transactions in the block. It is used for IBC proofs and light/partial client validation.
+
+Old code for `calculate_action_merkle_root`: https://github.com/EOSIO/eos/blob/eb39371ae22fcba34f093a0b1cf0ead4b9120937/libraries/chain/block_trace.cpp#L63
+
+### Dicereveal
+
+dicereveal for attack: https://bloks.io/transaction/092700d4f21c7880562d27188f48885a4145a57df9d7f44f5b31f588f43d9aea how is 42 computed?
+Has auth `eosplayadmin` to which attacker staked.
+
+> We have changed the data displayed on the UI by using a private key to sign the block ID, and get a new signature, and use the hash of signature as new block ID
+> This is the new method we are adopting to draw results
+> Changed recently after the hack to overcome such issues in the future
+> Before it was the exact same block hash of the main net
+> Confirmed, see for example: [reveal action](22b37b817ce8e421b5436b3aaa0b5c25e5494f6f07dd967b12c5867a06901663) started in block 78993956, so it contains [block id of 78993956+10](https://bloks.io/block/78993966)
+
+```graphql
+{
+  searchTransactionsBackward(
+    query: "receiver:eosplaybrand action:dicereveal"
+    limit: 200
+    highBlockNum: 79000000
+  ) {
+    results {
+      cursor
+      trace {
+        id
+        block {
+          num
+          timestamp
+        }
+        scheduled
+        status
+        matchingActions {
+          ramOps {
+            operation
+          }
+          receiver
+          account
+          name
+          json
+        }
+      }
+    }
+  }
+}
+```
+
+### Attack
+
+1. Attack `send`s 3000 EOS to play dice under 50 on EOSPlay: In block 79205964: https://eosq.app/tx/eeff29dc49df7a2653ff08d58ad62e892311601b5b64c3689757ad8eb50f8290 Sep-14-2019, 02:41:48 AM IT
+2. Now fires `start` on smart contract: https://eosq.app/tx/98cf63ff727b76a9b87ecbeb3fa0d464b9a3e02baa0822afaa7a01ac97c696b8
+3. Dice reveal action is included in block https://bloks.io/block/79205987, but has block id from block 79205980 (+16 instead of +10)
+4. (4) Wins are paid out in block number https://bloks.io/block/79205991 (Sep-14-2019, 02:42:01 AM IT, +27 blocks, 13.5 seconds later)
+
+`start`: Schedules one new `start` transaction and 10 delayed `run` transactions with a delay of 0 seconds.
+Takes `id`=`12` which starts new `start` with `id+1`, and all `run` ids are `(id+1) * 1000 + index`. Takes`num`=100,000``run`: Does nothing and runs usually for 10 ms. Sometimes only for 100 us. 🤔 When run for 10ms, it prints`a inf`. https://eosq.app/tx/e48ddfe45259b4e6fa6a608c2de10706b2e987fa7fbce7436540609c3d33e303
+When run for 100us, it does not print anything. https://eosq.app/tx/8d35f922ad61c993b53796f44e4e8d7494f135c4a83f589f290fcd4c21171bfe
+
+The `run` actions seem to delay the `safetransfer` resolve action by EOS Play if the winning block id is not reached yet. If it is reached, the `run` actions return immediately. Also the `start` actions in this block don't schedule any further delayed `start` / `run` actions anymore. This can be seen nicely in the transfer actions of the payout block: https://eosq.app/block/04b89667e6ac2f38ffc0a90e84878e39e48191d999d01bd713dcbc8dee880180
+All `run` actions return immediately, whereas the previous ones (`id` < 13004) delayed the block.
+
+1 & 2
+
+```graphql
+{
+  searchTransactionsBackward(
+    query: "receiver:eosio.token"
+    limit: 10
+    highBlockNum: 79205991
+    lowBlockNum: 79205964
+  ) {
+    results {
+      trace {
+        id
+        block {
+          id
+          num
+          timestamp
+        }
+        matchingActions {
+          ramOps {
+            operation
+          }
+          receiver
+          account
+          name
+          json
+        }
+      }
+    }
+  }
+}
+
+{
+  searchTransactionsBackward(
+    query: "receiver:mumachayinmm"
+    limit: 200
+    highBlockNum: 79205991
+    lowBlockNum: 79205964
+  ) {
+    results {
+      cursor
+      trace {
+        id
+        block {
+          num
+          timestamp
+        }
+        scheduled
+        status
+        matchingActions {
+          ramOps {
+            operation
+          }
+          receiver
+          account
+          name
+          json
+        }
+      }
+    }
+  }
+}
+```
+
+```js
+79205991 (..0180): transfer {"from":"eosplaybrand","to":"mumachayinmm","quantity":"1176.0000 EOS","memo":"dice:win|79205964,42,under,50"} [] (61233bc72c965c9982273cbcaf88b52b29821d60ad74af4327cb2fda1d4a7703)
+79205991 (..0180): transfer {"from":"eosplaybrand","to":"mumachayinmm","quantity":"1176.0000 EOS","memo":"dice:win|79205964,42,under,50"} [] (fdb0505cb88df045e6b5a9d58220bd1e1a35d7b5c7a90694a9615b666f0bfb66)
+79205991 (..0180): transfer {"from":"eosplaybrand","to":"mumachayinmm","quantity":"1176.0000 EOS","memo":"dice:win|79205964,42,under,50"} [] (0af49c62a19db4d05c0cbf1364303b8fef9cc13bdeca2941dcf6d8ed408e5342)
+79205991 (..0180): transfer {"from":"eosplaybrand","to":"mumachayinmm","quantity":"1176.0000 EOS","memo":"dice:win|79205964,42,under,50"} [] (2dd114069a1cdfe5ff0587f74d456a5ac06cfb0efa1402cf90099fbdaad8c600)
+        79205991 (..0180): run {"num":100000,"id":14009} []
+        79205991 (..0180): run {"num":100000,"id":14008} []
+        79205991 (..0180): run {"num":100000,"id":14007} []
+        79205991 (..0180): run {"num":100000,"id":14006} []
+        79205991 (..0180): run {"num":100000,"id":14005} []
+        79205991 (..0180): run {"num":100000,"id":14004} []
+        79205991 (..0180): run {"num":100000,"id":14003} []
+        79205991 (..0180): run {"num":100000,"id":14002} []
+        79205991 (..0180): run {"num":100000,"id":14001} []
+        79205991 (..0180): run {"num":100000,"id":14000} []
+        79205991 (..0180): start {"num":100000,"id":14} [ current:1568403721500]
+        79205991 (..0180): run {"num":100000,"id":13009} []
+        79205991 (..0180): run {"num":100000,"id":13008} []
+        79205991 (..0180): run {"num":100000,"id":13007} []
+        79205991 (..0180): run {"num":100000,"id":13006} []
+        79205991 (..0180): run {"num":100000,"id":13005} []
+        79205991 (..0180): run {"num":100000,"id":13004} []
+// this `setc` turns the deferred transaction spam off, `run` terminates immediately instead of spending time
+// see the changed console output of `run` from `a: inf` to empty string
+79205990 (..6e35): setc {"currentvc":0,"usedc":0,"taskc":0,"currentb":0} [] (35e4820ea0b26bf56ded208f524579991c7919166dbef611d1443cd8eeb15ff1)
+79205990 (..6e35): setc {"currentvc":0,"usedc":0,"taskc":0,"currentb":0} [] (94c626852989311300603a41b19093e33673fab18c9093d9122e0abe84d4de62)
+        79205990 (..6e35): run {"num":100000,"id":13003} [ a: inf]
+        79205990 (..6e35): run {"num":100000,"id":13002} [ a: inf]
+        79205990 (..6e35): run {"num":100000,"id":13001} [ a: inf]
+        79205990 (..6e35): run {"num":100000,"id":13000} [ a: inf]
+        79205990 (..6e35): start {"num":100000,"id":13} [ current:1568403721000]
+        79205990 (..6e35): run {"num":100000,"id":12009} [ a: inf]
+        79205990 (..6e35): run {"num":100000,"id":12008} [ a: inf]
+        79205990 (..6e35): run {"num":100000,"id":12007} [ a: inf]
+        79205990 (..6e35): run {"num":100000,"id":12006} [ a: inf]
+        79205990 (..6e35): run {"num":100000,"id":12005} [ a: inf]
+        79205989 (..2250): run {"num":100000,"id":12004} [ a: inf]
+        79205989 (..2250): run {"num":100000,"id":12003} [ a: inf]
+        79205989 (..2250): run {"num":100000,"id":12002} [ a: inf]
+        79205989 (..2250): run {"num":100000,"id":12001} [ a: inf]
+        79205989 (..2250): run {"num":100000,"id":12000} [ a: inf]
+        79205989 (..2250): start {"num":100000,"id":12} [ current:1568403720500]
+79205989 (..2250): dicereceipt {"player":"mumachayinmm","timestamp":"1568403708000","blocknum":79205964,"amount":"600.0000 EOS","profit":"1176.0000 EOS","roll_type":"under","roll_border":50,"roll_value":42} [] (628f6be9dfbea79371690dea28dab55b6902a5dd46992f21fbe899104583c2b6)
+        79205989 (..2250): run {"num":100000,"id":11009} [ a: inf]
+        79205989 (..2250): run {"num":100000,"id":11008} [ a: inf]
+        79205989 (..2250): run {"num":100000,"id":11007} [ a: inf]
+        79205988 (..c8c1): run {"num":100000,"id":11006} [ a: inf]
+        79205988 (..c8c1): run {"num":100000,"id":11005} [ a: inf]
+        79205988 (..c8c1): run {"num":100000,"id":11004} [ a: inf]
+        79205988 (..c8c1): run {"num":100000,"id":11003} [ a: inf]
+        79205988 (..c8c1): run {"num":100000,"id":11002} [ a: inf]
+        79205988 (..c8c1): run {"num":100000,"id":11001} [ a: inf]
+        79205988 (..c8c1): run {"num":100000,"id":11000} [ a: inf]
+        79205988 (..c8c1): start {"num":100000,"id":11} [ current:1568403720000]
+        79205988 (..c8c1): run {"num":100000,"id":10009} [ a: inf]
+        79205988 (..c8c1): run {"num":100000,"id":10008} [ a: inf]
+// comes in at result-block + 13, but has correct block id from block ..974 (result-block)
+79205987 (..aedd): dicereveal {"timestamp":"1568403708000","result":42,"blocknum":79205964} [] (092700d4f21c7880562d27188f48885a4145a57df9d7f44f5b31f588f43d9aea)
+        79205987 (..aedd): run {"num":100000,"id":10007} [ a: inf]
+        79205987 (..aedd): run {"num":100000,"id":10006} [ a: inf]
+        79205987 (..aedd): run {"num":100000,"id":10005} [ a: inf]
+        79205987 (..aedd): run {"num":100000,"id":10004} [ a: inf]
+        79205987 (..aedd): run {"num":100000,"id":10003} [ a: inf]
+        79205987 (..aedd): run {"num":100000,"id":10002} [ a: inf]
+        79205987 (..aedd): run {"num":100000,"id":10001} [ a: inf]
+        79205987 (..aedd): run {"num":100000,"id":10000} [ a: inf]
+        79205986 (..16ab): start {"num":100000,"id":10} [ current:1568403719000]
+        79205986 (..16ab): run {"num":100000,"id":9009} [ a: inf]
+        79205986 (..16ab): run {"num":100000,"id":9008} [ a: inf]
+        79205986 (..16ab): run {"num":100000,"id":9007} [ a: inf]
+        79205986 (..16ab): run {"num":100000,"id":9006} [ a: inf]
+        79205986 (..16ab): run {"num":100000,"id":9005} [ a: inf]
+        79205986 (..16ab): run {"num":100000,"id":9004} [ a: inf]
+        79205986 (..16ab): run {"num":100000,"id":9003} [ a: inf]
+        79205986 (..16ab): run {"num":100000,"id":9002} [ a: inf]
+        79205985 (..6e4e): run {"num":100000,"id":9001} [ a: inf]
+        79205985 (..6e4e): run {"num":100000,"id":9000} [ a: inf]
+        79205985 (..6e4e): start {"num":100000,"id":9} [ current:1568403718500]
+        79205985 (..6e4e): run {"num":100000,"id":8009} [ a: inf]
+        79205985 (..6e4e): run {"num":100000,"id":8008} [ a: inf]
+        79205985 (..6e4e): run {"num":100000,"id":8007} [ a: inf]
+        79205985 (..6e4e): run {"num":100000,"id":8006} [ a: inf]
+        79205985 (..6e4e): run {"num":100000,"id":8005} [ a: inf]
+        79205985 (..6e4e): run {"num":100000,"id":8004} [ a: inf]
+        79205984 (..5838): run {"num":100000,"id":8003} [ a: inf]
+        79205984 (..5838): run {"num":100000,"id":8002} [ a: inf]
+        79205984 (..5838): run {"num":100000,"id":8001} [ a: inf]
+        79205984 (..5838): run {"num":100000,"id":8000} [ a: inf]
+        79205984 (..5838): start {"num":100000,"id":8} [ current:1568403718000]
+        79205984 (..5838): run {"num":100000,"id":7009} [ a: inf]
+        79205984 (..5838): run {"num":100000,"id":7008} [ a: inf]
+        79205984 (..5838): run {"num":100000,"id":7007} [ a: inf]
+        79205984 (..5838): run {"num":100000,"id":7006} [ a: inf]
+        79205983 (..9c4d): run {"num":100000,"id":7005} [ a: inf]
+        79205983 (..9c4d): run {"num":100000,"id":7004} [ a: inf]
+        79205983 (..9c4d): run {"num":100000,"id":7003} [ a: inf]
+        79205983 (..9c4d): run {"num":100000,"id":7002} [ a: inf]
+        79205983 (..9c4d): run {"num":100000,"id":7001} [ a: inf]
+        79205983 (..9c4d): run {"num":100000,"id":7000} [ a: inf]
+        79205983 (..9c4d): start {"num":100000,"id":7} [ current:1568403717500]
+        79205983 (..9c4d): run {"num":100000,"id":6009} [ a: inf]
+        79205983 (..9c4d): run {"num":100000,"id":6008} [ a: inf]
+        79205982 (..ad77): run {"num":100000,"id":6007} [ a: inf]
+        79205982 (..ad77): run {"num":100000,"id":6006} [ a: inf]
+        79205982 (..ad77): run {"num":100000,"id":6005} [ a: inf]
+        79205982 (..ad77): run {"num":100000,"id":6004} [ a: inf]
+        79205982 (..ad77): run {"num":100000,"id":6003} [ a: inf]
+        79205982 (..ad77): run {"num":100000,"id":6002} [ a: inf]
+        79205982 (..ad77): run {"num":100000,"id":6001} [ a: inf]
+        79205982 (..ad77): run {"num":100000,"id":6000} [ a: inf]
+        79205981 (..cac1): start {"num":100000,"id":6} [ current:1568403716500]
+        79205981 (..cac1): run {"num":100000,"id":5009} [ a: inf]
+        79205981 (..cac1): run {"num":100000,"id":5008} [ a: inf]
+        79205981 (..cac1): run {"num":100000,"id":5007} [ a: inf]
+        79205981 (..cac1): run {"num":100000,"id":5006} [ a: inf]
+        79205981 (..cac1): run {"num":100000,"id":5005} [ a: inf]
+        79205981 (..cac1): run {"num":100000,"id":5004} [ a: inf]
+        79205981 (..cac1): run {"num":100000,"id":5003} [ a: inf]
+        79205981 (..cac1): run {"num":100000,"id":5002} [ a: inf]
+        79205980 (..5042): run {"num":100000,"id":5001} [ a: inf]
+        79205980 (..5042): run {"num":100000,"id":5000} [ a: inf]
+        79205980 (..5042): start {"num":100000,"id":5} [ current:1568403716000]
+        79205980 (..5042): run {"num":100000,"id":4009} [ a: inf]
+        79205980 (..5042): run {"num":100000,"id":4008} [ a: inf]
+        79205980 (..5042): run {"num":100000,"id":4007} [ a: inf]
+        79205980 (..5042): run {"num":100000,"id":4006} [ a: inf]
+        79205980 (..5042): run {"num":100000,"id":4005} [ a: inf]
+        79205980 (..5042): run {"num":100000,"id":4004} [ a: inf]
+        79205979 (..d333): run {"num":100000,"id":4003} [ a: inf]
+        79205979 (..d333): run {"num":100000,"id":4002} [ a: inf]
+        79205979 (..d333): run {"num":100000,"id":4001} [ a: inf]
+        79205979 (..d333): run {"num":100000,"id":4000} [ a: inf]
+        79205979 (..d333): start {"num":100000,"id":4} [ current:1568403715500]
+        79205979 (..d333): run {"num":100000,"id":3009} [ a: inf]
+        79205979 (..d333): run {"num":100000,"id":3008} [ a: inf]
+        79205979 (..d333): run {"num":100000,"id":3007} [ a: inf]
+        79205979 (..d333): run {"num":100000,"id":3006} [ a: inf]
+        79205978 (..be91): run {"num":100000,"id":3005} [ a: inf]
+        79205978 (..be91): run {"num":100000,"id":3004} [ a: inf]
+        79205978 (..be91): run {"num":100000,"id":3003} [ a: inf]
+        79205978 (..be91): run {"num":100000,"id":3002} [ a: inf]
+        79205978 (..be91): run {"num":100000,"id":3001} [ a: inf]
+        79205978 (..be91): run {"num":100000,"id":3000} [ a: inf]
+        79205978 (..be91): start {"num":100000,"id":3} [ current:1568403715000]
+        79205978 (..be91): run {"num":100000,"id":2009} [ a: inf]
+        79205978 (..be91): run {"num":100000,"id":2008} [ a: inf]
+        79205977 (..d038): run {"num":100000,"id":2007} [ a: inf]
+        79205977 (..d038): run {"num":100000,"id":2006} [ a: inf]
+        79205977 (..d038): run {"num":100000,"id":2005} [ a: inf]
+        79205977 (..d038): run {"num":100000,"id":2004} [ a: inf]
+        79205977 (..d038): run {"num":100000,"id":2003} [ a: inf]
+        79205977 (..d038): run {"num":100000,"id":2002} [ a: inf]
+        79205977 (..d038): run {"num":100000,"id":2001} [ a: inf]
+        79205977 (..d038): run {"num":100000,"id":2000} [ a: inf]
+        79205977 (..d038): start {"num":100000,"id":2} [ current:1568403714500]
+        79205976 (..7686): start {"num":100000,"id":1} [ current:1568403714000]
+// UPDATE ROW table:kkks scope:mumachayinmm primary-key: sets flag to 1
+// starts DDOS, schedules defered transaction of `start`
+// DDOS starts at result-block `targettime` + 1, where the resolve action should come
+// https://eosq.app/tx/9a027451fd1af9fa0aeea7d0632a5b62db8ff5eff2185d363c5ef86946ad7821
+79205975 (..99be): dd {"ok":1} [] (9a027451fd1af9fa0aeea7d0632a5b62db8ff5eff2185d363c5ef86946ad7821)
+        79205969 (..d26e): run {"num":100000,"id":24009} []
+        79205969 (..d26e): run {"num":100000,"id":24008} []
+        79205969 (..d26e): run {"num":100000,"id":24007} []
+        79205969 (..d26e): run {"num":100000,"id":24006} []
+        79205969 (..d26e): run {"num":100000,"id":24005} []
+        79205969 (..d26e): run {"num":100000,"id":24004} []
+        79205969 (..d26e): run {"num":100000,"id":24003} []
+        79205969 (..d26e): run {"num":100000,"id":24002} []
+        79205969 (..d26e): run {"num":100000,"id":24001} []
+        79205969 (..d26e): run {"num":100000,"id":24000} []
+        79205969 (..d26e): start {"num":100000,"id":24} [ current:1568403710500]
+// UPDATE ROW table:kkks scope:mumachayinmm primary-key: sets flag to 0
+// https://eosq.app/tx/12b62c8fe967e827a6b5a8b381c26a87debf82156547d1cab368541b1d22dcc7
+79205968 (..20cb): dd {"ok":0} [] (12b62c8fe967e827a6b5a8b381c26a87debf82156547d1cab368541b1d22dcc7)
+// UPDATE ROW table:configs scope:mumachayinmm primary-key: sets `targettime` to result block time
+// 1568403713000 = "2019-09-13T19:41:53.000Z" which is +5 secs = 10 blocks from beginning of play
+79205968 (..20cb): settime {"time":"1568403713000"} [] (ddf72b48b1f1776783f8f3fc1aaf093381dff03178a4b75bf6adc722aaa994e4)
+        79205968 (..20cb): run {"num":100000,"id":23009} [ a: inf]
+        79205968 (..20cb): run {"num":100000,"id":23008} [ a: inf]
+        79205968 (..20cb): run {"num":100000,"id":23007} [ a: inf]
+        79205968 (..20cb): run {"num":100000,"id":23006} [ a: inf]
+        79205968 (..20cb): run {"num":100000,"id":23005} [ a: inf]
+        79205968 (..20cb): run {"num":100000,"id":23004} [ a: inf]
+        79205968 (..20cb): run {"num":100000,"id":23003} [ a: inf]
+        79205968 (..20cb): run {"num":100000,"id":23002} [ a: inf]
+        79205968 (..20cb): run {"num":100000,"id":23001} [ a: inf]
+        79205968 (..20cb): run {"num":100000,"id":23000} [ a: inf]
+        79205968 (..20cb): start {"num":100000,"id":23} [ current:1568403710000]
+        79205967 (..9773): run {"num":100000,"id":22009} [ a: inf]
+        79205967 (..9773): run {"num":100000,"id":22008} [ a: inf]
+        79205967 (..9773): run {"num":100000,"id":22007} [ a: inf]
+        79205967 (..9773): run {"num":100000,"id":22006} [ a: inf]
+        79205967 (..9773): run {"num":100000,"id":22005} [ a: inf]
+        79205967 (..9773): run {"num":100000,"id":22004} [ a: inf]
+        79205967 (..9773): run {"num":100000,"id":22003} [ a: inf]
+        79205967 (..9773): run {"num":100000,"id":22002} [ a: inf]
+        79205967 (..9773): run {"num":100000,"id":22001} [ a: inf]
+        79205967 (..9773): run {"num":100000,"id":22000} [ a: inf]
+        79205967 (..9773): start {"num":100000,"id":22} [ current:1568403709500]
+        79205966 (..0d3a): run {"num":100000,"id":21009} [ a: inf]
+        79205966 (..0d3a): run {"num":100000,"id":21008} [ a: inf]
+        79205966 (..0d3a): run {"num":100000,"id":21007} [ a: inf]
+        79205966 (..0d3a): run {"num":100000,"id":21006} [ a: inf]
+        79205966 (..0d3a): run {"num":100000,"id":21005} [ a: inf]
+        79205966 (..0d3a): run {"num":100000,"id":21004} [ a: inf]
+        79205966 (..0d3a): run {"num":100000,"id":21003} [ a: inf]
+        79205966 (..0d3a): run {"num":100000,"id":21002} [ a: inf]
+        79205966 (..0d3a): run {"num":100000,"id":21001} [ a: inf]
+        79205966 (..0d3a): run {"num":100000,"id":21000} [ a: inf]
+        79205966 (..0d3a): start {"num":100000,"id":21} [ current:1568403709000]
+        79205965 (..eacf): run {"num":100000,"id":20009} [ a: inf]
+        79205965 (..eacf): run {"num":100000,"id":20008} [ a: inf]
+        79205965 (..eacf): run {"num":100000,"id":20007} [ a: inf]
+        79205965 (..eacf): run {"num":100000,"id":20006} [ a: inf]
+        79205965 (..eacf): run {"num":100000,"id":20005} [ a: inf]
+        79205965 (..eacf): run {"num":100000,"id":20004} [ a: inf]
+        79205965 (..eacf): run {"num":100000,"id":20003} [ a: inf]
+        79205965 (..eacf): run {"num":100000,"id":20002} [ a: inf]
+        79205965 (..eacf): run {"num":100000,"id":20001} [ a: inf]
+        79205965 (..eacf): run {"num":100000,"id":20000} [ a: inf]
+        79205965 (..eacf): start {"num":100000,"id":20} [ current:1568403708500]
+        79205964 (..f9bc): run {"num":100000,"id":19009} [ a: inf]
+        79205964 (..f9bc): run {"num":100000,"id":19008} [ a: inf]
+        79205964 (..f9bc): run {"num":100000,"id":19007} [ a: inf]
+        79205964 (..f9bc): run {"num":100000,"id":19006} [ a: inf]
+        79205964 (..f9bc): run {"num":100000,"id":19005} [ a: inf]
+        79205964 (..f9bc): run {"num":100000,"id":19004} [ a: inf]
+        79205964 (..f9bc): run {"num":100000,"id":19003} [ a: inf]
+        79205964 (..f9bc): run {"num":100000,"id":19002} [ a: inf]
+        79205964 (..f9bc): run {"num":100000,"id":19001} [ a: inf]
+        79205964 (..f9bc): run {"num":100000,"id":19000} [ a: inf]
+        79205964 (..f9bc): start {"num":100000,"id":19} [ current:1568403708000]
+// here is where a new attack seems to start, spam above is still from old attack and might be irrelevant
+// does the 5 * 600 EOS transfers to eosplaybrand at time = "2019-09-13T19:41:48.000Z"
+79205964 (..f9bc): send null [] (eeff29dc49df7a2653ff08d58ad62e892311601b5b64c3689757ad8eb50f8290)
+        79205963 (..cec1): run {"num":100000,"id":18009} [ a: inf]
+        79205963 (..cec1): run {"num":100000,"id":18008} [ a: inf]
+        79205963 (..cec1): run {"num":100000,"id":18007} [ a: inf]
+        79205963 (..cec1): run {"num":100000,"id":18006} [ a: inf]
+        79205963 (..cec1): run {"num":100000,"id":18005} [ a: inf]
+        79205963 (..cec1): run {"num":100000,"id":18004} [ a: inf]
+        79205963 (..cec1): run {"num":100000,"id":18003} [ a: inf]
+        79205963 (..cec1): run {"num":100000,"id":18002} [ a: inf]
+        79205963 (..cec1): run {"num":100000,"id":18001} [ a: inf]
+        79205963 (..cec1): run {"num":100000,"id":18000} [ a: inf]
+        79205963 (..cec1): start {"num":100000,"id":18} [ current:1568403707500]
+        79205962 (..ab5a): run {"num":100000,"id":17009} [ a: inf]
+        79205962 (..ab5a): run {"num":100000,"id":17008} [ a: inf]
+        79205962 (..ab5a): run {"num":100000,"id":17007} [ a: inf]
+        79205962 (..ab5a): run {"num":100000,"id":17006} [ a: inf]
+        79205962 (..ab5a): run {"num":100000,"id":17005} [ a: inf]
+        79205962 (..ab5a): run {"num":100000,"id":17004} [ a: inf]
+        79205962 (..ab5a): run {"num":100000,"id":17003} [ a: inf]
+        79205962 (..ab5a): run {"num":100000,"id":17002} [ a: inf]
+        79205962 (..ab5a): run {"num":100000,"id":17001} [ a: inf]
+        79205962 (..ab5a): run {"num":100000,"id":17000} [ a: inf]
+        79205962 (..ab5a): start {"num":100000,"id":17} [ current:1568403707000]
+79205961 (..b505): transfer {"from":"eosplaybrand","to":"mumachayinmm","quantity":"1176.0000 EOS","memo":"dice:win|79205934,21,under,50"} [] (8ca1bbdf384ce62637bf1625285a9d28e1fe8352d5912ae98517098722c9b42b)
+        79205961 (..b505): run {"num":100000,"id":16009} [ a: inf]
+        79205961 (..b505): run {"num":100000,"id":16008} [ a: inf]
+        79205961 (..b505): run {"num":100000,"id":16007} [ a: inf]
+        79205961 (..b505): run {"num":100000,"id":16006} [ a: inf]
+        79205961 (..b505): run {"num":100000,"id":16005} [ a: inf]
+        79205961 (..b505): run {"num":100000,"id":16004} [ a: inf]
+        79205961 (..b505): run {"num":100000,"id":16003} [ a: inf]
+        79205961 (..b505): run {"num":100000,"id":16002} [ a: inf]
+        79205961 (..b505): run {"num":100000,"id":16001} [ a: inf]
+        79205961 (..b505): run {"num":100000,"id":16000} [ a: inf]
+        79205961 (..b505): start {"num":100000,"id":16} [ current:1568403706500]
+79205960 (..822f): transfer {"from":"eosplaybrand","to":"mumachayinmm","quantity":"1176.0000 EOS","memo":"dice:win|79205934,21,under,50"} [] (9c35a9736b786ac06cbb0fa43d194bb769ac4f2aef1b531a69a15a1babc0ee45)
+79205960 (..822f): transfer {"from":"eosplaybrand","to":"mumachayinmm","quantity":"1176.0000 EOS","memo":"dice:win|79205934,21,under,50"} [] (7da2c30d11b85ec7846a555ce13538af38b9916f312a22d0fa691907b9ef8f3e)
+79205960 (..822f): transfer {"from":"eosplaybrand","to":"mumachayinmm","quantity":"1176.0000 EOS","memo":"dice:win|79205934,21,under,50"} [] (b18271c589e514b29904a17d66d1a15cc4a3f555bcd158f40070f5b7653b098a)
+79205960 (..822f): transfer {"from":"eosplaybrand","to":"mumachayinmm","quantity":"1176.0000 EOS","memo":"dice:win|79205934,21,under,50"} [] (5481443bdfd0078d14843f7b8bd03d6cfb735de6e27eaab83a44c1df7d1f45d3)
+        79205960 (..822f): run {"num":100000,"id":15009} [ a: inf]
+        79205960 (..822f): run {"num":100000,"id":15008} [ a: inf]
+        79205960 (..822f): run {"num":100000,"id":15007} [ a: inf]
+        79205960 (..822f): run {"num":100000,"id":15006} [ a: inf]
+        79205960 (..822f): run {"num":100000,"id":15005} [ a: inf]
+        79205960 (..822f): run {"num":100000,"id":15004} [ a: inf]
+        79205960 (..822f): run {"num":100000,"id":15003} [ a: inf]
+        79205960 (..822f): run {"num":100000,"id":15002} [ a: inf]
+        79205960 (..822f): run {"num":100000,"id":15001} [ a: inf]
+        79205960 (..822f): run {"num":100000,"id":15000} [ a: inf]
+        79205960 (..822f): start {"num":100000,"id":15} [ current:1568403706000]
+```
