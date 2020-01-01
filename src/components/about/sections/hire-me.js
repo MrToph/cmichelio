@@ -17,14 +17,14 @@ export default function HireMeSection({ siteMetadata }) {
         If you want something built from scratch or need more manpower in your
         team for an existing project, please get in contact with me. I worked on
         many projects in the{` `}
-        <span className="font-bold">JavaScript</span>
+        <span className="font-bold">JavaScript/TypeScript</span>
         {` `}
         (frontend and backend) and{` `}
         <span className="font-bold">blockchain</span> ⛓️ space. Here are some
         technologies I enjoyed working with in the past:
       </p>
       <ul>
-        <li>ES6/7, TypeScript, Lerna, Webpack, Rollup</li>
+        <li>ES6/7, TypeScript, Lerna, Webpack</li>
         <li>
           React, GraphQL - Apollo Client, Redux, Jest, PostCSS / SCSS, Styled
           Components, TailwindCSS
@@ -32,7 +32,7 @@ export default function HireMeSection({ siteMetadata }) {
         <li>
           Node.js, Express, Koa, GraphQL - Apollo Server, MongoDB, PostgreSQL
         </li>
-        <li>EOS, IPFS</li>
+        <li>Smart Contracts (EOSIO, C++), IPFS</li>
         <li>Smart Contract Security Audits</li>
       </ul>
       <p>
@@ -46,13 +46,24 @@ export default function HireMeSection({ siteMetadata }) {
       </p>
       <ul>
         <li>
-          Interview with dfuse.io, a web 3 infrastructure provider.{` `}
+          Interview with {` `}
           <a
             href="https://www.dfuse.io/en/blog/christoph-michel-learn-eos"
             rel="nofollow"
           >
-            In the Eyes of a Blockchain Developer: Christoph Michel
-          </a>
+            dfuse.io - In the Eyes of a Blockchain Developer series
+          </a>, or interview with {` `}
+          <a
+            href="https://www.eoswriter.io/165661_meet-the-custodians-episode-3-christoph-michel.eos"
+            rel="nofollow"
+          >
+            eoswriter
+          </a>, also available in <a
+            href="http://cn.eoswriter.io/6970_vigor-chris.eos"
+            rel="nofollow"
+          >
+            Chinese
+          </a>.
         </li>
         <li>
           Mark Erikson, maintainer of Redux, in his{` `}
