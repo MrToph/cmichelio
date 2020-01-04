@@ -1,7 +1,7 @@
 ---
 title: Goals 2020
 date: 2020-01-04
-featured: ./featured.jpg
+image: ./featured.jpg
 categories:
 - Business
 medium:
