@@ -1,7 +1,6 @@
 ---
 title: How to rollback to an older EOSIO.CDT version with brew
 date: 2020-01-21
-image: ./featured.png
 categories:
 - Tech
 - EOS
