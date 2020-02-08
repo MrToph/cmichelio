@@ -64,6 +64,12 @@ module.exports = {
             },
           },
           {
+            resolve: `prepare-crosspost`,
+            options: {
+              ignoreFileExtensions: [],
+            },
+          },
+          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 720,

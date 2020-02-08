@@ -1,29 +1,31 @@
-require('dotenv').config()
-const steem = require('steem')
-const trim = require('lodash/trim')
+require(`dotenv`).config()
+const steem = require(`steem`)
+const trim = require(`lodash/trim`)
 
 steem.api.setOptions({ url: `https://api.steemit.com` })
 
 const accountName = `cmichel`
-const slugTransform = s => trim(s, '/').toLowerCase()
+const slugTransform = s => trim(s, `/`).toLowerCase()
 
 const client = {
   async createPost({ content, frontmatter, slug, images, links }) {
+    if(!process.env.STEEM_POSTING_KEY) throw new Error(`No STEEM_POSTING_KEY enc variable set`)
+
     const category =
       Array.isArray(frontmatter.steem) && frontmatter.steem.length > 0
         ? frontmatter.steem[0]
-        : 'programming'
+        : `programming`
     // https://steemit.com/steemdev/@jfollas/write-a-steemit-web-app-part-11-posting-content
     // https://steemdb.com/programming/@cmichel/progress-report-november-2017/data
     const query = {
-      parent_author: '',
+      parent_author: ``,
       // main tag
       parent_permlink: category,
       permlink: slugTransform(slug),
       json_metadata: {
         tags: frontmatter.steem,
-        format: 'markdown',
-        app: 'steemit/0.1',
+        format: `markdown`,
+        app: `steemit/0.1`,
         links,
         image: images,
       },
@@ -78,9 +80,9 @@ const client = {
     // set to remove doubles that come from pagination
     const postSlugsNoDuplicates = [...new Set(postSlugs)]
     console.log(
-      `Found ${postSlugsNoDuplicates.length} existing posts for account "${
-        accountName
-      }". Checking if post already exists ...`
+      `Found ${
+        postSlugsNoDuplicates.length
+      } existing posts for account "${accountName}". Checking if post already exists ...`
     )
 
     const slugTrimmed = slugTransform(slug)

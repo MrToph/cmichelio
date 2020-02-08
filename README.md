@@ -45,23 +45,34 @@ They are copied to `public/static` and the corresponding relative path **of the 
 Other plugins used in the **build** process:
 1. An RSS feed containing all posts is created at `public/feed.xml` (`gatsby-plugin-feed`)
 
-### Cross-post scripts
+
+## Crossposting
 
 This repo includes cross-posting scripts to publish the posts to [medium](https://medium.com) and the [steem blockchain](https://steemit.com).
 
-They are located in the `scripts/publish` directory. You need `node` v8+ to run them, because they make use of `async/await`.
+### Setup
 
-Cross-posting:
-* [ ] `npm run crosspost` publishes all new posts to all platforms. New posts are found by doing a `git diff` on `master` between `HEAD~1` and `HEAD` and checking for newly created `.md` files.
-* [x] `npm run crosspost -- --path "progress-report/progress-report.md"` to publish `src/pages/progress-report/progress-report.md` to all platforms.
-* [x] `npm run crosspost -- medium --path "progress-report/progress-report.md"` to publish `src/pages/progress-report/progress-report.md` to medium only. The same works using the `steem` command instead.
+You need a Medium account and [create an application](https://medium.com/me/applications) on Medium to get access to the API.
 
-> _Note:_ Cross-posting to steem contains a check if the post's slug already exists for your account to avoid accidentally double-posting the same post. Medium does **not** have this built-in check, due to restrictions of the Medium API.
+From there you get the **Client ID** and **Client Secret**.
+You'll also need an access token for each Medium account that should be able to crosspost.
+An easy way to do that is by getting a Medium **Integration token**:
+Go to your [Medium Settings](https://medium.com/me/settings) and create a token in the _Integration Token_ section.
+(You can also get "normal" access tokens for a user using standard OAuth2 with the [medium-sdk](https://github.com/Medium/medium-sdk-nodejs#usage).)
+
+### Publishing
+
+To publish a post, first build your website using `npm run build` and deploy the `public` folder to the site url which is specified in `gatsby-config.js`'s `siteMetadata.siteUrl`.
+
+> It's important that the website is deployed first as Medium tries to fetch all linked images from the `siteUrl` upon importing and hosts a local copy of them.
+
+You can then run the crosspost script `npm run crosspost` and select the post to crosspost.
+The script needs the previously mentioned Medium environment variables set, this can be done, for instance, in the `.env` file (see `.env.template`).
 
 The following modifications are done when publishing a markdown post:
 1. All images specified in `src/pages/**/*` are **copied** to `public/**/*` keeping the same sub-directory structure. Done by the custom `copy-images-structure` plugin in `plugins`.
-1. The markdown file is parsed by `remark`, extracting the slug and frontmatter (containing the title and tags for cross-positing). The cross-posting script then resolves all relative `urls` in Markdown `link`/`image` nodes to **absolute urls**, prepending this site's domain and the post's slug.
-1. A footer is inserted, linking back to the original post on my blog.
+2. The markdown file is parsed by `remark`, extracting the slug and frontmatter (containing the title and tags for cross-positing). The cross-posting script then resolves all relative `urls` in Markdown `link`/`image` nodes to **absolute urls**, prepending this site's domain and the post's slug.
+3. A footer is inserted, linking back to the original post on my blog.
 
 ## ToDo:
 
