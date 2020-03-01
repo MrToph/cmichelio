@@ -32,8 +32,8 @@ I worked **62** _productive_ hours on side-projects last month.
 To make these progress reports a bit more interesting, from now on I'll post my favourite song, TV show, and article I read last month.
 
 * **Article of the Month**: [bZx Flashloan Hacks](https://www.lesswrong.com/posts/Kbm6QnJv9dgWsPHQP/schelling-fences-on-slippery-slopes)
-* **Song of the Month**: [Kool & The Gang - Summer Madness](https://open.spotify.com/track/5hBCrlxAhj6LVKDR2PGZcs)
-    <iframe src="https://open.spotify.com/embed/track/5hBCrlxAhj6LVKDR2PGZcs" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+* **Song of the Month**: [Kool & The Gang - Summer Madness](https://open.spotify.com/track/5BxHfyGk49gqbg5BdW6FO4)
+    <iframe src="https://open.spotify.com/embed/track/5BxHfyGk49gqbg5BdW6FO4" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 * **TV series of the Month**: [Curb Your Enthusiasm S10](https://trakt.tv/shows/the-order-2019)
 
 ### What was worked on
