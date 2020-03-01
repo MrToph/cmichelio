@@ -69,6 +69,7 @@
     "yargs": "^10.0.3"
   },
   "scripts": {
+    "start": "npm run dev",
     "dev": "gatsby develop",
     "lint": "eslint --ext .js,.jsx .",
     "test": "echo \"Error: no test specified\" && exit 1",
