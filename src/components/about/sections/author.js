@@ -50,7 +50,7 @@ function AboutSection(props) {
         </a>
         {` `},{` `}
         <a
-          href={`//steemit.com/@${siteMetadata.steem}`}
+          href={`//hive.blog/@${siteMetadata.steem}`}
           target="_blank"
           rel="noopener noreferrer"
         >

@@ -2,7 +2,7 @@ require(`dotenv`).config()
 const steem = require(`steem`)
 const trim = require(`lodash/trim`)
 
-steem.api.setOptions({ url: `https://api.steemit.com` })
+steem.api.setOptions({ url: `https://api.hive.blog` })
 
 const accountName = `cmichel`
 const slugTransform = s => trim(s, `/`).toLowerCase()

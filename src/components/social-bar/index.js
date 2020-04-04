@@ -52,7 +52,7 @@ class SocialBar extends Component {
         </li>
         <li>
           <Icon
-            url={`//steemit.com/@${data.site.siteMetadata.steem}`}
+            url={`//hive.blog/@${data.site.siteMetadata.steem}`}
             icon={SteemitIcon}
           />
         </li>
