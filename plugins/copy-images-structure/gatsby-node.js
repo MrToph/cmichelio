@@ -31,7 +31,7 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
   return Promise.all(
     Array.from(nodes, async ({ node }) => {
       const pathInSrc = node.absolutePath
-      const newFilePath = path.join('public', node.relativePath)
+      const newFilePath = path.join(`public`, node.relativePath)
       // Don't copy anything if the file already exists at the location.
       if (!fsExtra.existsSync(newFilePath)) {
         try {

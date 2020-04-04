@@ -27,7 +27,7 @@ Last month's report can be seen [here](/<%= previousReportSlug %>).
 ![Productive Hours in <%= currentMonth %>](./clockify.png)
 _Hours worked on **side-projects** in <%= currentMonth %>_
 
-I worked **68** _productive_ hours last month. I really made use of those weekends. 💪
+I worked **68** _productive_ on side projects hours last month.
 
 To make these progress reports a bit more interesting, from now on I'll post my favourite song, TV show, and article I read last month.
 
@@ -38,6 +38,10 @@ To make these progress reports a bit more interesting, from now on I'll post my 
 * **TV series of the Month**: [The Order](https://trakt.tv/shows/the-order-2019)
 
 ### What was worked on
+
+* X
+* Y
+* Z
 
 ## Platform Growth
 
@@ -56,25 +60,19 @@ Still, I managed to write two blog posts.
 
 ### Subscribers
 
-My [twitter](https://twitter.com/cmichelio) followers increased by _3_ to **364**.
-I need to tweet more.
-Or maybe not.
-There's so much to work on and improve, you need to choose your battles wisely.
-I think a bigger Twitter audience would be nice but not that beneficial.
-I should focus on growing the book email subscribers because I'm getting close to launch.
+My [twitter](https://twitter.com/cmichelio) followers increased by _10_ to **600**.
 
-### Learn EOS Development Subscribers
+## Sales
 
-I currently have **277** email subscribers for [my book](https://learneos.dev). (+24 in last 30 days)
-That's pretty nice, I should be able to get 300 subscribers next month and then hopefully launch in March.
+#### Learn EOS Development
+
+I sold 3 books last month.
+
+#### Trading
+
+I made 236 EOS last month trading crypto.
 
 ## What's next
 
-Full focus on finishing the book content-wise. Should be done this month.
-Then a lot of reviewing and editing ... 🤓
-
-I researched some merchants and [gumroad](https://gumroad.com) seems like the best choice.
-It's relatively cheap (3.5% fees + 0.30$) if you buy their plan for 10$ a month.
-Especially as they handle EU VAT on their part and I don't have to get involved at all in this complete mess of paying taxes for each individual country in the EU.
-The only down-side is that they don't accept crypto payments.
-If anyone knows a merchant that handles EU VAT and also accepts crypto payments, please let me know.
+* X
+* Y

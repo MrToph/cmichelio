@@ -63,6 +63,7 @@ module.exports = {
               // ignoreFileExtensions: [],
             },
           },
+          `gatsby-remark-mathjax`,
           {
             resolve: `prepare-crosspost`,
             options: {
