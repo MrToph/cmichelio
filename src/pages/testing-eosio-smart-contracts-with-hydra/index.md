@@ -1,7 +1,7 @@
 ---
 title: Testing EOSIO smart contracts with Hydra
-date: 2020-04-03
-image: ./featured.png
+date: 2020-04-10
+image: ./hydra.jpg
 categories:
   - Tech
   - EOS
@@ -18,7 +18,6 @@ steem:
   - tutorials
   - steemdev
   - programming
-draft: true
 ---
 
 Testing EOSIO smart contracts was always a big pain point for me and many other developers, especially newcomers.
@@ -38,16 +37,28 @@ Over a year ago I had the idea of creating a testing environment that just uses 
 
 I'm excited to announce that I finally had the opportunity to work on this with the [Klevoya Team](https://klevoya.com) and release the first version of **Hydra** today. 🎊
 
-> Hydra is a simple and fast EOSIO smart contract test and execution environment. With Hydra you can quickly create and execute test cases without needing to maintain and run a local blockchain. All within minutes. - [Hydra](http://klevoya.com/hydra/index.html)
 
 ### Hydra Features
 
-> ❗ TODO: give a general overview of hydra features and maybe small explanation that it communicates with our backend as this isn't mentioned so far.
+> Hydra is a simple and fast EOSIO smart contract test and execution environment. With Hydra you can quickly create and execute test cases without needing to maintain and run a local blockchain. All within minutes. - [Hydra](http://klevoya.com/hydra/index.html)
 
+Some of Hydra's features include:
+
+* Test EOSIO smart contracts without running a local node
+* Run tests in parallel. Run integration tests in CI.
+* Bootstrap command to quickly get started with testing your smart contracts
+* Load initial contract table data through JSON files
+
+The way Hydra works is by creating a local EOSIO-compatible snapshot whenever an action like creating accounts or deploying contracts is done.
+To run a transaction it communicates with the backend to simulate all EOSIO checks and execute the transaction in the EOSVM with the snapshot's context.
+The updated snapshot, which can contain updated contract tables or even new account creations from running the contract code, is returned and usable by the client.
+
+[![Hydra Overview](./hydra-overview.png)](./hydra-overview.png)
+_Hydra Overview_
 
 ### Example Test
 
-Hydra is written in NodeJS and your tests are written in JavaScript or TypeScript.
+Hydra is written in NodeJS and tests are written in JavaScript or TypeScript.
 The Hydra CLI can be used to quickly bootstrap tests for smart contracts through the `init` command, which allows you to select which contracts you want to test and what tables you want to fill with initial data.
 
 [![asciicast](https://asciinema.org/a/aLOm1CW4zb2BPQRPPvYeO8Mlc.svg)](https://asciinema.org/a/aLOm1CW4zb2BPQRPPvYeO8Mlc)
@@ -63,9 +74,12 @@ It consists of several contracts:
 2. The Bancor Network contract: It's the entry point for any Bancor trade and the funds need to be sent to this contract.
 3. A multi-converter contract: This is the _brain_ of all contracts that holds the funds (called "reserve") for all tradable tokens and does the conversion. We can't directly trade `BNT` tokens for our `AAAA` tokens though, there is an intermediate token for each trading pair (called a smart token), in our case `BNTAAAA`. I won't go into details why this token exists, it's enough to know that it exists and trading `BNT` for `AAAA` theoretically trades `BNT` -> `BNTAAAA` -> `AAAA`.
 
-Let's write a test using Hydra that sets all of this up, and then trades `BNT` for `AAAA` and we'll see if the math checks out. 🧮
+For comparison, the way [Bancor is currently tested](https://github.com/bancorprotocol/contracts_eos/tree/master/test/eos) is by first creating all the accounts, tokens, and setting the code by running [three shell scripts](https://github.com/bancorprotocol/contracts_eos/tree/master/scripts/deploy) which themself run `cleos` commands. You'll need to reset your local blockchain after every test and run these scripts again.
+The actual tests are written in JavaScript using eosjs to communicate with the local nodeos. A lot of helper functions were defined to make working with eosjs easier.
 
-After compiling the Bancor contracts, we can run the `hydra init` command, selecting the `BancorConverter` contract as the contract to scaffold tests for.
+Let's write a test using Hydra that sets all of this up, and then trades `BNT` for `AAAA` and we'll see if the math checks out. ✅
+
+After compiling the Bancor contracts, we can run the `hydra init` command, selecting the `BancorConverter` and `BancorNetwork` contracts as the contracts to scaffold tests for.
 The `init` command creates a `tests/BancorConverter.test.js` file, the `hydra.yml` config file, and installs `jest`, a modern JavaScript testing framework.
 
 We edit the example test file to create the accounts and set the contracts:
@@ -90,7 +104,7 @@ describe('BancorConverter', () => {
   const SmartSymbol = { code: `BNTAAAA`, precision: 4 }
 
   beforeAll(async () => {
-    // sets the code from the BancorConverter template to the account
+    // deploys the BancorConverter contract to the account
     // the contract templates are defined in the hydra.yml config file
     tester.setContract(blockchain.contractTemplates[`BancorConverter`])
     // adds eosio.code permission to active permission
@@ -308,6 +322,8 @@ it("can convert BNT to AAAA", async () => {
 
 The test passes and we indeed get back the expected amount of `AAAA` tokens, increasing the price of AAAA tokens for the next user.
 The complete test file used for this example can be seen [in this GitHub gist](https://gist.github.com/MrToph/6a24e978f620f79f7f34b71fb0aa1b20) and turns out to be less than 200 LoC.
+
+[![asciicast](https://asciinema.org/a/kNeDMxCjx1zZM4AtjFwhxilsE.svg)](https://asciinema.org/a/kNeDMxCjx1zZM4AtjFwhxilsE)
 
 Hydra allowed us to easily write tests without any additional setup scripts or local blockchain.  
 If you want to learn more about Hydra check out the [FAQ](http://klevoya.com/hydra/index.html) or dive right into the [documentation](https://docs.klevoya.com/hydra/about/getting-started).
