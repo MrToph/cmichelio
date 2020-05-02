@@ -20,6 +20,9 @@ steem:
 - programming
 ---
 
+> ⚠️ Since EOSIO 2.0 a lot of inconsistencies mentioned in this post [have been fixed](https://github.com/EOSIO/eos/pull/7530).
+
+
 Understanding how to fetch EOSIO contract tables based on primary and secondary indexes is easy in theory but gets hard in practice as one needs to deal with different key types and their respective encoding.
 Unfortunately, [eosjs](https://github.com/EOSIO/eosjs) does not concern itself with the encoding and leaves it up to the user.
 This post will go through all common _key types_ and show how to query EOSIO tables based on them using _eosjs_.
