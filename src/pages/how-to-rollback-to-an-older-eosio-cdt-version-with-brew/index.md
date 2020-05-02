@@ -19,7 +19,7 @@ steem:
 - programming
 ---
 
-Recently, EOSIO.CDT 1.7 has been released, but it has a [severe bug] where it crashes when trying to compile a contract using an `eosio::ecc_public_key` in one of its table structures.
+Recently, EOSIO.CDT 1.7 has been released, but it has a [severe bug](https://github.com/EOSIO/eosio.cdt/issues/790) where it crashes when trying to compile a contract using an `eosio::ecc_public_key` in one of its table structures.
 
 If you're on MAC you might wonder how to roll-back to a previous EOSIO.CDT version using brew.
 
