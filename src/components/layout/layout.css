@@ -44,7 +44,6 @@ a.gatsby-resp-image-link {
     transition: none;   
 }
 
-a + em,
 .gatsby-resp-image-wrapper + em,
 .gatsby-resp-image-link + em {
   @apply block text-center;
