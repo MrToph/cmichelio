@@ -1,7 +1,7 @@
 ---
 title: Progress Report - May 2020
-date: 2020-06-01
-image: ./clockify.png
+date: 2020-06-02
+image: ./website-traffic.png
 categories:
 - Progress Report
 medium:
@@ -16,7 +16,6 @@ steem:
 - javascript
 - technology
 - blog
-draft: true
 ---
 
 
@@ -28,7 +27,7 @@ Last month's report can be seen [here](/progress-report-april-2020).
 ![Productive Hours in May](./clockify.png)
 _Hours worked on **side-projects** in May_
 
-I worked **68** _productive_ on side projects hours last month.
+I worked **38** _productive_ on side projects hours last month.
 
 To make these progress reports a bit more interesting, from now on I'll post my favourite song, TV show, and article I read last month.
 
@@ -49,7 +48,7 @@ To make these progress reports a bit more interesting, from now on I'll post my 
 
 ### Website
 
-Sessions stayed at **10,896** on my website.
+Sessions went down to **6,497** on my website.
 
 ![Website Traffic](./website-traffic.png)
 
@@ -71,5 +70,4 @@ I sold 4 books last month.
 
 ## What's next
 
-* X
-* Y
+Same old.
