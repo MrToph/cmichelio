@@ -27,7 +27,7 @@ Last month's report can be seen [here](/progress-report-april-2020).
 ![Productive Hours in May](./clockify.png)
 _Hours worked on **side-projects** in May_
 
-I worked **38** _productive_ on side projects hours last month.
+I worked **63** _productive_ on side projects hours last month.
 
 To make these progress reports a bit more interesting, from now on I'll post my favourite song, TV show, and article I read last month.
 
@@ -48,7 +48,7 @@ To make these progress reports a bit more interesting, from now on I'll post my 
 
 ### Website
 
-Sessions went down to **6,497** on my website.
+Sessions went down to **6,473** on my website.
 
 ![Website Traffic](./website-traffic.png)
 
