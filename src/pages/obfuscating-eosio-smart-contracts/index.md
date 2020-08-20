@@ -127,7 +127,11 @@ export default class PrivateAbiProvider implements AbiProvider {
         abi: privateAbis[account],
       };
 
-    return (await this.rpc.getRawAbi(account)).abi as any;
+    const abi = (await this.rpc.getRawAbi(account)).abi as any;
+    return {
+      accountName: account,
+      abi,
+    }
   }
 }
 ```
