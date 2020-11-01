@@ -52,17 +52,6 @@ export default function HireMeSection({ siteMetadata }) {
             rel="nofollow"
           >
             dfuse.io - In the Eyes of a Blockchain Developer series
-          </a>, or interview with {` `}
-          <a
-            href="https://www.eoswriter.io/165661_meet-the-custodians-episode-3-christoph-michel.eos"
-            rel="nofollow"
-          >
-            eoswriter
-          </a>, also available in <a
-            href="http://cn.eoswriter.io/6970_vigor-chris.eos"
-            rel="nofollow"
-          >
-            Chinese
           </a>.
         </li>
         <li>
