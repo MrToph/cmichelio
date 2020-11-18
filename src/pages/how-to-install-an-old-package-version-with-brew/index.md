@@ -59,3 +59,26 @@ brew extract --version=1.2.3 <packageName> $USER/local-<packageName>
 brew install <packageName>@1.2.3
 ```
 
+> Note that you might need to specify the triplet [tap/formula/formula](https://docs.brew.sh/Manpage#extract-options-formula-tap) in `brew extract <packageName>`
+
+## What if the package can not be found?
+
+For some reason, it can still be the case that brew is unable to find your version:
+
+```bash
+Error: Could not find <packageName> but homebrew/core is a shallow clone!
+Try again after running: ...
+```
+
+In this case, one can manually checkout the git hash of the tap and install the version:
+
+```bash
+# list all local taps
+brew tap
+
+# go to tap and check out correct hash
+cd /usr/local/Homebrew/Library/Taps/<packageName>
+git checkout <hash>
+# prevent brew from checking out different hash
+HOMEBREW_NO_AUTO_UPDATE=1 brew install <packageName>
+```
