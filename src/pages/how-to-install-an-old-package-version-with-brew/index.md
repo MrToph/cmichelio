@@ -81,4 +81,8 @@ cd /usr/local/Homebrew/Library/Taps/<packageName>
 git checkout <hash>
 # prevent brew from checking out different hash
 HOMEBREW_NO_AUTO_UPDATE=1 brew install <packageName>
+
+# can list and switch between all versions
+brew list --versions
+brew switch <packageName> <version>
 ```
