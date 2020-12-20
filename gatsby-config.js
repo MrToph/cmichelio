@@ -63,7 +63,6 @@ module.exports = {
               // ignoreFileExtensions: [],
             },
           },
-          `gatsby-remark-mathjax`,
           {
             resolve: `prepare-crosspost`,
             options: {
@@ -74,6 +73,8 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 720,
+              // disableBgImageOnAlpha: true,
+              backgroundColor: `transparent`,
               linkImagesToOriginal: true,
             },
           },

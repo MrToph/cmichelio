@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 // import Metaballs from 'react-metaballs-js'
 import Logo from './logo'
-import tailwind from '../../../tailwind'
+// import tailwind from '../../../tailwind'
 import './tailwind.css'
 import './layout.css'
 
