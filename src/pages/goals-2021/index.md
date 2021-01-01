@@ -1,7 +1,7 @@
 ---
 title: Goals 2021
 date: 2021-01-01
-image: ./featured.png
+image: ./featured.jpg
 categories:
 - Tech
 - EOS
