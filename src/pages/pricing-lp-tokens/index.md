@@ -4,8 +4,8 @@ date: 2020-12-19
 image: ./featured.webp
 categories:
 - Tech
-- EOS
-- learneos
+- ETH
+- security
 medium:
 - eos
 - Programming

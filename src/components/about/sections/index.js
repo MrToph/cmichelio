@@ -39,7 +39,7 @@ function SectionContent(props) {
             and Master degrees in{` `}
             <span className="font-bold">Maths and Computer Science</span> 🎓 ,
             and have been working professionally as a{` `}
-            <span className="font-bold">software developer 👨‍💻</span> since then.
+            <span className="font-bold">software engineer 👨‍💻</span> since then.
           </p>
           <p>
             My main focus is on <span className="font-bold">JavaScript</span>
@@ -49,16 +49,16 @@ function SectionContent(props) {
             ⛓️ Here are some technologies I enjoy working with:
           </p>
           <ul>
-            <li>ES6/7, TypeScript, Lerna, Webpack, Rollup</li>
+            <li>TypeScript, JS ES2020, Lerna, Webpack, Rollup</li>
             <li>
-              React, GraphQL - Apollo Client, Redux, Jest, PostCSS / SCSS,
-              TailwindCSS
+              React, GraphQL - Apollo Client, Mobx, Jest, PostCSS / SCSS, Styled
+              Components, TailwindCSS
             </li>
             <li>
               Node.js, Express, Koa, GraphQL - Apollo Server, MongoDB,
               PostgreSQL
             </li>
-            <li>EOS, IPFS</li>
+            <li>EOS, ETH, IPFS</li>
             <li>Smart Contract Security Audits</li>
           </ul>
           <p>
@@ -69,15 +69,14 @@ function SectionContent(props) {
               rel="noopener noreferrer"
             >
               GitHub
-            </a>{` `}
+            </a>
+            {` `}
             to stay up-to-date on what I{`'`}m working on.
           </p>
         </React.Fragment>
       )
     case `indieMaker`:
-      return (
-       <IndieMakerSection siteMetadata={siteMetadata} />
-      )
+      return <IndieMakerSection siteMetadata={siteMetadata} />
     case `author`:
       return <AuthorSection siteMetadata={siteMetadata} />
     case `openSource`:
@@ -97,9 +96,7 @@ function SectionContent(props) {
     case `hireMe`:
       return <HireMeSection siteMetadata={siteMetadata} />
     case `stalkMe`:
-      return (
-        <StalkMeSection siteMetadata={siteMetadata} />
-      )
+      return <StalkMeSection siteMetadata={siteMetadata} />
   }
 }
 

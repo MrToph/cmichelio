@@ -72,7 +72,7 @@ export function Timelog(props) {
     <div className="timelog">
       <div className="timelog__header">
         <div className="w-8 ml-6 text-xl">📈</div>
-        <h3 className="ml-4 flex-1">Time tracked on side-projects</h3>
+        <h3 className="ml-4 flex-1">Time tracked on projects</h3>
       </div>
       {renderContent()}
     </div>

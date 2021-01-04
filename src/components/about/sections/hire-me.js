@@ -6,11 +6,11 @@ export default function HireMeSection({ siteMetadata }) {
   return (
     <React.Fragment>
       <p>
-        I started programming at the age of 15 👶, graduated with Bachelor and
+        I started programming at the age of 15, graduated with Bachelor and
         Master degrees in{` `}
         <span className="font-bold">Maths and Computer Science</span> 🎓 , and
         have been working professionally as a{` `}
-        <span className="font-bold">software developer 👨‍💻</span> since then in
+        <span className="font-bold">software engineer 👨‍💻</span> since then in
         on-site and remote teams.
       </p>
       <p>
@@ -26,13 +26,13 @@ export default function HireMeSection({ siteMetadata }) {
       <ul>
         <li>ES6/7, TypeScript, Lerna, Webpack</li>
         <li>
-          React, GraphQL - Apollo Client, Redux, Jest, PostCSS / SCSS, Styled
+          React, GraphQL - Apollo Client, Mobx, Jest, PostCSS / SCSS, Styled
           Components, TailwindCSS
         </li>
         <li>
           Node.js, Express, Koa, GraphQL - Apollo Server, MongoDB, PostgreSQL
         </li>
-        <li>Smart Contracts (EOSIO, C++), IPFS</li>
+        <li>Smart Contracts (EOSIO, C++; ETH), IPFS</li>
         <li>Smart Contract Security Audits</li>
       </ul>
       <p>
