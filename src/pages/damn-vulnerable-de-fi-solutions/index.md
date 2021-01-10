@@ -27,7 +27,7 @@ Recently, OpenZeppelin released their [Damn Vulnerable DeFi CTF challenges](http
 They are a lot of fun and it's a great way to get started with DeFi or ETH development in general.
 Unlike other CTFs everything runs on your local node, so no need to do waste time on getting set up like managing private keys, getting testnet ether, copying code to your local machine, etc.
 Give it a try!
-You can see my solutions for all challenges [in this GitHub repo](https://github.com/damianrusinek/damn-vulnerable-defi) and I'll provide a quick walkthrough here.
+You can see my solutions for all challenges [in this GitHub repo](https://github.com/MrToph/damn-vulnerable-defi) and I'll provide a quick walkthrough here.
 
 # Challenges
 
@@ -342,4 +342,10 @@ receive() external payable {}
 ```
 
 
-> ❕ The full code for all solutions can be [found on GitHub](https://github.com/damianrusinek/damn-vulnerable-defi).
+> ❕ The full code for all solutions can be [found on GitHub](https://github.com/MrToph/damn-vulnerable-defi).
+
+For more Ethereum CTFs, check out my other solutions:
+
+- Damn Vulnerable DeFi
+- [Ethernaut](/ethernaut-solutions)
+- [Capture The Ether](/capture-the-ether-solutions/)
