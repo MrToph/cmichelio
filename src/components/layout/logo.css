@@ -4,6 +4,6 @@
     max-width: 400px;
 
     @screen md {
-        @apply mb-24;
+        @apply mb-16;
     }
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import Image from 'gatsby-image'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import trim from 'lodash/trim'
@@ -44,22 +45,22 @@ export default class BlogPostTemplate extends React.Component {
 
     const siteUrl = trim(get(this.props, `data.site.siteMetadata.siteUrl`), `/`)
     const postUrl = `${siteUrl}/${trim(post.fields.slug, `/`)}`
-    let socialImage = image
-      ? image.childImageSharp.fixed.src
-      : featured
+    let socialImage = image ? image.childImageSharp.fixed.src : featured
     socialImage = socialImage && `${siteUrl}/${trim(socialImage, `/`)}`
     const siteTitle = get(this.props, `data.site.siteMetadata.title`)
     const postTitle = `${title} | ${siteTitle}`
     const keywords = (categories || []).join(` `)
     const description = post.excerpt
-  
+
     return (
       <Helmet>
         <title>{`${post.frontmatter.title} | ${siteTitle}`}</title>
         {socialImage ? <meta name="image" content={socialImage} /> : null}
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
-        {socialImage ? <meta property={`og:image`} content={socialImage} /> : null}
+        {socialImage ? (
+          <meta property={`og:image`} content={socialImage} />
+        ) : null}
         <meta property={`og:type`} content={`article`} />
         <meta poperty={`og:title`} content={postTitle} />
         <meta property={`og:description`} content={description} />
@@ -68,7 +69,9 @@ export default class BlogPostTemplate extends React.Component {
         <meta property="twitter:card" content="summary" />
         <meta property={`twitter:title`} content={postTitle} />
         <meta property={`twitter:description`} content={description} />
-        {socialImage ? <meta property={`twitter:image`} content={socialImage} /> : null}
+        {socialImage ? (
+          <meta property={`twitter:image`} content={socialImage} />
+        ) : null}
       </Helmet>
     )
   }
@@ -93,15 +96,29 @@ export default class BlogPostTemplate extends React.Component {
 
   render() {
     const post = this.props.data.markdownRemark
+    let socialImage = post.frontmatter.image ? post.frontmatter.image.childImageSharp.fluid : undefined
+
     return (
       <section id="blogPost">
         {this.renderMeta()}
+        {socialImage ? (
+          <Image
+            style={{
+              height: 300,
+            }}
+            fluid={socialImage}
+            alt="featured image"
+          />
+        ) : null}
+
         <SocialBar />
+
         <h1>{post.frontmatter.title}</h1>
         <CategoryBar
           categories={post.frontmatter.categories}
           date={post.frontmatter.date}
         />
+
         <div
           className="blogPost__content"
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -137,8 +154,11 @@ export const pageQuery = graphql`
         featured
         image {
           childImageSharp {
+            fluid(maxWidth: 920) {
+              ...GatsbyImageSharpFluid
+            }
             fixed(width: 300) {
-              src
+              ...GatsbyImageSharpFixed
             }
           }
         }
