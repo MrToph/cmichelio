@@ -38,24 +38,24 @@ Here's my [GitHub repo with the code](https://github.com/MrToph/paradigm-ctf) if
 Solved Challenges:
 
 - ✅ Babycrypto
-- ❌ Babyrev
-- ❌ Babysandbox
+- ✅ Babyrev ([@adietrichs](https://twitter.com/adietrichs))
+- ✅ Babysandbox ([@rohitnarurkar](https://twitter.com/rohitnarurkar))
 - ✅ Bank
 - ✅ Bouncer
 - ✅ Broker
 - ✅ Farmer
 - ✅ Hello
 - ❌ JOP
-- ❌ Lockbox
+- ✅ Lockbox ([@rohitnarurkar](https://twitter.com/rohitnarurkar))
 - ✅ Market
 - ❌ Rever
 - ✅ Secure
 - ❌ Swap (still unsolved)
-- ❌ Upgrade
+- ✅ Upgrade ([@adietrichs](https://twitter.com/adietrichs))
 - ❌ Vault
 - ✅ Yield Aggregator
 
-## Baby Crypto
+## Babycrypto
 
 > I've written a super simple program to sign some data. Hopefully, I didn't mess anything up!
 
@@ -68,6 +68,23 @@ I did not actually solve this challenge because I didn't feel like debugging low
 
 There are however already many articles explaining how it works.
 See also [Account Takeover of Capture The Ether](https://capturetheether.com/challenges/accounts/account-takeover/).
+
+## Babyrev
+
+> If I don't verify my source code, then hackers can't exploit my contract, right?
+
+Solution by [Ansgar Dietrichs](https://twitter.com/adietrichs):
+
+[https://hackmd.io/@adietrichs/paradigm-ctf-2021](https://hackmd.io/@adietrichs/paradigm-ctf-2021)
+
+## Babysandbox
+
+> I read that staticcall will keep my contracts safe.
+
+Solution by [Rohit Narurkar](https://twitter.com/rohitnarurkar):
+
+[https://gist.github.com/roynalnaruto/3687e0ab19c22ecbc32f0dcff5790198](https://gist.github.com/roynalnaruto/3687e0ab19c22ecbc32f0dcff5790198)
+
 
 ## Bank
 
@@ -300,6 +317,15 @@ it("solves the challenge", async function () {
 });
 ```
 
+## Lockbox
+
+> Isn't ABI encoding fun?
+
+Solution by [Rohit Narurkar](https://twitter.com/rohitnarurkar):
+
+[https://gist.github.com/roynalnaruto/3687e0ab19c22ecbc32f0dcff5790198](https://gist.github.com/roynalnaruto/3687e0ab19c22ecbc32f0dcff5790198)
+
+
 ## Market
 
 > Smarter Contracts Inc. has been hard at work developing the ultimate crypto collectible experience. We're proud to announce our new CryptoCollectibles contract and integrated marketplace.
@@ -470,6 +496,15 @@ function attack() external payable {
     require(setup.isSolved(), "!solved");
 }
 ```
+
+## Upgrade
+
+> Circle released a new update to USDC but something seems off. Can you take a look?
+
+Solution by [Ansgar Dietrichs](https://twitter.com/adietrichs):
+
+[https://hackmd.io/@adietrichs/paradigm-ctf-2021](https://hackmd.io/@adietrichs/paradigm-ctf-2021)
+
 
 ## Yield Aggregator
 
