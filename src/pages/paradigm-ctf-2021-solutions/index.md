@@ -69,6 +69,11 @@ I did not actually solve this challenge because I didn't feel like debugging low
 There are however already many articles explaining how it works.
 See also [Account Takeover of Capture The Ether](https://capturetheether.com/challenges/accounts/account-takeover/).
 
+**Update**: Python solution by [Rohit Narurkar](https://twitter.com/rohitnarurkar):
+
+[https://gist.github.com/roynalnaruto/3687e0ab19c22ecbc32f0dcff5790198](https://gist.github.com/roynalnaruto/3687e0ab19c22ecbc32f0dcff5790198)
+
+
 ## Babyrev
 
 > If I don't verify my source code, then hackers can't exploit my contract, right?
