@@ -39,7 +39,7 @@ To make these progress reports a bit more interesting, from now on I'll post my 
 ### What was worked on
 
 * I took part in the [Paradigm CTF](https://ctf.paradigm.xyz), scored well and got introduced to a lot of great people.
-* Most of my allocated free time was spent looking at ETH hacks and writing blog posts. I started a new series, _Replayiing Ethereum Hacks_.
+* Most of my allocated free time was spent looking at ETH hacks and writing blog posts. I started a new series, _Replaying Ethereum Hacks_.
 * business-related tasks
 
 ## Platform Growth
