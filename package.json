@@ -39,7 +39,7 @@
     "gatsby-transformer-sharp": "^2.9.0",
     "lodash": "^4.17.20",
     "netlify-lambda": "^1.6.3",
-    "prismjs": "^1.22.0",
+    "prismjs": "^1.23.0",
     "react": "^16.14.0",
     "react-disqus-comments": "git+https://github.com/theplatapi/react-disqus-thread.git",
     "react-dom": "^16.14.0",
