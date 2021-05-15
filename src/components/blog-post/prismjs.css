@@ -68,7 +68,7 @@
    padding: .1em;
    border-radius: .3em;
    white-space: pre-wrap;
-   color: config('colors.red');
+   color: theme('colors.red.500');
  }
  
  .token.comment,
@@ -102,7 +102,7 @@
  .token.attr-value,
  .token.builtin,
  .token.inserted {
-   color: config('colors.green');
+   color: theme('colors.green.500');
  }
  
  .token.operator,

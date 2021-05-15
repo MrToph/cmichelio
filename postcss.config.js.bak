@@ -1,0 +1,10 @@
+/* eslint-env node */
+const tailwindcss = require(`tailwindcss`)
+const precss = require(`precss`)
+
+module.exports = {
+  plugins: [
+    tailwindcss(`./tailwind.config.js`),
+    precss(),
+  ],
+}

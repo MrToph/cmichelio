@@ -24,7 +24,7 @@ View the full documentation at https://tailwindcss.com.
 |
 */
 
-let defaultConfig = require('tailwindcss/defaultConfig')()
+// let defaultConfig = require('tailwindcss/defaultConfig')()
 
 
 /*
@@ -127,6 +127,15 @@ let colors = {
   'pink-light': '#fa7ea8',
   'pink-lighter': '#ffbbca',
   'pink-lightest': '#ffebef',
+}
+
+
+// https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css-with-purgecss
+class TailwindExtractor {
+  static extract(content) {
+    // eslint-disable-next-line no-useless-escape
+    return content.match(/[A-Za-z0-9-_:\/]+/g) || []
+  }
 }
 
 module.exports = {
@@ -954,10 +963,11 @@ module.exports = {
   */
 
   plugins: [
-    require('tailwindcss/plugins/container')({
-      // center: true,
-      // padding: '1rem',
-    }),
+    // container plugin now built-in? https://tailwindcss.com/docs/plugins
+    // require('tailwindcss/plugins/container')({
+    //   // center: true,
+    //   // padding: '1rem',
+    // }),
   ],
 
 
@@ -977,4 +987,23 @@ module.exports = {
     separator: ':',
   },
 
+
+  // purge: {
+  //   mode: 'all',
+  //   preserveHtmlElements: false,
+  //   content: [
+  //     `./src/**/*.js`,
+  //     `./src/components/blog-post/prismjs.css`,
+  //     `./src/components/layout/layout.css`, // for html, body, all gatsby/markdown-only things etc.
+  //   ],
+  //   css: [`./src/**/*.css`],
+  //   whitelistPatterns: [/^cols-\d$/],
+  //   extractors: [
+  //     {
+  //       extractor: TailwindExtractor,
+  //       extensions: [`html`, `js`, `jsx`, `css`],
+  //     },
+  //   ],
+  // },
 }
+

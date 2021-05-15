@@ -9,7 +9,7 @@
  *
  * @import "tailwindcss/preflight";
  */
- @tailwind preflight;
+ @tailwind base;
 
  /**
   * This injects any component classes registered by plugins.
@@ -64,7 +64,7 @@
   .scrollbar {
     @apply overflow-y-auto;
     /* For firefox: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scrollbars */
-    scrollbar-color: config('colors.green') config('colors.grey-darkest');
+    scrollbar-color: theme('colors.green.500') theme('colors.grey-darkest');
     scrollbar-width: thin;
 
     &::-webkit-scrollbar {
@@ -72,14 +72,14 @@
     }
 
     &::-webkit-scrollbar-track {
-        background: config('colors.grey-darkest');
+        background: theme('colors.grey-darkest');
     }
 
     &::-webkit-scrollbar-thumb {
-        background: config('colors.green');
+        background: theme('colors.green.500');
     }
 
     &::-webkit-scrollbar-thumb:hover {
-        background: config('colors.green');
+        background: theme('colors.green.500');
     }
 }

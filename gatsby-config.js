@@ -1,6 +1,6 @@
 /* eslint-env node */
 const url = require(`url`)
-const proxy = require(`http-proxy-middleware`)
+const { createProxyMiddleware } = require(`http-proxy-middleware`)
 
 module.exports = {
   siteMetadata: {
@@ -21,15 +21,16 @@ module.exports = {
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
   developMiddleware: app => {
     app.use(
-      `/.netlify/functions/`,
-      proxy({
-        target: `http://localhost:9000`,
+      `/.netlify/functions`,
+      createProxyMiddleware({
+        target: `http://localhost:9000/`,
         pathRewrite: {
-          '/.netlify/functions/': ``,
+          '/.netlify/functions': ``,
         },
       })
     )
   },
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,

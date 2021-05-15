@@ -10,7 +10,7 @@ import {
   Tooltip,
   Legend,
 } from 'recharts'
-import tailwind from '../../../tailwind'
+// import tailwind from '../../../tailwind.config'
 import './index.css'
 
 const dataToChart = timelog =>

@@ -11,7 +11,7 @@ export default function About() {
   return (
     <React.Fragment>
       <div>
-        <h1 className="inline-block whitespace-no-wrap text-grey">{`Hi, I'm Christoph Michel 👋`}</h1>
+        <h1 className="inline-block whitespace-no-wrap text-grey tracking-wide">{`Hi, I'm Christoph Michel 👋`}</h1>
         <MeImage />
       </div>
       <p>

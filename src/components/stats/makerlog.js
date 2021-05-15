@@ -38,7 +38,7 @@ function MakerlogInner(props) {
           href="https://getmakerlog.com/@cmichel"
           target="_blank"
           rel="noopener noreferrer nofollow"
-          className="text-black font-bold bg-green pl-2 mr-4"
+          className="text-black font-bold bg-green-500 pl-2 mr-4"
         >
           Follow 🏃‍♂️
         </a>
