@@ -61,7 +61,7 @@
   * @import "utilities/skew-transforms";
   */
  
-  .scrollbar {
+.scrollbar {
     @apply overflow-y-auto;
     /* For firefox: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scrollbars */
     scrollbar-color: theme('colors.green.500') theme('colors.grey-darkest');
@@ -83,3 +83,14 @@
         background: theme('colors.green.500');
     }
 }
+
+
+@import "../about/me.scss";
+@import "../blog-index/post-outline.scss";
+@import "../blog-post/blog-post.scss";
+@import "../blog-post/prismjs.scss";
+@import "../category-bar/category-bar.scss";
+@import "../layout/layout.scss";
+@import "../layout/logo.scss";
+@import "../social-bar/social-bar.scss";
+@import "../stats/index.scss";

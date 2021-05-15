@@ -1,7 +1,7 @@
 /* eslint-env node */
 const tailwindcss = require(`tailwindcss`)
-const precss = require(`precss`)
-const purge = require(`@fullhuman/postcss-purgecss`)
+// const precss = require(`precss`)
+// const purge = require(`@fullhuman/postcss-purgecss`)
 const autoprefixer = require(`autoprefixer`)
 
 module.exports = {
@@ -9,12 +9,12 @@ module.exports = {
     tailwindcss: {}, // tailwindcss(`./tailwind.config.js`),
     autoprefixer: {},
     // precss: {}, // precss(),
-    'postcss-preset-env': {
-      stage: 1,
-      features: {
-        'focus-within-pseudo-class': false
-      },
-    },
+    // 'postcss-preset-env': {
+    //   stage: 1,
+    //   features: {
+    //     'focus-within-pseudo-class': false
+    //   },
+    // },
   //   '@fullhuman/postcss-purgecss': {
   //     preserveHtmlElements: false,
   //     // paths to all of the template files in the project
@@ -25,7 +25,7 @@ module.exports = {
   //       `./src/components/layout/layout.css`, // for html, body, all gatsby/markdown-only things etc.
   //     ],
   //     css: [`./src/**/*.css`],
-  //     safeList: [/^cols-\d$/],
+  //     safelist: [/^cols-\d$/],
   //     defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
   //     extractors: [
   //       {

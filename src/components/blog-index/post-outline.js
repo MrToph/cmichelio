@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import get from 'lodash/get'
 import FeaturedImage from './featured-image'
 import CategoryBar from '../category-bar'
-import './post-outline.css'
+// import './post-outline.scss'
 
 
 export default class PostOutline extends React.Component {

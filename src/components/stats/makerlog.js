@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
-import './index.css'
 import { useApi } from '../../utils'
 import { fetchMakerlog } from '../../api'
+// import './index.scss'
 
 function MakerlogInner(props) {
   const { loading, data, image } = props

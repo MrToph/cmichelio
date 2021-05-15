@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
-import './me.css'
+// import './me.scss'
 
 function Me(props) {
   const { image } = props

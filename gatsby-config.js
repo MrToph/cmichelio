@@ -19,7 +19,7 @@ module.exports = {
   pathPrefix: `/`,
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
-  developMiddleware: app => {
+  developMiddleware: (app) => {
     app.use(
       `/.netlify/functions`,
       createProxyMiddleware({
@@ -98,7 +98,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+              return allMarkdownRemark.edges.map((edge) => {
                 const absoluteUrl = url.resolve(
                   site.siteMetadata.siteUrl,
                   edge.node.fields.slug
@@ -137,13 +137,21 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        postCssPlugins: [
+          require(`tailwindcss`),
+          require(`./tailwind.config.js`), // Optional: Load custom Tailwind CSS configuration
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-layout`,
       options: {
         component: require.resolve(`./src/components/layout/index.js`),
       },
     },
-    `gatsby-plugin-remove-serviceworker`
+    `gatsby-plugin-remove-serviceworker`,
   ],
 }

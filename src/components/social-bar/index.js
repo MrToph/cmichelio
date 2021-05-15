@@ -7,7 +7,7 @@ import RSSIcon from './icons/rss.svg'
 import MediumIcon from './icons/medium.svg'
 import SteemitIcon from './icons/steemit.svg'
 import LinkedInIcon from './icons/linkedin.svg'
-import './social-bar.css'
+// import './social-bar.scss'
 
 
 const Icon = ({ icon, url }) => (

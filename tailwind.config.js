@@ -976,24 +976,23 @@ module.exports = {
   },
   plugins: [],
 
-  // purge: {
-  //   mode: 'all',
-  //   preserveHtmlElements: false,
-  //   content: [
-  //     `./src/**/*.js`,
-  //     `./src/components/**/*.css`,
-  //     // `./src/components/blog-post/prismjs.css`,
-  //     // `./src/components/layout/layout.css`, // for html, body, all gatsby/markdown-only things etc.
-  //   ],
-  //   css: [`./src/**/*.css`],
-  //   options: {
-  //     safeList: [/^cols-\d$/],
-  //     extractors: [
-  //       {
-  //         extractor: content => (content.match(/[A-Za-z0-9-_:\/]+/g) || []),
-  //         extensions: [`html`, `js`, `jsx`, `css`],
-  //       },
-  //     ],
-  //   },
-  // },
+  purge: {
+    mode: 'all',
+    preserveHtmlElements: false,
+    content: [
+      `./src/**/*.js`,
+      `./src/components/blog-post/prismjs.css`,
+      `./src/components/layout/layout.css`, // for html, body, all gatsby/markdown-only things etc.
+    ],
+    css: [`./src/**/*.scss`],
+    options: {
+      safelist: [/^cols-\d$/],
+      extractors: [
+        {
+          extractor: content => (content.match(/[A-Za-z0-9-_:\/]+/g) || []),
+          extensions: [`html`, `js`, `jsx`, `css`],
+        },
+      ],
+    },
+  },
 }
