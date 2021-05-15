@@ -19,11 +19,11 @@ function StalkMeSection({ siteMetadata, data, error, loading }) {
         loading={loading}
         error={error}
       />
-      <Lastfm
+      {/* <Lastfm
         data={{ lastfm: data && data.lastfm }}
         loading={loading}
         error={error}
-      />
+      /> */}
     </React.Fragment>
   )
 }
