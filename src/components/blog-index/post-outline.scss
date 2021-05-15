@@ -3,11 +3,11 @@
     flex: 0 0 100%;
 
     &:nth-child(1n) {
-        box-shadow: 0 2px 2px -2px config('colors.red');
+        box-shadow: 0 2px 2px -2px theme('colors.red.500');
     }
 
     &:hover, &:hover &__link{
-        background: config('colors.black');
+        background: theme('colors.black');
         @apply text-white;
     }
 

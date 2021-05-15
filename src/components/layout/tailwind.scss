@@ -9,18 +9,18 @@
  *
  * @import "tailwindcss/preflight";
  */
- @tailwind preflight;
+@tailwind base;
 
- /**
+/**
   * This injects any component classes registered by plugins.
   *
   * If using `postcss-import`, use this import instead:
   *
   * @import "tailwindcss/components";
   */
- @tailwind components;
- 
- /**
+@tailwind components;
+
+/**
   * Here you would add any of your custom component classes; stuff that you'd
   * want loaded *before* the utilities so that the utilities could still
   * override them.
@@ -35,8 +35,8 @@
   * @import "components/buttons";
   * @import "components/forms";
   */
- 
- /**
+
+/**
   * This injects all of Tailwind's utility classes, generated based on your
   * config file.
   *
@@ -44,9 +44,9 @@
   *
   * @import "tailwindcss/utilities";
   */
- @tailwind utilities;
- 
- /**
+@tailwind utilities;
+
+/**
   * Here you would add any custom utilities you need that don't come out of the
   * box with Tailwind.
   *
@@ -60,26 +60,37 @@
   * @import "utilities/background-patterns";
   * @import "utilities/skew-transforms";
   */
- 
-  .scrollbar {
-    @apply overflow-y-auto;
-    /* For firefox: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scrollbars */
-    scrollbar-color: config('colors.green') config('colors.grey-darkest');
-    scrollbar-width: thin;
 
-    &::-webkit-scrollbar {
-        width: 10px;
-    }
+.scrollbar {
+  @apply overflow-y-auto;
+  /* For firefox: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scrollbars */
+  scrollbar-color: theme('colors.green.500') theme('colors.grey-darkest');
+  scrollbar-width: thin;
 
-    &::-webkit-scrollbar-track {
-        background: config('colors.grey-darkest');
-    }
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
 
-    &::-webkit-scrollbar-thumb {
-        background: config('colors.green');
-    }
+  &::-webkit-scrollbar-track {
+    background: theme('colors.grey-darkest');
+  }
 
-    &::-webkit-scrollbar-thumb:hover {
-        background: config('colors.green');
-    }
+  &::-webkit-scrollbar-thumb {
+    background: theme('colors.green.500');
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.green.500');
+  }
 }
+
+/* all scss files need to be imported from here for some reason. just following the tutorial on https://www.gatsbyjs.com/docs/how-to/styling/tailwind-css */
+@import '../about/me.scss';
+@import '../blog-index/post-outline.scss';
+@import '../blog-post/blog-post.scss';
+@import '../blog-post/prismjs.scss';
+@import '../category-bar/category-bar.scss';
+@import '../layout/layout.scss';
+@import '../layout/logo.scss';
+@import '../social-bar/social-bar.scss';
+@import '../stats/index.scss';

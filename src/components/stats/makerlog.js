@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
-import './index.css'
 import { useApi } from '../../utils'
 import { fetchMakerlog } from '../../api'
+// import './index.scss'
 
 function MakerlogInner(props) {
   const { loading, data, image } = props
@@ -38,7 +38,7 @@ function MakerlogInner(props) {
           href="https://getmakerlog.com/@cmichel"
           target="_blank"
           rel="noopener noreferrer nofollow"
-          className="text-black font-bold bg-green pl-2 mr-4"
+          className="text-black font-bold bg-green-500 pl-2 mr-4"
         >
           Follow 🏃‍♂️
         </a>

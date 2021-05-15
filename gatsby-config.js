@@ -1,6 +1,6 @@
 /* eslint-env node */
 const url = require(`url`)
-const proxy = require(`http-proxy-middleware`)
+const { createProxyMiddleware } = require(`http-proxy-middleware`)
 
 module.exports = {
   siteMetadata: {
@@ -19,17 +19,18 @@ module.exports = {
   pathPrefix: `/`,
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
-  developMiddleware: app => {
+  developMiddleware: (app) => {
     app.use(
-      `/.netlify/functions/`,
-      proxy({
-        target: `http://localhost:9000`,
+      `/.netlify/functions`,
+      createProxyMiddleware({
+        target: `http://localhost:9000/`,
         pathRewrite: {
-          '/.netlify/functions/': ``,
+          '/.netlify/functions': ``,
         },
       })
     )
   },
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -97,7 +98,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+              return allMarkdownRemark.edges.map((edge) => {
                 const absoluteUrl = url.resolve(
                   site.siteMetadata.siteUrl,
                   edge.node.fields.slug
@@ -136,13 +137,21 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        postCssPlugins: [
+          require(`tailwindcss`),
+          require(`./tailwind.config.js`), // Optional: Load custom Tailwind CSS configuration
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-layout`,
       options: {
         component: require.resolve(`./src/components/layout/index.js`),
       },
     },
-    `gatsby-plugin-remove-serviceworker`
+    `gatsby-plugin-remove-serviceworker`,
   ],
 }

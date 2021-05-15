@@ -5,15 +5,15 @@
     }
 
     & &__list {
-        @apply list-reset;
+        @apply list-none p-0;
         max-height: 10rem;
     }
 
     & &__item {
         @apply flex items-center px-6 py-2;
-        background-color: config('colors.green')16;
+        background-color: theme('colors.green.500')16;
         &:nth-child(2n+1) {
-            background-color: config('colors.red')16;
+            background-color: theme('colors.red.500')16;
         }
     }
 }
@@ -21,6 +21,6 @@
 .timelog {
     & &__content {
         @apply flex justify-center pt-4;
-        background-color: config('colors.red')16;
+        background-color: theme('colors.red.500')16;
     }
 }

@@ -7,11 +7,11 @@ import RSSIcon from './icons/rss.svg'
 import MediumIcon from './icons/medium.svg'
 import SteemitIcon from './icons/steemit.svg'
 import LinkedInIcon from './icons/linkedin.svg'
-import './social-bar.css'
+// import './social-bar.scss'
 
 
 const Icon = ({ icon, url }) => (
-  <a className="social-bar__link mr-6" rel="noopener noreferrer" target="__blank" href={url}>
+  <a className="social-bar__link" rel="noopener noreferrer" target="__blank" href={url}>
     <img src={icon} className="social-bar__icon" alt={url} />
   </a>
 )
@@ -40,35 +40,35 @@ class SocialBar extends Component {
   render() {
     const { data } = this.props
     return (
-      <ul className="flex flex-row justify-start w-full p-0 list-reset my-4 mx-0">
-        <li>
+      <ul className="flex flex-row justify-start w-full p-0 list-none my-4 mx-0">
+        <li className="mr-6">
           <Icon url={`/feed.xml`} icon={RSSIcon} />
         </li>
-        <li>
+        <li className="mr-6">
           <Icon
             url={`//medium.com/@${data.site.siteMetadata.medium}`}
             icon={MediumIcon}
           />
         </li>
-        <li>
+        <li className="mr-6">
           <Icon
             url={`//hive.blog/@${data.site.siteMetadata.steem}`}
             icon={SteemitIcon}
           />
         </li>
-        <li>
+        <li className="mr-6">
           <Icon
             url={`//github.com/${data.site.siteMetadata.github}`}
             icon={GitHubIcon}
           />
         </li>
-        <li>
+        <li className="mr-6">
           <Icon
             url={`//twitter.com/${data.site.siteMetadata.twitter}`}
             icon={TwitterIcon}
           />
         </li>
-        <li>
+        <li className="mr-6">
           <Icon
             url={`//linkedin.com/in/${data.site.siteMetadata.linkedIn}`}
             icon={LinkedInIcon}
