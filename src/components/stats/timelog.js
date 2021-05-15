@@ -10,6 +10,7 @@ import {
   Tooltip,
   Legend,
 } from 'recharts'
+import tailwind from '../../../tailwind.config'
 
 const dataToChart = timelog =>
   timelog.map(t => ({ ...t, hours: t.seconds / (60 * 60) }))
@@ -38,9 +39,9 @@ export function Timelog(props) {
               data={dataToChart(data.timelog)}
               margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
             >
-              <XAxis dataKey="date" tick={{ fill: tailwind.colors[`grey`] }} />
+              <XAxis dataKey="date" tick={{ fill: tailwind.theme.colors.grey }} />
               <YAxis
-                tick={{ fill: tailwind.colors[`grey`] }}
+                tick={{ fill: tailwind.theme.colors.grey }}
                 allowDecimals={false}
                 unit="h"
               />
@@ -54,8 +55,8 @@ export function Timelog(props) {
               <Line
                 type="monotone"
                 dataKey="hours"
-                stroke={tailwind.colors[`green`]}
-                activeDot={{ r: 8, fill: tailwind.colors.red }}
+                stroke={tailwind.theme.colors.green[`500`]}
+                activeDot={{ r: 8, fill: tailwind.theme.colors.red[`500`] }}
               />
             </LineChart>
           </ResponsiveContainer>
