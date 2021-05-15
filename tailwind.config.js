@@ -981,8 +981,8 @@ module.exports = {
     preserveHtmlElements: false,
     content: [
       `./src/**/*.js`,
-      `./src/components/blog-post/prismjs.css`,
-      `./src/components/layout/layout.css`, // for html, body, all gatsby/markdown-only things etc.
+      `./src/components/blog-post/prismjs.scss`,
+      `./src/components/layout/layout.scss`, // for html, body, all gatsby/markdown-only things etc.
     ],
     css: [`./src/**/*.scss`],
     options: {
