@@ -9,8 +9,6 @@ import ReactDisqusComments from 'react-disqus-comments'
 import About from '../about'
 import CategoryBar from '../category-bar'
 import SocialBar from '../social-bar'
-// import './blog-post.scss'
-// import './prismjs.scss'
 
 export default class BlogPostTemplate extends React.Component {
   static propTypes = {

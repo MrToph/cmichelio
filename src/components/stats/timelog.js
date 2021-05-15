@@ -10,8 +10,6 @@ import {
   Tooltip,
   Legend,
 } from 'recharts'
-// import tailwind from '../../../tailwind.config'
-// import './index.scss'
 
 const dataToChart = timelog =>
   timelog.map(t => ({ ...t, hours: t.seconds / (60 * 60) }))

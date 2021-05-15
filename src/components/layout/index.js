@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 // import Metaballs from 'react-metaballs-js'
 import Logo from './logo'
-// import './layout.scss'
 
 export default function MainTemplate(props) {
   const {
