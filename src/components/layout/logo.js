@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-// import './logo.scss'
 
 export default function Logo() {
   return (

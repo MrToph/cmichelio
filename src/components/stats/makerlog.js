@@ -4,7 +4,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 import { useApi } from '../../utils'
 import { fetchMakerlog } from '../../api'
-// import './index.scss'
 
 function MakerlogInner(props) {
   const { loading, data, image } = props
