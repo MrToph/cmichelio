@@ -25,6 +25,10 @@ body {
     background-repeat: no-repeat;
 }
 
+ol {
+  list-style: decimal;
+}
+
 a {
   color: theme('colors.green.500');
   text-decoration: none;
