@@ -29,6 +29,10 @@ ol {
   list-style: decimal;
 }
 
+ul {
+  list-style: initial;
+}
+
 a {
   color: theme('colors.green.500');
   text-decoration: none;
