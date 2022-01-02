@@ -3,15 +3,11 @@ title: Goals 2021
 date: 2021-01-01
 image: ./featured.jpg
 categories:
-- Tech
-- EOS
-- learneos
+- Business
 medium:
-- eos
-- Programming
-- blockchain
-- cryptocurrency
-- javascript
+- programming
+- development
+- progress
 steem:
 - eos
 - utopian-io
