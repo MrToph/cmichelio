@@ -74,7 +74,7 @@ The goal is to contribute to a promising DAO as a protocol dev or even develop m
 (I'll do this with my anon, so please don't ask me about what I'm building.)
 
 On a related note, I don't see myself ever going back to traditional non-DAO employment.
-With Code4rena, Immunefi, Spearbit I have three great ways to work in security in a decentralized manner: It's _truely flexible_ about the workload (compared to what "flexible work hours" means in traditional companies) and I don't have anyone to report to or join weekly meetings.
+With Code4rena, Immunefi, Spearbit I have three great ways to work in security in a decentralized manner: It's _truly flexible_ about the workload (compared to what "flexible work hours" means in traditional companies) and I don't have anyone to report to or join weekly meetings.
 
 I've never been happier with my work arrangements.
 
