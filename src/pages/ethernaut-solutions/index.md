@@ -20,7 +20,7 @@ steem:
   - cryptocurrency
 ---
 
-[Ethernaut](https://capturetheether.com) is OpenZeppelin's wargame to learn about Ethereum smart contract security.
+[Ethernaut](https://ethernaut.openzeppelin.com) is OpenZeppelin's wargame to learn about Ethereum smart contract security.
 It launched a couple of years ago and consists of 21 challenges that need to be solved.
 I personally found the Ethernaut challenges to be easier than the challenges of Capture the Ether, another CTF. If you have no prior Ethereum and security background this might be a good place to start.
 The challenges are on the Rinkeby testnet which makes the setup and receiving testnet ether a bit inconvenient as there are currently no easy to use faucets.
