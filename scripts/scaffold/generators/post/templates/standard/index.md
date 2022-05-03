@@ -3,20 +3,19 @@ title: <%= title %>
 date: <%= date %>
 image: ./featured.png
 categories:
-- Tech
-- EOS
-- learneos
+  - Tech
+  - ETH
+  - security
 medium:
-- eos
-- Programming
-- blockchain
-- cryptocurrency
-- javascript
+  - ETH
+  - solidity
+  - Programming
+  - blockchain
+  - cryptocurrency
 steem:
-- eos
-- utopian-io
-- steemdev
-- programming
-- cryptocurrency
+  - ETH
+  - steemdev
+  - programming
+  - cryptocurrency
 ---
 
