@@ -22,7 +22,7 @@ steem:
 
 
 
-After 14 months of grinding [Code4rena](https://code4rena.com/) audit contests I'm the first person to hit 1M$ in awards and take the number one spot on the [leaderboard](https://code4rena.com/leaderboard/). 🥳
+After 14 months of grinding [Code4rena](https://code4rena.com/) audit contests I'm the first person to hit 1M$ in awards and take the number one spot on the [leaderboard](https://web.archive.org/web/20220503203405/https://code4rena.com/leaderboard). 🥳
 
 ![Leaderboard Number One](./featured.png)
 
