@@ -64,7 +64,7 @@
     "http-proxy-middleware": "^2.0.0",
     "js-yaml": "^4.1.0",
     "medium-sdk": "0.0.4",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "npm-check": "^5.9.2",
     "prettier": "^2.3.0",
     "remark-frontmatter": "^3.0.0",
