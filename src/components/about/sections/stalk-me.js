@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Makerlog } from '../../stats/makerlog'
 import { Lastfm } from '../../stats/lastfm'
 import { Timelog } from '../../stats/timelog'
 import { fetchStats } from '../../../api'
@@ -9,11 +8,6 @@ import { useApi } from '../../../utils'
 function StalkMeSection({ siteMetadata, data, error, loading }) {
   return (
     <React.Fragment>
-      <Makerlog
-        data={{ makerlog: data && data.makerlog }}
-        loading={loading}
-        error={error}
-      />
       <Timelog
         data={{ timelog: data && data.timelog }}
         loading={loading}

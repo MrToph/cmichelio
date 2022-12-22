@@ -48,15 +48,7 @@ function AboutSection(props) {
         >
           Medium
         </a>
-        {` `},{` `}
-        <a
-          href={`//hive.blog/@${siteMetadata.steem}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Steem
-        </a>
-        , or{` `}
+        {` `}, or{` `}
         <a
           href={`//twitter.com/${siteMetadata.twitter}`}
           target="_blank"

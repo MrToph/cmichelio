@@ -10,30 +10,26 @@ export default function HireMeSection({ siteMetadata }) {
         Master degrees in{` `}
         <span className="font-bold">Maths and Computer Science</span> 🎓 , and
         have been working professionally as a{` `}
-        <span className="font-bold">software engineer 👨‍💻</span> since then in
+        <span className="font-bold">software engineer 👨‍💻</span> and{' '}
+        <span className="font-bold">security auditor 🏹🐛</span> since then in
         on-site and remote teams.
       </p>
       <p>
-        If you want something built from scratch or need more manpower in your
-        team for an existing project, please get in contact with me. I worked on
-        many projects in the{` `}
+        If you want something audited, built from scratch or need more manpower
+        in your team for an existing project, please get in contact with me. I
+        worked on many projects in the{` `}
+        <span className="font-bold">Solidity</span> and
         <span className="font-bold">JavaScript/TypeScript</span>
         {` `}
-        (frontend and backend) and{` `}
-        <span className="font-bold">blockchain</span> ⛓️ space. Here are some
-        technologies I enjoyed working with in the past:
+        (frontend and backend) <span className="font-bold">blockchain</span> ⛓️
+        space. Here are some technologies I enjoyed working with in the past:
       </p>
       <ul>
-        <li>ES6/7, TypeScript, Lerna, Webpack</li>
+        <li>smart contracts with Solidity, low-level EVM optimizations</li>
         <li>
-          React, GraphQL - Apollo Client, Mobx, Jest, PostCSS / SCSS, Styled
-          Components, TailwindCSS
+          TypeScript. React, Mobx, CSS-in-JS, TailwindCSS. Node.js, PostgreSQL
         </li>
-        <li>
-          Node.js, Express, Koa, GraphQL - Apollo Server, MongoDB, PostgreSQL
-        </li>
-        <li>Smart Contracts (EOSIO, C++; ETH), IPFS</li>
-        <li>Smart Contract Security Audits</li>
+        <li>Rust</li>
       </ul>
       <p>
         Having said that, I learn extremely fast and I'm confident I can pick up
@@ -46,13 +42,25 @@ export default function HireMeSection({ siteMetadata }) {
       </p>
       <ul>
         <li>
+          As of 2023, I'm ranked the #1 security auditor out of 816 on{' '}
+          <a
+            href="https://code4rena.com/leaderboard/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Code4rena's all-time leaderboard
+          </a>{' '}
+          with $1.3M in earnings. (2023)
+        </li>
+        <li>
           Interview with {` `}
           <a
-            href="https://www.dfuse.io/en/blog/christoph-michel-learn-eos"
+            href="https://medium.com/@dfuseio/in-the-eyes-of-a-blockchain-developer-christoph-michel-author-of-learn-eos-7b69f3266d4"
             rel="nofollow"
           >
-            dfuse.io - In the Eyes of a Blockchain Developer series
-          </a>.
+            dfuse.io (now streamingfast.io) - In the Eyes of a Blockchain Developer series (2019)
+          </a>
+          .
         </li>
         <li>
           Mark Erikson, maintainer of Redux, in his{` `}
@@ -63,25 +71,10 @@ export default function HireMeSection({ siteMetadata }) {
             high quality blogs
           </a>
           {` `}
-          reddit post:
+          reddit post (2016):
           <blockquote>
             Christoph Michel has written a number of good articles about React,
             React Native, and Redux
-          </blockquote>
-        </li>
-        <li>
-          Considered one of the{` `}
-          <a
-            href="https://ideamotive.co/blog/best-react-native-experts-blogs/"
-            rel="nofollow"
-          >
-            17 React Native experts and Blogs To follow in 2018
-          </a>
-          .
-          <blockquote>
-            Christoph has written a number of good articles about React, React
-            Native, and Redux. Although he doesn’t exclusively write about
-            mobile app development, his blog is still worth visiting.
           </blockquote>
         </li>
         <li>

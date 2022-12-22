@@ -4,14 +4,15 @@ import { StaticQuery, graphql } from 'gatsby'
 import AuthorSection from './author'
 import HireMeSection from './hire-me'
 import StalkMeSection from './stalk-me'
-import IndieMakerSection from './indie-maker'
+import DeveloperSection from './developer'
+import AuditorSection from './auditor'
 
 export function SectionHeader({ section }) {
   switch (section) {
     case `developer`:
       return `👨‍💻 Developer`
-    case `indieMaker`:
-      return `👷‍♂️ Indie Maker`
+    case `auditor`:
+      return `🏹🐛 Auditor`
     case `author`:
       return `✍️ Author`
     case `openSource`:
@@ -32,51 +33,9 @@ function SectionContent(props) {
   } = props
   switch (section) {
     case `developer`:
-      return (
-        <React.Fragment>
-          <p>
-            I started programming at the age of 15 👶, graduated with Bachelor
-            and Master degrees in{` `}
-            <span className="font-bold">Maths and Computer Science</span> 🎓 ,
-            and have been working professionally as a{` `}
-            <span className="font-bold">software engineer 👨‍💻</span> since then.
-          </p>
-          <p>
-            My main focus is on <span className="font-bold">JavaScript</span>
-            {` `}
-            (frontend and backend) and{` `}
-            <span className="font-bold">Web 3.0 blockchain technologies</span>.
-            ⛓️ Here are some technologies I enjoy working with:
-          </p>
-          <ul>
-            <li>TypeScript, JS ES2020, Lerna, Webpack, Rollup</li>
-            <li>
-              React, GraphQL - Apollo Client, Mobx, Jest, PostCSS / SCSS, Styled
-              Components, TailwindCSS
-            </li>
-            <li>
-              Node.js, Express, Koa, GraphQL - Apollo Server, MongoDB,
-              PostgreSQL
-            </li>
-            <li>EOS, ETH, IPFS</li>
-            <li>Smart Contract Security Audits</li>
-          </ul>
-          <p>
-            Check out my{` `}
-            <a
-              href={`//github.com/${siteMetadata.github}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-            {` `}
-            to stay up-to-date on what I{`'`}m working on.
-          </p>
-        </React.Fragment>
-      )
-    case `indieMaker`:
-      return <IndieMakerSection siteMetadata={siteMetadata} />
+      return <DeveloperSection siteMetadata={siteMetadata} />
+    case `auditor`:
+      return <AuditorSection siteMetadata={siteMetadata} />
     case `author`:
       return <AuthorSection siteMetadata={siteMetadata} />
     case `openSource`:
@@ -97,6 +56,8 @@ function SectionContent(props) {
       return <HireMeSection siteMetadata={siteMetadata} />
     case `stalkMe`:
       return <StalkMeSection siteMetadata={siteMetadata} />
+    default: 
+      throw new Error(`Unknown section: ${section}`)
   }
 }
 
@@ -123,7 +84,7 @@ export function SectionContentContainer(props) {
           ...SocialMediaFragment
         }
       `}
-      render={data => <SectionContent {...props} data={data} />}
+      render={(data) => <SectionContent {...props} data={data} />}
     />
   )
 }
