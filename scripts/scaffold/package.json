@@ -15,8 +15,8 @@
   "dependencies": {
     "date-fns": "^1.29.0",
     "lodash.kebabcase": "^4.1.1",
-    "yeoman-generator": "^3.1.1",
-    "yo": "^2.0.5"
+    "yeoman-generator": "^5.7.0",
+    "yo": "^4.3.1"
   },
   "keywords": [
     "yeoman-generator"
