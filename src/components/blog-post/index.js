@@ -94,6 +94,7 @@ export default class BlogPostTemplate extends React.Component {
 
   render() {
     const post = this.props.data.markdownRemark
+    console.log(`post`, post)
     let socialImage = post.frontmatter.image ? post.frontmatter.image.childImageSharp.fluid : undefined
 
     return (
