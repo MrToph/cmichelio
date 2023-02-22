@@ -18,7 +18,7 @@ export default function HireMeSection({ siteMetadata }) {
         If you want something audited, built from scratch or need more manpower
         in your team for an existing project, please get in contact with me. I
         worked on many projects in the{` `}
-        <span className="font-bold">Solidity</span> and
+        <span className="font-bold">Solidity</span> and{` `}
         <span className="font-bold">JavaScript/TypeScript</span>
         {` `}
         (frontend and backend) <span className="font-bold">blockchain</span> ⛓️
